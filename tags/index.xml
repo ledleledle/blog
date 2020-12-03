@@ -2,89 +2,89 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Leon&#39;s Blog</title>
-    <link>/tags/</link>
+    <link>/blog-2/tags/</link>
     <description>Recent content in Tags on Leon&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/blog-2/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>css</title>
-      <link>/tags/css/</link>
+      <link>/blog-2/tags/css/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/css/</guid>
+      <guid>/blog-2/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>html</title>
-      <link>/tags/html/</link>
+      <link>/blog-2/tags/html/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/html/</guid>
+      <guid>/blog-2/tags/html/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>/tags/markdown/</link>
+      <link>/blog-2/tags/markdown/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/markdown/</guid>
+      <guid>/blog-2/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
-      <link>/tags/themes/</link>
+      <link>/blog-2/tags/themes/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/themes/</guid>
+      <guid>/blog-2/tags/themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>privacy</title>
-      <link>/tags/privacy/</link>
+      <link>/blog-2/tags/privacy/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/privacy/</guid>
+      <guid>/blog-2/tags/privacy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shortcodes</title>
-      <link>/tags/shortcodes/</link>
+      <link>/blog-2/tags/shortcodes/</link>
       <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/shortcodes/</guid>
+      <guid>/blog-2/tags/shortcodes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag with whitespaces</title>
-      <link>/tags/tag-with-whitespaces/</link>
+      <link>/blog-2/tags/tag-with-whitespaces/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tag-with-whitespaces/</guid>
+      <guid>/blog-2/tags/tag-with-whitespaces/</guid>
       <description></description>
     </item>
     
     <item>
       <title>text</title>
-      <link>/tags/text/</link>
+      <link>/blog-2/tags/text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/text/</guid>
+      <guid>/blog-2/tags/text/</guid>
       <description></description>
     </item>
     
     <item>
       <title>emoji</title>
-      <link>/tags/emoji/</link>
+      <link>/blog-2/tags/emoji/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/tags/emoji/</guid>
+      <guid>/blog-2/tags/emoji/</guid>
       <description></description>
     </item>
     
