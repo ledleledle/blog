@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Leon&#39;s Blog</title>
-    <link>/blog-2/categories/</link>
+    <link>https://ledleledle.github.io/blog-2/categories/</link>
     <description>Recent content in Categories on Leon&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog-2/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ledleledle.github.io/blog-2/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
-      <link>/blog-2/categories/test/</link>
+      <link>https://ledleledle.github.io/blog-2/categories/test/</link>
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog-2/categories/test/</guid>
+      <guid>https://ledleledle.github.io/blog-2/categories/test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>测试</title>
-      <link>/blog-2/categories/%E6%B5%8B%E8%AF%95/</link>
+      <link>https://ledleledle.github.io/blog-2/categories/%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog-2/categories/%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://ledleledle.github.io/blog-2/categories/%E6%B5%8B%E8%AF%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>syntax</title>
-      <link>/blog-2/categories/syntax/</link>
+      <link>https://ledleledle.github.io/blog-2/categories/syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog-2/categories/syntax/</guid>
+      <guid>https://ledleledle.github.io/blog-2/categories/syntax/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
-      <link>/blog-2/categories/themes/</link>
+      <link>https://ledleledle.github.io/blog-2/categories/themes/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog-2/categories/themes/</guid>
+      <guid>https://ledleledle.github.io/blog-2/categories/themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Test with whitespaces</title>
-      <link>/blog-2/categories/test-with-whitespaces/</link>
+      <link>https://ledleledle.github.io/blog-2/categories/test-with-whitespaces/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog-2/categories/test-with-whitespaces/</guid>
+      <guid>https://ledleledle.github.io/blog-2/categories/test-with-whitespaces/</guid>
       <description></description>
     </item>
     
