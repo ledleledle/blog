@@ -58,16 +58,16 @@ git push -u origin master
     &gt;Hugo Installation Guide&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;tutorial&#34;&gt;Tutorial&lt;/h1&gt;
 &lt;p&gt;Okay.. i assume you’re already install Hugo, once Hugo installed, you can create a Hugo sites by running.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hugo new site blog
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hugo new site blog
 
-#replace blog with the name you want
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then go to your site directory.&lt;/p&gt;
+&lt;span class=&#34;c1&#34;&gt;#replace blog with the name you want&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then go to your site directory.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;cd blog
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;So… Next we need template. Find one at &lt;a class=&#34;link&#34; href=&#34;https://themes.gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Official Hugo Website Here&lt;/a&gt;. There are many choices, choose the one you like. For example i choose &lt;a class=&#34;link&#34; href=&#34;https://themes.gohugo.io/hugo.386/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo.386&lt;/a&gt;. Download theme using &lt;code&gt;git&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;git submodule add https://gitlab.com/maxlefou/hugo.386 themes/hugo.386
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;If you facing error&lt;/strong&gt; like this.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git submodule add https://gitlab.com/maxlefou/hugo.386 themes/hugo.386
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;If you facing error&lt;/strong&gt; like this.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;fatal: not a git repository (or any of the parent directories): .git
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Try &lt;code&gt;git init&lt;/code&gt; to your main folder. Then run command &lt;code&gt;git submodule&lt;/code&gt; again.&lt;/p&gt;
 &lt;p&gt;Then go to &lt;code&gt;themes/hugo.386/exampleSite&lt;/code&gt;. There are examples that you can use.

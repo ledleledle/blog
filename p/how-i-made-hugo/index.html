@@ -193,16 +193,16 @@ Specification and requirements First, i use Arch Linux Distros, the installation
     >Hugo Installation Guide</a></p>
 <h1 id="tutorial">Tutorial</h1>
 <p>Okay.. i assume you’re already install Hugo, once Hugo installed, you can create a Hugo sites by running.</p>
-<pre><code>hugo new site blog
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hugo new site blog
 
-#replace blog with the name you want
-</code></pre><p>Then go to your site directory.</p>
+<span class="c1">#replace blog with the name you want</span>
+</code></pre></div><p>Then go to your site directory.</p>
 <pre><code>cd blog
 </code></pre><p>So… Next we need template. Find one at <a class="link" href="https://themes.gohugo.io/"  target="_blank" rel="noopener"
     >Official Hugo Website Here</a>. There are many choices, choose the one you like. For example i choose <a class="link" href="https://themes.gohugo.io/hugo.386/"  target="_blank" rel="noopener"
     >Hugo.386</a>. Download theme using <code>git</code>.</p>
-<pre><code>git submodule add https://gitlab.com/maxlefou/hugo.386 themes/hugo.386
-</code></pre><p><strong>If you facing error</strong> like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git submodule add https://gitlab.com/maxlefou/hugo.386 themes/hugo.386
+</code></pre></div><p><strong>If you facing error</strong> like this.</p>
 <pre><code>fatal: not a git repository (or any of the parent directories): .git
 </code></pre><p>Try <code>git init</code> to your main folder. Then run command <code>git submodule</code> again.</p>
 <p>Then go to <code>themes/hugo.386/exampleSite</code>. There are examples that you can use.
