@@ -3,33 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.leonprasetya.my.id/categories/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/p/test-chinese/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <loc>https://blog.leonprasetya.my.id/about/</loc>
+    <lastmod>2020-12-19T19:47:50+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.leonprasetya.my.id/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-19T19:47:50+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blog.leonprasetya.my.id/post/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/categories/test/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/categories/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2020-09-09T00:00:00+00:00</lastmod>
+    <loc>https://blog.leonprasetya.my.id/page/</loc>
+    <lastmod>2020-12-19T19:47:50+00:00</lastmod>
   </url>
   
   <url>
@@ -38,8 +23,8 @@
   </url>
   
   <url>
-    <loc>https://blog.leonprasetya.my.id/page/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+    <loc>https://blog.leonprasetya.my.id/categories/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -59,6 +44,11 @@
   
   <url>
     <loc>https://blog.leonprasetya.my.id/p/markdown-syntax-guide/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/post/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -83,62 +73,15 @@
   </url>
   
   <url>
-    <loc>https://blog.leonprasetya.my.id/tags/privacy/</loc>
-    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/p/rich-content/</loc>
-    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/tags/shortcodes/</loc>
-    <lastmod>2019-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/p/placeholder-text/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/tags/tag-with-whitespaces/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/categories/test-with-whitespaces/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/tags/text/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/p/math-typesetting/</loc>
-    <lastmod>2019-03-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/tags/emoji/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/p/emoji-support/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/about/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+    <loc>https://blog.leonprasetya.my.id/categories/devops/</loc>
   </url>
   
   <url>
     <loc>https://blog.leonprasetya.my.id/search/</loc>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/categories/test/</loc>
   </url>
   
 </urlset>

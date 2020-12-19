@@ -43,50 +43,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>privacy</title>
-      <link>https://blog.leonprasetya.my.id/tags/privacy/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/tags/privacy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://blog.leonprasetya.my.id/tags/shortcodes/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/tags/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tag with whitespaces</title>
-      <link>https://blog.leonprasetya.my.id/tags/tag-with-whitespaces/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/tags/tag-with-whitespaces/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>text</title>
-      <link>https://blog.leonprasetya.my.id/tags/text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/tags/text/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emoji</title>
-      <link>https://blog.leonprasetya.my.id/tags/emoji/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/tags/emoji/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

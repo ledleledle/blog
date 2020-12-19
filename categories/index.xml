@@ -6,25 +6,7 @@
     <description>Recent content in Categories on Leon&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Test</title>
-      <link>https://blog.leonprasetya.my.id/categories/test/</link>
-      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/categories/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>测试</title>
-      <link>https://blog.leonprasetya.my.id/categories/%E6%B5%8B%E8%AF%95/</link>
-      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/categories/%E6%B5%8B%E8%AF%95/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>syntax</title>
       <link>https://blog.leonprasetya.my.id/categories/syntax/</link>
@@ -44,11 +26,20 @@
     </item>
     
     <item>
-      <title>Test with whitespaces</title>
-      <link>https://blog.leonprasetya.my.id/categories/test-with-whitespaces/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      <title>DevOps</title>
+      <link>https://blog.leonprasetya.my.id/categories/devops/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.leonprasetya.my.id/categories/test-with-whitespaces/</guid>
+      <guid>https://blog.leonprasetya.my.id/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Test</title>
+      <link>https://blog.leonprasetya.my.id/categories/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.leonprasetya.my.id/categories/test/</guid>
       <description></description>
     </item>
     
