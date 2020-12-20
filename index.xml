@@ -6,7 +6,108 @@
         <description>Recent content on Leon&#39;s Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 20 Dec 2020 19:34:30 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Cara membuat akun AWS Educate $100 Gratis</title>
+        <link>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</link>
+        <pubDate>Sun, 20 Dec 2020 19:34:30 +0700</pubDate>
+        
+        <guid>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</guid>
+        <description>&lt;p&gt;Hari ini saya akan bahas tentang AWS Server namun ini lebih ke pembuatan akunnya. Jadi AWS memang menyediakan layanan gratis untuk edukasi yang bernama &lt;strong&gt;AWS Educate&lt;/strong&gt;. Disana, kita bisa mendapatkan akun AWS dengan credit senilai $100 dengan durasi 1 tahun. Nah ini cocok sekali untuk kalian yang ingin belajar DevOps/Infra (yang penting jangan buat minning 😂). Tentu saja blog ini akan terus membahas tentang cloud services, jadi akun AWS ini akan sangat membantu kalian dalam proses belajar.&lt;/p&gt;
+&lt;p&gt;Buat akun AWS Educate dulu. Pergi ke halaman &lt;a class=&#34;link&#34; href=&#34;https://aws.amazon.com/education/awseducate&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AWS Educate&lt;/a&gt;, lalu klik menu &lt;strong&gt;Join AWS Educate&lt;/strong&gt;.
+&lt;figure&gt;
+		&lt;a href=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png&#34; data-size=&#34;1331x614&#34;&gt;
+			&lt;img srcset=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_1024x0_resize_box_2.png 1024w&#34;
+				src=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png&#34; width=&#34;1331&#34; height=&#34;614&#34; loading=&#34;lazy&#34;
+				alt=&#34;AWS Educate Homepage&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;AWS Educate Homepage&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Pilih role sebagai &lt;strong&gt;Murid/Student&lt;/strong&gt; (Tergantung kebutuhan sih&amp;hellip; Kalau disini saya memang sebagai murid). Lalu tolong isi form yang diberikan dengan benar. Karena email akan digunakan untuk konfirmasi nantinya. Kalau sekolah kalian tidak ada didalam list, cantumkan saja &lt;strong&gt;Kementerian Pendidikan dan Kebudayaan&lt;/strong&gt; atau &lt;strong&gt;Kementerian Komunikasi dan Informatika&lt;/strong&gt;.
+&lt;figure&gt;
+		&lt;a href=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png&#34; data-size=&#34;1332x613&#34;&gt;
+			&lt;img srcset=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_1024x0_resize_box_2.png 1024w&#34;
+				src=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png&#34; width=&#34;1332&#34; height=&#34;613&#34; loading=&#34;lazy&#34;
+				alt=&#34;Role&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Role&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Pastikan juga kalian memilih bulan dan tahun kelulusan (Graduation Month &amp;amp; Graduation Year) setahun dari sekarang, misal sekarang Desember 2020 pilih tanggal kelulusannya Desember 2021. Kira-kira tampilan akhirnya seperti ini.
+&lt;figure&gt;
+		&lt;a href=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png&#34; data-size=&#34;1334x593&#34;&gt;
+			&lt;img srcset=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_1024x0_resize_box_2.png 1024w&#34;
+				src=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png&#34; width=&#34;1334&#34; height=&#34;593&#34; loading=&#34;lazy&#34;
+				alt=&#34;Form Pendaftaran AWS Educate&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Form Pendaftaran AWS Educate&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Dah selanjutnya tinggal klik &lt;strong&gt;I Agree&lt;/strong&gt; saja. Setelah pendaftaran selesai, maka kita akan mendapatkan email verifikasi dari AWS.
+&lt;figure&gt;
+		&lt;a href=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png&#34; data-size=&#34;1009x384&#34;&gt;
+			&lt;img srcset=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_1024x0_resize_box_2.png 1024w&#34;
+				src=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png&#34; width=&#34;1009&#34; height=&#34;384&#34; loading=&#34;lazy&#34;
+				alt=&#34;Email Verifikasi&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Email Verifikasi&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Setelah email sudah dikonfirmasi, saatnya menunggu email balasan dari AWS. Jika diterima seperti ini balasannya.
+&lt;figure&gt;
+		&lt;a href=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png&#34; data-size=&#34;1007x488&#34;&gt;
+			&lt;img srcset=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_1024x0_resize_box_2.png 1024w&#34;
+				src=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png&#34; width=&#34;1007&#34; height=&#34;488&#34; loading=&#34;lazy&#34;
+				alt=&#34;Approved!!!&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Approved!!!&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Sekarang coba login ke &lt;a class=&#34;link&#34; href=&#34;https://www.awseducate.com/signin/SiteLogin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AWS Educate&lt;/a&gt;. Lalu pergi ke tab &lt;strong&gt;AWS Account&lt;/strong&gt;. Klik &lt;strong&gt;AWS Educate Starter Account&lt;/strong&gt;.
+&lt;figure&gt;
+		&lt;a href=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png&#34; data-size=&#34;1326x574&#34;&gt;
+			&lt;img srcset=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_1024x0_resize_box_2.png 1024w&#34;
+				src=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png&#34; width=&#34;1326&#34; height=&#34;574&#34; loading=&#34;lazy&#34;
+				alt=&#34;AWS Educate Starter Account&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;AWS Educate Starter Account&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Nanti kita akan dialihkan ke website pihak ke-3. Disana kelihatan credits kalian tinggal berapa.
+&lt;figure&gt;
+		&lt;a href=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png&#34; data-size=&#34;664x536&#34;&gt;
+			&lt;img srcset=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_1024x0_resize_box_2.png 1024w&#34;
+				src=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png&#34; width=&#34;664&#34; height=&#34;536&#34; loading=&#34;lazy&#34;
+				alt=&#34;Vocareum&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;Vocareum&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Nice kita sudah masuk pada page EC2 Management. Namun untuk praktek penggunaan EC2 ini tidak akan saya bahas sekarang.
+&lt;figure&gt;
+		&lt;a href=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png&#34; data-size=&#34;1345x611&#34;&gt;
+			&lt;img srcset=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_1024x0_resize_box_2.png 1024w&#34;
+				src=&#34;https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png&#34; width=&#34;1345&#34; height=&#34;611&#34; loading=&#34;lazy&#34;
+				alt=&#34;EC2&#34;&gt;
+		&lt;/a&gt;
+		
+		&lt;figcaption&gt;EC2&lt;/figcaption&gt;
+		
+	&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Yeah&amp;hellip; Met belajar cuyy!!!&lt;/p&gt;
+&lt;p&gt;Nantikan artikel berikutnya tentang penggunaan AWS Cloud. Sampai jumpa&amp;hellip;!!!&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Host Website Hugo di Github</title>
         <link>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</link>
         <pubDate>Wed, 29 Apr 2020 00:16:59 +0700</pubDate>

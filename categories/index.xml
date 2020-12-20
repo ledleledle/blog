@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Leon&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Apr 2020 00:16:59 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Dec 2020 19:34:30 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps</title>
+      <link>https://blog.leonprasetya.my.id/categories/devops/</link>
+      <pubDate>Sun, 20 Dec 2020 19:34:30 +0700</pubDate>
+      
+      <guid>https://blog.leonprasetya.my.id/categories/devops/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Git</title>
       <link>https://blog.leonprasetya.my.id/categories/git/</link>
@@ -31,15 +40,6 @@
       <pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate>
       
       <guid>https://blog.leonprasetya.my.id/categories/others/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DevOps</title>
-      <link>https://blog.leonprasetya.my.id/categories/devops/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/categories/devops/</guid>
       <description></description>
     </item>
     

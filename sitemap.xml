@@ -3,23 +3,58 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.leonprasetya.my.id/about/</loc>
-    <lastmod>2020-12-19T19:47:50+00:00</lastmod>
+    <loc>https://blog.leonprasetya.my.id/tags/aws/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/tags/awseducate/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/categories/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/categories/devops/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/tags/devops_tools/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.leonprasetya.my.id/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/post/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/tags/</loc>
+    <lastmod>2020-12-20T19:34:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.leonprasetya.my.id/about/</loc>
     <lastmod>2020-12-19T19:47:50+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.leonprasetya.my.id/page/</loc>
     <lastmod>2020-12-19T19:47:50+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/categories/</loc>
-    <lastmod>2020-04-29T00:16:59+07:00</lastmod>
   </url>
   
   <url>
@@ -44,16 +79,6 @@
   
   <url>
     <loc>https://blog.leonprasetya.my.id/tags/markdown/</loc>
-    <lastmod>2020-04-29T00:16:59+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/post/</loc>
-    <lastmod>2020-04-29T00:16:59+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/tags/</loc>
     <lastmod>2020-04-29T00:16:59+07:00</lastmod>
   </url>
   
@@ -115,10 +140,6 @@
   <url>
     <loc>https://blog.leonprasetya.my.id/tags/themes/</loc>
     <lastmod>2019-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.leonprasetya.my.id/categories/devops/</loc>
   </url>
   
   <url>
