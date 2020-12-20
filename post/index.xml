@@ -28,6 +28,17 @@ Specification and requirements First, i use Arch Linux Distros, the installation
     </item>
     
     <item>
+      <title>Reflash Original Firmware TP-Link MR3420 V.2</title>
+      <link>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</link>
+      <pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate>
+      
+      <guid>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</guid>
+      <description>Halo teman-teman, kali ini saya akan membahas tentang bagaimana cara reflash original firmware dari OpenWRT pada router TP-Link MR3420 V.2. Kebetulan diminggu-minggu ini saya ingin menjual router saya karena menurut saya router ini sudah outdate dan dirumah juga sudah punya yang baru.
+Spesifikasi dan Kebutuhan  Router (sudah pasti) OS Linux Firmware bawaan TP-Link disini  Tutorial Step pertama, ekstrak file firmware terlebih dahulu
+unzip &amp;#34;TL-MR3420_V2_150319.zip&amp;#34; Rename file firmware dengan nama firmware.</description>
+    </item>
+    
+    <item>
       <title>Markdown Syntax Guide</title>
       <link>https://blog.leonprasetya.my.id/p/markdown-syntax-guide/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
