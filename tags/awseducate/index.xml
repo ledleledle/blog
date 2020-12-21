@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>awseducate on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/awseducate/</link><description>Recent content in awseducate on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 20 Dec 2020 19:34:30 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/awseducate/index.xml" rel="self" type="application/rss+xml"/><item><title>Cara membuat akun AWS Educate $100 Gratis</title><link>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</link><pubDate>Sun, 20 Dec 2020 19:34:30 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</guid><description>Hari ini saya akan bahas tentang AWS Server namun ini lebih ke pembuatan akunnya. Jadi AWS memang menyediakan layanan gratis untuk edukasi yang bernama AWS Educate. Disana, kita bisa mendapatkan akun AWS dengan credit senilai $100 dengan durasi 1 tahun. Nah ini cocok sekali untuk kalian yang ingin belajar DevOps/Infra (yang penting jangan buat minning 😂). Tentu saja blog ini akan terus membahas tentang cloud services, jadi akun AWS ini akan sangat membantu kalian dalam proses belajar.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>awseducate on Leon&#39;s Blog</title>
+    <link>https://blog.leonprasetya.my.id/tags/awseducate/</link>
+    <description>Recent content in awseducate on Leon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Dec 2020 19:34:30 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/awseducate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cara membuat akun AWS Educate $100 Gratis</title>
+      <link>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</link>
+      <pubDate>Sun, 20 Dec 2020 19:34:30 +0700</pubDate>
+      
+      <guid>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</guid>
+      <description>Hari ini saya akan bahas tentang AWS Server namun ini lebih ke pembuatan akunnya. Jadi AWS memang menyediakan layanan gratis untuk edukasi yang bernama AWS Educate. Disana, kita bisa mendapatkan akun AWS dengan credit senilai $100 dengan durasi 1 tahun. Nah ini cocok sekali untuk kalian yang ingin belajar DevOps/Infra (yang penting jangan buat minning 😂). Tentu saja blog ini akan terus membahas tentang cloud services, jadi akun AWS ini akan sangat membantu kalian dalam proses belajar.</description>
+    </item>
+    
+  </channel>
+</rss>
