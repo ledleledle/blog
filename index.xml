@@ -77,7 +77,7 @@ alt="EC2">
 &lt;p>Nantikan artikel berikutnya tentang penggunaan AWS Cloud. Sampai jumpa&amp;hellip;!!!&lt;/p></description></item><item><title>Host Website Hugo di Github</title><link>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</link><pubDate>Wed, 29 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/hugo.png" alt="Featured image of post Host Website Hugo di Github" />&lt;p>Sebelumnya saya telah membuat tutorial &lt;a class="link" href="../how-i-made-hugo" >How I Made Hugo Blog&lt;/a>. Ini lanjutan yang telah saya janjikan. Dan maaf saya sekarang pakai Bahasa Indonesia, karena ternyata setelah saya membuat postingan tersebut ternyata Bahasa Inggris saya masih kacau dan terlihat di postingan sebelumnya bahasanya kacau sekali (jadi malu). Yah tidak usah basa-basi lagi.&lt;/p>
 &lt;h1 id="tutorial">Tutorial&lt;/h1>
 &lt;h3 id="1-generate-static-files">1. Generate Static Files&lt;/h3>
-&lt;p>Jika sebelumnya kita hanya menjalankan server local dengan perintah &lt;code>hugo serve&lt;/code>. Sekarang kita akan meng-generate file statis dengan perintah &lt;code>hugo -D&lt;/code>. Perintah tersebut akan menjadikan tulisan dan tema yang kalian buat menjadi file statis yang bisa kalian temui di folder &lt;code>public&lt;/code>.&lt;/p>
+&lt;p>Jika sebelumnya kita hanya menjalankan server local dengan perintah &lt;code>hugo server&lt;/code>. Sekarang kita akan meng-generate file statis dengan perintah &lt;code>hugo --minify&lt;/code>. Perintah tersebut akan menjadikan tulisan dan tema yang kalian buat menjadi file statis yang bisa kalian temui di folder &lt;code>public&lt;/code>.&lt;/p>
 &lt;h3 id="2-buat-repo-github">2. Buat Repo Github&lt;/h3>
 &lt;p>Kita pakai cara mudah saja. Yaitu, pada browser kita buat repo di &lt;a class="link" href="https://github.com/new" target="_blank" rel="noopener"
 >Github&lt;/a>. Nama repo terserah kalian, buat tanpa &lt;code>README&lt;/code>.&lt;/p>
@@ -87,7 +87,7 @@ alt="EC2">
 &lt;/code>&lt;/pre>&lt;p>Lalu inisiasi repo github yang telah dibuat tadi.&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git init
 git commit -m &lt;span class="s2">&amp;#34;first commit blog&amp;#34;&lt;/span>
-git remote add origin https://github.com/username/nama_repo.git
+git remote add origin https://github.com/&amp;lt;your_username&amp;gt;/nama_repo.git
 git push -u origin master
 &lt;span class="c1"># ganti username dan nama_repo dengan milik kalian masing-masing&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).
@@ -99,7 +99,8 @@ alt="Github Page">
 &lt;/a>
 &lt;figcaption>Github Page&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>Dan website kalian sudah mengudara di internet.&lt;/p></description></item><item><title>How I Made Hugo</title><link>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/hugo.png" alt="Featured image of post How I Made Hugo" />&lt;h1 id="intro">Intro&lt;/h1>
+&lt;p>Dan website kalian sudah mengudara di internet.&lt;/p>
+&lt;p>Karena blog ini berfokus pada DevOps, tidak enak rasanya jika harus melakukan perintah berulang-ulang setiap akan melakukan post artikel baru. Selanjutnya saya akan membahas tentang CI/CD pada Github Actions untuk hosting Hugo&amp;hellip;&lt;/p></description></item><item><title>How I Made Hugo</title><link>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/hugo.png" alt="Featured image of post How I Made Hugo" />&lt;h1 id="intro">Intro&lt;/h1>
 &lt;p>Hey guys, i’ll teach you how to made blog with hugo. First i’ll explain a bit about hugo, Hugo is a fast and modern static site generator written in Go language, so basically you don’t need some back-end code. You just install it, made a content, then generate your html code. Simple enought right. So let’s jump to tutorial.&lt;/p>
 &lt;h1 id="specification-and-requirements">Specification and requirements&lt;/h1>
 &lt;p>First, i use Arch Linux Distros, the installation maybe a bit differ, but others absolutelly same. Make sure your repository always up to date.&lt;/p>
