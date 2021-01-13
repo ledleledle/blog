@@ -1,4 +1,464 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 22 Dec 2020 09:34:23 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Perbedaan antara Devops dan Agile</title><link>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</link><pubDate>Tue, 22 Dec 2020 09:34:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/index.png" alt="Featured image of post Perbedaan antara Devops dan Agile" />&lt;p>Kadang dilingkungan pekerjaan atau perkuliahan, kita sering mendengar tentang Agile dan DevOps namun kita tidak tau apa fungsi mereka. Jadi Agile dan DevOps adalah metodologi pengembangan aplikasi dengan tujuan yang sama yaitu mereka menghasilkan produk akhir secepat dan seefisien mungkin. Awalnya saya mengira dua metodologi ini adalah satu kesatuan, namun setelah saya selidiki dan membaca lebih dalam ternyata mereka berbeda. Apa saja perbedaannya? Dan apakah mereka bisa digunakan dalam satu proses yang sama? Mari kita bahas terlebih dahulu apa itu Agile dan DevOps.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 12 Jan 2021 22:34:00 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title><link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link><pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid><description>&lt;p>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.&lt;/p>
+&lt;h2 id="struktur-cluster">Struktur Cluster&lt;/h2>
+&lt;p>Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png" data-size="265x165">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu9143ea58f59e55b7a972fea8b8ee060c_4153_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu9143ea58f59e55b7a972fea8b8ee060c_4153_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png" width="265" height="165" loading="lazy"
+alt="Infrastruktur Server">
+&lt;/a>
+&lt;figcaption>Infrastruktur Server&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="terraform">Terraform&lt;/h2>
+&lt;p>Pertama, untuk Provisioning server, saya sering menggunakan &lt;strong>Terraform&lt;/strong>. Alat ini sangat cocok dan memang didesain untuk melakukan tugas penyiapan cloud server. Siapkan sebuah file berformat &lt;strong>.tf&lt;/strong>. Untuk installasi Terraform sendiri bisa kalian cek &lt;a class="link" href="https://learn.hashicorp.com/tutorials/terraform/install-cli" target="_blank" rel="noopener"
+>disini&lt;/a>. Dan mulailah menulis konfigurasi.&lt;/p>
+&lt;h4 id="konfigurasi-yang-diperlukan-terraform-">Konfigurasi yang diperlukan Terraform :&lt;/h4>
+&lt;p>Berikut adalah susunan direktori kerja kita untuk terraform.&lt;/p>
+&lt;pre>&lt;code>├── credentials
+└── server.tf
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>File Credentials&lt;/strong> (tidak perlu jika kalian sudah login menggunakan &lt;em>aws-cli&lt;/em>). File ini berisi credentials yang diperlukan untuk login ke VPS kita. Normalnya kita menggunakan &lt;strong>IAM&lt;/strong> (Identity and Access Management), namun karena kita menggunakan akun gratisan. Maka itu bisa didapatkan pada halaman &lt;strong>Vocareum&lt;/strong> &amp;gt; Account Detail &amp;gt; Show AWS CLI, lalu copy semua ke dalam file &lt;code>credentials&lt;/code>. Kelemahannya ini hanya berlaku sekitar 3 jam.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png" data-size="1094x535">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png" width="1094" height="535" loading="lazy"
+alt="AWS CLI Credentials">
+&lt;/a>
+&lt;figcaption>AWS CLI Credentials&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Dalam deskripsinya tertulis &lt;code>Copy and paste the following into ~/.aws/credentials&lt;/code>. Namun jika memang tidak mau memasang &lt;strong>aws-cli&lt;/strong> (seperti saya). Kita akan buat file credentials yang nantinya akan dipanggil didalam file konfigurasi terraform.&lt;/p>
+&lt;p>&lt;strong>File Konfigurasi Server&lt;/strong>
+Disini kita baru mulai tahap provisioning instancenya. Untuk subnet yang saya gunakan adalah subnet default yang &lt;em>by default&lt;/em> sudah ada di VPC saya dan untuk SSH Key saya juga sudah memilikinya sebelumnya.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1">## AWS Provider
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nx">terraform&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">required_providers&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">aws&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">source&lt;/span> = &lt;span class="s2">&amp;#34;hashicorp/aws&amp;#34;&lt;/span>
+&lt;span class="na">version&lt;/span> = &lt;span class="s2">&amp;#34;~&amp;gt; 3.0&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Init Credentials Profile and Region
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">provider&lt;/span> &lt;span class="s2">&amp;#34;aws&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">profile&lt;/span> = &lt;span class="s2">&amp;#34;default&amp;#34;&lt;/span>
+&lt;span class="na">region&lt;/span> = &lt;span class="s2">&amp;#34;us-east-1&amp;#34;&lt;/span>
+&lt;span class="na">shared_credentials_file&lt;/span> = &lt;span class="s2">&amp;#34;credentials&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Public Security Group
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_security_group&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;public-sec&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">name&lt;/span> = &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="na">description&lt;/span> = &lt;span class="s2">&amp;#34;Public Server Security Group&amp;#34;&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## SSH, HTTP, HTTPS Access
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">22&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">22&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">80&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">80&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">443&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">443&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Kubernetes Cluster
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">6443&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">6443&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">2379&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">2380&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10250&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10250&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10251&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10251&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10252&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10252&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">egress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">0&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">0&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;-1&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="na">tags&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">Name&lt;/span> = &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="na">Description&lt;/span> = &lt;span class="s2">&amp;#34;Public Server Security Group&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Elastic IP for Public Instance
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_eip&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;lb&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">instance&lt;/span> = &lt;span class="nx">aws_instance&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">public&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Create Public Instance
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_instance&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">ami&lt;/span> = &lt;span class="s2">&amp;#34;ami-00ddb0e5626798373&amp;#34;&lt;/span>
+&lt;span class="na">instance_type&lt;/span> = &lt;span class="s2">&amp;#34;t2.medium&amp;#34;&lt;/span>
+&lt;span class="na">source_dest_check&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">key_name&lt;/span> = &lt;span class="s2">&amp;#34;key&amp;#34;&lt;/span>
+&lt;span class="na">subnet_id&lt;/span> = &lt;span class="s2">&amp;#34;subnet-5ba4f616&amp;#34;&lt;/span>
+&lt;span class="na">private_ip&lt;/span> = &lt;span class="s2">&amp;#34;172.31.16.20&amp;#34;&lt;/span>
+&lt;span class="na">vpc_security_group_ids&lt;/span> = &lt;span class="nx">aws_security_group&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">public&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">sec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>
+&lt;span class="na">tags&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">Name&lt;/span> = &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Disk Space
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">root_block_device&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">delete_on_termination&lt;/span> = &lt;span class="kc">true&lt;/span>
+&lt;span class="na">encrypted&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">iops&lt;/span> = &lt;span class="m">100&lt;/span>
+&lt;span class="na">volume_size&lt;/span> = &lt;span class="m">10&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Node Security Group
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_security_group&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;node-sec&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">name&lt;/span> = &lt;span class="s2">&amp;#34;node&amp;#34;&lt;/span>
+&lt;span class="na">description&lt;/span> = &lt;span class="s2">&amp;#34;Node/Worker Security Group&amp;#34;&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## SSH Access
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">22&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">22&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Close all traffic IP after setup!
+&lt;/span>&lt;span class="c1"> #cidr_blocks = [&amp;#34;172.31.16.20/32&amp;#34;]
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Kubernetes Cluster
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10250&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10250&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;172.31.16.20/32&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10255&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10255&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;172.31.16.20/32&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">30000&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">32767&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;172.31.16.20/32&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">3000&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">3000&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;172.31.16.20/32&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">egress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">0&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">0&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;-1&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="na">tags&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">Name&lt;/span> = &lt;span class="s2">&amp;#34;node&amp;#34;&lt;/span>
+&lt;span class="na">Description&lt;/span> = &lt;span class="s2">&amp;#34;Node/Worker Security Group&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Elastic IP for Node Server (Temporary)
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_eip&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;lb-node&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">count&lt;/span> = &lt;span class="m">2&lt;/span>
+&lt;span class="na">instance&lt;/span> = &lt;span class="nx">aws_instance&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">node&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">count&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">id&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Create Instance Node
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_instance&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;node&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">ami&lt;/span> = &lt;span class="s2">&amp;#34;ami-00ddb0e5626798373&amp;#34;&lt;/span>
+&lt;span class="na">instance_type&lt;/span> = &lt;span class="s2">&amp;#34;t2.small&amp;#34;&lt;/span>
+&lt;span class="na">associate_public_ip_address&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">source_dest_check&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">key_name&lt;/span> = &lt;span class="s2">&amp;#34;key&amp;#34;&lt;/span>
+&lt;span class="na">subnet_id&lt;/span> = &lt;span class="s2">&amp;#34;subnet-5ba4f616&amp;#34;&lt;/span>
+&lt;span class="na">vpc_security_group_ids&lt;/span> = &lt;span class="nx">aws_security_group&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">node&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">sec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>
+&lt;span class="na">count&lt;/span> = &lt;span class="m">2&lt;/span>
+&lt;span class="na">tags&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">Name&lt;/span> = &lt;span class="s2">&amp;#34;node-&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nb">count&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">index&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Disk Space
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">root_block_device&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">delete_on_termination&lt;/span> = &lt;span class="kc">true&lt;/span>
+&lt;span class="na">encrypted&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">iops&lt;/span> = &lt;span class="m">100&lt;/span>
+&lt;span class="na">volume_size&lt;/span> = &lt;span class="m">10&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah semuanya terkonfigurasi, informasi tentang kode sudah saya masukkan, untuk lebih lengkapnya bisa kalian baca sendiri pada &lt;a class="link" href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs" target="_blank" rel="noopener"
+>Website Dokumentasi Terraform&lt;/a>, jalankan perintah &lt;code>terraform init&lt;/code> untuk inisialisasi version control Terraform dan Terraform juga mengunduh tools yang dibutuhkan untuk provisioning cloud server AWS. Setelah semuanya selesai jalankan perintah &lt;code>terraform apply&lt;/code>.&lt;/p>
+&lt;p>Tulis &lt;code>yes&lt;/code> untuk konfirmasi (jika konfigurasi sudah dirasa benar).
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif" data-size="668x699">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_1024x0_resize_box.gif 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif" width="668" height="699" loading="lazy"
+alt="[GIF] Terraform Apply">
+&lt;/a>
+&lt;figcaption>[GIF] Terraform Apply&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Cek pada EC2 AWS, server yang sudah kita buat tadi.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png" data-size="1100x189">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png" width="1100" height="189" loading="lazy"
+alt="AWS EC2">
+&lt;/a>
+&lt;figcaption>AWS EC2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>Note :&lt;/strong> Untuk port kubernetes yang benar, kalian dapat melihatnya &lt;a class="link" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports" target="_blank" rel="noopener"
+>disini&lt;/a>, tapi kalau cuma untuk testing &lt;strong>All Traffic&lt;/strong> bukan masalah.&lt;/p>
+&lt;h2 id="ansible">Ansible&lt;/h2>
+&lt;p>Setelah semua instance sudah siap, kita akan melakukan konfigurasi instance menggunakan &lt;strong>Ansible&lt;/strong>. Apa itu &lt;strong>Ansible&lt;/strong>?? Jadi tool ini berguna untuk melakukan tugas-tugas yang berada dalam mesin seperti installasi paket, mengubah file konfigurasi, dll. Dia (Ansible) akan melakukan tugasnya secara struktural dan jika ada satu perintah diatasnya yang gagal, maka proses dibawahnya akan dibatalkan. Anyway&amp;hellip; Disini saya akan melakukan setup mulai dari akses SSH, installasi Docker dan Kubernetes Cluster &lt;em>(sebenarnya pada saat artikel ditulis, kubernetes sudah mengumumkan bahwa support pada Docker akan dihentikan, dan mungkin saat kalian membacanya, cara ini sudah tidak dapat digunakan. Pada saat itu saya akan mengupdate artikel ini.)&lt;/em>.&lt;/p>
+&lt;p>Jadi susunan filenya akan terlihat seperti berikut :&lt;/p>
+&lt;pre>&lt;code>├── inventory
+├── ansible.cfg
+├── auth_aws.yml
+├── docker.yml
+├── k8s.yml
+├── key
+   └── key.pem
+&lt;/code>&lt;/pre>&lt;h3 id="1-inventory">1. inventory&lt;/h3>
+&lt;p>Inventory berisi ip atau hostname dari instance yang akan ditargetkan untuk dikonfigurasikan (biasanya ip address). Oleh karena itu saya memasang elastic ip pada instance yang sudah saya buat, agar mereka bisa diakses oleh Ansible dan setelah proses konfigurasi EIP (Elastic IP) bisa dilepas.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#ubah sesuai dengan IP address kalian&lt;/span>
+&lt;span class="o">[&lt;/span>public&lt;span class="o">]&lt;/span>
+52.4.21.127
+&lt;span class="o">[&lt;/span>nodes&lt;span class="o">]&lt;/span>
+35.173.95.146
+18.205.203.199
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-ansiblecfg">2. ansible.cfg&lt;/h3>
+&lt;p>Disini kita bisa mengatur semua file yang dibutuhkan untuk menjalankan Ansible, seperti file inventory yang digunakan, keyfile, default user, dll.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="k">[defaults]&lt;/span>
+&lt;span class="na">inventory&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">inventory&lt;/span>
+&lt;span class="na">Private_key_file&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">key/key.pem&lt;/span>
+&lt;span class="na">remote_user&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">root&lt;/span>
+&lt;span class="na">ansible_python_interpreter&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/usr/bin/python3&lt;/span>
+&lt;span class="na">host_key_checking&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">false&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-file-berekstensi-yml">3. File berekstensi &lt;code>*.yml&lt;/code>&lt;/h3>
+&lt;p>File yang berisi konfigurasi seperti apa yang akan kita lakukan (like i said &lt;strong>structural code&lt;/strong>). Kita harus mendikte apa saja yang kita perlukan untuk menyiapkan server (sampai jadi). &lt;strong>Pesan dari saya : Kalau bingung lihat namenya saja ya&lt;/strong>&lt;/p>
+&lt;h4 id="31-auth_awsyml">3.1 auth_aws.yml&lt;/h4>
+&lt;p>Karena AWS tidak memperbolehkan user untuk login melalui root user (demi keamanan), maka kita harus merubah file &lt;em>authorized_key&lt;/em> secara manual.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become_user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Copy authorized key from Home to Root&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="32-dockeryml">3.2 docker.yml&lt;/h4>
+&lt;p>Installasi Docker. Disini saya menggunakan fitur &lt;strong>hold&lt;/strong>, fungsinya untuk menghindari update pada package. Kenapa?? Jika kita melakukan setup pada server production, kita memerlukan versi package yang stabil, tujuannya untuk menghindari bug atau perubahan besar-besaran yang dapat menyebabkan server menjadi tidak stabil. Jadi biasanya untuk mencoba update kami memiliki server tersendiri untuk deployment test, jika pada test server sudah stabil, maka server production akan diupdate.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Update &amp;amp; Upgrade&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">upgrade&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dist&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">update_cache&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Install Docker Requiremts&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">ca-certificates&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">curl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">gnupg-agent&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">python3-pip&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">software-properties-common&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPG Key Docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt_key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://download.docker.com/linux/ubuntu/gpg&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Repo Docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt_repository&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">repo&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">present&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">update_cache&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Install Docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">force&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">docker-ce&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hold Docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dpkg_selections&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker-ce&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hold&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Install Docker Py&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pip3 install docker-py&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Enable service docker, and enable persistently&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">enabled&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add the user &amp;#39;ubuntu&amp;#39; to docker group&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">group&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="33-k8syml">3.3 k8s.yml&lt;/h4>
+&lt;p>Akhirnya installasi Kubernetes. Disini saya juga menggunakan fitur &lt;strong>hold&lt;/strong>. Sayang untuk kubeadm (inisialisasi node) saya masih menggunakan cara manual, jadi jika teman-teman memiliki cara yang lebih baik saya akan dengan senang hati menerima saran tersebut.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add Google official GPG key&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt_key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://packages.cloud.google.com/apt/doc/apt-key.gpg&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">present&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add Kubernetes Repository&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt_repository&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">repo&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">deb http://apt.kubernetes.io/ kubernetes-xenial main&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">present&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">filename&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubernetes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">mode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0600&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Installing Kubernetes Cluster Packages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">force&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kubeadm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kubectl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kubelet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">present&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hold kubeadm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dpkg_selections&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hold&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hold kubectl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dpkg_selections&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubectl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hold&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hold kubelet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dpkg_selections&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubelet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hold&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add line Net Bridge on sysctl.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">lineinfile&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/etc/sysctl.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">line&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">net.bridge.bridge-nf-call-iptables=1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add line &amp;#39;max_map_count&amp;#39; on sysctl.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">lineinfile&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/etc/sysctl.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">line&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">vm.max_map_count=262144&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Apply change on sysctl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sysctl -p&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">initialize k8s cluster&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm reset -f &amp;amp;&amp;amp; kubeadm init --pod-network-cidr=10.244.0.0/16&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">register&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm_result&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">debug&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">var&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm_result.stdout_lines&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Make configuration folder for k8s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become_user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">file&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">directory&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/home/ubuntu/.kube&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">mode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0755&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Copy configuration k8s into home&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">copy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">src&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/etc/kubernetes/admin.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dest&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/home/ubuntu/.kube/config&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">remote_src&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">owner&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apply network plugin flannel&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become_user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nodes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">vars_prompt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;kubeadm&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">prompt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;kubeadm Command &amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">private&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">no&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Reset kubeadm &amp;amp; Prune docker images&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm reset -f &amp;amp;&amp;amp; docker image prune -af&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Retriving input command kubeadm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;{{ kubeadm }}&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Jalankan ketiga file ini dengan perintah &lt;code>ansible-playbook nama_file.yml&lt;/code>. Untuk &lt;code>k8s.yml&lt;/code>, ditengah jalan nanti akan ditanyakan tentang token &lt;strong>kubeadm&lt;/strong> seperti pada GIF dibawah, kalian copy saja log diatasnya jangan lupa tambahkan &lt;code>sudo&lt;/code>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif" data-size="668x699">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_1024x0_resize_box.gif 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif" width="668" height="699" loading="lazy"
+alt="[GIF] k8s.yml kubeadm">
+&lt;/a>
+&lt;figcaption>[GIF] k8s.yml kubeadm&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="testing">Testing&lt;/h2>
+&lt;p>Masuk ke server utama (public) kita melalui SSH.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh ubuntu@52.4.21.127 -i key.pem
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu jalankan perintah &lt;code>kubectl get all&lt;/code> atau &lt;code>kubectl get nodes&lt;/code>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png" data-size="593x428">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png" width="593" height="428" loading="lazy"
+alt="kubectl command">
+&lt;/a>
+&lt;figcaption>kubectl command&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Jika semuanya sudah tampil, kita bisa melakukan deployment pods pada cluster kubernetes tersebut. Namun saya tidak akan membahasnya pada artikel ini.&lt;/p>
+&lt;h2 id="hapus-eip-dan-associate_public_ip_address">Hapus EIP dan associate_public_ip_address&lt;/h2>
+&lt;p>Delete atau beri comment pada file &lt;code>server.tf&lt;/code> pada baris &lt;code>EIP&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1">## Elastic IP for Node Server (Temporary)
+&lt;/span>&lt;span class="c1">#resource &amp;#34;aws_eip&amp;#34; &amp;#34;lb-node&amp;#34; {
+&lt;/span>&lt;span class="c1"># count = 2
+&lt;/span>&lt;span class="c1"># instance = aws_instance.node[count.index].id
+&lt;/span>&lt;span class="c1">#}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Kenapa saya menghapus &lt;code>associate_public_ip_address&lt;/code>? Biasanya perintah ini akan memaksa kita untuk me-recreate server. Ini pasti menyebalkan apalagi kita sudah susah-susah setup server sedemikian rupa dengan Ansible. Disatu sisi kita juga membutuhkan fitur ini saat pembuatan server untuk pertama kali. Jadi kalau server sudah dibuat, kita sudah tidak menggunakannya lagi.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1"># associate_public_ip_address = false
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Jalankan perintah &lt;code>terraform apply&lt;/code> sekali lagi.&lt;/p>
+&lt;h2 id="destroy-semua-server">Destroy Semua Server&lt;/h2>
+&lt;p>Kalau kalian bosan, coba jalankan perintah &lt;code>terraform destroy&lt;/code>!&lt;/p>
+&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;p>Dan begitulah cara saya melakukan setup server mulai dari provisioning server, konfigurasi dan membangun kubernetes cluster. Jika ada pertanyaan dan saran, silahkan dikumpulkan dikolom komentar. Sekian dan terimakasih&lt;/p></description></item><item><title>Perbedaan antara Devops dan Agile</title><link>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</link><pubDate>Tue, 22 Dec 2020 09:34:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/index.png" alt="Featured image of post Perbedaan antara Devops dan Agile" />&lt;p>Kadang dilingkungan pekerjaan atau perkuliahan, kita sering mendengar tentang Agile dan DevOps namun kita tidak tau apa fungsi mereka. Jadi Agile dan DevOps adalah metodologi pengembangan aplikasi dengan tujuan yang sama yaitu mereka menghasilkan produk akhir secepat dan seefisien mungkin. Awalnya saya mengira dua metodologi ini adalah satu kesatuan, namun setelah saya selidiki dan membaca lebih dalam ternyata mereka berbeda. Apa saja perbedaannya? Dan apakah mereka bisa digunakan dalam satu proses yang sama? Mari kita bahas terlebih dahulu apa itu Agile dan DevOps.&lt;/p>
 &lt;h2 id="agile">Agile&lt;/h2>
 &lt;p>Jadi Agile Development ini pertama kali dicetuskan oleh &lt;strong>Kent Beck&lt;/strong> dan kawan-kawan pada tahun 2001. Mereka mendiskusikan tentang bagaimana cara mengembangkan sebuah perangkat lunak menjadi lebih baik, efisien dan cepat. Metode Agile mengutamakan interaksi antar tim dan review/tanggapan dari client walaupun itu dapat menyebabkan keterlambatan dalam proses pengembangan. Jadi dari sana pihak pengembang dan client saling terhubung untuk menciptakan suatu perangkat lunak.&lt;/p>
 &lt;p>Bisa kalian cek pada webiste &lt;a class="link" href="https://agilemanifesto.org/iso/id/manifesto.html" target="_blank" rel="noopener"
