@@ -3,9 +3,9 @@
 &lt;p>Okay&amp;hellip; mari kita install Docker. Disini saya menggunakan &lt;strong>Ubuntu Server 18.04&lt;/strong>. Untuk installasi Docker dapat kalian baca &lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu" target="_blank" rel="noopener"
 >disini&lt;/a>. Pastikan kalian install disemua server, karena semuanya akan dijalankan melalui Docker.&lt;/p>
 &lt;p>Setelah Docker terinstall, langkah selanjutnya yaitu membuat container untuk Control Plane Rancher. Masukkan perintah dibawah. &lt;strong>Saya pakai versi 2.4.6 yang stabil&lt;/strong>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="nx">docker&lt;/span> &lt;span class="nx">run&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="nx">d&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="na">restart&lt;/span>=&lt;span class="nx">unless&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">stopped&lt;/span> \
-&lt;span class="o">-&lt;/span>&lt;span class="nx">p&lt;/span> &lt;span class="m">80&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="m">80&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="nx">p&lt;/span> &lt;span class="m">443&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="m">443&lt;/span> \
-&lt;span class="nx">rancher&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">rancher&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="nx">v2&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="m">4&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="m">6&lt;/span>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -d --restart&lt;span class="o">=&lt;/span>unless-stopped &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> -p 80:80 -p 443:443 &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> rancher/rancher:v2.4.6
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Masuk melalui browser dengan alamat &lt;a class="link" href="https://%3cip-public%3e" target="_blank" rel="noopener"
 >https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.
 &lt;figure>
@@ -73,7 +73,7 @@ alt="Cluster Active">
 &lt;p>Nah itu tadi cara installasi High Availability (HA) Rancher menggunakan Docker. Kita akan eksplorasi lagi tentang Rancher selanjutnya, untuk sekarang saya sudahi dulu. Sekian dan terimakasih.&lt;/p>
 &lt;h3 id="referensi">Referensi&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://rancher.com/docs/rancher/v2.x/en/">https://rancher.com/docs/rancher/v2.x/en/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://rancher.com/docs/rancher/v2.x/en">https://rancher.com/docs/rancher/v2.x/en&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title><link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link><pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.png" alt="Featured image of post Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai" />&lt;p>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.&lt;/p>
 &lt;h2 id="struktur-cluster">Struktur Cluster&lt;/h2>
 &lt;p>Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node.
