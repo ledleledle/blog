@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 20 Jan 2021 01:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>High Availability (HA) Rancher Installation with Docker</title><link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link><pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/index.png" alt="Featured image of post High Availability (HA) Rancher Installation with Docker" />&lt;p>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu &lt;strong>Rancher&lt;/strong>. Pokoknya requirement pada artikel kali ini hanyalah &lt;strong>Docker&lt;/strong> dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 03 Feb 2021 20:51:05 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker Untuk Pemula</title><link>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</link><pubDate>Wed, 03 Feb 2021 20:51:05 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/index.png" alt="Featured image of post Docker Untuk Pemula" />&lt;p>Sebenarnya saya telat ya menulis artikel ini, karena saya malah sudah membahas &lt;em>container orchestration&lt;/em> wkwkwk. Jadi saya menulis ini dikarenakan ada seseorang yang meminta saya untuk dijelaskan tentang Docker, dia seorang programmer yang baru saja mendapat pekerjaan dan perusahaannya (mungkin) menuntut dia agar bisa menguasai Docker. Sekarang yang jadi pertanyaan, &amp;ldquo;Kenapa seorang programmer harus memahami Docker?&amp;rdquo;, jawabannya adalah (menurut saya) dikarenakan konsep &lt;strong>Microservices&lt;/strong> yang kian populer kontainerisasi menjadi sesuatu yang penting didalam suatu instansi/perusahaan, sebenarnya ada seorang &lt;em>DevOps&lt;/em> yang akan mengurus tentang kontainerisasi, namun programmer pun akan dipaksa bekerja dalam environment kontainer tersebut yang menghasilkan statement bahwa programmer pun juga harus mengenal atau menguasai kontainerisasi dalam konteks artikel ini yaitu Docker. Atau dalam kasus lain, dikantornya mungkin dia adalah Programmer Superman.&lt;/p>
+&lt;h3 id="apa-itu-docker-dan-perbedaannya-dengan-vm">Apa itu Docker dan perbedaannya dengan VM&lt;/h3>
+&lt;p>Seperti yang sudah saya singgung sebelumnya tentang kontainerisasi, Docker merupakan sebuah tempat yang menampung program beserta &lt;em>library&lt;/em> file konfigurasi, dll. Kontainer ini berbeda dengan virtual machine yang mana perbedaanya terdapat pada penggunnan sistem operasi pada masing-masing nodenya. Virtualisasi berjalan diatas hypervisor dan guest OS, docker dapat menjalankan aplikasi langsung tanpa kedua hal tersebut.
+Lebih jelasnya perhatikan bagan berikut :
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png" data-size="700x333">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png" width="700" height="333" loading="lazy"
+alt="Docker vs VM">
+&lt;/a>
+&lt;figcaption>Docker vs VM&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h3 id="kenapa-pakai-docker">Kenapa Pakai Docker?&lt;/h3>
+&lt;ul>
+&lt;li>Ya&amp;hellip; seperti yang sudah anda baca diatas, daripada kita menggunakan VM untuk aplikasi berbasis microservices, yang harus melakukan installasi OS, Aplikasi, library, dll. Lebih baik menggunakan &lt;em>container&lt;/em>.&lt;/li>
+&lt;li>VM juga saya rasa terlalu boros dalam hal &lt;em>resources&lt;/em> terutama storage. Jadi kehadiran docker sangat membantu kita.&lt;/li>
+&lt;li>Untuk Docker sendiri menurut saya penggunaannya simpel dan perintah-perintahnya mudah dipahami (namun docsnya lumayan sampah).&lt;/li>
+&lt;li>Docker bersifat &lt;strong>Open source&lt;/strong> dibawah lisensi Apache Versi 2.0 yang bisa dipergunakan secara gratis.&lt;/li>
+&lt;/ul>
+&lt;h3 id="komponen-docker">Komponen Docker&lt;/h3>
+&lt;p>Terdapat beberapa komponen pada Docker yang saling membutuhkan satu sama lain. Diantaranya adalah :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Docker Image&lt;/strong> : merupakan sebuah template yang bersifat read-only, di dalamnya akan terdapat sistem operasi beserta aplikasi. Image dasar dapat dibuat sendiri dengan menambahkan aplikasi yang dibutuhkan ke dalam &lt;em>Dockerfile&lt;/em> dan hasilnya dapat kita simpan ke &lt;em>Registry&lt;/em>.&lt;/li>
+&lt;li>&lt;strong>Docker Container&lt;/strong> : merupakan runtime instance dari Docker image. Container mengandung seluruh kebutuhan untuk aplikasi sehingga aplikasi dapat berjalan dengan cara yang terisolasi.&lt;/li>
+&lt;li>&lt;strong>Docker Registry&lt;/strong> : merupakan komponen penyimpanan untuk Docker image. Berupa repository yang dapat diatur public maupun private, untuk kepentingan kolaborasi bersama orang lain. Docker Hub merupakan repository cloud yang disediakan oleh Docker secara gratis. Docker Hub sendiri adalah repository yang bersifat public. Jika ingin private, mungkin kalian dapat mencoba Gitlab, Bitbucket, dll.&lt;/li>
+&lt;li>&lt;strong>Dockerfile&lt;/strong> : berupa file yang mengandung serangkaian instruksi tentang bagaimana membangun Docker Image. Docker image tersebut mengandung setiap kode dengan dependensinya. Contoh Dockerfile yang sederhana dengan image &lt;code>node.js versi 10&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> node:10&lt;/span>&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">WORKDIR&lt;/span>&lt;span class="s"> /usr/app&lt;/span>&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> . .&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">EXPOSE&lt;/span>&lt;span class="s"> 3000&lt;/span>&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">CMD&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;node&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;index.js&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="pelajari-dulu-basic-commandnya">Pelajari Dulu Basic Commandnya&lt;/h3>
+&lt;p>Basic Command ini sebenarnya, perintah-perintah Docker yang sering digunakan saja, untuk perintah-perintah yang lain silahkan kalian explore sendiri ya. Saya sengaja menuliskannya berurutan, agar kalian mudah untuk mempelajarinya terutama &lt;code>step-by-step&lt;/code>nya. Langsung saja, berikut adalah listnya :&lt;/p>
+&lt;h4 id="mengunduh-docker-image">Mengunduh Docker Image&lt;/h4>
+&lt;p>Kita bisa mengunduh Docker image dari registry dengan perintah &lt;strong>Docker Pull&lt;/strong>. Commandnya sangat sederhana, sebagai contoh saya ingin mengunduh image &lt;code>nginx&lt;/code> dengan tag &lt;strong>latest&lt;/strong>.&lt;/p>
+&lt;pre>&lt;code>docker pull nginx:latest
+&lt;/code>&lt;/pre>&lt;h4 id="melihat-daftar-image-yang-dimiliki">Melihat daftar image yang dimiliki&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker images
+&lt;span class="c1"># Atau&lt;/span>
+docker image ls
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mengganti-namatag-image">Mengganti nama/tag image&lt;/h4>
+&lt;p>Ini biasanya berfungsi saat kita ingin mengunggah image ke registry docker hub. Dalam docker hub, image yang diunggah harus berformat &lt;code>&amp;lt;username&amp;gt;/&amp;lt;nama_image&amp;gt;&lt;/code>. Berikut contoh perintahnya.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker tag &amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt; &amp;lt;username&amp;gt;/&amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker tag nginx:latest leon0408/nginx:10.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menghapus-image">Menghapus Image&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Delete 1 image&lt;/span>
+docker image rm nginx:latest
+&lt;span class="c1"># Delete semua image yang tidak terpakai&lt;/span>
+docker image prune -a
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-docker-image">Membuat Docker Image&lt;/h4>
+&lt;p>Untuk langkah ini, sebenarnya kita harus punya &lt;strong>Dockerfile&lt;/strong> terlebih dahulu. Anyway&amp;hellip; Berikut perintahnya.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker build -t &amp;lt;nama_image&amp;gt; &amp;lt;direktori_dockerfile&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker build -t aplikasi_kasir .
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-container">Membuat Container&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker container create --name &amp;lt;nama_container&amp;gt; -p &amp;lt;port_yang_dikeluarkan&amp;gt;:&amp;lt;port_container&amp;gt; &amp;lt;nama_image&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker container create --name server-nginx -p 80:80 nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menjalankan-container">Menjalankan Container&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker start &amp;lt;nama_container&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker start server-nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-sekaligus-menjalankan-container">Membuat sekaligus Menjalankan Container&lt;/h4>
+&lt;p>Sebenarnya ada cara untuk membuat container sekaligus menjalankannya, yaitu dengan menggunakan perintah &lt;code>docker run&lt;/code>. Jika kalian lihat perintah dibawah terdapat &lt;code>-d&lt;/code>, itu berfungsi agar container berjalan di &lt;em>backgroud&lt;/em>. Karena defaultnya, dengan perintah ini container akan berjalan dengan menampilkan log.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -d -p &amp;lt;port_yang_dikeluarkan&amp;gt;:&amp;lt;port_container&amp;gt; --name &amp;lt;nama_container&amp;gt; &amp;lt;nama_image&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker run -d -p 81:80 --name server-nginx-2 nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu bisa kalian cek dengan membuka browser, lalu memasukkan URL &lt;a class="link" href="http://localhost:81" target="_blank" rel="noopener"
+>http://localhost:81&lt;/a>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png" data-size="818x258">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png" width="818" height="258" loading="lazy"
+alt="Nginx">
+&lt;/a>
+&lt;figcaption>Nginx&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h4 id="melihat-container">Melihat Container&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Melihat Container yang berjalan&lt;/span>
+docker ps
+&lt;span class="c1"># Melihat semua Container&lt;/span>
+docker ps -a
+&lt;span class="c1"># Output&lt;/span>
+dd8749428a66 nginx &lt;span class="s2">&amp;#34;/docker-entrypoint.…&amp;#34;&lt;/span> &lt;span class="m">3&lt;/span> seconds ago Up &lt;span class="m">2&lt;/span> seconds 0.0.0.0:81-&amp;gt;80/tcp server-nginx-2
+54a5c626a82b nginx &lt;span class="s2">&amp;#34;/docker-entrypoint.…&amp;#34;&lt;/span> &lt;span class="m">4&lt;/span> minutes ago Up &lt;span class="m">2&lt;/span> minutes 0.0.0.0:80-&amp;gt;80/tcp server-nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="stop--restart-container">Stop &amp;amp; Restart Container&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Stop&lt;/span>
+docker stop &amp;lt;nama_container&amp;gt;
+&lt;span class="c1"># Restart&lt;/span>
+docker restart &amp;lt;nama_container&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menghapus-container">Menghapus Container&lt;/h4>
+&lt;p>Untuk menghapus kontainer, posisi kontainer harus dalam keadaan mati/stopped. Jika ingin menghapus kontainer yang sedang berjalan secara paksa, kalian bisa menambahkan flag &lt;code>-f&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker container rm &amp;lt;nama_container&amp;gt;
+&lt;span class="c1"># Atau&lt;/span>
+docker rm &amp;lt;nama_container&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="login-registry">Login Registry&lt;/h4>
+&lt;p>Sebagai contoh, disini saya login ke registry docker hub, dengan akun saya sendiri.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Command&lt;/span>
+docker login
+&lt;span class="c1"># Login Prompt&lt;/span>
+Login with your Docker ID to push and pull images from Docker Hub. If you don&lt;span class="err">&amp;#39;&lt;/span>t have a Docker ID, head over to https://hub.docker.com to create one.
+Username: leon0408
+Password:
+WARNING! Your password will be stored unencrypted in /home/dark/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+Login Succeeded
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="push-image-ke-registry">Push Image ke Registry&lt;/h4>
+&lt;p>Jika kalian bingung kenapa imagenya tidak bisa diunggah karena tadi bacanya di &lt;em>skip-skip&lt;/em>. Mending kalian baca lagi perintah untuk mengganti nama image.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker push &amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker push leon0408/nginx:10.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="penutup">Penutup&lt;/h3>
+&lt;p>Menurut saya sampai disitu saja penjelasan dari saya. Jika ada tambahan atau pertanyaan, silahkan tampung pada kolom komentar. Sekian dan terimakasih&amp;hellip;&lt;/p>
+&lt;h3 id="referensi">Referensi&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.docker.com">https://docs.docker.com&lt;/a>&lt;/li>
+&lt;li>Pengalaman Pribadi&lt;/li>
+&lt;li>Channel Yutup &lt;strong>&amp;ldquo;Programmer Zaman Now&amp;rdquo;&lt;/strong>&lt;/li>
+&lt;/ul></description></item><item><title>High Availability (HA) Rancher Installation with Docker</title><link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link><pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/index.png" alt="Featured image of post High Availability (HA) Rancher Installation with Docker" />&lt;p>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu &lt;strong>Rancher&lt;/strong>. Pokoknya requirement pada artikel kali ini hanyalah &lt;strong>Docker&lt;/strong> dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;&lt;/p>
 &lt;p>Seperti biasa, untuk tujuan praktek siapkan 3 instance, jika tidak tahu caranya kalian bisa liat pada artikel saya sebelumnya tentang &lt;a class="link" href="../setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai" >Provisioning Server&lt;/a>. 1 untuk &lt;strong>control plane &amp;amp; etcd&lt;/strong> dan 2 untuk &lt;strong>worker&lt;/strong>. Jadi konsepnya kita install 1 control plane, pada control plane kita bisa membuat &lt;strong>Custom Cluster&lt;/strong>, disana kita akan diberikan command untuk mengkonfirmasi instance yang akan masuk kedalam Cluster (hampir mirip dengan kubeadm).&lt;/p>
 &lt;p>Okay&amp;hellip; mari kita install Docker. Disini saya menggunakan &lt;strong>Ubuntu Server 18.04&lt;/strong>. Untuk installasi Docker dapat kalian baca &lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu" target="_blank" rel="noopener"
 >disini&lt;/a>. Pastikan kalian install disemua server, karena semuanya akan dijalankan melalui Docker.&lt;/p>
