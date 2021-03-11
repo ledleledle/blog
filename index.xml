@@ -1,10 +1,1043 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Mar 2021 02:11:23 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik Initial Release seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.
-Solusi pulseaudio --check; pulseaudio --kill; pulseaudio --start Referensi https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224 https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout</description></item><item><title>Docker Untuk Pemula</title><link>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</link><pubDate>Wed, 03 Feb 2021 20:51:05 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</guid><description>Sebenarnya saya telat ya menulis artikel ini, karena saya malah sudah membahas container orchestration wkwkwk. Jadi saya menulis ini dikarenakan ada seseorang yang meminta saya untuk dijelaskan tentang Docker, dia seorang programmer yang baru saja mendapat pekerjaan dan perusahaannya (mungkin) menuntut dia agar bisa menguasai Docker. Sekarang yang jadi pertanyaan, &amp;ldquo;Kenapa seorang programmer harus memahami Docker?&amp;rdquo;, jawabannya adalah (menurut saya) dikarenakan konsep Microservices yang kian populer kontainerisasi menjadi sesuatu yang penting didalam suatu instansi/perusahaan, sebenarnya ada seorang DevOps yang akan mengurus tentang kontainerisasi, namun programmer pun akan dipaksa bekerja dalam environment kontainer tersebut yang menghasilkan statement bahwa programmer pun juga harus mengenal atau menguasai kontainerisasi dalam konteks artikel ini yaitu Docker.</description></item><item><title>High Availability (HA) Rancher Installation with Docker</title><link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link><pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid><description>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu Rancher. Pokoknya requirement pada artikel kali ini hanyalah Docker dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;
-Seperti biasa, untuk tujuan praktek siapkan 3 instance, jika tidak tahu caranya kalian bisa liat pada artikel saya sebelumnya tentang Provisioning Server. 1 untuk control plane &amp;amp; etcd dan 2 untuk worker.</description></item><item><title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title><link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link><pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid><description>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.
-Struktur Cluster Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node. Terraform Pertama, untuk Provisioning server, saya sering menggunakan Terraform.</description></item><item><title>Perbedaan antara Devops dan Agile</title><link>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</link><pubDate>Tue, 22 Dec 2020 09:34:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</guid><description>Kadang dilingkungan pekerjaan atau perkuliahan, kita sering mendengar tentang Agile dan DevOps namun kita tidak tau apa fungsi mereka. Jadi Agile dan DevOps adalah metodologi pengembangan aplikasi dengan tujuan yang sama yaitu mereka menghasilkan produk akhir secepat dan seefisien mungkin. Awalnya saya mengira dua metodologi ini adalah satu kesatuan, namun setelah saya selidiki dan membaca lebih dalam ternyata mereka berbeda. Apa saja perbedaannya? Dan apakah mereka bisa digunakan dalam satu proses yang sama?</description></item><item><title>Cara membuat akun AWS Educate $100 Gratis</title><link>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</link><pubDate>Sun, 20 Dec 2020 19:34:30 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</guid><description>UPDATE
-Sekarang sudah tidak bisa menggunakan cara ini..!!! Dan biasanya, tutorial kayak gini sering disalah gunakan Direkomendasikan untuk menggunakan AWS Free Tier Hari ini saya akan bahas tentang AWS Server namun ini lebih ke pembuatan akunnya. Jadi AWS memang menyediakan layanan gratis untuk edukasi yang bernama AWS Educate. Disana, kita bisa mendapatkan akun AWS dengan credit senilai $100 dengan durasi 1 tahun. Nah ini cocok sekali untuk kalian yang ingin belajar DevOps/Infra (yang penting jangan buat minning 😂).</description></item><item><title>About</title><link>https://blog.leonprasetya.my.id/about/</link><pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate><guid>https://blog.leonprasetya.my.id/about/</guid><description>Siapakah saya Halo&amp;hellip; Nama saya Leon Prasetya Mulya, lahir di Depok dan besar di Trenggalek. Sedang mem-fokuskan diri pada bidang DevOps (karena sebenernya nggak suka ngoding). Menyukai Linux, UI/UX Design, Microservices dan masih banyak hal lain. Lulusan bootcamp Dumbways.id jurusan DevOps Batch 1 pada bulan November 2020.
-Tujuan saya membuat Blog Tujuan saya membuat blog ini adalah untuk catatan pribadi saya sendiri dan juga untuk sharing dengan teman-teman saya. Jadi jika ada penulisan yang tidak jelas atau ambigu, tolong dimaklumi dan dikoreksi/ditanyakan langsung.</description></item><item><title>Host Website Hugo di Github</title><link>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</link><pubDate>Wed, 29 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</guid><description>Sebelumnya saya telah membuat tutorial How I Made Hugo Blog. Ini lanjutan yang telah saya janjikan. Dan maaf saya sekarang pakai Bahasa Indonesia, karena ternyata setelah saya membuat postingan tersebut ternyata Bahasa Inggris saya masih kacau dan terlihat di postingan sebelumnya bahasanya kacau sekali (jadi malu). Yah tidak usah basa-basi lagi.
-Tutorial 1. Generate Static Files Jika sebelumnya kita hanya menjalankan server local dengan perintah hugo server. Sekarang kita akan meng-generate file statis dengan perintah hugo --minify.</description></item><item><title>How I Made Hugo</title><link>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</guid><description>Intro Hey guys, i’ll teach you how to made blog with hugo. First i’ll explain a bit about hugo, Hugo is a fast and modern static site generator written in Go language, so basically you don’t need some back-end code. You just install it, made a content, then generate your html code. Simple enought right. So let’s jump to tutorial.
-Specification and requirements First, i use Arch Linux Distros, the installation maybe a bit differ, but others absolutelly same.</description></item><item><title>Reflash Original Firmware TP-Link MR3420 V.2</title><link>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</guid><description>Halo teman-teman, kali ini saya akan membahas tentang bagaimana cara reflash original firmware dari OpenWRT pada router TP-Link MR3420 V.2. Kebetulan diminggu-minggu ini saya ingin menjual router saya karena menurut saya router ini sudah outdate dan dirumah juga sudah punya yang baru.
-Spesifikasi dan Kebutuhan Router (sudah pasti) OS Linux Firmware bawaan TP-Link disini Tutorial Step pertama, ekstrak file firmware terlebih dahulu
-unzip &amp;#34;TL-MR3420_V2_150319.zip&amp;#34; Rename file firmware dengan nama firmware.</description></item><item><title>Archives</title><link>https://blog.leonprasetya.my.id/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://blog.leonprasetya.my.id/archives/</guid><description/></item><item><title>Markdown Syntax Guide</title><link>https://blog.leonprasetya.my.id/p/markdown-syntax-guide/</link><pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate><guid>https://blog.leonprasetya.my.id/p/markdown-syntax-guide/</guid><description>&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p></description></item><item><title>Search</title><link>https://blog.leonprasetya.my.id/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.leonprasetya.my.id/search/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Mar 2021 02:11:23 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>&lt;p>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik &lt;strong>Initial Release&lt;/strong> seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.&lt;/p>
+&lt;h3 id="solusi">Solusi&lt;/h3>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">pulseaudio --check&lt;span class="p">;&lt;/span> pulseaudio --kill&lt;span class="p">;&lt;/span> pulseaudio --start
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="referensi">Referensi&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224">https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout">https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Docker Untuk Pemula</title><link>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</link><pubDate>Wed, 03 Feb 2021 20:51:05 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/index.png" alt="Featured image of post Docker Untuk Pemula" />&lt;p>Sebenarnya saya telat ya menulis artikel ini, karena saya malah sudah membahas &lt;em>container orchestration&lt;/em> wkwkwk. Jadi saya menulis ini dikarenakan ada seseorang yang meminta saya untuk dijelaskan tentang Docker, dia seorang programmer yang baru saja mendapat pekerjaan dan perusahaannya (mungkin) menuntut dia agar bisa menguasai Docker. Sekarang yang jadi pertanyaan, &amp;ldquo;Kenapa seorang programmer harus memahami Docker?&amp;rdquo;, jawabannya adalah (menurut saya) dikarenakan konsep &lt;strong>Microservices&lt;/strong> yang kian populer kontainerisasi menjadi sesuatu yang penting didalam suatu instansi/perusahaan, sebenarnya ada seorang &lt;em>DevOps&lt;/em> yang akan mengurus tentang kontainerisasi, namun programmer pun akan dipaksa bekerja dalam environment kontainer tersebut yang menghasilkan statement bahwa programmer pun juga harus mengenal atau menguasai kontainerisasi dalam konteks artikel ini yaitu Docker. Atau dalam kasus lain, dikantornya mungkin dia adalah Programmer Superman.&lt;/p>
+&lt;h3 id="apa-itu-docker-dan-apa-perbedaannya-dengan-vm">Apa itu Docker dan Apa perbedaannya dengan VM&lt;/h3>
+&lt;p>Seperti yang sudah saya singgung sebelumnya tentang kontainerisasi, Docker merupakan sebuah tempat yang menampung program beserta &lt;em>library&lt;/em>, file konfigurasi, dll. Kontainer ini berbeda dengan virtual machine yang mana perbedaanya terdapat pada penggunnan sistem operasi pada masing-masing nodenya. Virtualisasi berjalan diatas hypervisor dan guest OS, docker dapat menjalankan aplikasi langsung tanpa kedua hal tersebut.
+Lebih jelasnya perhatikan bagan berikut :
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png" data-size="700x333">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png" width="700" height="333" loading="lazy"
+alt="Docker vs VM">
+&lt;/a>
+&lt;figcaption>Docker vs VM&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h3 id="kenapa-pakai-docker">Kenapa Pakai Docker?&lt;/h3>
+&lt;ul>
+&lt;li>Ya&amp;hellip; seperti yang sudah anda baca diatas, daripada kita menggunakan VM untuk aplikasi berbasis microservices, yang harus melakukan installasi OS, Aplikasi, library, dll. Lebih baik menggunakan &lt;em>container&lt;/em>.&lt;/li>
+&lt;li>VM juga saya rasa terlalu boros dalam hal &lt;em>resources&lt;/em> terutama storage. Jadi kehadiran docker sangat membantu kita.&lt;/li>
+&lt;li>Untuk Docker sendiri menurut saya penggunaannya simpel dan perintah-perintahnya mudah dipahami (namun docsnya lumayan sampah).&lt;/li>
+&lt;li>Docker bersifat &lt;strong>Open source&lt;/strong> dibawah lisensi Apache Versi 2.0 yang bisa dipergunakan secara gratis.&lt;/li>
+&lt;/ul>
+&lt;h3 id="komponen-docker">Komponen Docker&lt;/h3>
+&lt;p>Terdapat beberapa komponen pada Docker yang saling membutuhkan satu sama lain. Diantaranya adalah :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Docker Image&lt;/strong> : merupakan sebuah template yang bersifat read-only, di dalamnya akan terdapat sistem operasi beserta aplikasi. Image dasar dapat dibuat sendiri dengan menambahkan aplikasi yang dibutuhkan ke dalam &lt;em>Dockerfile&lt;/em> dan hasilnya dapat kita simpan ke &lt;em>Registry&lt;/em>.&lt;/li>
+&lt;li>&lt;strong>Docker Container&lt;/strong> : merupakan runtime instance dari Docker image. Container mengandung seluruh kebutuhan untuk aplikasi sehingga aplikasi dapat berjalan dengan cara yang terisolasi.&lt;/li>
+&lt;li>&lt;strong>Docker Registry&lt;/strong> : merupakan komponen penyimpanan untuk Docker image. Berupa repository yang dapat diatur public maupun private, untuk kepentingan kolaborasi bersama orang lain. Docker Hub merupakan repository cloud yang disediakan oleh Docker secara gratis. Docker Hub sendiri adalah repository yang bersifat public. Jika ingin private, mungkin kalian dapat mencoba Gitlab, Bitbucket, dll.&lt;/li>
+&lt;li>&lt;strong>Dockerfile&lt;/strong> : berupa file yang mengandung serangkaian instruksi tentang bagaimana membangun Docker Image. Docker image tersebut mengandung setiap kode dengan dependensinya. Contoh Dockerfile yang sederhana dengan image &lt;code>node.js versi 10&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> node:10&lt;/span>&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">WORKDIR&lt;/span>&lt;span class="s"> /usr/app&lt;/span>&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> . .&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">EXPOSE&lt;/span>&lt;span class="s"> 3000&lt;/span>&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">CMD&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;node&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;index.js&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="err">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="pelajari-dulu-basic-commandnya">Pelajari Dulu Basic Commandnya&lt;/h3>
+&lt;p>Basic Command ini sebenarnya, perintah-perintah Docker yang sering digunakan saja, untuk perintah-perintah yang lain silahkan kalian explore sendiri ya. Saya sengaja menuliskannya berurutan, agar kalian mudah untuk mempelajarinya terutama &lt;code>step-by-step&lt;/code>nya. Langsung saja, berikut adalah listnya :&lt;/p>
+&lt;h4 id="mengunduh-docker-image">Mengunduh Docker Image&lt;/h4>
+&lt;p>Kita bisa mengunduh Docker image dari registry dengan perintah &lt;strong>Docker Pull&lt;/strong>. Commandnya sangat sederhana, sebagai contoh saya ingin mengunduh image &lt;code>nginx&lt;/code> dengan tag &lt;strong>latest&lt;/strong>.&lt;/p>
+&lt;pre>&lt;code>docker pull nginx:latest
+&lt;/code>&lt;/pre>&lt;h4 id="melihat-daftar-image-yang-dimiliki">Melihat daftar image yang dimiliki&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker images
+&lt;span class="c1"># Atau&lt;/span>
+docker image ls
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mengganti-namatag-image">Mengganti nama/tag image&lt;/h4>
+&lt;p>Ini biasanya berfungsi saat kita ingin mengunggah image ke registry docker hub. Dalam docker hub, image yang diunggah harus berformat &lt;code>&amp;lt;username&amp;gt;/&amp;lt;nama_image&amp;gt;&lt;/code>. Berikut contoh perintahnya.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker tag &amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt; &amp;lt;username&amp;gt;/&amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker tag nginx:latest leon0408/nginx:10.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menghapus-image">Menghapus Image&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Delete 1 image&lt;/span>
+docker image rm nginx:latest
+&lt;span class="c1"># Delete semua image yang tidak terpakai&lt;/span>
+docker image prune -a
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-docker-image">Membuat Docker Image&lt;/h4>
+&lt;p>Untuk langkah ini, sebenarnya kita harus punya &lt;strong>Dockerfile&lt;/strong> terlebih dahulu. Anyway&amp;hellip; Berikut perintahnya.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker build -t &amp;lt;nama_image&amp;gt; &amp;lt;direktori_dockerfile&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker build -t aplikasi_kasir .
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-container">Membuat Container&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker container create --name &amp;lt;nama_container&amp;gt; -p &amp;lt;port_yang_dikeluarkan&amp;gt;:&amp;lt;port_container&amp;gt; &amp;lt;nama_image&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker container create --name server-nginx -p 80:80 nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menjalankan-container">Menjalankan Container&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker start &amp;lt;nama_container&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker start server-nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-sekaligus-menjalankan-container">Membuat sekaligus Menjalankan Container&lt;/h4>
+&lt;p>Sebenarnya ada cara untuk membuat container sekaligus menjalankannya, yaitu dengan menggunakan perintah &lt;code>docker run&lt;/code>. Jika kalian lihat perintah dibawah terdapat &lt;code>-d&lt;/code>, itu berfungsi agar container berjalan di &lt;em>backgroud&lt;/em>. Karena defaultnya, dengan perintah ini container akan berjalan dengan menampilkan log.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -d -p &amp;lt;port_yang_dikeluarkan&amp;gt;:&amp;lt;port_container&amp;gt; --name &amp;lt;nama_container&amp;gt; &amp;lt;nama_image&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker run -d -p 81:80 --name server-nginx-2 nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu bisa kalian cek dengan membuka browser, lalu memasukkan URL &lt;a class="link" href="http://localhost:81" target="_blank" rel="noopener"
+>http://localhost:81&lt;/a>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png" data-size="818x258">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png" width="818" height="258" loading="lazy"
+alt="Nginx">
+&lt;/a>
+&lt;figcaption>Nginx&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h4 id="melihat-container">Melihat Container&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Melihat Container yang berjalan&lt;/span>
+docker ps
+&lt;span class="c1"># Melihat semua Container&lt;/span>
+docker ps -a
+&lt;span class="c1"># Output&lt;/span>
+dd8749428a66 nginx &lt;span class="s2">&amp;#34;/docker-entrypoint.…&amp;#34;&lt;/span> &lt;span class="m">3&lt;/span> seconds ago Up &lt;span class="m">2&lt;/span> seconds 0.0.0.0:81-&amp;gt;80/tcp server-nginx-2
+54a5c626a82b nginx &lt;span class="s2">&amp;#34;/docker-entrypoint.…&amp;#34;&lt;/span> &lt;span class="m">4&lt;/span> minutes ago Up &lt;span class="m">2&lt;/span> minutes 0.0.0.0:80-&amp;gt;80/tcp server-nginx
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="stop--restart-container">Stop &amp;amp; Restart Container&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Stop&lt;/span>
+docker stop &amp;lt;nama_container&amp;gt;
+&lt;span class="c1"># Restart&lt;/span>
+docker restart &amp;lt;nama_container&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menghapus-container">Menghapus Container&lt;/h4>
+&lt;p>Untuk menghapus kontainer, posisi kontainer harus dalam keadaan mati/stopped. Jika ingin menghapus kontainer yang sedang berjalan secara paksa, kalian bisa menambahkan flag &lt;code>-f&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker container rm &amp;lt;nama_container&amp;gt;
+&lt;span class="c1"># Atau&lt;/span>
+docker rm &amp;lt;nama_container&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="login-registry">Login Registry&lt;/h4>
+&lt;p>Sebagai contoh, disini saya login ke registry docker hub, dengan akun saya sendiri.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Command&lt;/span>
+docker login
+&lt;span class="c1"># Login Prompt&lt;/span>
+Login with your Docker ID to push and pull images from Docker Hub. If you don&lt;span class="err">&amp;#39;&lt;/span>t have a Docker ID, head over to https://hub.docker.com to create one.
+Username: leon0408
+Password:
+WARNING! Your password will be stored unencrypted in /home/dark/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+Login Succeeded
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="push-image-ke-registry">Push Image ke Registry&lt;/h4>
+&lt;p>Jika kalian bingung kenapa imagenya tidak bisa diunggah karena tadi bacanya di &lt;em>skip-skip&lt;/em>. Mending kalian baca lagi perintah untuk mengganti nama image.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker push &amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt;
+&lt;span class="c1"># Contoh&lt;/span>
+docker push leon0408/nginx:10.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="penutup">Penutup&lt;/h3>
+&lt;p>Menurut saya sampai disitu saja penjelasan dari saya. Jika ada tambahan atau pertanyaan, silahkan tampung pada kolom komentar. Sekian dan terimakasih&amp;hellip;&lt;/p>
+&lt;h3 id="referensi">Referensi&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://docs.docker.com">https://docs.docker.com&lt;/a>&lt;/li>
+&lt;li>Pengalaman Pribadi&lt;/li>
+&lt;/ul></description></item><item><title>High Availability (HA) Rancher Installation with Docker</title><link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link><pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/index.png" alt="Featured image of post High Availability (HA) Rancher Installation with Docker" />&lt;p>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu &lt;strong>Rancher&lt;/strong>. Pokoknya requirement pada artikel kali ini hanyalah &lt;strong>Docker&lt;/strong> dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;&lt;/p>
+&lt;p>Seperti biasa, untuk tujuan praktek siapkan 3 instance, jika tidak tahu caranya kalian bisa liat pada artikel saya sebelumnya tentang &lt;a class="link" href="../setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai" >Provisioning Server&lt;/a>. 1 untuk &lt;strong>control plane &amp;amp; etcd&lt;/strong> dan 2 untuk &lt;strong>worker&lt;/strong>. Jadi konsepnya kita install 1 control plane, pada control plane kita bisa membuat &lt;strong>Custom Cluster&lt;/strong>, disana kita akan diberikan command untuk mengkonfirmasi instance yang akan masuk kedalam Cluster (hampir mirip dengan kubeadm).&lt;/p>
+&lt;p>Okay&amp;hellip; mari kita install Docker. Disini saya menggunakan &lt;strong>Ubuntu Server 18.04&lt;/strong>. Untuk installasi Docker dapat kalian baca &lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu" target="_blank" rel="noopener"
+>disini&lt;/a>. Pastikan kalian install disemua server, karena semuanya akan dijalankan melalui Docker.&lt;/p>
+&lt;p>Setelah Docker terinstall, langkah selanjutnya yaitu membuat container untuk Control Plane Rancher. Masukkan perintah dibawah. &lt;strong>Saya pakai versi 2.4.6 yang stabil&lt;/strong>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -d --restart&lt;span class="o">=&lt;/span>unless-stopped &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> -p 80:80 -p 443:443 &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> rancher/rancher:v2.4.6
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Masuk melalui browser dengan alamat &lt;a class="link" href="https://%3cip-public%3e" target="_blank" rel="noopener"
+>https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png" data-size="931x417">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png" width="931" height="417" loading="lazy"
+alt="Error Security">
+&lt;/a>
+&lt;figcaption>Error Security&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Sebenarnya mendapat error seperti ini pun Rancher masih dapat digunakan. Jadi jangan panik dulu. Masukkan password baru untuk Rancher kalian, setelah itu kita akan diarahkan pada Dashboard Rancher.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png" data-size="1307x622">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png" width="1307" height="622" loading="lazy"
+alt="Rancher Dashboard">
+&lt;/a>
+&lt;figcaption>Rancher Dashboard&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Untuk membuat Cluster baru, klik pada &lt;strong>Add Cluster &amp;gt; Existing Nodes&lt;/strong>. Sebenarnya ada banyak pilihan, namun karena kita sudah membuat instance sebelumnya jadi kita akan menggunakan Menu &lt;strong>Existing Nodes&lt;/strong>.&lt;/p>
+&lt;p>Hal-hal yang saya gunakan saat membuat Cluster Baru :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Cluster Name&lt;/strong> : Terserah kalian&lt;/li>
+&lt;li>&lt;strong>Kubernetes Version&lt;/strong> : Sesuai kebutuhan (saya menggunakan yang terbaru)&lt;/li>
+&lt;li>&lt;strong>Network Provider&lt;/strong> : Sesuai kebutuhan juga (saya menggunakan &lt;strong>Weave&lt;/strong>)&lt;/li>
+&lt;li>&lt;strong>Cloud Provider&lt;/strong> : None&lt;/li>
+&lt;/ul>
+&lt;p>Setelah semua yang diatas telah diisi, langkah selanjutnya yaitu melakukan inisialisasi role pada instance kita. Disini kita akan mendapatkan pilihan role untuk Cluster kita, dan nantinya kita akan diberikan perintah (Docker command) yang harus dijalankan pada setiap instance kita.&lt;/p>
+&lt;p>Pertama kita membuat &lt;strong>etcd &amp;amp; control-plane&lt;/strong> node terlebih dahulu.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png" data-size="1256x574">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png" width="1256" height="574" loading="lazy"
+alt="etcd &amp; control-plane node">
+&lt;/a>
+&lt;figcaption>etcd &amp;amp; control-plane node&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Lalu buat juga untuk &lt;strong>worker&lt;/strong> node.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png" data-size="1273x489">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png" width="1273" height="489" loading="lazy"
+alt="worker nodes">
+&lt;/a>
+&lt;figcaption>worker nodes&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Copy &amp;amp; Paste Command yang diberikan oleh Rancher kesetiap Instances dan tunggu sekitar 10 sampai 15 menit agar Cluster benar-benar dapat digunakan, Rancher akan secara otomatis menyiapkan Kubernetes Cluster untuk anda. Selama &lt;strong>Provisioning&lt;/strong>, memang ada logs error. Tapi jangan panik, memang di &lt;strong>Rancher&lt;/strong> warnanya begini.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png" data-size="1249x209">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png" width="1249" height="209" loading="lazy"
+alt="Provisioning Cluster">
+&lt;/a>
+&lt;figcaption>Provisioning Cluster&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Jika Provisioning sudah, akan ada info bahwa status cluster adalah &lt;strong>Active&lt;/strong>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png" data-size="1288x322">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png" width="1288" height="322" loading="lazy"
+alt="Cluster Active">
+&lt;/a>
+&lt;figcaption>Cluster Active&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Nah itu tadi cara installasi High Availability (HA) Rancher menggunakan Docker. Kita akan eksplorasi lagi tentang Rancher selanjutnya, untuk sekarang saya sudahi dulu. Sekian dan terimakasih.&lt;/p>
+&lt;h3 id="referensi">Referensi&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://rancher.com/docs/rancher/v2.x/en">https://rancher.com/docs/rancher/v2.x/en&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title><link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link><pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.png" alt="Featured image of post Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai" />&lt;p>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.&lt;/p>
+&lt;h2 id="struktur-cluster">Struktur Cluster&lt;/h2>
+&lt;p>Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png" data-size="281x181">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png" width="281" height="181" loading="lazy"
+alt="Infrastruktur Server">
+&lt;/a>
+&lt;figcaption>Infrastruktur Server&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="terraform">Terraform&lt;/h2>
+&lt;p>Pertama, untuk Provisioning server, saya sering menggunakan &lt;strong>Terraform&lt;/strong>. Alat ini sangat cocok dan memang didesain untuk melakukan tugas penyiapan cloud server. Siapkan sebuah file berformat &lt;strong>.tf&lt;/strong>. Untuk installasi Terraform sendiri bisa kalian cek &lt;a class="link" href="https://learn.hashicorp.com/tutorials/terraform/install-cli" target="_blank" rel="noopener"
+>disini&lt;/a>. Dan mulailah menulis konfigurasi.&lt;/p>
+&lt;h4 id="konfigurasi-yang-diperlukan-terraform-">Konfigurasi yang diperlukan Terraform :&lt;/h4>
+&lt;p>Berikut adalah susunan direktori kerja kita untuk terraform.&lt;/p>
+&lt;pre>&lt;code>├── credentials
+└── server.tf
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>File Credentials&lt;/strong> (tidak perlu jika kalian sudah login menggunakan &lt;em>aws-cli&lt;/em>). File ini berisi credentials yang diperlukan untuk login ke VPS kita. Normalnya kita menggunakan &lt;strong>IAM&lt;/strong> (Identity and Access Management), namun karena kita menggunakan akun gratisan. Maka itu bisa didapatkan pada halaman &lt;strong>Vocareum&lt;/strong> &amp;gt; Account Detail &amp;gt; Show AWS CLI, lalu copy semua ke dalam file &lt;code>credentials&lt;/code>. Kelemahannya ini hanya berlaku sekitar 3 jam.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png" data-size="1094x535">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png" width="1094" height="535" loading="lazy"
+alt="AWS CLI Credentials">
+&lt;/a>
+&lt;figcaption>AWS CLI Credentials&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Dalam deskripsinya tertulis &lt;code>Copy and paste the following into ~/.aws/credentials&lt;/code>. Namun jika memang tidak mau memasang &lt;strong>aws-cli&lt;/strong> (seperti saya). Kita akan buat file credentials yang nantinya akan dipanggil didalam file konfigurasi terraform.&lt;/p>
+&lt;p>&lt;strong>File Konfigurasi Server&lt;/strong>
+Disini kita baru mulai tahap provisioning instancenya. Untuk subnet yang saya gunakan adalah subnet default yang &lt;em>by default&lt;/em> sudah ada di VPC saya dan untuk SSH Key saya juga sudah memilikinya sebelumnya.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1">## AWS Provider
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nx">terraform&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">required_providers&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">aws&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">source&lt;/span> = &lt;span class="s2">&amp;#34;hashicorp/aws&amp;#34;&lt;/span>
+&lt;span class="na">version&lt;/span> = &lt;span class="s2">&amp;#34;~&amp;gt; 3.0&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Init Credentials Profile and Region
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">provider&lt;/span> &lt;span class="s2">&amp;#34;aws&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">profile&lt;/span> = &lt;span class="s2">&amp;#34;default&amp;#34;&lt;/span>
+&lt;span class="na">region&lt;/span> = &lt;span class="s2">&amp;#34;us-east-1&amp;#34;&lt;/span>
+&lt;span class="na">shared_credentials_file&lt;/span> = &lt;span class="s2">&amp;#34;credentials&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Public Security Group
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_security_group&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;public-sec&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">name&lt;/span> = &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="na">description&lt;/span> = &lt;span class="s2">&amp;#34;Public Server Security Group&amp;#34;&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## SSH, HTTP, HTTPS Access
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">22&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">22&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">80&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">80&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">443&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">443&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Kubernetes Cluster
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">6443&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">6443&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">2379&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">2380&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10250&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10250&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10251&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10251&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10252&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10252&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">egress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">0&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">0&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;-1&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="na">tags&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">Name&lt;/span> = &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="na">Description&lt;/span> = &lt;span class="s2">&amp;#34;Public Server Security Group&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Elastic IP for Public Instance
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_eip&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;lb&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">instance&lt;/span> = &lt;span class="nx">aws_instance&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">public&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Create Public Instance
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_instance&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">ami&lt;/span> = &lt;span class="s2">&amp;#34;ami-00ddb0e5626798373&amp;#34;&lt;/span>
+&lt;span class="na">instance_type&lt;/span> = &lt;span class="s2">&amp;#34;t2.medium&amp;#34;&lt;/span>
+&lt;span class="na">source_dest_check&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">key_name&lt;/span> = &lt;span class="s2">&amp;#34;key&amp;#34;&lt;/span>
+&lt;span class="na">subnet_id&lt;/span> = &lt;span class="s2">&amp;#34;subnet-5ba4f616&amp;#34;&lt;/span>
+&lt;span class="na">private_ip&lt;/span> = &lt;span class="s2">&amp;#34;172.31.16.20&amp;#34;&lt;/span>
+&lt;span class="na">vpc_security_group_ids&lt;/span> = &lt;span class="nx">aws_security_group&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">public&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">sec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>
+&lt;span class="na">tags&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">Name&lt;/span> = &lt;span class="s2">&amp;#34;public&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Disk Space
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">root_block_device&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">delete_on_termination&lt;/span> = &lt;span class="kc">true&lt;/span>
+&lt;span class="na">encrypted&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">iops&lt;/span> = &lt;span class="m">100&lt;/span>
+&lt;span class="na">volume_size&lt;/span> = &lt;span class="m">10&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Node Security Group
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_security_group&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;node-sec&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">name&lt;/span> = &lt;span class="s2">&amp;#34;node&amp;#34;&lt;/span>
+&lt;span class="na">description&lt;/span> = &lt;span class="s2">&amp;#34;Node/Worker Security Group&amp;#34;&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## SSH Access
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">22&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">22&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Close all traffic IP after setup!
+&lt;/span>&lt;span class="c1"> #cidr_blocks = [&amp;#34;172.31.16.20/32&amp;#34;]
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Kubernetes Cluster
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10250&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10250&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;172.31.16.20/32&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">10255&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">10255&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;172.31.16.20/32&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">30000&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">32767&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;172.31.16.20/32&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">ingress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">3000&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">3000&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;tcp&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;172.31.16.20/32&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">egress&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">from_port&lt;/span> = &lt;span class="m">0&lt;/span>
+&lt;span class="na">to_port&lt;/span> = &lt;span class="m">0&lt;/span>
+&lt;span class="na">protocol&lt;/span> = &lt;span class="s2">&amp;#34;-1&amp;#34;&lt;/span>
+&lt;span class="na">cidr_blocks&lt;/span> = &lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;0.0.0.0/0&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="na">tags&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">Name&lt;/span> = &lt;span class="s2">&amp;#34;node&amp;#34;&lt;/span>
+&lt;span class="na">Description&lt;/span> = &lt;span class="s2">&amp;#34;Node/Worker Security Group&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Elastic IP for Node Server (Temporary)
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_eip&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;lb-node&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">count&lt;/span> = &lt;span class="m">2&lt;/span>
+&lt;span class="na">instance&lt;/span> = &lt;span class="nx">aws_instance&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">node&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="nb">count&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">index&lt;/span>&lt;span class="p">].&lt;/span>&lt;span class="nx">id&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Create Instance Node
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="kr">resource&lt;/span> &lt;span class="s2">&amp;#34;aws_instance&amp;#34;&lt;/span> &lt;span class="s2">&amp;#34;node&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">ami&lt;/span> = &lt;span class="s2">&amp;#34;ami-00ddb0e5626798373&amp;#34;&lt;/span>
+&lt;span class="na">instance_type&lt;/span> = &lt;span class="s2">&amp;#34;t2.small&amp;#34;&lt;/span>
+&lt;span class="na">associate_public_ip_address&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">source_dest_check&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">key_name&lt;/span> = &lt;span class="s2">&amp;#34;key&amp;#34;&lt;/span>
+&lt;span class="na">subnet_id&lt;/span> = &lt;span class="s2">&amp;#34;subnet-5ba4f616&amp;#34;&lt;/span>
+&lt;span class="na">vpc_security_group_ids&lt;/span> = &lt;span class="nx">aws_security_group&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">node&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">sec&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>
+&lt;span class="na">count&lt;/span> = &lt;span class="m">2&lt;/span>
+&lt;span class="na">tags&lt;/span> = &lt;span class="p">{&lt;/span>
+&lt;span class="na">Name&lt;/span> = &lt;span class="s2">&amp;#34;node-&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nb">count&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">index&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="m">1&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
+&lt;span class="p">}&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">
+&lt;/span>&lt;span class="c1">## Disk Space
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">root_block_device&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="na">delete_on_termination&lt;/span> = &lt;span class="kc">true&lt;/span>
+&lt;span class="na">encrypted&lt;/span> = &lt;span class="kc">false&lt;/span>
+&lt;span class="na">iops&lt;/span> = &lt;span class="m">100&lt;/span>
+&lt;span class="na">volume_size&lt;/span> = &lt;span class="m">10&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah semuanya terkonfigurasi, informasi tentang kode sudah saya masukkan, untuk lebih lengkapnya bisa kalian baca sendiri pada &lt;a class="link" href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs" target="_blank" rel="noopener"
+>Website Dokumentasi Terraform&lt;/a>, jalankan perintah &lt;code>terraform init&lt;/code> untuk inisialisasi version control Terraform dan Terraform juga mengunduh tools yang dibutuhkan untuk provisioning cloud server AWS. Setelah semuanya selesai jalankan perintah &lt;code>terraform apply&lt;/code>.&lt;/p>
+&lt;p>Tulis &lt;code>yes&lt;/code> untuk konfirmasi (jika konfigurasi sudah dirasa benar).
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif" data-size="668x699">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_1024x0_resize_box.gif 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif" width="668" height="699" loading="lazy"
+alt="[GIF] Terraform Apply">
+&lt;/a>
+&lt;figcaption>[GIF] Terraform Apply&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Cek pada EC2 AWS, server yang sudah kita buat tadi.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png" data-size="1100x189">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png" width="1100" height="189" loading="lazy"
+alt="AWS EC2">
+&lt;/a>
+&lt;figcaption>AWS EC2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>&lt;strong>Note :&lt;/strong> Untuk port kubernetes yang benar, kalian dapat melihatnya &lt;a class="link" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#check-required-ports" target="_blank" rel="noopener"
+>disini&lt;/a>, tapi kalau cuma untuk testing &lt;strong>All Traffic&lt;/strong> bukan masalah.&lt;/p>
+&lt;h2 id="ansible">Ansible&lt;/h2>
+&lt;p>Setelah semua instance sudah siap, kita akan melakukan konfigurasi instance menggunakan &lt;strong>Ansible&lt;/strong>. Apa itu &lt;strong>Ansible&lt;/strong>?? Jadi tool ini berguna untuk melakukan tugas-tugas yang berada dalam mesin seperti installasi paket, mengubah file konfigurasi, dll. Dia (Ansible) akan melakukan tugasnya secara struktural dan jika ada satu perintah diatasnya yang gagal, maka proses dibawahnya akan dibatalkan. Anyway&amp;hellip; Disini saya akan melakukan setup mulai dari akses SSH, installasi Docker dan Kubernetes Cluster &lt;em>(sebenarnya pada saat artikel ditulis, kubernetes sudah mengumumkan bahwa support pada Docker akan dihentikan, dan mungkin saat kalian membacanya, cara ini sudah tidak dapat digunakan. Pada saat itu saya akan mengupdate artikel ini.)&lt;/em>.&lt;/p>
+&lt;p>Jadi susunan filenya akan terlihat seperti berikut :&lt;/p>
+&lt;pre>&lt;code>├── inventory
+├── ansible.cfg
+├── auth_aws.yml
+├── docker.yml
+├── k8s.yml
+├── key
+   └── key.pem
+&lt;/code>&lt;/pre>&lt;h3 id="1-inventory">1. inventory&lt;/h3>
+&lt;p>Inventory berisi ip atau hostname dari instance yang akan ditargetkan untuk dikonfigurasikan (biasanya ip address). Oleh karena itu saya memasang elastic ip pada instance yang sudah saya buat, agar mereka bisa diakses oleh Ansible dan setelah proses konfigurasi EIP (Elastic IP) bisa dilepas.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#ubah sesuai dengan IP address kalian&lt;/span>
+&lt;span class="o">[&lt;/span>public&lt;span class="o">]&lt;/span>
+52.4.21.127
+&lt;span class="o">[&lt;/span>nodes&lt;span class="o">]&lt;/span>
+35.173.95.146
+18.205.203.199
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-ansiblecfg">2. ansible.cfg&lt;/h3>
+&lt;p>Disini kita bisa mengatur semua file yang dibutuhkan untuk menjalankan Ansible, seperti file inventory yang digunakan, keyfile, default user, dll.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="k">[defaults]&lt;/span>
+&lt;span class="na">inventory&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">inventory&lt;/span>
+&lt;span class="na">Private_key_file&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">key/key.pem&lt;/span>
+&lt;span class="na">remote_user&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">root&lt;/span>
+&lt;span class="na">ansible_python_interpreter&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">/usr/bin/python3&lt;/span>
+&lt;span class="na">host_key_checking&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">false&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="3-file-berekstensi-yml">3. File berekstensi &lt;code>*.yml&lt;/code>&lt;/h3>
+&lt;p>File yang berisi konfigurasi seperti apa yang akan kita lakukan (like i said &lt;strong>structural code&lt;/strong>). Kita harus mendikte apa saja yang kita perlukan untuk menyiapkan server (sampai jadi). &lt;strong>Pesan dari saya : Kalau bingung lihat namenya saja ya&lt;/strong>&lt;/p>
+&lt;h4 id="31-auth_awsyml">3.1 auth_aws.yml&lt;/h4>
+&lt;p>Karena AWS tidak memperbolehkan user untuk login melalui root user (demi keamanan), maka kita harus merubah file &lt;em>authorized_key&lt;/em> secara manual.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become_user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Copy authorized key from Home to Root&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="32-dockeryml">3.2 docker.yml&lt;/h4>
+&lt;p>Installasi Docker. Disini saya menggunakan fitur &lt;strong>hold&lt;/strong>, fungsinya untuk menghindari update pada package. Kenapa?? Jika kita melakukan setup pada server production, kita memerlukan versi package yang stabil, tujuannya untuk menghindari bug atau perubahan besar-besaran yang dapat menyebabkan server menjadi tidak stabil. Jadi biasanya untuk mencoba update kami memiliki server tersendiri untuk deployment test, jika pada test server sudah stabil, maka server production akan diupdate.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Update &amp;amp; Upgrade&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">upgrade&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">dist&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">update_cache&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Install Docker Requiremts&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">ca-certificates&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">curl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">gnupg-agent&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">python3-pip&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">software-properties-common&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">GPG Key Docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt_key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://download.docker.com/linux/ubuntu/gpg&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Repo Docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt_repository&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">repo&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">present&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">update_cache&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Install Docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">force&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">docker-ce&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hold Docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dpkg_selections&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker-ce&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hold&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Install Docker Py&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pip3 install docker-py&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Enable service docker, and enable persistently&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">service&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">enabled&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add the user &amp;#39;ubuntu&amp;#39; to docker group&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">group&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="33-k8syml">3.3 k8s.yml&lt;/h4>
+&lt;p>Akhirnya installasi Kubernetes. Disini saya juga menggunakan fitur &lt;strong>hold&lt;/strong>. Sayang untuk kubeadm (inisialisasi node) saya masih menggunakan cara manual, jadi jika teman-teman memiliki cara yang lebih baik saya akan dengan senang hati menerima saran tersebut.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add Google official GPG key&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt_key&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://packages.cloud.google.com/apt/doc/apt-key.gpg&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">present&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add Kubernetes Repository&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt_repository&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">repo&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">deb http://apt.kubernetes.io/ kubernetes-xenial main&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">present&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">filename&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubernetes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">mode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0600&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Installing Kubernetes Cluster Packages&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">apt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">force&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">True&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kubeadm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kubectl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kubelet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">present&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hold kubeadm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dpkg_selections&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hold&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hold kubectl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dpkg_selections&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubectl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hold&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Hold kubelet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dpkg_selections&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubelet&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selection&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">hold&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add line Net Bridge on sysctl.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">lineinfile&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/etc/sysctl.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">line&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">net.bridge.bridge-nf-call-iptables=1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add line &amp;#39;max_map_count&amp;#39; on sysctl.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">lineinfile&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/etc/sysctl.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">line&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">vm.max_map_count=262144&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Apply change on sysctl&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sysctl -p&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">public&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">initialize k8s cluster&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm reset -f &amp;amp;&amp;amp; kubeadm init --pod-network-cidr=10.244.0.0/16&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">register&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm_result&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">debug&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">var&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm_result.stdout_lines&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Make configuration folder for k8s&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become_user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">file&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">state&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">directory&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">path&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/home/ubuntu/.kube&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">mode&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">0755&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Copy configuration k8s into home&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">copy&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">src&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/etc/kubernetes/admin.conf&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">dest&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">/home/ubuntu/.kube/config&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">remote_src&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">owner&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apply network plugin flannel&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">yes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become_user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">nodes&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">vars_prompt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;kubeadm&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">prompt&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;kubeadm Command &amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">private&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">no&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Reset kubeadm &amp;amp; Prune docker images&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kubeadm reset -f &amp;amp;&amp;amp; docker image prune -af&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Retriving input command kubeadm&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;{{ kubeadm }}&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Jalankan ketiga file ini dengan perintah &lt;code>ansible-playbook nama_file.yml&lt;/code>. Untuk &lt;code>k8s.yml&lt;/code>, ditengah jalan nanti akan ditanyakan tentang token &lt;strong>kubeadm&lt;/strong> seperti pada GIF dibawah, kalian copy saja log diatasnya jangan lupa tambahkan &lt;code>sudo&lt;/code>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif" data-size="668x699">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_1024x0_resize_box.gif 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif" width="668" height="699" loading="lazy"
+alt="[GIF] k8s.yml kubeadm">
+&lt;/a>
+&lt;figcaption>[GIF] k8s.yml kubeadm&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="testing">Testing&lt;/h2>
+&lt;p>Masuk ke server utama (public) kita melalui SSH.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh ubuntu@52.4.21.127 -i key.pem
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu jalankan perintah &lt;code>kubectl get all&lt;/code> atau &lt;code>kubectl get nodes&lt;/code>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png" data-size="593x428">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png" width="593" height="428" loading="lazy"
+alt="kubectl command">
+&lt;/a>
+&lt;figcaption>kubectl command&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Jika semuanya sudah tampil, kita bisa melakukan deployment pods pada cluster kubernetes tersebut. Namun saya tidak akan membahasnya pada artikel ini.&lt;/p>
+&lt;h2 id="hapus-eip-dan-associate_public_ip_address">Hapus EIP dan associate_public_ip_address&lt;/h2>
+&lt;p>Delete atau beri comment pada file &lt;code>server.tf&lt;/code> pada baris &lt;code>EIP&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1">## Elastic IP for Node Server (Temporary)
+&lt;/span>&lt;span class="c1">#resource &amp;#34;aws_eip&amp;#34; &amp;#34;lb-node&amp;#34; {
+&lt;/span>&lt;span class="c1"># count = 2
+&lt;/span>&lt;span class="c1"># instance = aws_instance.node[count.index].id
+&lt;/span>&lt;span class="c1">#}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Kenapa saya menghapus &lt;code>associate_public_ip_address&lt;/code>? Biasanya perintah ini akan memaksa kita untuk me-recreate server. Ini pasti menyebalkan apalagi kita sudah susah-susah setup server sedemikian rupa dengan Ansible. Disatu sisi kita juga membutuhkan fitur ini saat pembuatan server untuk pertama kali. Jadi kalau server sudah dibuat, kita sudah tidak menggunakannya lagi.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1"># associate_public_ip_address = false
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Jalankan perintah &lt;code>terraform apply&lt;/code> sekali lagi.&lt;/p>
+&lt;h2 id="destroy-semua-server">Destroy Semua Server&lt;/h2>
+&lt;p>Kalau kalian bosan, coba jalankan perintah &lt;code>terraform destroy&lt;/code>!&lt;/p>
+&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;p>Dan begitulah cara saya melakukan setup server mulai dari provisioning server, konfigurasi dan membangun kubernetes cluster. Jika ada pertanyaan dan saran, silahkan dikumpulkan dikolom komentar. Selanjutnya saya akan membahas tentang &lt;a class="link" href="../high-availability-ha-rancher-installation-with-docker" >Rancher&lt;/a>. Sekian dan terimakasih&lt;/p></description></item><item><title>Perbedaan antara Devops dan Agile</title><link>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</link><pubDate>Tue, 22 Dec 2020 09:34:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/index.png" alt="Featured image of post Perbedaan antara Devops dan Agile" />&lt;p>Kadang dilingkungan pekerjaan atau perkuliahan, kita sering mendengar tentang Agile dan DevOps namun kita tidak tau apa fungsi mereka. Jadi Agile dan DevOps adalah metodologi pengembangan aplikasi dengan tujuan yang sama yaitu mereka menghasilkan produk akhir secepat dan seefisien mungkin. Awalnya saya mengira dua metodologi ini adalah satu kesatuan, namun setelah saya selidiki dan membaca lebih dalam ternyata mereka berbeda. Apa saja perbedaannya? Dan apakah mereka bisa digunakan dalam satu proses yang sama? Mari kita bahas terlebih dahulu apa itu Agile dan DevOps.&lt;/p>
+&lt;h2 id="agile">Agile&lt;/h2>
+&lt;p>Jadi Agile Development ini pertama kali dicetuskan oleh &lt;strong>Kent Beck&lt;/strong> dan kawan-kawan pada tahun 2001. Mereka mendiskusikan tentang bagaimana cara mengembangkan sebuah perangkat lunak menjadi lebih baik, efisien dan cepat. Metode Agile mengutamakan interaksi antar tim dan review/tanggapan dari client walaupun itu dapat menyebabkan keterlambatan dalam proses pengembangan. Jadi dari sana pihak pengembang dan client saling terhubung untuk menciptakan suatu perangkat lunak.&lt;/p>
+&lt;p>Bisa kalian cek pada webiste &lt;a class="link" href="https://agilemanifesto.org/iso/id/manifesto.html" target="_blank" rel="noopener"
+>https://agilemanifesto.org&lt;/a> untuk manifesto dari Agile.&lt;/p>
+&lt;p>Menurut saya Agile berada dalam area yang abstrak dan sulit dipahami. Kendati demikian, ada proses, metode, dan praktik yang bisa kita implementasikan, dan itu membantu kita memahami filosofi tentang Agile.&lt;/p>
+&lt;p>Saat belajar tentang Agile, kita akan menemukan proses perangkat lunak seperti &lt;strong>Scrum, Extreme Programming, dan Adaptive Software Development&lt;/strong>. Itu adalah contoh proses yang menerjemahkan nilai dan prinsip Agile dalam praktik. Selain itu, ada metode yang populer di dunia Agile seperti user story, story point, burndown chart, daily meeting, dan retrospective. Masing-masing proses dan metode memenuhi nilai dan prinsip Agile dengan kedalaman yang berbeda-beda.&lt;/p>
+&lt;h2 id="devops">DevOps&lt;/h2>
+&lt;p>Sedangkan untuk DevOps yaitu metodologi pengembangan perangkat lunak yang bertujuan untuk menyatukan tim pengembangan perangkat lunak dan tim teknologi informasi. Ini adalah konsep yang menumbuhkan budaya kolaborasi antara kedua tim yang sebelumnya bekerja secara terpisah , dari tahap desain awal hingga rilis sebuah produk.&lt;/p>
+&lt;p>DevOps adalah metodologi yang menggabungkan pengembangan perangkat lunak (&lt;strong>Dev&lt;/strong>) dengan operasional (&lt;strong>Ops&lt;/strong>). Tujuannya adalah untuk memungkinkan komunikasi antara tim sehingga mereka dapat membangun, menguji, dan merilis perangkat lunak lebih cepat dan dengan efisiensi dan kecepatan yang lebih besar.&lt;/p>
+&lt;p>Dalam menggabungkan dua tim dengan proses yang berbeda ini diharapkan memberikan produk dan layanan yang berkualitas tinggi secara berkesinambungan melalui integrasi berkelanjutan, distribusi berkelanjutan, pengujian seacara otomatis, dan transparansi dalam repositori kode.&lt;/p>
+&lt;p>Alur DevOps berbeda dengan Agile, disini tidak ada kontak dari client. Pengembang akan merencanakan seperti apa perangkat lunaknya berjalan, setelah itu mereka akan melakukan serangkaian proses seperti Build, Test, Release, Deploy dan Monitoring, dari data monitoring tersebut jika ada kesalahan atau ketidak sesuaian dari perangkat lunak, pengembang akan mengulangi prosesnya dari awal (tahap perencanaan).&lt;/p>
+&lt;h2 id="jadi-apa-bedanya-agile-dengan-devops">Jadi apa bedanya Agile dengan DevOps?&lt;/h2>
+&lt;ul>
+&lt;li>Agile menggunakan sprint, yang berkisar dari satu minggu hingga bulan sebagai cara untuk mengatur jadwal pengembangan sementara DevOps fokus pada rilis cepat yang dimulai dengan beberapa hari.&lt;/li>
+&lt;li>Agile berfokus pada feedback dari client sedangkan DevOps tidak.&lt;/li>
+&lt;/ul>
+&lt;h2 id="apakah-agile-dan-devops-dapat-bekerja-bersama">Apakah Agile dan DevOps dapat bekerja bersama?&lt;/h2>
+&lt;p>Jika ditanya begitu, jawabannya &lt;strong>Kenapa tidak?&lt;/strong>&amp;hellip; Ketika diterapkan bersama-sama, Agile dan DevOps dapat memungkinkan organisasi untuk mengembangkan dan mengimplementasikan teknologi dengan kecepatan yang jauh lebih besar. Ada penekanan pada menempatkan kebutuhan pelanggan/client berada di garis depan diatas teknologi apa pun yang akan dikembangkan.&lt;/p>
+&lt;p>Agile dan DevOps masing-masing merujuk pada dua hal berbeda, terkadang beberapa organisasi menggunakan satu metodologi untuk mengaktifkan yang lain misalnya menggunakan metodologi Agile sebagai motivator untuk mengembangkan &lt;em>culture&lt;/em> DevOps.&lt;/p>
+&lt;h2 id="sumber">Sumber&lt;/h2>
+&lt;ul>
+&lt;li>Pengalaman Pribadi&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@ardi.alhaidar/apa-itu-agile-sebenarnya-41a14762b4e4">https://medium.com/@ardi.alhaidar/apa-itu-agile-sebenarnya-41a14762b4e4&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://id.wikipedia.org/wiki/Agile_Development_Methods">https://id.wikipedia.org/wiki/Agile_Development_Methods&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://en.wikipedia.org/wiki/DevOps">https://en.wikipedia.org/wiki/DevOps&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="foot-note">Foot note&lt;/h2>
+&lt;p>Maaf jika penjelasannya agak berbelit belit. Jika ada kekurangan dan kesalahan jangan sungkan untuk mengkoreksi penulis (saya)&amp;hellip;&lt;!-- raw HTML omitted -->
+Sekian dari saya semoga dapat mencerahkan kalian (para pembaca)&amp;hellip;&lt;/p></description></item><item><title>Cara membuat akun AWS Educate $100 Gratis</title><link>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</link><pubDate>Sun, 20 Dec 2020 19:34:30 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</guid><description>&lt;blockquote>
+&lt;p>&lt;strong>UPDATE&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Sekarang sudah tidak bisa menggunakan cara ini..!!!&lt;/li>
+&lt;li>Dan biasanya, tutorial kayak gini sering disalah gunakan&lt;/li>
+&lt;li>Direkomendasikan untuk menggunakan &lt;strong>AWS Free Tier&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>Hari ini saya akan bahas tentang AWS Server namun ini lebih ke pembuatan akunnya. Jadi AWS memang menyediakan layanan gratis untuk edukasi yang bernama &lt;strong>AWS Educate&lt;/strong>. Disana, kita bisa mendapatkan akun AWS dengan credit senilai $100 dengan durasi 1 tahun. Nah ini cocok sekali untuk kalian yang ingin belajar DevOps/Infra (yang penting jangan buat minning 😂). Tentu saja blog ini akan terus membahas tentang cloud services, jadi akun AWS ini akan sangat membantu kalian dalam proses belajar.&lt;/p>
+&lt;p>Buat akun AWS Educate dulu. Pergi ke halaman &lt;a class="link" href="https://aws.amazon.com/education/awseducate" target="_blank" rel="noopener"
+>AWS Educate&lt;/a>, lalu klik menu &lt;strong>Join AWS Educate&lt;/strong>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png" data-size="1331x614">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png" width="1331" height="614" loading="lazy"
+alt="AWS Educate Homepage">
+&lt;/a>
+&lt;figcaption>AWS Educate Homepage&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Pilih role sebagai &lt;strong>Murid/Student&lt;/strong> (Tergantung kebutuhan sih&amp;hellip; Kalau disini saya memang sebagai murid). Lalu tolong isi form yang diberikan dengan benar. Karena email akan digunakan untuk konfirmasi nantinya. Kalau sekolah kalian tidak ada didalam list, cantumkan saja &lt;strong>Kementerian Pendidikan dan Kebudayaan&lt;/strong> atau &lt;strong>Kementerian Komunikasi dan Informatika&lt;/strong>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png" data-size="1332x613">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png" width="1332" height="613" loading="lazy"
+alt="Role">
+&lt;/a>
+&lt;figcaption>Role&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Pastikan juga kalian memilih bulan dan tahun kelulusan (Graduation Month &amp;amp; Graduation Year) setahun dari sekarang, misal sekarang Desember 2020 pilih tanggal kelulusannya Desember 2021. Kira-kira tampilan akhirnya seperti ini.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png" data-size="1334x593">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png" width="1334" height="593" loading="lazy"
+alt="Form Pendaftaran AWS Educate">
+&lt;/a>
+&lt;figcaption>Form Pendaftaran AWS Educate&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Dah selanjutnya tinggal klik &lt;strong>I Agree&lt;/strong> saja. Setelah pendaftaran selesai, maka kita akan mendapatkan email verifikasi dari AWS.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png" data-size="1009x384">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png" width="1009" height="384" loading="lazy"
+alt="Email Verifikasi">
+&lt;/a>
+&lt;figcaption>Email Verifikasi&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Setelah email sudah dikonfirmasi, saatnya menunggu email balasan dari AWS. Jika diterima seperti ini balasannya.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png" data-size="1007x488">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png" width="1007" height="488" loading="lazy"
+alt="Approved!!!">
+&lt;/a>
+&lt;figcaption>Approved!!!&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Sekarang coba login ke &lt;a class="link" href="https://www.awseducate.com/signin/SiteLogin" target="_blank" rel="noopener"
+>AWS Educate&lt;/a>. Lalu pergi ke tab &lt;strong>AWS Account&lt;/strong>. Klik &lt;strong>AWS Educate Starter Account&lt;/strong>.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png" data-size="1326x574">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png" width="1326" height="574" loading="lazy"
+alt="AWS Educate Starter Account">
+&lt;/a>
+&lt;figcaption>AWS Educate Starter Account&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Nanti kita akan dialihkan ke website pihak ke-3. Disana kelihatan credits kalian tinggal berapa.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png" data-size="664x536">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png" width="664" height="536" loading="lazy"
+alt="Vocareum">
+&lt;/a>
+&lt;figcaption>Vocareum&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Nice kita sudah masuk pada page EC2 Management. Namun untuk praktek penggunaan EC2 ini tidak akan saya bahas sekarang.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png" data-size="1345x611">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png" width="1345" height="611" loading="lazy"
+alt="EC2">
+&lt;/a>
+&lt;figcaption>EC2&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Yeah&amp;hellip; Met belajar cuyy!!!&lt;/p>
+&lt;p>Nantikan artikel berikutnya tentang penggunaan AWS Cloud. Sampai jumpa&amp;hellip;!!!&lt;/p></description></item><item><title>Host Website Hugo di Github</title><link>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</link><pubDate>Wed, 29 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/hugo.png" alt="Featured image of post Host Website Hugo di Github" />&lt;p>Sebelumnya saya telah membuat tutorial &lt;a class="link" href="../how-i-made-hugo" >How I Made Hugo Blog&lt;/a>. Ini lanjutan yang telah saya janjikan. Dan maaf saya sekarang pakai Bahasa Indonesia, karena ternyata setelah saya membuat postingan tersebut ternyata Bahasa Inggris saya masih kacau dan terlihat di postingan sebelumnya bahasanya kacau sekali (jadi malu). Yah tidak usah basa-basi lagi.&lt;/p>
+&lt;h1 id="tutorial">Tutorial&lt;/h1>
+&lt;h3 id="1-generate-static-files">1. Generate Static Files&lt;/h3>
+&lt;p>Jika sebelumnya kita hanya menjalankan server local dengan perintah &lt;code>hugo server&lt;/code>. Sekarang kita akan meng-generate file statis dengan perintah &lt;code>hugo --minify&lt;/code>. Perintah tersebut akan menjadikan tulisan dan tema yang kalian buat menjadi file statis yang bisa kalian temui di folder &lt;code>public&lt;/code>.&lt;/p>
+&lt;h3 id="2-buat-repo-github">2. Buat Repo Github&lt;/h3>
+&lt;p>Kita pakai cara mudah saja. Yaitu, pada browser kita buat repo di &lt;a class="link" href="https://github.com/new" target="_blank" rel="noopener"
+>Github&lt;/a>. Nama repo terserah kalian, buat tanpa &lt;code>README&lt;/code>.&lt;/p>
+&lt;p>Setelah repo dibuat, disana terdapat tutorialnya tentang cara membuat repository di command line kalian.&lt;/p>
+&lt;p>Langsung buka terminal, masuk ke folder &lt;code>blog&lt;/code> kalian dan langsung menuju folder &lt;code>public&lt;/code>&lt;/p>
+&lt;pre>&lt;code>cd blog/public
+&lt;/code>&lt;/pre>&lt;p>Lalu inisiasi repo github yang telah dibuat tadi.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git init
+git commit -m &lt;span class="s2">&amp;#34;first commit blog&amp;#34;&lt;/span>
+git remote add origin https://github.com/&amp;lt;your_username&amp;gt;/nama_repo.git
+git push -u origin master
+&lt;span class="c1"># ganti username dan nama_repo dengan milik kalian masing-masing&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png" data-size="809x441">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png" width="809" height="441" loading="lazy"
+alt="Github Page">
+&lt;/a>
+&lt;figcaption>Github Page&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Dan website kalian sudah mengudara di internet.&lt;/p>
+&lt;p>Karena blog ini berfokus pada DevOps, tidak enak rasanya jika harus melakukan perintah berulang-ulang setiap akan melakukan post artikel baru. Selanjutnya saya akan membahas tentang CI/CD pada Github Actions untuk hosting Hugo&amp;hellip;&lt;/p></description></item><item><title>How I Made Hugo</title><link>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/hugo.png" alt="Featured image of post How I Made Hugo" />&lt;h1 id="intro">Intro&lt;/h1>
+&lt;p>Hey guys, i’ll teach you how to made blog with hugo. First i’ll explain a bit about hugo, Hugo is a fast and modern static site generator written in Go language, so basically you don’t need some back-end code. You just install it, made a content, then generate your html code. Simple enought right. So let’s jump to tutorial.&lt;/p>
+&lt;h1 id="specification-and-requirements">Specification and requirements&lt;/h1>
+&lt;p>First, i use Arch Linux Distros, the installation maybe a bit differ, but others absolutelly same. Make sure your repository always up to date.&lt;/p>
+&lt;pre>&lt;code>sudo pacman -Syu hugo
+&lt;/code>&lt;/pre>&lt;p>If you use other distros, you can check a link here &lt;a class="link" href="https://gohugo.io/getting-started/installing/" target="_blank" rel="noopener"
+>Hugo Installation Guide&lt;/a>&lt;/p>
+&lt;h1 id="tutorial">Tutorial&lt;/h1>
+&lt;p>Okay.. i assume you’re already install Hugo, once Hugo installed, you can create a Hugo sites by running.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new site blog
+&lt;span class="c1">#replace blog with the name you want&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then go to your site directory.&lt;/p>
+&lt;pre>&lt;code>cd blog
+&lt;/code>&lt;/pre>&lt;p>So… Next we need template. Find one at &lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
+>Official Hugo Website Here&lt;/a>. There are many choices, choose the one you like. For example i choose &lt;a class="link" href="https://themes.gohugo.io/hugo.386/" target="_blank" rel="noopener"
+>Hugo.386&lt;/a>. Download theme using &lt;code>git&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule add https://gitlab.com/maxlefou/hugo.386 themes/hugo.386
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>If you facing error&lt;/strong> like this.&lt;/p>
+&lt;pre>&lt;code>fatal: not a git repository (or any of the parent directories): .git
+&lt;/code>&lt;/pre>&lt;p>Try &lt;code>git init&lt;/code> to your main folder. Then run command &lt;code>git submodule&lt;/code> again.&lt;/p>
+&lt;p>Then go to &lt;code>themes/hugo.386/exampleSite&lt;/code>. There are examples that you can use.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png" data-size="554x362">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png" width="554" height="362" loading="lazy"
+alt="ExampleSite Folder">
+&lt;/a>
+&lt;figcaption>ExampleSite Folder&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Copy all (except README.md). To your main directory. Like this.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png" data-size="550x359">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png" width="550" height="359" loading="lazy"
+alt="Copy all on root folder">
+&lt;/a>
+&lt;figcaption>Copy all on root folder&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Open &lt;code>config.toml&lt;/code>. Edit everything you need, if there is anything you don’t need, just mark it with &lt;code>#&lt;/code>. The following example.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="nx">baseurl&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>
+&lt;span class="nx">title&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;ledleledle&amp;#39;s Blog&amp;#34;&lt;/span>
+&lt;span class="c">#languageCode = &amp;#34;en&amp;#34;&lt;/span>
+&lt;span class="c">#DefaultContentLanguage = &amp;#34;en&amp;#34;&lt;/span>
+&lt;span class="nx">preserveTaxonomyNames&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;span class="nx">theme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;hugo.386&amp;#34;&lt;/span>
+&lt;span class="p">...&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can freely customize the information in &lt;code>config.toml&lt;/code> files. If you done, lets test the site by running this command.&lt;/p>
+&lt;pre>&lt;code>hugo serve
+&lt;/code>&lt;/pre>&lt;p>Open &lt;code>http://localhost:1313&lt;/code> in your browser.
+&lt;figure>
+&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png" data-size="1238x571">
+&lt;img srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_2.png 1024w"
+src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png" width="1238" height="571" loading="lazy"
+alt="Tadaa&amp;hellip;!!!">
+&lt;/a>
+&lt;figcaption>Tadaa…!!!&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>To add new content in your blog, simply running this command.&lt;/p>
+&lt;pre>&lt;code>hugo new post/new_article.md
+&lt;/code>&lt;/pre>&lt;p>Fill the content as you like, see an example of the writing on &lt;code>content&lt;/code> folder that you copied before.
+Next. I’ll post tutorial to &lt;a class="link" href="../host-website-hugo-di-github" >host it on Github Page&lt;/a>.&lt;/p>
+&lt;h1 id="outro">Outro&lt;/h1>
+&lt;p>Well thats it… If you’re facing a problem comments down bellow. See you in next tutorial.&lt;/p></description></item><item><title>Reflash Original Firmware TP-Link MR3420 V.2</title><link>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/index.png" alt="Featured image of post Reflash Original Firmware TP-Link MR3420 V.2" />&lt;p>Halo teman-teman, kali ini saya akan membahas tentang bagaimana cara reflash original firmware dari OpenWRT pada router TP-Link MR3420 V.2. Kebetulan diminggu-minggu ini saya ingin menjual router saya karena menurut saya router ini sudah outdate dan dirumah juga sudah punya yang baru.&lt;/p>
+&lt;h2 id="spesifikasi-dan-kebutuhan">Spesifikasi dan Kebutuhan&lt;/h2>
+&lt;ul>
+&lt;li>Router (sudah pasti)&lt;/li>
+&lt;li>OS Linux&lt;/li>
+&lt;li>Firmware bawaan TP-Link &lt;a class="link" href="https://www.tp-link.com/us/support/download/tl-mr3420/v2/" target="_blank" rel="noopener"
+>disini&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tutorial">Tutorial&lt;/h2>
+&lt;p>&lt;strong>Step pertama&lt;/strong>, ekstrak file firmware terlebih dahulu&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">unzip &lt;span class="s2">&amp;#34;TL-MR3420_V2_150319.zip&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Rename&lt;/strong> file firmware dengan nama firmware.bin agar dalam pengerjaannya jadi lebih mudah dan simple.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">mv &lt;span class="s2">&amp;#34;mr3420v2_en_3_16_9_up_boot(150319).bin&amp;#34;&lt;/span> firmware.bin
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Hapus&lt;/strong> beberapa byte dari Firmware dengan perintah &lt;strong>dd&lt;/strong>. Bila perintah ini tidak dijalankan maka hasilnya anda akan mendapatkan pesan error &lt;strong>Writing from /tmp/firmware.bin to firmware … [e]Failed to erase block&lt;/strong> saat proses flashing firmware.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#command&lt;/span>
+dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>firmware.bin &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>original.bin &lt;span class="nv">skip&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">257&lt;/span> &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">512&lt;/span>
+&lt;span class="c1">#log&lt;/span>
+7680+0 records in
+7680+0 records out
+&lt;span class="m">3932160&lt;/span> bytes &lt;span class="o">(&lt;/span>3.9 MB, 3.8 MiB&lt;span class="o">)&lt;/span> copied, 0.0352155 s, &lt;span class="m">208&lt;/span> MB/s
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Upload Firmware&lt;/strong> ke router kalian dengan perintah &lt;strong>scp&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">scp original.bin root@4.3.2.1:/tmp
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Q : Kok ipnya 4.3.2.1?&lt;/li>
+&lt;li>A : Iya itu setting ip router saya sebelumnya.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Masuk ke sistem router&lt;/strong> melalui ssh dengan perintah&lt;/p>
+&lt;pre>&lt;code>ssh root@4.3.2.1
+&lt;/code>&lt;/pre>&lt;blockquote>
+&lt;p>Note : inget ya, sesuaikan dengan ip router kalian masing-masing.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="install-firmware-original-tp-link">Install firmware original TP-Link&lt;/h2>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#command&lt;/span>
+mtd -r write /tmp/original.bin firmware
+&lt;span class="c1">#log&lt;/span>
+Unlocking firmware ...
+Writing from /tmp/original.bin to firmware ...
+Rebooting ...
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah proses selesai, router akan restart dengan sendirinya.&lt;/p>
+&lt;p>Bagaimana tutorialnya? mudah bukan, semoga bermanfaat untuk kalian, sekian dari saya terimakasih.&lt;/p></description></item><item><title>Markdown Syntax Guide</title><link>https://blog.leonprasetya.my.id/p/markdown-syntax-guide/</link><pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate><guid>https://blog.leonprasetya.my.id/p/markdown-syntax-guide/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" />&lt;p>This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p>
+&lt;h2 id="headings">Headings&lt;/h2>
+&lt;p>The following HTML &lt;code>&amp;lt;h1&amp;gt;&lt;/code>—&lt;code>&amp;lt;h6&amp;gt;&lt;/code> elements represent six levels of section headings. &lt;code>&amp;lt;h1&amp;gt;&lt;/code> is the highest section level while &lt;code>&amp;lt;h6&amp;gt;&lt;/code> is the lowest.&lt;/p>
+&lt;h1 id="h1">H1&lt;/h1>
+&lt;h2 id="h2">H2&lt;/h2>
+&lt;h3 id="h3">H3&lt;/h3>
+&lt;h4 id="h4">H4&lt;/h4>
+&lt;h5 id="h5">H5&lt;/h5>
+&lt;h6 id="h6">H6&lt;/h6>
+&lt;h2 id="paragraph">Paragraph&lt;/h2>
+&lt;p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.&lt;/p>
+&lt;p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.&lt;/p>
+&lt;h2 id="blockquotes">Blockquotes&lt;/h2>
+&lt;p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a &lt;code>footer&lt;/code> or &lt;code>cite&lt;/code> element, and optionally with in-line changes such as annotations and abbreviations.&lt;/p>
+&lt;h4 id="blockquote-without-attribution">Blockquote without attribution&lt;/h4>
+&lt;blockquote>
+&lt;p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+&lt;strong>Note&lt;/strong> that you can use &lt;em>Markdown syntax&lt;/em> within a blockquote.&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="blockquote-with-attribution">Blockquote with attribution&lt;/h4>
+&lt;blockquote>
+&lt;p>Don&amp;rsquo;t communicate by sharing memory, share memory by communicating.&lt;!-- raw HTML omitted -->
+— &lt;!-- raw HTML omitted -->Rob Pike&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="tables">Tables&lt;/h2>
+&lt;p>Tables aren&amp;rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Name&lt;/th>
+&lt;th>Age&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Bob&lt;/td>
+&lt;td>27&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Alice&lt;/td>
+&lt;td>23&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="inline-markdown-within-tables">Inline Markdown within tables&lt;/h4>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Italics&lt;/th>
+&lt;th>Bold&lt;/th>
+&lt;th>Code&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;em>italics&lt;/em>&lt;/td>
+&lt;td>&lt;strong>bold&lt;/strong>&lt;/td>
+&lt;td>&lt;code>code&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="code-blocks">Code Blocks&lt;/h2>
+&lt;h4 id="code-block-with-backticks">Code block with backticks&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Example HTML5 Document&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Test&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="code-block-indented-with-four-spaces">Code block indented with four spaces&lt;/h4>
+&lt;pre>&lt;code>&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;h4 id="code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&amp;rsquo;s internal highlight shortcode&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Example HTML5 Document&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>Test&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">p&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">body&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">html&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h2 id="list-types">List Types&lt;/h2>
+&lt;h4 id="ordered-list">Ordered List&lt;/h4>
+&lt;ol>
+&lt;li>First item&lt;/li>
+&lt;li>Second item&lt;/li>
+&lt;li>Third item&lt;/li>
+&lt;/ol>
+&lt;h4 id="unordered-list">Unordered List&lt;/h4>
+&lt;ul>
+&lt;li>List item&lt;/li>
+&lt;li>Another item&lt;/li>
+&lt;li>And another item&lt;/li>
+&lt;/ul>
+&lt;h4 id="nested-list">Nested list&lt;/h4>
+&lt;ul>
+&lt;li>Fruit
+&lt;ul>
+&lt;li>Apple&lt;/li>
+&lt;li>Orange&lt;/li>
+&lt;li>Banana&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Dairy
+&lt;ul>
+&lt;li>Milk&lt;/li>
+&lt;li>Cheese&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="other-elements--abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark&lt;/h2>
+&lt;p>&lt;!-- raw HTML omitted -->GIF&lt;!-- raw HTML omitted --> is a bitmap image format.&lt;/p>
+&lt;p>H&lt;!-- raw HTML omitted -->2&lt;!-- raw HTML omitted -->O&lt;/p>
+&lt;p>X&lt;!-- raw HTML omitted -->n&lt;!-- raw HTML omitted --> + Y&lt;!-- raw HTML omitted -->n&lt;!-- raw HTML omitted --> = Z&lt;!-- raw HTML omitted -->n&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>Press &lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->CTRL&lt;!-- raw HTML omitted -->+&lt;!-- raw HTML omitted -->ALT&lt;!-- raw HTML omitted -->+&lt;!-- raw HTML omitted -->Delete&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted --> to end the session.&lt;/p>
+&lt;p>Most &lt;!-- raw HTML omitted -->salamanders&lt;!-- raw HTML omitted --> are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>The above quote is excerpted from Rob Pike&amp;rsquo;s &lt;a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target="_blank" rel="noopener"
+>talk&lt;/a> during Gopherfest, November 18, 2015. &lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item></channel></rss>
