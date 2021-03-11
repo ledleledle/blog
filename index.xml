@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Mar 2021 02:11:23 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>&lt;p>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik &lt;strong>Initial Release&lt;/strong> seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Example Site</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Example Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Mar 2021 02:11:23 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>&lt;p>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik &lt;strong>Initial Release&lt;/strong> seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.&lt;/p>
 &lt;h3 id="solusi">Solusi&lt;/h3>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">pulseaudio --check&lt;span class="p">;&lt;/span> pulseaudio --kill&lt;span class="p">;&lt;/span> pulseaudio --start
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="referensi">Referensi&lt;/h3>
@@ -9,10 +9,12 @@
 &lt;h3 id="apa-itu-docker-dan-apa-perbedaannya-dengan-vm">Apa itu Docker dan Apa perbedaannya dengan VM&lt;/h3>
 &lt;p>Seperti yang sudah saya singgung sebelumnya tentang kontainerisasi, Docker merupakan sebuah tempat yang menampung program beserta &lt;em>library&lt;/em>, file konfigurasi, dll. Kontainer ini berbeda dengan virtual machine yang mana perbedaanya terdapat pada penggunnan sistem operasi pada masing-masing nodenya. Virtualisasi berjalan diatas hypervisor dan guest OS, docker dapat menjalankan aplikasi langsung tanpa kedua hal tersebut.
 Lebih jelasnya perhatikan bagan berikut :
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png" data-size="700x333">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png" width="700" height="333" loading="lazy"
+&lt;figure style="flex-grow: 210; flex-basis: 504px">
+&lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png" data-size="700x333">&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png"
+srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_2.png 1024w"
+width="700"
+height="333"
+loading="lazy"
 alt="Docker vs VM">
 &lt;/a>
 &lt;figcaption>Docker vs VM&lt;/figcaption>
@@ -76,10 +78,12 @@ docker start server-nginx
 docker run -d -p 81:80 --name server-nginx-2 nginx
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu bisa kalian cek dengan membuka browser, lalu memasukkan URL &lt;a class="link" href="http://localhost:81" target="_blank" rel="noopener"
 >http://localhost:81&lt;/a>.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png" data-size="818x258">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png" width="818" height="258" loading="lazy"
+&lt;figure style="flex-grow: 317; flex-basis: 760px">
+&lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png" data-size="818x258">&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png"
+srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_2.png 1024w"
+width="818"
+height="258"
+loading="lazy"
 alt="Nginx">
 &lt;/a>
 &lt;figcaption>Nginx&lt;/figcaption>
@@ -135,19 +139,23 @@ docker push leon0408/nginx:10.0
 &lt;/span>&lt;span class="se">&lt;/span> rancher/rancher:v2.4.6
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Masuk melalui browser dengan alamat &lt;a class="link" href="https://%3cip-public%3e" target="_blank" rel="noopener"
 >https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png" data-size="931x417">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png" width="931" height="417" loading="lazy"
+&lt;figure style="flex-grow: 223; flex-basis: 535px">
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png" data-size="931x417">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_1024x0_resize_box_2.png 1024w"
+width="931"
+height="417"
+loading="lazy"
 alt="Error Security">
 &lt;/a>
 &lt;figcaption>Error Security&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Sebenarnya mendapat error seperti ini pun Rancher masih dapat digunakan. Jadi jangan panik dulu. Masukkan password baru untuk Rancher kalian, setelah itu kita akan diarahkan pada Dashboard Rancher.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png" data-size="1307x622">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png" width="1307" height="622" loading="lazy"
+&lt;figure style="flex-grow: 210; flex-basis: 504px">
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png" data-size="1307x622">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_1024x0_resize_box_2.png 1024w"
+width="1307"
+height="622"
+loading="lazy"
 alt="Rancher Dashboard">
 &lt;/a>
 &lt;figcaption>Rancher Dashboard&lt;/figcaption>
@@ -162,37 +170,45 @@ alt="Rancher Dashboard">
 &lt;/ul>
 &lt;p>Setelah semua yang diatas telah diisi, langkah selanjutnya yaitu melakukan inisialisasi role pada instance kita. Disini kita akan mendapatkan pilihan role untuk Cluster kita, dan nantinya kita akan diberikan perintah (Docker command) yang harus dijalankan pada setiap instance kita.&lt;/p>
 &lt;p>Pertama kita membuat &lt;strong>etcd &amp;amp; control-plane&lt;/strong> node terlebih dahulu.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png" data-size="1256x574">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png" width="1256" height="574" loading="lazy"
+&lt;figure style="flex-grow: 218; flex-basis: 525px">
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png" data-size="1256x574">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_1024x0_resize_box_2.png 1024w"
+width="1256"
+height="574"
+loading="lazy"
 alt="etcd &amp; control-plane node">
 &lt;/a>
 &lt;figcaption>etcd &amp;amp; control-plane node&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Lalu buat juga untuk &lt;strong>worker&lt;/strong> node.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png" data-size="1273x489">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png" width="1273" height="489" loading="lazy"
+&lt;figure style="flex-grow: 260; flex-basis: 624px">
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png" data-size="1273x489">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_1024x0_resize_box_2.png 1024w"
+width="1273"
+height="489"
+loading="lazy"
 alt="worker nodes">
 &lt;/a>
 &lt;figcaption>worker nodes&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Copy &amp;amp; Paste Command yang diberikan oleh Rancher kesetiap Instances dan tunggu sekitar 10 sampai 15 menit agar Cluster benar-benar dapat digunakan, Rancher akan secara otomatis menyiapkan Kubernetes Cluster untuk anda. Selama &lt;strong>Provisioning&lt;/strong>, memang ada logs error. Tapi jangan panik, memang di &lt;strong>Rancher&lt;/strong> warnanya begini.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png" data-size="1249x209">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png" width="1249" height="209" loading="lazy"
+&lt;figure style="flex-grow: 597; flex-basis: 1434px">
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png" data-size="1249x209">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_1024x0_resize_box_2.png 1024w"
+width="1249"
+height="209"
+loading="lazy"
 alt="Provisioning Cluster">
 &lt;/a>
 &lt;figcaption>Provisioning Cluster&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Jika Provisioning sudah, akan ada info bahwa status cluster adalah &lt;strong>Active&lt;/strong>.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png" data-size="1288x322">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png" width="1288" height="322" loading="lazy"
+&lt;figure style="flex-grow: 400; flex-basis: 960px">
+&lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png" data-size="1288x322">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_1024x0_resize_box_2.png 1024w"
+width="1288"
+height="322"
+loading="lazy"
 alt="Cluster Active">
 &lt;/a>
 &lt;figcaption>Cluster Active&lt;/figcaption>
@@ -204,10 +220,12 @@ alt="Cluster Active">
 &lt;/ul></description></item><item><title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title><link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link><pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.png" alt="Featured image of post Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai" />&lt;p>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.&lt;/p>
 &lt;h2 id="struktur-cluster">Struktur Cluster&lt;/h2>
 &lt;p>Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png" data-size="281x181">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png" width="281" height="181" loading="lazy"
+&lt;figure style="flex-grow: 155; flex-basis: 372px">
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png" data-size="281x181">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_1024x0_resize_box_2.png 1024w"
+width="281"
+height="181"
+loading="lazy"
 alt="Infrastruktur Server">
 &lt;/a>
 &lt;figcaption>Infrastruktur Server&lt;/figcaption>
@@ -220,10 +238,12 @@ alt="Infrastruktur Server">
 &lt;pre>&lt;code>├── credentials
 └── server.tf
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>File Credentials&lt;/strong> (tidak perlu jika kalian sudah login menggunakan &lt;em>aws-cli&lt;/em>). File ini berisi credentials yang diperlukan untuk login ke VPS kita. Normalnya kita menggunakan &lt;strong>IAM&lt;/strong> (Identity and Access Management), namun karena kita menggunakan akun gratisan. Maka itu bisa didapatkan pada halaman &lt;strong>Vocareum&lt;/strong> &amp;gt; Account Detail &amp;gt; Show AWS CLI, lalu copy semua ke dalam file &lt;code>credentials&lt;/code>. Kelemahannya ini hanya berlaku sekitar 3 jam.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png" data-size="1094x535">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png" width="1094" height="535" loading="lazy"
+&lt;figure style="flex-grow: 204; flex-basis: 490px">
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png" data-size="1094x535">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_1024x0_resize_box_2.png 1024w"
+width="1094"
+height="535"
+loading="lazy"
 alt="AWS CLI Credentials">
 &lt;/a>
 &lt;figcaption>AWS CLI Credentials&lt;/figcaption>
@@ -425,19 +445,23 @@ Disini kita baru mulai tahap provisioning instancenya. Untuk subnet yang saya gu
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah semuanya terkonfigurasi, informasi tentang kode sudah saya masukkan, untuk lebih lengkapnya bisa kalian baca sendiri pada &lt;a class="link" href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs" target="_blank" rel="noopener"
 >Website Dokumentasi Terraform&lt;/a>, jalankan perintah &lt;code>terraform init&lt;/code> untuk inisialisasi version control Terraform dan Terraform juga mengunduh tools yang dibutuhkan untuk provisioning cloud server AWS. Setelah semuanya selesai jalankan perintah &lt;code>terraform apply&lt;/code>.&lt;/p>
 &lt;p>Tulis &lt;code>yes&lt;/code> untuk konfirmasi (jika konfigurasi sudah dirasa benar).
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif" data-size="668x699">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_1024x0_resize_box.gif 1024w"
-src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif" width="668" height="699" loading="lazy"
+&lt;figure style="flex-grow: 95; flex-basis: 229px">
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif" data-size="668x699">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_1024x0_resize_box.gif 1024w"
+width="668"
+height="699"
+loading="lazy"
 alt="[GIF] Terraform Apply">
 &lt;/a>
 &lt;figcaption>[GIF] Terraform Apply&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Cek pada EC2 AWS, server yang sudah kita buat tadi.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png" data-size="1100x189">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png" width="1100" height="189" loading="lazy"
+&lt;figure style="flex-grow: 582; flex-basis: 1396px">
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png" data-size="1100x189">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_1024x0_resize_box_2.png 1024w"
+width="1100"
+height="189"
+loading="lazy"
 alt="AWS EC2">
 &lt;/a>
 &lt;figcaption>AWS EC2&lt;/figcaption>
@@ -627,10 +651,12 @@ alt="AWS EC2">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Retriving input command kubeadm&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;{{ kubeadm }}&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Jalankan ketiga file ini dengan perintah &lt;code>ansible-playbook nama_file.yml&lt;/code>. Untuk &lt;code>k8s.yml&lt;/code>, ditengah jalan nanti akan ditanyakan tentang token &lt;strong>kubeadm&lt;/strong> seperti pada GIF dibawah, kalian copy saja log diatasnya jangan lupa tambahkan &lt;code>sudo&lt;/code>.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif" data-size="668x699">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_1024x0_resize_box.gif 1024w"
-src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif" width="668" height="699" loading="lazy"
+&lt;figure style="flex-grow: 95; flex-basis: 229px">
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif" data-size="668x699">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_1024x0_resize_box.gif 1024w"
+width="668"
+height="699"
+loading="lazy"
 alt="[GIF] k8s.yml kubeadm">
 &lt;/a>
 &lt;figcaption>[GIF] k8s.yml kubeadm&lt;/figcaption>
@@ -639,10 +665,12 @@ alt="[GIF] k8s.yml kubeadm">
 &lt;p>Masuk ke server utama (public) kita melalui SSH.&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh ubuntu@52.4.21.127 -i key.pem
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu jalankan perintah &lt;code>kubectl get all&lt;/code> atau &lt;code>kubectl get nodes&lt;/code>.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png" data-size="593x428">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png" width="593" height="428" loading="lazy"
+&lt;figure style="flex-grow: 138; flex-basis: 332px">
+&lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png" data-size="593x428">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_1024x0_resize_box_2.png 1024w"
+width="593"
+height="428"
+loading="lazy"
 alt="kubectl command">
 &lt;/a>
 &lt;figcaption>kubectl command&lt;/figcaption>
@@ -701,74 +729,90 @@ Sekian dari saya semoga dapat mencerahkan kalian (para pembaca)&amp;hellip;&lt;/
 &lt;p>Hari ini saya akan bahas tentang AWS Server namun ini lebih ke pembuatan akunnya. Jadi AWS memang menyediakan layanan gratis untuk edukasi yang bernama &lt;strong>AWS Educate&lt;/strong>. Disana, kita bisa mendapatkan akun AWS dengan credit senilai $100 dengan durasi 1 tahun. Nah ini cocok sekali untuk kalian yang ingin belajar DevOps/Infra (yang penting jangan buat minning 😂). Tentu saja blog ini akan terus membahas tentang cloud services, jadi akun AWS ini akan sangat membantu kalian dalam proses belajar.&lt;/p>
 &lt;p>Buat akun AWS Educate dulu. Pergi ke halaman &lt;a class="link" href="https://aws.amazon.com/education/awseducate" target="_blank" rel="noopener"
 >AWS Educate&lt;/a>, lalu klik menu &lt;strong>Join AWS Educate&lt;/strong>.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png" data-size="1331x614">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png" width="1331" height="614" loading="lazy"
+&lt;figure style="flex-grow: 216; flex-basis: 520px">
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png" data-size="1331x614">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_1024x0_resize_box_2.png 1024w"
+width="1331"
+height="614"
+loading="lazy"
 alt="AWS Educate Homepage">
 &lt;/a>
 &lt;figcaption>AWS Educate Homepage&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Pilih role sebagai &lt;strong>Murid/Student&lt;/strong> (Tergantung kebutuhan sih&amp;hellip; Kalau disini saya memang sebagai murid). Lalu tolong isi form yang diberikan dengan benar. Karena email akan digunakan untuk konfirmasi nantinya. Kalau sekolah kalian tidak ada didalam list, cantumkan saja &lt;strong>Kementerian Pendidikan dan Kebudayaan&lt;/strong> atau &lt;strong>Kementerian Komunikasi dan Informatika&lt;/strong>.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png" data-size="1332x613">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png" width="1332" height="613" loading="lazy"
+&lt;figure style="flex-grow: 217; flex-basis: 521px">
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png" data-size="1332x613">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_1024x0_resize_box_2.png 1024w"
+width="1332"
+height="613"
+loading="lazy"
 alt="Role">
 &lt;/a>
 &lt;figcaption>Role&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Pastikan juga kalian memilih bulan dan tahun kelulusan (Graduation Month &amp;amp; Graduation Year) setahun dari sekarang, misal sekarang Desember 2020 pilih tanggal kelulusannya Desember 2021. Kira-kira tampilan akhirnya seperti ini.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png" data-size="1334x593">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png" width="1334" height="593" loading="lazy"
+&lt;figure style="flex-grow: 224; flex-basis: 539px">
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png" data-size="1334x593">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_1024x0_resize_box_2.png 1024w"
+width="1334"
+height="593"
+loading="lazy"
 alt="Form Pendaftaran AWS Educate">
 &lt;/a>
 &lt;figcaption>Form Pendaftaran AWS Educate&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Dah selanjutnya tinggal klik &lt;strong>I Agree&lt;/strong> saja. Setelah pendaftaran selesai, maka kita akan mendapatkan email verifikasi dari AWS.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png" data-size="1009x384">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png" width="1009" height="384" loading="lazy"
+&lt;figure style="flex-grow: 262; flex-basis: 630px">
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png" data-size="1009x384">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_1024x0_resize_box_2.png 1024w"
+width="1009"
+height="384"
+loading="lazy"
 alt="Email Verifikasi">
 &lt;/a>
 &lt;figcaption>Email Verifikasi&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Setelah email sudah dikonfirmasi, saatnya menunggu email balasan dari AWS. Jika diterima seperti ini balasannya.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png" data-size="1007x488">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png" width="1007" height="488" loading="lazy"
+&lt;figure style="flex-grow: 206; flex-basis: 495px">
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png" data-size="1007x488">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_1024x0_resize_box_2.png 1024w"
+width="1007"
+height="488"
+loading="lazy"
 alt="Approved!!!">
 &lt;/a>
 &lt;figcaption>Approved!!!&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Sekarang coba login ke &lt;a class="link" href="https://www.awseducate.com/signin/SiteLogin" target="_blank" rel="noopener"
 >AWS Educate&lt;/a>. Lalu pergi ke tab &lt;strong>AWS Account&lt;/strong>. Klik &lt;strong>AWS Educate Starter Account&lt;/strong>.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png" data-size="1326x574">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png" width="1326" height="574" loading="lazy"
+&lt;figure style="flex-grow: 231; flex-basis: 554px">
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png" data-size="1326x574">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_1024x0_resize_box_2.png 1024w"
+width="1326"
+height="574"
+loading="lazy"
 alt="AWS Educate Starter Account">
 &lt;/a>
 &lt;figcaption>AWS Educate Starter Account&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Nanti kita akan dialihkan ke website pihak ke-3. Disana kelihatan credits kalian tinggal berapa.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png" data-size="664x536">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png" width="664" height="536" loading="lazy"
+&lt;figure style="flex-grow: 123; flex-basis: 297px">
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png" data-size="664x536">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_1024x0_resize_box_2.png 1024w"
+width="664"
+height="536"
+loading="lazy"
 alt="Vocareum">
 &lt;/a>
 &lt;figcaption>Vocareum&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Nice kita sudah masuk pada page EC2 Management. Namun untuk praktek penggunaan EC2 ini tidak akan saya bahas sekarang.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png" data-size="1345x611">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png" width="1345" height="611" loading="lazy"
+&lt;figure style="flex-grow: 220; flex-basis: 528px">
+&lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png" data-size="1345x611">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_1024x0_resize_box_2.png 1024w"
+width="1345"
+height="611"
+loading="lazy"
 alt="EC2">
 &lt;/a>
 &lt;figcaption>EC2&lt;/figcaption>
@@ -791,10 +835,12 @@ git remote add origin https://github.com/&amp;lt;your_username&amp;gt;/nama_repo
 git push -u origin master
 &lt;span class="c1"># ganti username dan nama_repo dengan milik kalian masing-masing&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png" data-size="809x441">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png" width="809" height="441" loading="lazy"
+&lt;figure style="flex-grow: 183; flex-basis: 440px">
+&lt;a href="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png" data-size="809x441">&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png"
+srcset="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_1024x0_resize_box_2.png 1024w"
+width="809"
+height="441"
+loading="lazy"
 alt="Github Page">
 &lt;/a>
 &lt;figcaption>Github Page&lt;/figcaption>
@@ -821,19 +867,23 @@ alt="Github Page">
 &lt;pre>&lt;code>fatal: not a git repository (or any of the parent directories): .git
 &lt;/code>&lt;/pre>&lt;p>Try &lt;code>git init&lt;/code> to your main folder. Then run command &lt;code>git submodule&lt;/code> again.&lt;/p>
 &lt;p>Then go to &lt;code>themes/hugo.386/exampleSite&lt;/code>. There are examples that you can use.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png" data-size="554x362">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png" width="554" height="362" loading="lazy"
+&lt;figure style="flex-grow: 153; flex-basis: 367px">
+&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png" data-size="554x362">&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_2.png 1024w"
+width="554"
+height="362"
+loading="lazy"
 alt="ExampleSite Folder">
 &lt;/a>
 &lt;figcaption>ExampleSite Folder&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Copy all (except README.md). To your main directory. Like this.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png" data-size="550x359">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png" width="550" height="359" loading="lazy"
+&lt;figure style="flex-grow: 153; flex-basis: 367px">
+&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png" data-size="550x359">&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_2.png 1024w"
+width="550"
+height="359"
+loading="lazy"
 alt="Copy all on root folder">
 &lt;/a>
 &lt;figcaption>Copy all on root folder&lt;/figcaption>
@@ -849,10 +899,12 @@ alt="Copy all on root folder">
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>You can freely customize the information in &lt;code>config.toml&lt;/code> files. If you done, lets test the site by running this command.&lt;/p>
 &lt;pre>&lt;code>hugo serve
 &lt;/code>&lt;/pre>&lt;p>Open &lt;code>http://localhost:1313&lt;/code> in your browser.
-&lt;figure>
-&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png" data-size="1238x571">
-&lt;img srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_2.png 1024w"
-src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png" width="1238" height="571" loading="lazy"
+&lt;figure style="flex-grow: 216; flex-basis: 520px">
+&lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png" data-size="1238x571">&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_2.png 1024w"
+width="1238"
+height="571"
+loading="lazy"
 alt="Tadaa&amp;hellip;!!!">
 &lt;/a>
 &lt;figcaption>Tadaa…!!!&lt;/figcaption>
