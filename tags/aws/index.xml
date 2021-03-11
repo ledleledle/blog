@@ -1,41 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>aws on Leon&#39;s Blog</title>
-    <link>https://blog.leonprasetya.my.id/tags/aws/</link>
-    <description>Recent content in aws on Leon&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 20 Jan 2021 01:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/aws/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>High Availability (HA) Rancher Installation with Docker</title>
-      <link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link>
-      <pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid>
-      <description>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu Rancher. Pokoknya requirement pada artikel kali ini hanyalah Docker dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;
-Seperti biasa, untuk tujuan praktek siapkan 3 instance, jika tidak tahu caranya kalian bisa liat pada artikel saya sebelumnya tentang Provisioning Server. 1 untuk control plane &amp;amp; etcd dan 2 untuk worker.</description>
-    </item>
-    
-    <item>
-      <title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title>
-      <link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link>
-      <pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid>
-      <description>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.
-Struktur Cluster Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node. Terraform Pertama, untuk Provisioning server, saya sering menggunakan Terraform.</description>
-    </item>
-    
-    <item>
-      <title>Cara membuat akun AWS Educate $100 Gratis</title>
-      <link>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</link>
-      <pubDate>Sun, 20 Dec 2020 19:34:30 +0700</pubDate>
-      
-      <guid>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</guid>
-      <description>UPDATE
- Sekarang sudah tidak bisa menggunakan cara ini..!!! Dan biasanya, tutorial kayak gini sering disalah gunakan Direkomendasikan untuk menggunakan AWS Free Tier   Hari ini saya akan bahas tentang AWS Server namun ini lebih ke pembuatan akunnya. Jadi AWS memang menyediakan layanan gratis untuk edukasi yang bernama AWS Educate. Disana, kita bisa mendapatkan akun AWS dengan credit senilai $100 dengan durasi 1 tahun. Nah ini cocok sekali untuk kalian yang ingin belajar DevOps/Infra (yang penting jangan buat minning 😂).</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>aws on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/aws/</link><description>Recent content in aws on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 20 Jan 2021 01:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>High Availability (HA) Rancher Installation with Docker</title><link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link><pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid><description>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu Rancher. Pokoknya requirement pada artikel kali ini hanyalah Docker dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;
+Seperti biasa, untuk tujuan praktek siapkan 3 instance, jika tidak tahu caranya kalian bisa liat pada artikel saya sebelumnya tentang Provisioning Server. 1 untuk control plane &amp;amp; etcd dan 2 untuk worker.</description></item><item><title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title><link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link><pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid><description>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.
+Struktur Cluster Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node. Terraform Pertama, untuk Provisioning server, saya sering menggunakan Terraform.</description></item><item><title>Cara membuat akun AWS Educate $100 Gratis</title><link>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</link><pubDate>Sun, 20 Dec 2020 19:34:30 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/</guid><description>UPDATE
+Sekarang sudah tidak bisa menggunakan cara ini..!!! Dan biasanya, tutorial kayak gini sering disalah gunakan Direkomendasikan untuk menggunakan AWS Free Tier Hari ini saya akan bahas tentang AWS Server namun ini lebih ke pembuatan akunnya. Jadi AWS memang menyediakan layanan gratis untuk edukasi yang bernama AWS Educate. Disana, kita bisa mendapatkan akun AWS dengan credit senilai $100 dengan durasi 1 tahun. Nah ini cocok sekali untuk kalian yang ingin belajar DevOps/Infra (yang penting jangan buat minning 😂).</description></item></channel></rss>
