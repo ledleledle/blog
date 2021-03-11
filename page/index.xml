@@ -1,2 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on Leon's Blog</title><link>https://blog.leonprasetya.my.id/page/</link><description>Recent content in Pages on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/page/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://blog.leonprasetya.my.id/about/</link><pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate><guid>https://blog.leonprasetya.my.id/about/</guid><description>Siapakah saya Halo&amp;hellip; Nama saya Leon Prasetya Mulya, lahir di Depok dan besar di Trenggalek. Sedang mem-fokuskan diri pada bidang DevOps (karena sebenernya nggak suka ngoding). Menyukai Linux, UI/UX Design, Microservices dan masih banyak hal lain. Lulusan bootcamp Dumbways.id jurusan DevOps Batch 1 pada bulan November 2020.
-Tujuan saya membuat Blog Tujuan saya membuat blog ini adalah untuk catatan pribadi saya sendiri dan juga untuk sharing dengan teman-teman saya. Jadi jika ada penulisan yang tidak jelas atau ambigu, tolong dimaklumi dan dikoreksi/ditanyakan langsung.</description></item><item><title>Archives</title><link>https://blog.leonprasetya.my.id/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://blog.leonprasetya.my.id/archives/</guid><description/></item><item><title>Search</title><link>https://blog.leonprasetya.my.id/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.leonprasetya.my.id/search/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on Leon&#39;s Blog</title>
+    <link>https://blog.leonprasetya.my.id/page/</link>
+    <description>Recent content in Pages on Leon&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/page/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://blog.leonprasetya.my.id/about/</link>
+      <pubDate>Wed, 02 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.leonprasetya.my.id/about/</guid>
+      <description>Siapakah saya Halo&amp;hellip; Nama saya Leon Prasetya Mulya, lahir di Depok dan besar di Trenggalek. Sedang mem-fokuskan diri pada bidang DevOps (karena sebenernya nggak suka ngoding). Menyukai Linux, UI/UX Design, Microservices dan masih banyak hal lain. Lulusan bootcamp Dumbways.id jurusan DevOps Batch 1 pada bulan November 2020.
+Tujuan saya membuat Blog Tujuan saya membuat blog ini adalah untuk catatan pribadi saya sendiri dan juga untuk sharing dengan teman-teman saya. Jadi jika ada penulisan yang tidak jelas atau ambigu, tolong dimaklumi dan dikoreksi/ditanyakan langsung.</description>
+    </item>
+    
+    <item>
+      <title>Archives</title>
+      <link>https://blog.leonprasetya.my.id/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.leonprasetya.my.id/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Search</title>
+      <link>https://blog.leonprasetya.my.id/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.leonprasetya.my.id/search/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
