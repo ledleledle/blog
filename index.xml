@@ -141,9 +141,13 @@ docker pull registry.leonprasetya.my.id/my-ubuntu
 &lt;span class="o">{&lt;/span>
 &lt;span class="s2">&amp;#34;insecure-registries&amp;#34;&lt;/span> : &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;172.168.10.1:5000&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>
 &lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu restart Docker kalian terlebih dahulu. Contoh dibawah menggunakan systemd.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo systemctl restart docker.service
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu kalian bisa login.&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker login 172.168.10.1:5000
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="konsiderasi">Konsiderasi&lt;/h2>
+&lt;p>Sebenarnya ada produk Container Registry lain yang ada seperti &lt;strong>JFrog&lt;/strong> dan &lt;strong>Nexus&lt;/strong> keduanya memiliki Web Interface yang memudahkan kita untuk me-&lt;em>manage&lt;/em> registry, namun saya memilih &lt;strong>Docker&lt;/strong> karena deployment yang simple dan minimalist. Selalu ada Pro dan Kontra dalam memilih sesuatu, namun kita hanya harus memilih yang cocok untuk kita pakai.&lt;/p>
+&lt;h2 id="penutup">Penutup&lt;/h2>
 &lt;p>Oke sekian artikel pada hari ini, saya sangat senang akhirnya bisa menulis lagi, seperti biasa jika ada &lt;strong>pertanyaan/typo/kurang jelas&lt;/strong>, kalian bisa berdiskusi pada kolom komentar. Sekian dan terimakasih.&lt;/p>
 &lt;h2 id="referensi">Referensi&lt;/h2>
 &lt;ul>
