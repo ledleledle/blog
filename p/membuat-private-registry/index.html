@@ -25,7 +25,7 @@ Intro Kadang untuk alasan privasi atau mencari kecepatan dalam deployment, seseo
 </span></code></pre></div><p>Tapi jangan dideploy terlebih dahulu! Karena kita harus membuat autentikasi password terlebih dahulu.</p><h3 id=autentikasi>Autentikasi</h3><p>Tentu saja kita ingin, registry kita hanya dimasuki oleh orang yang kita beri akses, untuk itu kita harus membuat autentikasi agar user harus login untuk dapat menggunakan registry ini. Masukkan perintah berikut.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1>## Buat folder bernama &#34;auth&#34;</span>
 mkdir auth
 <span class=c1>## Membuat file &#34;htpasswd&#34; didalam folder &#34;auth&#34;, dengan user &#34;blog&#34; &amp; password &#34;blogleon666&#34;</span>
-docker run --rm --entrypoint htpasswd registry:2.7 -Bbn blog blogleon666 &gt; auth/htpasswd
+docker run --rm --entrypoint htpasswd registry:2.7.0 -Bbn blog blogleon666 &gt; auth/htpasswd
 </code></pre></div><h3 id=deployment>Deployment</h3><p>Step paling gampang yaitu deployment, karena kita hanya akan menjalankan satu perintah saja.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>docker-compose up -d
 </code></pre></div><h3 id=konfigurasi-domain-dan-ssl>Konfigurasi domain dan SSL</h3><p>Pada artikel ini, kita akan menggunakan SSL gratis yaitu <strong>Certbot/LetsEncrypt</strong>. Pertama install terlebih dahulu <strong>Certbot & Nginx</strong>.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1>## Install Certbot</span>
 sudo snap install core<span class=p>;</span> sudo snap refresh core

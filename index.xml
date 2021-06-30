@@ -41,7 +41,7 @@
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">## Buat folder bernama &amp;#34;auth&amp;#34;&lt;/span>
 mkdir auth
 &lt;span class="c1">## Membuat file &amp;#34;htpasswd&amp;#34; didalam folder &amp;#34;auth&amp;#34;, dengan user &amp;#34;blog&amp;#34; &amp;amp; password &amp;#34;blogleon666&amp;#34;&lt;/span>
-docker run --rm --entrypoint htpasswd registry:2.7 -Bbn blog blogleon666 &amp;gt; auth/htpasswd
+docker run --rm --entrypoint htpasswd registry:2.7.0 -Bbn blog blogleon666 &amp;gt; auth/htpasswd
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="deployment">Deployment&lt;/h3>
 &lt;p>Step paling gampang yaitu deployment, karena kita hanya akan menjalankan satu perintah saja.&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up -d
