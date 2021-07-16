@@ -1,4 +1,256 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 21 May 2021 14:53:48 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Membuat Private Registry</title><link>https://blog.leonprasetya.my.id/p/membuat-private-registry/</link><pubDate>Fri, 21 May 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/membuat-private-registry/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/membuat-private-registry/private.png" alt="Featured image of post Membuat Private Registry" />&lt;p>Maafkan saya yang akhir-akhir ini tidak menulis blog (2 bulan), dikarenakan kerjaan yang padat dan manajemen waktu yang buruk. Namun sekarang saya senggang dan mampu untuk menulis blog.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 17 Jun 2021 14:53:48 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose</title><link>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</link><pubDate>Thu, 17 Jun 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.png" alt="Featured image of post Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose" />&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format &lt;strong>Plugin&lt;/strong>. Sorry saya bukannya mau ngepromote KONG, cuma yang saya rasakan seperti itu wkwk.&lt;/p>
+&lt;h2 id="db-mode-vs-db-less">DB-Mode vs DB-Less&lt;/h2>
+&lt;p>Kong memiliki 2 pilihan diantaranya, DB-Mode yaitu KONG dengan database, database yang dapat disupport ada 2 yaitu PostreSQL dan Cassandra. Dan DB-Less yaitu KONG tanpa database, yaitu kita bisa menggunakan file &lt;code>.yml&lt;/code> untuk melakukan konfigurasi terhadap KONG. Namun kali ini saya akan menggunakan DB-Mode dengan database PostgreSQL.&lt;/p>
+&lt;h2 id="good-point">Good Point&lt;/h2>
+&lt;p>Seperti yang saya dijelaskan pada intro, karena KONG memiliki pluginnya sendiri, kita dapat memanfaatkan fitur-fiturnya tanpa perlu membuat service dengan fitur yang sama satu per satu. Lebih gampangnya mari kita lihat gambar dibawah.&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 113; flex-basis: 271px">
+&lt;a href="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png" data-size="432x382">&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_1024x0_resize_box_2.png 1024w"
+width="432"
+height="382"
+loading="lazy"
+alt="Tanpa KONG">
+&lt;/a>
+&lt;figcaption>Tanpa KONG&lt;/figcaption>
+&lt;/figure>
+Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 165; flex-basis: 396px">
+&lt;a href="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png" data-size="1578x954">&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_1024x0_resize_box_2.png 1024w"
+width="1578"
+height="954"
+loading="lazy"
+alt="Dengan KONG">
+&lt;/a>
+&lt;figcaption>Dengan KONG&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="instalasi">Instalasi&lt;/h2>
+&lt;p>Mungkin kita akan membahas instalasinya terlebih dahulu, berikut adalah hal-hal yang akan dipakai dalam praktek ini.&lt;/p>
+&lt;ul>
+&lt;li>Docker &amp;amp; Docker Compose&lt;/li>
+&lt;li>KONG Community Edition&lt;/li>
+&lt;li>KONGA (Admin WEB UI, untuk mempermudah penggunaan KONG)&lt;/li>
+&lt;/ul>
+&lt;p>Siapkan sebuah folder dan file &lt;code>docker-compose.yml&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">mkdir kong-api-gateway &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> kong-api-gateway
+touch docker-compose.yml
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu edit file &lt;code>docker-compose.yml&lt;/code> yang telah kita buat dengan konfigurasi dibawah. Mari kita bahas step-by-step untuk komponen-komponennya.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Format dokumen docker compose yang dipakai yaitu 3.0. Untuk lebih detailnya, bisa kalian lihat pada &lt;a class="link" href="https://docs.docker.com/compose/compose-file/" target="_blank" rel="noopener"
+>dokumentasi docker compose berikut&lt;/a>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres:9.6&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">./postgres-data:/var/lib/postgresql/data&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_DB=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">5432&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">5432&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Sediakan databasenya, disini saya menggunakan versi &lt;code>postgres:9.6&lt;/code> (tidak ada alasan khusus, kalian bisa menggunakan versi yang berbeda). Untuk membuat databasenya lebih &lt;em>persistent&lt;/em>, saya juga membuat volume yang mengarah pada directory &lt;code>postgres-data&lt;/code>. Set USER, PASSWORD dan DB pada environment. Dan join network ke &lt;code>kong-net&lt;/code> untuk menghubungkan container satu dengan yang lain pada jaringan yang sama.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-migrate&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong migrations bootstrap&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_DATABASE=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_DATABASE=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu ada perintah migrate, yaitu KONG akan melakukan migrasi database dan seluruh table agar KONG dapat berjalan dengan normal. Masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment &lt;code>kong-migrate&lt;/code>. &lt;code>depends_on&lt;/code> yaitu perintah untuk menunggu suatu container yang dispesifikasikan untuk berjalan terlebih dahulu, barulah container selanjutnya akan dijalankan.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_LOG_LEVEL=debug&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_DATABASE=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_DATABASE=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_ACCESS_LOG=/dev/stdout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_ACCESS_LOG=/dev/stdout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_ERROR_LOG=/dev/stderr&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_ERROR_LOG=/dev/stderr&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_LISTEN=0.0.0.0:8001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_LISTEN=0.0.0.0:8000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_LISTEN_SSL=0.0.0.0:8443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8000&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8443&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8001&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8444&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8444&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-migrate&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah migrasi selesai, selanjutnya kita bisa menjalankan KONG. Seperti sebelumnya, masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment &lt;code>kong&lt;/code>. Sebenarnya dari sini kita sudah bisa menggunakan KONG melalui HTTP Request seperti cURL atau Postman. Namun untuk mempermudah penggunaan KONG, kita akan memasang WEB UI yang dibuat oleh komunitas yaitu &lt;strong>KONGA&lt;/strong>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga-prepare&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;-c prepare -a postgres -u postgresql://user:12345@kong-database:5432/konga_db&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Untuk KONGA kita juga membutuhkan database, jadi kita juga akan melakukan migrasi database untuk KONGA, kita bisa menggunakan database yang sama yang kita gunakan untuk KONG. Untuk mengisikan USERNAME, PASSWORD dan DATABASE PostgreSQL, pada KONGA kita menggunakan format URL seperti &lt;code>postgresql://user_anda:password_anda@host_atau_ip_anda:5432/db_anda&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_ADAPTER=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">TOKEN_SECRET=km1GUr4RkcQD7DewhJPNXrCuZwcKmqjb&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_DATABASE=konga_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">NODE_ENV=production&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;1337:1337&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah migrasi KONGA database selesai, barulah kita bisa melakukan deployment KONGA. Konfigurasinya overall hampir sama, jadi tidak usah saya jelaskan. Untuk &lt;code>TOKEN_SECRET&lt;/code> sebenarnya bisa diisi bebas, tapi disini saya mengikuti dokumentasinya saja.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-net&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">bridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ini adalah network yang dipanggil disetiap service, Network bersifat &lt;code>bridge&lt;/code>.&lt;/p>
+&lt;p>Jadi, konfigurasi penuhnya akan terlihat seperti berikut.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres:9.6&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">./postgres-data:/var/lib/postgresql/data&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_DB=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">5432&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">5432&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-migrate&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong migrations bootstrap&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_DATABASE=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_DATABASE=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_LOG_LEVEL=debug&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_DATABASE=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_DATABASE=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_ACCESS_LOG=/dev/stdout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_ACCESS_LOG=/dev/stdout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_ERROR_LOG=/dev/stderr&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_ERROR_LOG=/dev/stderr&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_LISTEN=0.0.0.0:8001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_LISTEN=0.0.0.0:8000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_LISTEN_SSL=0.0.0.0:8443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8000&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8443&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8001&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="m">8444&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8444&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-migrate&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">konga-prepare&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;-c prepare -a postgres -u postgresql://user:12345@kong-database:5432/konga_db&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">konga&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_ADAPTER=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">TOKEN_SECRET=km1GUr4RkcQD7DewhJPNXrCuZwcKmqjb&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_DATABASE=konga_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">NODE_ENV=production&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;1337:1337&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">project&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./project&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;3000:3000&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-net&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">bridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Simpan dan jalankan perintah, lalu tunggu beberapa menit untuk menunggu database, table dan container disiapkan.&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up -d
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah semuanya selesai, kita bisa akses &lt;a class="link" href="http://localhost:1337" target="_blank" rel="noopener"
+>localhost:1337&lt;/a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan &lt;strong>Role Based Access Control (RBAC)&lt;/strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.
+&lt;figure style="flex-grow: 198; flex-basis: 476px">
+&lt;a href="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png" data-size="1351x680">&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_2.png 1024w"
+width="1351"
+height="680"
+loading="lazy"
+alt="KONGA Wellcome Page">
+&lt;/a>
+&lt;figcaption>KONGA Wellcome Page&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="references">References&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://hub.docker.com/r/pantsel/konga/">https://hub.docker.com/r/pantsel/konga/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hub.docker.com/_/kong">https://hub.docker.com/_/kong&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/">https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Okay&amp;hellip; Sudah dulu, untuk fitur-fitur yang lain dan cara penggunaan KONGA. Kita akan bahas pada artikel berikutnya (sorry ngantuk). Oke sekian dulu, semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.&lt;/p></description></item><item><title>Membuat Private Registry</title><link>https://blog.leonprasetya.my.id/p/membuat-private-registry/</link><pubDate>Fri, 21 May 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/membuat-private-registry/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/membuat-private-registry/private.png" alt="Featured image of post Membuat Private Registry" />&lt;p>Maafkan saya yang akhir-akhir ini tidak menulis blog (2 bulan), dikarenakan kerjaan yang padat dan manajemen waktu yang buruk. Namun sekarang saya senggang dan mampu untuk menulis blog.&lt;/p>
 &lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>Kadang untuk alasan privasi atau mencari kecepatan dalam deployment, seseorang atau suatu perusahaan akan memilih untuk membuat &lt;strong>Container Registry&lt;/strong>-nya sendiri, apalagi sekarang lagi populer banget development aplikasi menggunakan kontainer, cocok banget. Untuk itu dibuatlah artikel ini. Namun pada artikel ini saya hanya akan memberikan contoh kecilnya saja, yang mungkin bisa kalian kembangkan misal kalian ingin membuat cluster container registry, dsb. Okay langsung saja.&lt;/p>
 &lt;h2 id="requirement">Requirement&lt;/h2>
@@ -19,12 +271,12 @@
 &lt;h2 id="step-by-step">Step-by-step&lt;/h2>
 &lt;p>Ya&amp;hellip; HTTPS dan domain itu tidak wajib karena tidak semua orang memiliki uang yang cukup untuk membeli sebuah domain (seperti saya). Sebenarnya untuk login docker registry membutuhkan request HTTPS, tapi kita bisa mem-&lt;em>bypass&lt;/em>nya, nanti bakal saya jelasin diakhir artikel.&lt;/p>
 &lt;h3 id="docker-compose-file">Docker-compose file&lt;/h3>
-&lt;p>Pertama, kita akan mendeploy sebuah container registry, dan untungnya Docker sudah membuat imagenya agar kita bisa lebih mudah dalam membuat container registry secara pribadi. Pada artikel ini dibuat, docker registry masih dalam versi &lt;strong>2.7&lt;/strong>. Jika ingin menggunakan versi terbaru kalian bisa cek pada &lt;a class="link" href="https://hub.docker.com/_/registry?tab=tags&amp;amp;page=1&amp;amp;ordering=last_updated" target="_blank" rel="noopener"
+&lt;p>Pertama, kita akan mendeploy sebuah container registry, dan untungnya Docker sudah membuat imagenya agar kita bisa lebih mudah dalam membuat container registry secara pribadi. Pada artikel ini dibuat, docker registry masih dalam versi &lt;strong>2.7.0&lt;/strong>. Jika ingin menggunakan versi terbaru kalian bisa cek pada &lt;a class="link" href="https://hub.docker.com/_/registry?tab=tags&amp;amp;page=1&amp;amp;ordering=last_updated" target="_blank" rel="noopener"
 >Docker Hub&lt;/a>.&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-docker" data-lang="docker">version: &lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span>services:&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span> registry:&lt;span class="err">
-&lt;/span>&lt;span class="err">&lt;/span> image: registry:2.7&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> image: registry:2.7.0&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span> restart: always&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span> ports: &lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span> - 5000:5000&lt;span class="err">
