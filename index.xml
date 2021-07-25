@@ -1295,7 +1295,70 @@ alt="EC2">
 &lt;figcaption>EC2&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Yeah&amp;hellip; Met belajar cuyy!!!&lt;/p>
-&lt;p>Nantikan artikel berikutnya tentang penggunaan AWS Cloud. Sampai jumpa&amp;hellip;!!!&lt;/p></description></item><item><title>Host Website Hugo di Github</title><link>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</link><pubDate>Wed, 29 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/hugo.png" alt="Featured image of post Host Website Hugo di Github" />&lt;p>Sebelumnya saya telah membuat tutorial &lt;a class="link" href="../how-i-made-hugo" >How I Made Hugo Blog&lt;/a>. Ini lanjutan yang telah saya janjikan. Dan maaf saya sekarang pakai Bahasa Indonesia, karena ternyata setelah saya membuat postingan tersebut ternyata Bahasa Inggris saya masih kacau dan terlihat di postingan sebelumnya bahasanya kacau sekali (jadi malu). Yah tidak usah basa-basi lagi.&lt;/p>
+&lt;p>Nantikan artikel berikutnya tentang penggunaan AWS Cloud. Sampai jumpa&amp;hellip;!!!&lt;/p></description></item><item><title>Kostumisasi Mozila Firefox dengan mengubah userChrome.css</title><link>https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/</link><pubDate>Thu, 30 Apr 2020 23:39:39 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Karena di &lt;a class="link" href="https://web.facebook.com/groups/linuxart" target="_blank" rel="noopener"
+>Grup Facebook Lokal&lt;/a> banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada &lt;strong>Firefox&lt;/strong>, maka saya buatlah tutorial ini.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;ul>
+&lt;li>Mozila Firefox&lt;/li>
+&lt;li>Skill CSS Dasar (Copy Paste juga boleh)&lt;/li>
+&lt;/ul>
+&lt;h2 id="tutorial">Tutorial&lt;/h2>
+&lt;p>&lt;strong>Pertama&lt;/strong>, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan &lt;code>about:config&lt;/code>. Klik &lt;code>Accept the Risk and Continue&lt;/code>.&lt;/p>
+&lt;p>&lt;strong>Kedua&lt;/strong>, cari &lt;code>toolkit.legacyUserProfileCustomizations.stylesheets&lt;/code>. Lalu ubah valuenya dari &lt;strong>False&lt;/strong> menjadi &lt;strong>True&lt;/strong>.&lt;/p>
+&lt;p>Langkah selanjutnya yaitu membuat/menyunting file &lt;code>userChrome.css&lt;/code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu &lt;strong>Help &amp;gt; Troubleshooting Information&lt;/strong>.
+&lt;figure style="flex-grow: 216; flex-basis: 518px">
+&lt;a href="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png" data-size="1297x600">&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png"
+srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_1024x0_resize_box_3.png 1024w"
+width="1297"
+height="600"
+loading="lazy"
+alt="Troubleshooting Information">
+&lt;/a>
+&lt;figcaption>Troubleshooting Information&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Cari menggunakan fitur search (Ctrl+F) dengan query &lt;code>Profile Directory&lt;/code>, lalu klik Open Directory.
+&lt;figure style="flex-grow: 153; flex-basis: 367px">
+&lt;a href="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png" data-size="556x363">&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png"
+srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_1024x0_resize_box_3.png 1024w"
+width="556"
+height="363"
+loading="lazy"
+alt="Directory User Firefox">
+&lt;/a>
+&lt;figcaption>Directory User Firefox&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Maka terbukalah directory konfigurasinya, disini cari directory &lt;strong>chrome&lt;/strong> (jika tidak ada buatlah directorynya).&lt;/p>
+&lt;p>Setelah kalian menemukan/membuat directory &lt;strong>chrome&lt;/strong>, buat/edit file yang bernamakan &lt;code>userChrome.css&lt;/code>.&lt;/p>
+&lt;p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan &lt;code>Navbar&lt;/code> mozilla seperti gambar GIF dibawah.
+&lt;figure style="flex-grow: 133; flex-basis: 319px">
+&lt;a href="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif" data-size="864x649">&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif"
+srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_1024x0_resize_box.gif 1024w"
+width="864"
+height="649"
+loading="lazy"
+alt="Contoh Konfigurasi (Klik untuk play GIF)">
+&lt;/a>
+&lt;figcaption>Contoh Konfigurasi (Klik untuk play GIF)&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Kalau kalian mau mencoba yang seperti itu, kalian bisa menggunakan config saya dibawah.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="p">@&lt;/span>&lt;span class="k">-moz-document&lt;/span> &lt;span class="nt">url&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="nt">chrome&lt;/span>&lt;span class="o">://&lt;/span>&lt;span class="nt">browser&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nt">content&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nt">browser&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nc">xul&lt;/span>&lt;span class="o">),&lt;/span>
+&lt;span class="nt">url&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="nt">chrome&lt;/span>&lt;span class="o">://&lt;/span>&lt;span class="nt">browser&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nt">content&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nt">browser&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nc">xhtml&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="p">#&lt;/span>&lt;span class="nn">TabsToolbar&lt;/span> &lt;span class="o">&amp;gt;&lt;/span> &lt;span class="o">*&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">visibility&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">collapse&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">#&lt;/span>&lt;span class="nn">main-window&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">not&lt;/span>&lt;span class="o">([&lt;/span>&lt;span class="nt">customizing&lt;/span>&lt;span class="o">])&lt;/span> &lt;span class="p">#&lt;/span>&lt;span class="nn">navigator-toolbox&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">not&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">focus-within&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">not&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="nd">hover&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">margin-top&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">-92&lt;/span>&lt;span class="kt">px&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">#&lt;/span>&lt;span class="nn">navigator-toolbox&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">transition&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mf">0.2&lt;/span>&lt;span class="kt">s&lt;/span> &lt;span class="k">margin-top&lt;/span> &lt;span class="kc">ease-out&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">#&lt;/span>&lt;span class="nn">sidebar-box&lt;/span>&lt;span class="o">[&lt;/span>&lt;span class="nt">sidebarcommand&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;treestyletab_piro_sakura_ne_jp-sidebar-action&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="p">#&lt;/span>&lt;span class="nn">sidebar-header&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">display&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Save file&lt;/strong>, lalu restart firefox.&lt;/p>
+&lt;p>Semoga tutorial ini bermanfaat. Sekian dan Terimakasih&lt;/p></description></item><item><title>Host Website Hugo di Github</title><link>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</link><pubDate>Wed, 29 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/hugo.png" alt="Featured image of post Host Website Hugo di Github" />&lt;p>Sebelumnya saya telah membuat tutorial &lt;a class="link" href="../how-i-made-hugo" >How I Made Hugo Blog&lt;/a>. Ini lanjutan yang telah saya janjikan. Dan maaf saya sekarang pakai Bahasa Indonesia, karena ternyata setelah saya membuat postingan tersebut ternyata Bahasa Inggris saya masih kacau dan terlihat di postingan sebelumnya bahasanya kacau sekali (jadi malu). Yah tidak usah basa-basi lagi.&lt;/p>
 &lt;h1 id="tutorial">Tutorial&lt;/h1>
 &lt;h3 id="1-generate-static-files">1. Generate Static Files&lt;/h3>
 &lt;p>Jika sebelumnya kita hanya menjalankan server local dengan perintah &lt;code>hugo server&lt;/code>. Sekarang kita akan meng-generate file statis dengan perintah &lt;code>hugo --minify&lt;/code>. Perintah tersebut akan menjadikan tulisan dan tema yang kalian buat menjadi file statis yang bisa kalian temui di folder &lt;code>public&lt;/code>.&lt;/p>
