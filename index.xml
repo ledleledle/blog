@@ -1,7 +1,55 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 17 Jun 2021 14:53:48 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose</title><link>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</link><pubDate>Thu, 17 Jun 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.png" alt="Featured image of post Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose" />&lt;h2 id="fyi">FYI&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Jul 2021 20:28:27 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>RHEL 8 Install Text Mode</title><link>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</link><pubDate>Sun, 25 Jul 2021 20:28:27 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/index.png" alt="Featured image of post RHEL 8 Install Text Mode" />&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>By default installasi RedHat 8 Linux bakal dijalankan pada graphical mode. Disini kita akan menggunakan &lt;strong>Text Mode TTY installation&lt;/strong>. Ini sebenarnya didesain untuk &amp;ldquo;JIKA&amp;rdquo; kalian memiliki masalah dengan graphical mode, kalian bisa menggunakan text mode untuk pilihan ke-2.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;ul>
+&lt;li>File instalasi ISO RHEL 8&lt;/li>
+&lt;li>Software virtualisasi (jika belajar)&lt;/li>
+&lt;/ul>
+&lt;p>Saat kalian baru booting pasti terlihat seperti ini.
+&lt;figure style="flex-grow: 138; flex-basis: 333px">
+&lt;a href="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1.png" data-size="859x619">&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1.png"
+srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1_hu3a699f29434292a533836e9844f7f3d6_44736_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1_hu3a699f29434292a533836e9844f7f3d6_44736_1024x0_resize_box_3.png 1024w"
+width="859"
+height="619"
+loading="lazy"
+alt="GRUB menu">
+&lt;/a>
+&lt;figcaption>GRUB menu&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Pada screenshot diatas, kita bisa menekan tombol &lt;code>TAB&lt;/code> untuk konfigurasi yang kostum. Maka kita akan tekan &lt;code>TAB&lt;/code> dan masukkan text berikut diakhir baris konfigurasi GRUB.&lt;/p>
+&lt;pre>&lt;code>... inst.text
+&lt;/code>&lt;/pre>&lt;p>Seperti ini
+&lt;figure style="flex-grow: 167; flex-basis: 401px">
+&lt;a href="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2.png" data-size="1026x613">&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2.png"
+srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2_hud45b02c2a30cf70c14038929ed95061f_57057_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2_hud45b02c2a30cf70c14038929ed95061f_57057_1024x0_resize_box_3.png 1024w"
+width="1026"
+height="613"
+loading="lazy"
+alt="GRUB menu custom">
+&lt;/a>
+&lt;figcaption>GRUB menu custom&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Lalu tekan &lt;code>ENTER&lt;/code>, maka kalian sudah bisa menggunakan installasi text mode.
+&lt;figure style="flex-grow: 192; flex-basis: 462px">
+&lt;a href="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3.png" data-size="673x349">&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3.png"
+srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3_hu7deebc7e83e95f0baea413aecf079b11_24615_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3_hu7deebc7e83e95f0baea413aecf079b11_24615_1024x0_resize_box_3.png 1024w"
+width="673"
+height="349"
+loading="lazy"
+alt="Text Mode Installation RHEL 8">
+&lt;/a>
+&lt;figcaption>Text Mode Installation RHEL 8&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Sekian tutorial singkat dari saya. Terimakasih&lt;/p></description></item><item><title>Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose</title><link>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</link><pubDate>Sat, 17 Jul 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.png" alt="Featured image of post Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose" />&lt;h2 id="fyi">FYI&lt;/h2>
 &lt;ul>
 &lt;li>Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi.&lt;/li>
 &lt;li>Kenapa menggunakan kontainer? Karena KONG bersifat &lt;strong>stateless&lt;/strong> yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu.&lt;/li>
+&lt;li>Kita menggunakan KONG Community Edition&lt;/li>
+&lt;/ul>
+&lt;h2 id="serial">Serial&lt;/h2>
+&lt;ul>
+&lt;li>Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;li>&lt;a class="link" href="../pembahasan-services-dan-routes-pada-kong-api-gateway/" >Pembahasan Services dan Routes pada Kong Api Gateway&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format &lt;strong>Plugin&lt;/strong>. Sorry saya bukannya mau ngepromote KONG, cuma yang saya rasakan seperti itu wkwk.&lt;/p>
@@ -11,7 +59,7 @@
 &lt;p>Seperti yang saya jelaskan pada intro, karena KONG memiliki pluginnya sendiri, kita dapat memanfaatkan fitur-fiturnya tanpa perlu membuat service dengan fitur yang sama satu per satu. Lebih gampangnya mari kita lihat gambar dibawah.&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 113; flex-basis: 271px">
 &lt;a href="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png" data-size="432x382">&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png"
-srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_1024x0_resize_box_3.png 1024w"
 width="432"
 height="382"
 loading="lazy"
@@ -22,7 +70,7 @@ alt="Tanpa KONG">
 Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 165; flex-basis: 396px">
 &lt;a href="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png" data-size="1578x954">&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png"
-srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_1024x0_resize_box_3.png 1024w"
 width="1578"
 height="954"
 loading="lazy"
@@ -38,13 +86,13 @@ alt="Dengan KONG">
 &lt;li>KONGA (Admin WEB UI, untuk mempermudah penggunaan KONG)&lt;/li>
 &lt;/ul>
 &lt;p>Siapkan sebuah folder dan file &lt;code>docker-compose.yml&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">mkdir kong-api-gateway &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> kong-api-gateway
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">mkdir kong-api-gateway &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> kong-api-gateway
 touch docker-compose.yml
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu edit file &lt;code>docker-compose.yml&lt;/code> yang telah kita buat dengan konfigurasi dibawah. Mari kita bahas step-by-step untuk komponen-komponennya.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Format dokumen docker compose yang dipakai yaitu 3.0. Untuk lebih detailnya, bisa kalian lihat pada &lt;a class="link" href="https://docs.docker.com/compose/compose-file/" target="_blank" rel="noopener"
 >dokumentasi docker compose berikut&lt;/a>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres:9.6&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
@@ -59,7 +107,7 @@ touch docker-compose.yml
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Sediakan databasenya, disini saya menggunakan versi &lt;code>postgres:9.6&lt;/code> (tidak ada alasan khusus, kalian bisa menggunakan versi yang berbeda). Untuk membuat databasenya lebih &lt;em>persistent&lt;/em>, saya juga membuat volume yang mengarah pada directory &lt;code>postgres-data&lt;/code>. Set USER, PASSWORD dan DB pada environment. Dan join network ke &lt;code>kong-net&lt;/code> untuk menghubungkan container satu dengan yang lain pada jaringan yang sama.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-migrate&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-migrate&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong migrations bootstrap&lt;/span>&lt;span class="w">
@@ -74,7 +122,7 @@ touch docker-compose.yml
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu ada perintah migrate, yaitu KONG akan melakukan migrasi database dan seluruh table agar KONG dapat berjalan dengan normal. Masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment &lt;code>kong-migrate&lt;/code>. &lt;code>depends_on&lt;/code> yaitu perintah untuk menunggu suatu container yang dispesifikasikan untuk berjalan terlebih dahulu, barulah container selanjutnya akan dijalankan.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -102,7 +150,7 @@ touch docker-compose.yml
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah migrasi selesai, selanjutnya kita bisa menjalankan KONG. Seperti sebelumnya, masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment &lt;code>kong&lt;/code>. Sebenarnya dari sini kita sudah bisa menggunakan KONG melalui HTTP Request seperti cURL atau Postman. Namun untuk mempermudah penggunaan KONG, kita akan memasang WEB UI yang dibuat oleh komunitas yaitu &lt;strong>KONGA&lt;/strong>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga-prepare&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga-prepare&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;-c prepare -a postgres -u postgresql://user:12345@kong-database:5432/konga_db&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -113,7 +161,7 @@ touch docker-compose.yml
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Untuk KONGA kita juga membutuhkan database, jadi kita juga akan melakukan migrasi database untuk KONGA, kita bisa menggunakan database yang sama yang kita gunakan untuk KONG. Untuk mengisikan USERNAME, PASSWORD dan DATABASE PostgreSQL, pada KONGA kita menggunakan format URL seperti &lt;code>postgresql://user_anda:password_anda@host_atau_ip_anda:5432/db_anda&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
@@ -131,12 +179,12 @@ touch docker-compose.yml
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;1337:1337&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah migrasi KONGA database selesai, barulah kita bisa melakukan deployment KONGA. Konfigurasinya overall hampir sama, jadi tidak usah saya jelaskan. Untuk &lt;code>TOKEN_SECRET&lt;/code> sebenarnya bisa diisi bebas, tapi disini saya mengikuti dokumentasinya saja.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-net&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">bridge&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ini adalah network yang dipanggil disetiap service, Network bersifat &lt;code>bridge&lt;/code>.&lt;/p>
 &lt;p>Jadi, konfigurasi penuhnya akan terlihat seperti berikut.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres:9.6&lt;/span>&lt;span class="w">
@@ -236,12 +284,12 @@ touch docker-compose.yml
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-net&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">bridge&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Simpan dan jalankan perintah, lalu tunggu beberapa menit untuk menunggu database, table dan container disiapkan.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up -d
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up -d
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah semuanya selesai, kita bisa akses &lt;a class="link" href="http://localhost:1337" target="_blank" rel="noopener"
 >localhost:1337&lt;/a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan &lt;strong>Role Based Access Control (RBAC)&lt;/strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.
 &lt;figure style="flex-grow: 198; flex-basis: 476px">
 &lt;a href="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png" data-size="1351x680">&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png"
-srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_3.png 1024w"
 width="1351"
 height="680"
 loading="lazy"
@@ -251,10 +299,14 @@ alt="KONGA Wellcome Page">
 &lt;/figure>&lt;/p>
 &lt;h2 id="references">References&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="https://hub.docker.com/r/pantsel/konga/">https://hub.docker.com/r/pantsel/konga/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://hub.docker.com/_/kong">https://hub.docker.com/_/kong&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/">https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://hub.docker.com/r/pantsel/konga/" target="_blank" rel="noopener"
+>https://hub.docker.com/r/pantsel/konga/&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://hub.docker.com/_/kong" target="_blank" rel="noopener"
+>https://hub.docker.com/_/kong&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/" target="_blank" rel="noopener"
+>https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/&lt;/a>&lt;/li>
 &lt;/ul>
+&lt;h2 id="penutup">Penutup&lt;/h2>
 &lt;p>Okay&amp;hellip; Sudah dulu, untuk fitur-fitur yang lain dan cara penggunaan KONGA. Kita akan bahas pada artikel berikutnya (sorry ngantuk). Oke sekian dulu, semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.&lt;/p></description></item><item><title>Membuat Private Registry</title><link>https://blog.leonprasetya.my.id/p/membuat-private-registry/</link><pubDate>Fri, 21 May 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/membuat-private-registry/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/membuat-private-registry/private.png" alt="Featured image of post Membuat Private Registry" />&lt;p>Maafkan saya yang akhir-akhir ini tidak menulis blog (2 bulan), dikarenakan kerjaan yang padat dan manajemen waktu yang buruk. Namun sekarang saya senggang dan mampu untuk menulis blog.&lt;/p>
 &lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>Kadang untuk alasan privasi atau mencari kecepatan dalam deployment, seseorang atau suatu perusahaan akan memilih untuk membuat &lt;strong>Container Registry&lt;/strong>-nya sendiri, apalagi sekarang lagi populer banget development aplikasi menggunakan kontainer, cocok banget. Untuk itu dibuatlah artikel ini. Namun pada artikel ini saya hanya akan memberikan contoh kecilnya saja, yang mungkin bisa kalian kembangkan misal kalian ingin membuat cluster container registry, dsb. Okay langsung saja.&lt;/p>
@@ -267,7 +319,7 @@ alt="KONGA Wellcome Page">
 &lt;li>Sebuah domain (jika anda orang yang mampu/gak wajib)&lt;/li>
 &lt;/ul>
 &lt;h2 id="susunan-file--directory">Susunan file &amp;amp; directory&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">container-registry
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">container-registry
 ├── auth
 │   ├── htpasswd
 ├── docker-compose.yaml
@@ -278,7 +330,7 @@ alt="KONGA Wellcome Page">
 &lt;h3 id="docker-compose-file">Docker-compose file&lt;/h3>
 &lt;p>Pertama, kita akan mendeploy sebuah container registry, dan untungnya Docker sudah membuat imagenya agar kita bisa lebih mudah dalam membuat container registry secara pribadi. Pada artikel ini dibuat, docker registry masih dalam versi &lt;strong>2.7.0&lt;/strong>. Jika ingin menggunakan versi terbaru kalian bisa cek pada &lt;a class="link" href="https://hub.docker.com/_/registry?tab=tags&amp;amp;page=1&amp;amp;ordering=last_updated" target="_blank" rel="noopener"
 >Docker Hub&lt;/a>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-docker" data-lang="docker">version: &lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="err">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">version: &lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span>services:&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span> registry:&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span> image: registry:2.7.0&lt;span class="err">
@@ -295,16 +347,16 @@ alt="KONGA Wellcome Page">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tapi jangan dideploy terlebih dahulu! Karena kita harus membuat autentikasi password terlebih dahulu.&lt;/p>
 &lt;h3 id="autentikasi">Autentikasi&lt;/h3>
 &lt;p>Tentu saja kita ingin, registry kita hanya dimasuki oleh orang yang kita beri akses, untuk itu kita harus membuat autentikasi agar user harus login untuk dapat menggunakan registry ini. Masukkan perintah berikut.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">## Buat folder bernama &amp;#34;auth&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">## Buat folder bernama &amp;#34;auth&amp;#34;&lt;/span>
 mkdir auth
 &lt;span class="c1">## Membuat file &amp;#34;htpasswd&amp;#34; didalam folder &amp;#34;auth&amp;#34;, dengan user &amp;#34;blog&amp;#34; &amp;amp; password &amp;#34;blogleon666&amp;#34;&lt;/span>
 docker run --rm --entrypoint htpasswd registry:2.7.0 -Bbn blog blogleon666 &amp;gt; auth/htpasswd
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="deployment">Deployment&lt;/h3>
 &lt;p>Step paling gampang yaitu deployment, karena kita hanya akan menjalankan satu perintah saja.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up -d
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up -d
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="konfigurasi-domain-dan-ssl">Konfigurasi domain dan SSL&lt;/h3>
 &lt;p>Pada artikel ini, kita akan menggunakan SSL gratis yaitu &lt;strong>Certbot/LetsEncrypt&lt;/strong>. Pertama install terlebih dahulu &lt;strong>Certbot &amp;amp; Nginx&lt;/strong>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">## Install Certbot&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">## Install Certbot&lt;/span>
 sudo snap install core&lt;span class="p">;&lt;/span> sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
@@ -314,7 +366,7 @@ sudo apt install nginx -y
 sudo pacman -Sy nginx
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="reverse-proxy">Reverse Proxy&lt;/h4>
 &lt;p>Buat reverse proxy terlebih dahulu untuk mengalihkan IP Address server dengan domain yang kita miliki. Kita tidak perlu membuat konfigurasi untuk HTTPS karena nantinya akan di&lt;em>generate&lt;/em> otomatis oleh Certbot.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="c1">// Gunakan text editor favorit kalian
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="c1">// Gunakan text editor favorit kalian
 &lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nx">cd&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">sites&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">available&lt;/span>
 &lt;span class="nx">sudo&lt;/span> &lt;span class="nx">nano&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">conf&lt;/span>
 &lt;span class="c1">// Isi dari registry.conf
@@ -334,9 +386,9 @@ sudo pacman -Sy nginx
 &lt;/ul>
 &lt;h4 id="sslhttps">SSL/HTTPS&lt;/h4>
 &lt;p>Let the magic happen. Dengan Certbot, memasang SSL akan terasa sangat mudah.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo certbot --email email_anda@gmail.co.id --nginx -d registry.leonprasetya.my.id
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo certbot --email email_anda@gmail.co.id --nginx -d registry.leonprasetya.my.id
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Ketika proses selesai, coba buka file &lt;code>/etc/nginx/sites-available/registry.conf&lt;/code> untuk memastikan bahwa konfigurasi SSL sudah berhasil. Jika sudah selesai kurang lebih outputnya akan terlihat seperti ini.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="nx">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="nx">server&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;span class="nx">server_name&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">;&lt;/span>
 &lt;span class="nx">location&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;span class="nx">proxy_pass&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="c1">//172.168.10.1:5000;
@@ -368,7 +420,7 @@ sudo pacman -Sy nginx
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="testing">Testing&lt;/h3>
 &lt;p>Pemasangan Reverse Proxy dan SSL adalah step terakhir yang kita lalui, sekarang saatnya untuk mencoba container registry yang telah kita deploy.&lt;/p>
 &lt;h4 id="login">Login&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Login dengan username &amp;amp; password yang kita buat sebelumnya!&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Login dengan username &amp;amp; password yang kita buat sebelumnya!&lt;/span>
 docker login registry.leonprasetya.my.id
 Username: blog
 Password: &amp;lt;password_kita&amp;gt;
@@ -377,7 +429,7 @@ Configure a credential helper to remove this warning. See
 https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="pull--push-image">Pull &amp;amp; Push Image&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker pull ubuntu:16.04
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker pull ubuntu:16.04
 docker tag ubuntu:16.04 registry.leonprasetya.my.id/my-ubuntu
 docker push registry.leonprasetya.my.id/my-ubuntu
 docker pull registry.leonprasetya.my.id/my-ubuntu
@@ -385,47 +437,53 @@ docker pull registry.leonprasetya.my.id/my-ubuntu
 >Docker Untuk Pemula&lt;/a> hehehe&amp;hellip;&lt;/p>
 &lt;h3 id="cek-images">Cek Images&lt;/h3>
 &lt;p>Pada container registry ini, kita tidak dapat menggunakan perintah docker search seperti biasanya, sebagai gantinya kita bisa melakukan pengecekan atau melihat semua daftar images pada container registry ini menggunakan HTTP request. Seperti contoh.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">curl -X GET http://blog:blogleon666@registry.leonprasetya.my.id/v2/_catalog
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">curl -X GET http://blog:blogleon666@registry.leonprasetya.my.id/v2/_catalog
 &lt;span class="c1"># Output &lt;/span>
 &lt;span class="o">{&lt;/span>&lt;span class="s2">&amp;#34;repositories&amp;#34;&lt;/span>:&lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;my-ubuntu&amp;#34;&lt;/span>,&lt;span class="s2">&amp;#34;postgres&amp;#34;&lt;/span>&lt;span class="o">]}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Kita juga dapat melihat list tags pada sebuah image.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">curl -X GET http://blog:blogleon666@registry.leonprasetya.my.id/v2/postgres/tags/list
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">curl -X GET http://blog:blogleon666@registry.leonprasetya.my.id/v2/postgres/tags/list
 &lt;span class="c1"># Output&lt;/span>
 &lt;span class="o">{&lt;/span>&lt;span class="s2">&amp;#34;name&amp;#34;&lt;/span>:&lt;span class="s2">&amp;#34;postgres&amp;#34;&lt;/span>,&lt;span class="s2">&amp;#34;tags&amp;#34;&lt;/span>:&lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;9.6&amp;#34;&lt;/span>&lt;span class="o">]}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="insecure-container-registry">Insecure Container Registry&lt;/h3>
 &lt;p>Seperti yang saya janjikan diawal artikel ini, untuk teman-teman yang tak memiliki domain atau yang benar-benar hanya ingin Container registry ini diakses secara local, namun normalnya jika kalian mengaksesnya menggunakan menggunakan direct IP Address ataupun protokol HTTP, Docker akan melempar error &lt;code>http: server gave http response to https client&lt;/code>. Dan inilah yang akan kita bahas pada bab ini. Buat file &lt;strong>daemon.json&lt;/strong> untuk membuat list &lt;strong>insecure-registries&lt;/strong> (insecure seperti saya).&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo nano /etc/docker/daemon.json
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo nano /etc/docker/daemon.json
 &lt;span class="o">{&lt;/span>
 &lt;span class="s2">&amp;#34;insecure-registries&amp;#34;&lt;/span> : &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;172.168.10.1:5000&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>
 &lt;span class="o">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu restart Docker kalian terlebih dahulu. Contoh dibawah menggunakan systemd.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">sudo systemctl restart docker.service
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo systemctl restart docker.service
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu kalian bisa login.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker login 172.168.10.1:5000
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker login 172.168.10.1:5000
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="konsiderasi">Konsiderasi&lt;/h2>
 &lt;p>Sebenarnya ada produk Container Registry lain yang ada seperti &lt;strong>JFrog&lt;/strong> dan &lt;strong>Nexus&lt;/strong> keduanya memiliki Web Interface yang memudahkan kita untuk me-&lt;em>manage&lt;/em> registry, namun saya memilih &lt;strong>Docker&lt;/strong> karena deployment yang simple dan minimalist. Selalu ada Pro dan Kontra dalam memilih sesuatu, namun kita hanya harus memilih yang cocok untuk kita pakai.&lt;/p>
 &lt;h2 id="penutup">Penutup&lt;/h2>
 &lt;p>Oke sekian artikel pada hari ini, saya sangat senang akhirnya bisa menulis lagi, seperti biasa jika ada &lt;strong>pertanyaan/typo/kurang jelas&lt;/strong>, kalian bisa berdiskusi pada kolom komentar. Sekian dan terimakasih.&lt;/p>
 &lt;h2 id="referensi">Referensi&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="https://stackoverflow.com/questions/31251356/how-to-get-a-list-of-images-on-docker-registry-v2">https://stackoverflow.com/questions/31251356/how-to-get-a-list-of-images-on-docker-registry-v2&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.docker.com/registry/recipes/nginx">https://docs.docker.com/registry/recipes/nginx&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.docker.com/registry/deploying">https://docs.docker.com/registry/deploying&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://medium.com/@dataq/membuat-docker-private-registry-6efe534df4d5">https://medium.com/@dataq/membuat-docker-private-registry-6efe534df4d5&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://stackoverflow.com/questions/31251356/how-to-get-a-list-of-images-on-docker-registry-v2" target="_blank" rel="noopener"
+>https://stackoverflow.com/questions/31251356/how-to-get-a-list-of-images-on-docker-registry-v2&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.docker.com/registry/recipes/nginx" target="_blank" rel="noopener"
+>https://docs.docker.com/registry/recipes/nginx&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.docker.com/registry/deploying" target="_blank" rel="noopener"
+>https://docs.docker.com/registry/deploying&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://medium.com/@dataq/membuat-docker-private-registry-6efe534df4d5" target="_blank" rel="noopener"
+>https://medium.com/@dataq/membuat-docker-private-registry-6efe534df4d5&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>&lt;p>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik &lt;strong>Rolling Release&lt;/strong> seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.&lt;/p>
 &lt;h3 id="solusi">Solusi&lt;/h3>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">check&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">kill&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">start&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">check&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">kill&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">start&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="referensi">Referensi&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224">https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout">https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224" target="_blank" rel="noopener"
+>https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout" target="_blank" rel="noopener"
+>https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Docker Untuk Pemula</title><link>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</link><pubDate>Wed, 03 Feb 2021 20:51:05 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/index.png" alt="Featured image of post Docker Untuk Pemula" />&lt;p>Sebenarnya saya telat ya menulis artikel ini, karena saya malah sudah membahas &lt;em>container orchestration&lt;/em> wkwkwk. Jadi saya menulis ini dikarenakan ada seseorang yang meminta saya untuk dijelaskan tentang Docker, dia seorang programmer yang baru saja mendapat pekerjaan dan perusahaannya (mungkin) menuntut dia agar bisa menguasai Docker. Sekarang yang jadi pertanyaan, &amp;ldquo;Kenapa seorang programmer harus memahami Docker?&amp;rdquo;, jawabannya adalah (menurut saya) dikarenakan konsep &lt;strong>Microservices&lt;/strong> yang kian populer kontainerisasi menjadi sesuatu yang penting didalam suatu instansi/perusahaan, sebenarnya ada seorang &lt;em>DevOps&lt;/em> yang akan mengurus tentang kontainerisasi, namun programmer pun akan dipaksa bekerja dalam environment kontainer tersebut yang menghasilkan statement bahwa programmer pun juga harus mengenal atau menguasai kontainerisasi dalam konteks artikel ini yaitu Docker. Atau dalam kasus lain, dikantornya mungkin dia adalah Programmer Superman.&lt;/p>
 &lt;h3 id="apa-itu-docker-dan-apa-perbedaannya-dengan-vm">Apa itu Docker dan Apa perbedaannya dengan VM&lt;/h3>
 &lt;p>Seperti yang sudah saya singgung sebelumnya tentang kontainerisasi, Docker merupakan sebuah tempat yang menampung program beserta &lt;em>library&lt;/em>, file konfigurasi, dll. Kontainer ini berbeda dengan virtual machine yang mana perbedaanya terdapat pada penggunnan sistem operasi pada masing-masing nodenya. Virtualisasi berjalan diatas hypervisor dan guest OS, docker dapat menjalankan aplikasi langsung tanpa kedua hal tersebut.
 Lebih jelasnya perhatikan bagan berikut :
 &lt;figure style="flex-grow: 210; flex-basis: 504px">
 &lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png" data-size="700x333">&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png"
-srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_3.png 1024w"
 width="700"
 height="333"
 loading="lazy"
@@ -448,7 +506,7 @@ alt="Docker vs VM">
 &lt;li>&lt;strong>Docker Registry&lt;/strong> : merupakan komponen penyimpanan untuk Docker image. Berupa repository yang dapat diatur public maupun private, untuk kepentingan kolaborasi bersama orang lain. Docker Hub merupakan repository cloud yang disediakan oleh Docker secara gratis. Docker Hub sendiri adalah repository yang bersifat public. Jika ingin private, mungkin kalian dapat mencoba Gitlab, Bitbucket, dll.&lt;/li>
 &lt;li>&lt;strong>Dockerfile&lt;/strong> : berupa file yang mengandung serangkaian instruksi tentang bagaimana membangun Docker Image. Docker image tersebut mengandung setiap kode dengan dependensinya. Contoh Dockerfile yang sederhana dengan image &lt;code>node.js versi 10&lt;/code>.&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> node:10&lt;/span>&lt;span class="err">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-Dockerfile" data-lang="Dockerfile">&lt;span class="k">FROM&lt;/span>&lt;span class="s"> node:10&lt;/span>&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">WORKDIR&lt;/span>&lt;span class="s"> /usr/app&lt;/span>&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">COPY&lt;/span> . .&lt;span class="err">
 &lt;/span>&lt;span class="err">&lt;/span>&lt;span class="k">EXPOSE&lt;/span>&lt;span class="s"> 3000&lt;/span>&lt;span class="err">
@@ -459,42 +517,42 @@ alt="Docker vs VM">
 &lt;p>Kita bisa mengunduh Docker image dari registry dengan perintah &lt;strong>Docker Pull&lt;/strong>. Commandnya sangat sederhana, sebagai contoh saya ingin mengunduh image &lt;code>nginx&lt;/code> dengan tag &lt;strong>latest&lt;/strong>.&lt;/p>
 &lt;pre>&lt;code>docker pull nginx:latest
 &lt;/code>&lt;/pre>&lt;h4 id="melihat-daftar-image-yang-dimiliki">Melihat daftar image yang dimiliki&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker images
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker images
 &lt;span class="c1"># Atau&lt;/span>
 docker image ls
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mengganti-namatag-image">Mengganti nama/tag image&lt;/h4>
 &lt;p>Ini biasanya berfungsi saat kita ingin mengunggah image ke registry docker hub. Dalam docker hub, image yang diunggah harus berformat &lt;code>&amp;lt;username&amp;gt;/&amp;lt;nama_image&amp;gt;&lt;/code>. Berikut contoh perintahnya.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker tag &amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt; &amp;lt;username&amp;gt;/&amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker tag &amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt; &amp;lt;username&amp;gt;/&amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt;
 &lt;span class="c1"># Contoh&lt;/span>
 docker tag nginx:latest leon0408/nginx:10.0
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menghapus-image">Menghapus Image&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Delete 1 image&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Delete 1 image&lt;/span>
 docker image rm nginx:latest
 &lt;span class="c1"># Delete semua image yang tidak terpakai&lt;/span>
 docker image prune -a
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-docker-image">Membuat Docker Image&lt;/h4>
 &lt;p>Untuk langkah ini, sebenarnya kita harus punya &lt;strong>Dockerfile&lt;/strong> terlebih dahulu. Anyway&amp;hellip; Berikut perintahnya.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker build -t &amp;lt;nama_image&amp;gt; &amp;lt;direktori_dockerfile&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker build -t &amp;lt;nama_image&amp;gt; &amp;lt;direktori_dockerfile&amp;gt;
 &lt;span class="c1"># Contoh&lt;/span>
 docker build -t aplikasi_kasir .
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-container">Membuat Container&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker container create --name &amp;lt;nama_container&amp;gt; -p &amp;lt;port_yang_dikeluarkan&amp;gt;:&amp;lt;port_container&amp;gt; &amp;lt;nama_image&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker container create --name &amp;lt;nama_container&amp;gt; -p &amp;lt;port_yang_dikeluarkan&amp;gt;:&amp;lt;port_container&amp;gt; &amp;lt;nama_image&amp;gt;
 &lt;span class="c1"># Contoh&lt;/span>
 docker container create --name server-nginx -p 80:80 nginx
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menjalankan-container">Menjalankan Container&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker start &amp;lt;nama_container&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker start &amp;lt;nama_container&amp;gt;
 &lt;span class="c1"># Contoh&lt;/span>
 docker start server-nginx
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="membuat-sekaligus-menjalankan-container">Membuat sekaligus Menjalankan Container&lt;/h4>
 &lt;p>Sebenarnya ada cara untuk membuat container sekaligus menjalankannya, yaitu dengan menggunakan perintah &lt;code>docker run&lt;/code>. Jika kalian lihat perintah dibawah terdapat &lt;code>-d&lt;/code>, itu berfungsi agar container berjalan di &lt;em>backgroud&lt;/em>. Karena defaultnya, dengan perintah ini container akan berjalan dengan menampilkan log.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -d -p &amp;lt;port_yang_dikeluarkan&amp;gt;:&amp;lt;port_container&amp;gt; --name &amp;lt;nama_container&amp;gt; &amp;lt;nama_image&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -d -p &amp;lt;port_yang_dikeluarkan&amp;gt;:&amp;lt;port_container&amp;gt; --name &amp;lt;nama_container&amp;gt; &amp;lt;nama_image&amp;gt;
 &lt;span class="c1"># Contoh&lt;/span>
 docker run -d -p 81:80 --name server-nginx-2 nginx
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu bisa kalian cek dengan membuka browser, lalu memasukkan URL &lt;a class="link" href="http://localhost:81" target="_blank" rel="noopener"
 >http://localhost:81&lt;/a>.
 &lt;figure style="flex-grow: 317; flex-basis: 760px">
 &lt;a href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png" data-size="818x258">&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png"
-srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_3.png 1024w"
 width="818"
 height="258"
 loading="lazy"
@@ -503,7 +561,7 @@ alt="Nginx">
 &lt;figcaption>Nginx&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;h4 id="melihat-container">Melihat Container&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Melihat Container yang berjalan&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Melihat Container yang berjalan&lt;/span>
 docker ps
 &lt;span class="c1"># Melihat semua Container&lt;/span>
 docker ps -a
@@ -511,18 +569,18 @@ docker ps -a
 dd8749428a66 nginx &lt;span class="s2">&amp;#34;/docker-entrypoint.…&amp;#34;&lt;/span> &lt;span class="m">3&lt;/span> seconds ago Up &lt;span class="m">2&lt;/span> seconds 0.0.0.0:81-&amp;gt;80/tcp server-nginx-2
 54a5c626a82b nginx &lt;span class="s2">&amp;#34;/docker-entrypoint.…&amp;#34;&lt;/span> &lt;span class="m">4&lt;/span> minutes ago Up &lt;span class="m">2&lt;/span> minutes 0.0.0.0:80-&amp;gt;80/tcp server-nginx
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="stop--restart-container">Stop &amp;amp; Restart Container&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Stop&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Stop&lt;/span>
 docker stop &amp;lt;nama_container&amp;gt;
 &lt;span class="c1"># Restart&lt;/span>
 docker restart &amp;lt;nama_container&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="menghapus-container">Menghapus Container&lt;/h4>
 &lt;p>Untuk menghapus kontainer, posisi kontainer harus dalam keadaan mati/stopped. Jika ingin menghapus kontainer yang sedang berjalan secara paksa, kalian bisa menambahkan flag &lt;code>-f&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker container rm &amp;lt;nama_container&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker container rm &amp;lt;nama_container&amp;gt;
 &lt;span class="c1"># Atau&lt;/span>
 docker rm &amp;lt;nama_container&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="login-registry">Login Registry&lt;/h4>
 &lt;p>Sebagai contoh, disini saya login ke registry docker hub, dengan akun saya sendiri.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Command&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Command&lt;/span>
 docker login
 &lt;span class="c1"># Login Prompt&lt;/span>
 Login with your Docker ID to push and pull images from Docker Hub. If you don&lt;span class="err">&amp;#39;&lt;/span>t have a Docker ID, head over to https://hub.docker.com to create one.
@@ -534,28 +592,29 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 Login Succeeded
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="push-image-ke-registry">Push Image ke Registry&lt;/h4>
 &lt;p>Jika kalian bingung kenapa imagenya tidak bisa diunggah karena tadi bacanya di &lt;em>skip-skip&lt;/em>. Mending kalian baca lagi perintah untuk mengganti nama image.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker push &amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker push &amp;lt;nama_image&amp;gt;:&amp;lt;tag&amp;gt;
 &lt;span class="c1"># Contoh&lt;/span>
 docker push leon0408/nginx:10.0
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="penutup">Penutup&lt;/h3>
 &lt;p>Menurut saya sampai disitu saja penjelasan dari saya. Jika ada tambahan atau pertanyaan, silahkan tampung pada kolom komentar. Sekian dan terimakasih&amp;hellip;&lt;/p>
 &lt;h3 id="referensi">Referensi&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://docs.docker.com">https://docs.docker.com&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.docker.com" target="_blank" rel="noopener"
+>https://docs.docker.com&lt;/a>&lt;/li>
 &lt;li>Pengalaman Pribadi&lt;/li>
 &lt;/ul></description></item><item><title>High Availability (HA) Rancher Installation with Docker</title><link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link><pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/index.png" alt="Featured image of post High Availability (HA) Rancher Installation with Docker" />&lt;p>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu &lt;strong>Rancher&lt;/strong>. Pokoknya requirement pada artikel kali ini hanyalah &lt;strong>Docker&lt;/strong> dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;&lt;/p>
 &lt;p>Seperti biasa, untuk tujuan praktek siapkan 3 instance, jika tidak tahu caranya kalian bisa liat pada artikel saya sebelumnya tentang &lt;a class="link" href="../setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai" >Provisioning Server&lt;/a>. 1 untuk &lt;strong>control plane &amp;amp; etcd&lt;/strong> dan 2 untuk &lt;strong>worker&lt;/strong>. Jadi konsepnya kita install 1 control plane, pada control plane kita bisa membuat &lt;strong>Custom Cluster&lt;/strong>, disana kita akan diberikan command untuk mengkonfirmasi instance yang akan masuk kedalam Cluster (hampir mirip dengan kubeadm).&lt;/p>
 &lt;p>Okay&amp;hellip; mari kita install Docker. Disini saya menggunakan &lt;strong>Ubuntu Server 18.04&lt;/strong>. Untuk installasi Docker dapat kalian baca &lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu" target="_blank" rel="noopener"
 >disini&lt;/a>. Pastikan kalian install disemua server, karena semuanya akan dijalankan melalui Docker.&lt;/p>
 &lt;p>Setelah Docker terinstall, langkah selanjutnya yaitu membuat container untuk Control Plane Rancher. Masukkan perintah dibawah. &lt;strong>Saya pakai versi 2.4.6 yang stabil&lt;/strong>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -d --restart&lt;span class="o">=&lt;/span>unless-stopped &lt;span class="se">\
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker run -d --restart&lt;span class="o">=&lt;/span>unless-stopped &lt;span class="se">\
 &lt;/span>&lt;span class="se">&lt;/span> -p 80:80 -p 443:443 &lt;span class="se">\
 &lt;/span>&lt;span class="se">&lt;/span> rancher/rancher:v2.4.6
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Masuk melalui browser dengan alamat &lt;a class="link" href="https://%3cip-public%3e" target="_blank" rel="noopener"
 >https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.
 &lt;figure style="flex-grow: 223; flex-basis: 535px">
 &lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png" data-size="931x417">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png"
-srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_1024x0_resize_box_3.png 1024w"
 width="931"
 height="417"
 loading="lazy"
@@ -566,7 +625,7 @@ alt="Error Security">
 &lt;p>Sebenarnya mendapat error seperti ini pun Rancher masih dapat digunakan. Jadi jangan panik dulu. Masukkan password baru untuk Rancher kalian, setelah itu kita akan diarahkan pada Dashboard Rancher.
 &lt;figure style="flex-grow: 210; flex-basis: 504px">
 &lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png" data-size="1307x622">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png"
-srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_1024x0_resize_box_3.png 1024w"
 width="1307"
 height="622"
 loading="lazy"
@@ -586,7 +645,7 @@ alt="Rancher Dashboard">
 &lt;p>Pertama kita membuat &lt;strong>etcd &amp;amp; control-plane&lt;/strong> node terlebih dahulu.
 &lt;figure style="flex-grow: 218; flex-basis: 525px">
 &lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png" data-size="1256x574">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png"
-srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_1024x0_resize_box_3.png 1024w"
 width="1256"
 height="574"
 loading="lazy"
@@ -597,7 +656,7 @@ alt="etcd &amp; control-plane node">
 &lt;p>Lalu buat juga untuk &lt;strong>worker&lt;/strong> node.
 &lt;figure style="flex-grow: 260; flex-basis: 624px">
 &lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png" data-size="1273x489">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png"
-srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_1024x0_resize_box_3.png 1024w"
 width="1273"
 height="489"
 loading="lazy"
@@ -608,7 +667,7 @@ alt="worker nodes">
 &lt;p>Copy &amp;amp; Paste Command yang diberikan oleh Rancher kesetiap Instances dan tunggu sekitar 10 sampai 15 menit agar Cluster benar-benar dapat digunakan, Rancher akan secara otomatis menyiapkan Kubernetes Cluster untuk anda. Selama &lt;strong>Provisioning&lt;/strong>, memang ada logs error. Tapi jangan panik, memang di &lt;strong>Rancher&lt;/strong> warnanya begini.
 &lt;figure style="flex-grow: 597; flex-basis: 1434px">
 &lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png" data-size="1249x209">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png"
-srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_1024x0_resize_box_3.png 1024w"
 width="1249"
 height="209"
 loading="lazy"
@@ -619,7 +678,7 @@ alt="Provisioning Cluster">
 &lt;p>Jika Provisioning sudah, akan ada info bahwa status cluster adalah &lt;strong>Active&lt;/strong>.
 &lt;figure style="flex-grow: 400; flex-basis: 960px">
 &lt;a href="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png" data-size="1288x322">&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png"
-srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_1024x0_resize_box_3.png 1024w"
 width="1288"
 height="322"
 loading="lazy"
@@ -630,13 +689,14 @@ alt="Cluster Active">
 &lt;p>Nah itu tadi cara installasi High Availability (HA) Rancher menggunakan Docker. Kita akan eksplorasi lagi tentang Rancher selanjutnya, untuk sekarang saya sudahi dulu. Sekian dan terimakasih.&lt;/p>
 &lt;h3 id="referensi">Referensi&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://rancher.com/docs/rancher/v2.x/en">https://rancher.com/docs/rancher/v2.x/en&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://rancher.com/docs/rancher/v2.x/en" target="_blank" rel="noopener"
+>https://rancher.com/docs/rancher/v2.x/en&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title><link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link><pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.png" alt="Featured image of post Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai" />&lt;p>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.&lt;/p>
 &lt;h2 id="struktur-cluster">Struktur Cluster&lt;/h2>
 &lt;p>Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node.
 &lt;figure style="flex-grow: 155; flex-basis: 372px">
 &lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png" data-size="281x181">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png"
-srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_1024x0_resize_box_3.png 1024w"
 width="281"
 height="181"
 loading="lazy"
@@ -654,7 +714,7 @@ alt="Infrastruktur Server">
 &lt;/code>&lt;/pre>&lt;p>&lt;strong>File Credentials&lt;/strong> (tidak perlu jika kalian sudah login menggunakan &lt;em>aws-cli&lt;/em>). File ini berisi credentials yang diperlukan untuk login ke VPS kita. Normalnya kita menggunakan &lt;strong>IAM&lt;/strong> (Identity and Access Management), namun karena kita menggunakan akun gratisan. Maka itu bisa didapatkan pada halaman &lt;strong>Vocareum&lt;/strong> &amp;gt; Account Detail &amp;gt; Show AWS CLI, lalu copy semua ke dalam file &lt;code>credentials&lt;/code>. Kelemahannya ini hanya berlaku sekitar 3 jam.
 &lt;figure style="flex-grow: 204; flex-basis: 490px">
 &lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png" data-size="1094x535">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png"
-srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_1024x0_resize_box_3.png 1024w"
 width="1094"
 height="535"
 loading="lazy"
@@ -665,7 +725,7 @@ alt="AWS CLI Credentials">
 &lt;p>Dalam deskripsinya tertulis &lt;code>Copy and paste the following into ~/.aws/credentials&lt;/code>. Namun jika memang tidak mau memasang &lt;strong>aws-cli&lt;/strong> (seperti saya). Kita akan buat file credentials yang nantinya akan dipanggil didalam file konfigurasi terraform.&lt;/p>
 &lt;p>&lt;strong>File Konfigurasi Server&lt;/strong>
 Disini kita baru mulai tahap provisioning instancenya. Untuk subnet yang saya gunakan adalah subnet default yang &lt;em>by default&lt;/em> sudah ada di VPC saya dan untuk SSH Key saya juga sudah memilikinya sebelumnya.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1">## AWS Provider
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1">## AWS Provider
 &lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nx">terraform&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;span class="nx">required_providers&lt;/span> &lt;span class="p">{&lt;/span>
 &lt;span class="na">aws&lt;/span> = &lt;span class="p">{&lt;/span>
@@ -872,7 +932,7 @@ alt="[GIF] Terraform Apply">
 &lt;p>Cek pada EC2 AWS, server yang sudah kita buat tadi.
 &lt;figure style="flex-grow: 582; flex-basis: 1396px">
 &lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png" data-size="1100x189">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png"
-srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_1024x0_resize_box_3.png 1024w"
 width="1100"
 height="189"
 loading="lazy"
@@ -894,7 +954,7 @@ alt="AWS EC2">
    └── key.pem
 &lt;/code>&lt;/pre>&lt;h3 id="1-inventory">1. inventory&lt;/h3>
 &lt;p>Inventory berisi ip atau hostname dari instance yang akan ditargetkan untuk dikonfigurasikan (biasanya ip address). Oleh karena itu saya memasang elastic ip pada instance yang sudah saya buat, agar mereka bisa diakses oleh Ansible dan setelah proses konfigurasi EIP (Elastic IP) bisa dilepas.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#ubah sesuai dengan IP address kalian&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#ubah sesuai dengan IP address kalian&lt;/span>
 &lt;span class="o">[&lt;/span>public&lt;span class="o">]&lt;/span>
 52.4.21.127
 &lt;span class="o">[&lt;/span>nodes&lt;span class="o">]&lt;/span>
@@ -902,7 +962,7 @@ alt="AWS EC2">
 18.205.203.199
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="2-ansiblecfg">2. ansible.cfg&lt;/h3>
 &lt;p>Disini kita bisa mengatur semua file yang dibutuhkan untuk menjalankan Ansible, seperti file inventory yang digunakan, keyfile, default user, dll.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="k">[defaults]&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cfg" data-lang="cfg">&lt;span class="k">[defaults]&lt;/span>
 &lt;span class="na">inventory&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">inventory&lt;/span>
 &lt;span class="na">Private_key_file&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">key/key.pem&lt;/span>
 &lt;span class="na">remote_user&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">root&lt;/span>
@@ -912,7 +972,7 @@ alt="AWS EC2">
 &lt;p>File yang berisi konfigurasi seperti apa yang akan kita lakukan (like i said &lt;strong>structural code&lt;/strong>). Kita harus mendikte apa saja yang kita perlukan untuk menyiapkan server (sampai jadi). &lt;strong>Pesan dari saya : Kalau bingung lihat namenya saja ya&lt;/strong>&lt;/p>
 &lt;h4 id="31-auth_awsyml">3.1 auth_aws.yml&lt;/h4>
 &lt;p>Karena AWS tidak memperbolehkan user untuk login melalui root user (demi keamanan), maka kita harus merubah file &lt;em>authorized_key&lt;/em> secara manual.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">become_user&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ubuntu&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
@@ -921,7 +981,7 @@ alt="AWS EC2">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">sudo cp /home/ubuntu/.ssh/authorized_keys /root/.ssh&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="32-dockeryml">3.2 docker.yml&lt;/h4>
 &lt;p>Installasi Docker. Disini saya menggunakan fitur &lt;strong>hold&lt;/strong>, fungsinya untuk menghindari update pada package. Kenapa?? Jika kita melakukan setup pada server production, kita memerlukan versi package yang stabil, tujuannya untuk menghindari bug atau perubahan besar-besaran yang dapat menyebabkan server menjadi tidak stabil. Jadi biasanya untuk mencoba update kami memiliki server tersendiri untuk deployment test, jika pada test server sudah stabil, maka server production akan diupdate.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Update &amp;amp; Upgrade&lt;/span>&lt;span class="w">
@@ -973,7 +1033,7 @@ alt="AWS EC2">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">group&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">docker&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="33-k8syml">3.3 k8s.yml&lt;/h4>
 &lt;p>Akhirnya installasi Kubernetes. Disini saya juga menggunakan fitur &lt;strong>hold&lt;/strong>. Sayang untuk kubeadm (inisialisasi node) saya masih menggunakan cara manual, jadi jika teman-teman memiliki cara yang lebih baik saya akan dengan senang hati menerima saran tersebut.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">- &lt;span class="nt">hosts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">all&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">gather_facts&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">tasks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Add Google official GPG key&lt;/span>&lt;span class="w">
@@ -1077,11 +1137,11 @@ alt="[GIF] k8s.yml kubeadm">
 &lt;/figure>&lt;/p>
 &lt;h2 id="testing">Testing&lt;/h2>
 &lt;p>Masuk ke server utama (public) kita melalui SSH.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">ssh ubuntu@52.4.21.127 -i key.pem
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh ubuntu@52.4.21.127 -i key.pem
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Lalu jalankan perintah &lt;code>kubectl get all&lt;/code> atau &lt;code>kubectl get nodes&lt;/code>.
 &lt;figure style="flex-grow: 138; flex-basis: 332px">
 &lt;a href="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png" data-size="593x428">&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png"
-srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_1024x0_resize_box_3.png 1024w"
 width="593"
 height="428"
 loading="lazy"
@@ -1092,13 +1152,13 @@ alt="kubectl command">
 &lt;p>Jika semuanya sudah tampil, kita bisa melakukan deployment pods pada cluster kubernetes tersebut. Namun saya tidak akan membahasnya pada artikel ini.&lt;/p>
 &lt;h2 id="hapus-eip-dan-associate_public_ip_address">Hapus EIP dan associate_public_ip_address&lt;/h2>
 &lt;p>Delete atau beri comment pada file &lt;code>server.tf&lt;/code> pada baris &lt;code>EIP&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1">## Elastic IP for Node Server (Temporary)
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1">## Elastic IP for Node Server (Temporary)
 &lt;/span>&lt;span class="c1">#resource &amp;#34;aws_eip&amp;#34; &amp;#34;lb-node&amp;#34; {
 &lt;/span>&lt;span class="c1"># count = 2
 &lt;/span>&lt;span class="c1"># instance = aws_instance.node[count.index].id
 &lt;/span>&lt;span class="c1">#}
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Kenapa saya menghapus &lt;code>associate_public_ip_address&lt;/code>? Biasanya perintah ini akan memaksa kita untuk me-recreate server. Ini pasti menyebalkan apalagi kita sudah susah-susah setup server sedemikian rupa dengan Ansible. Disatu sisi kita juga membutuhkan fitur ini saat pembuatan server untuk pertama kali. Jadi kalau server sudah dibuat, kita sudah tidak menggunakannya lagi.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1"># associate_public_ip_address = false
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-terraform" data-lang="terraform">&lt;span class="c1"># associate_public_ip_address = false
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Jalankan perintah &lt;code>terraform apply&lt;/code> sekali lagi.&lt;/p>
 &lt;h2 id="destroy-semua-server">Destroy Semua Server&lt;/h2>
 &lt;p>Kalau kalian bosan, coba jalankan perintah &lt;code>terraform destroy&lt;/code>!&lt;/p>
@@ -1126,9 +1186,12 @@ alt="kubectl command">
 &lt;h2 id="sumber">Sumber&lt;/h2>
 &lt;ul>
 &lt;li>Pengalaman Pribadi&lt;/li>
-&lt;li>&lt;a href="https://medium.com/@ardi.alhaidar/apa-itu-agile-sebenarnya-41a14762b4e4">https://medium.com/@ardi.alhaidar/apa-itu-agile-sebenarnya-41a14762b4e4&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://id.wikipedia.org/wiki/Agile_Development_Methods">https://id.wikipedia.org/wiki/Agile_Development_Methods&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://en.wikipedia.org/wiki/DevOps">https://en.wikipedia.org/wiki/DevOps&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://medium.com/@ardi.alhaidar/apa-itu-agile-sebenarnya-41a14762b4e4" target="_blank" rel="noopener"
+>https://medium.com/@ardi.alhaidar/apa-itu-agile-sebenarnya-41a14762b4e4&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://id.wikipedia.org/wiki/Agile_Development_Methods" target="_blank" rel="noopener"
+>https://id.wikipedia.org/wiki/Agile_Development_Methods&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://en.wikipedia.org/wiki/DevOps" target="_blank" rel="noopener"
+>https://en.wikipedia.org/wiki/DevOps&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="foot-note">Foot note&lt;/h2>
 &lt;p>Maaf jika penjelasannya agak berbelit belit. Jika ada kekurangan dan kesalahan jangan sungkan untuk mengkoreksi penulis (saya)&amp;hellip;&lt;!-- raw HTML omitted -->
@@ -1145,7 +1208,7 @@ Sekian dari saya semoga dapat mencerahkan kalian (para pembaca)&amp;hellip;&lt;/
 >AWS Educate&lt;/a>, lalu klik menu &lt;strong>Join AWS Educate&lt;/strong>.
 &lt;figure style="flex-grow: 216; flex-basis: 520px">
 &lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png" data-size="1331x614">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1.png"
-srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/1_hucf28372d9ae566c2c2b94afa599ac1b8_506802_1024x0_resize_box_3.png 1024w"
 width="1331"
 height="614"
 loading="lazy"
@@ -1156,7 +1219,7 @@ alt="AWS Educate Homepage">
 &lt;p>Pilih role sebagai &lt;strong>Murid/Student&lt;/strong> (Tergantung kebutuhan sih&amp;hellip; Kalau disini saya memang sebagai murid). Lalu tolong isi form yang diberikan dengan benar. Karena email akan digunakan untuk konfirmasi nantinya. Kalau sekolah kalian tidak ada didalam list, cantumkan saja &lt;strong>Kementerian Pendidikan dan Kebudayaan&lt;/strong> atau &lt;strong>Kementerian Komunikasi dan Informatika&lt;/strong>.
 &lt;figure style="flex-grow: 217; flex-basis: 521px">
 &lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png" data-size="1332x613">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2.png"
-srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/2_hucc00235c028500483669f83975cbfeae_100259_1024x0_resize_box_3.png 1024w"
 width="1332"
 height="613"
 loading="lazy"
@@ -1167,7 +1230,7 @@ alt="Role">
 &lt;p>Pastikan juga kalian memilih bulan dan tahun kelulusan (Graduation Month &amp;amp; Graduation Year) setahun dari sekarang, misal sekarang Desember 2020 pilih tanggal kelulusannya Desember 2021. Kira-kira tampilan akhirnya seperti ini.
 &lt;figure style="flex-grow: 224; flex-basis: 539px">
 &lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png" data-size="1334x593">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3.png"
-srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/3_hu66d240a56e9aa2dcb619630a160f20d1_110998_1024x0_resize_box_3.png 1024w"
 width="1334"
 height="593"
 loading="lazy"
@@ -1178,7 +1241,7 @@ alt="Form Pendaftaran AWS Educate">
 &lt;p>Dah selanjutnya tinggal klik &lt;strong>I Agree&lt;/strong> saja. Setelah pendaftaran selesai, maka kita akan mendapatkan email verifikasi dari AWS.
 &lt;figure style="flex-grow: 262; flex-basis: 630px">
 &lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png" data-size="1009x384">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4.png"
-srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/4_hu446bc8e7fa14cf4935308280cc994ec6_47925_1024x0_resize_box_3.png 1024w"
 width="1009"
 height="384"
 loading="lazy"
@@ -1189,7 +1252,7 @@ alt="Email Verifikasi">
 &lt;p>Setelah email sudah dikonfirmasi, saatnya menunggu email balasan dari AWS. Jika diterima seperti ini balasannya.
 &lt;figure style="flex-grow: 206; flex-basis: 495px">
 &lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png" data-size="1007x488">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5.png"
-srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/5_hue6e7e16153351dfef8843eb7d882cae9_91644_1024x0_resize_box_3.png 1024w"
 width="1007"
 height="488"
 loading="lazy"
@@ -1201,7 +1264,7 @@ alt="Approved!!!">
 >AWS Educate&lt;/a>. Lalu pergi ke tab &lt;strong>AWS Account&lt;/strong>. Klik &lt;strong>AWS Educate Starter Account&lt;/strong>.
 &lt;figure style="flex-grow: 231; flex-basis: 554px">
 &lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png" data-size="1326x574">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6.png"
-srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/6_hu4dfa9fe4847e224a26ae2f8ce2bf12e8_199812_1024x0_resize_box_3.png 1024w"
 width="1326"
 height="574"
 loading="lazy"
@@ -1212,7 +1275,7 @@ alt="AWS Educate Starter Account">
 &lt;p>Nanti kita akan dialihkan ke website pihak ke-3. Disana kelihatan credits kalian tinggal berapa.
 &lt;figure style="flex-grow: 123; flex-basis: 297px">
 &lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png" data-size="664x536">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7.png"
-srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/7_hu99ddd6e446615dd182c02fc61344efad_61099_1024x0_resize_box_3.png 1024w"
 width="664"
 height="536"
 loading="lazy"
@@ -1223,7 +1286,7 @@ alt="Vocareum">
 &lt;p>Nice kita sudah masuk pada page EC2 Management. Namun untuk praktek penggunaan EC2 ini tidak akan saya bahas sekarang.
 &lt;figure style="flex-grow: 220; flex-basis: 528px">
 &lt;a href="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png" data-size="1345x611">&lt;img src="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8.png"
-srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/cara-membuat-akun-aws-educate-100-gratis/8_hud2b36cb1dde6287c286f2d7a2a87ffb9_142256_1024x0_resize_box_3.png 1024w"
 width="1345"
 height="611"
 loading="lazy"
@@ -1243,7 +1306,7 @@ alt="EC2">
 &lt;p>Langsung buka terminal, masuk ke folder &lt;code>blog&lt;/code> kalian dan langsung menuju folder &lt;code>public&lt;/code>&lt;/p>
 &lt;pre>&lt;code>cd blog/public
 &lt;/code>&lt;/pre>&lt;p>Lalu inisiasi repo github yang telah dibuat tadi.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git init
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">git init
 git commit -m &lt;span class="s2">&amp;#34;first commit blog&amp;#34;&lt;/span>
 git remote add origin https://github.com/&amp;lt;your_username&amp;gt;/nama_repo.git
 git push -u origin master
@@ -1251,7 +1314,7 @@ git push -u origin master
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).
 &lt;figure style="flex-grow: 183; flex-basis: 440px">
 &lt;a href="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png" data-size="809x441">&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png"
-srcset="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_1024x0_resize_box_3.png 1024w"
 width="809"
 height="441"
 loading="lazy"
@@ -1269,21 +1332,21 @@ alt="Github Page">
 >Hugo Installation Guide&lt;/a>&lt;/p>
 &lt;h1 id="tutorial">Tutorial&lt;/h1>
 &lt;p>Okay.. i assume you’re already install Hugo, once Hugo installed, you can create a Hugo sites by running.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new site blog
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">hugo new site blog
 &lt;span class="c1">#replace blog with the name you want&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Then go to your site directory.&lt;/p>
 &lt;pre>&lt;code>cd blog
 &lt;/code>&lt;/pre>&lt;p>So… Next we need template. Find one at &lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
 >Official Hugo Website Here&lt;/a>. There are many choices, choose the one you like. For example i choose &lt;a class="link" href="https://themes.gohugo.io/hugo.386/" target="_blank" rel="noopener"
 >Hugo.386&lt;/a>. Download theme using &lt;code>git&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule add https://gitlab.com/maxlefou/hugo.386 themes/hugo.386
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">git submodule add https://gitlab.com/maxlefou/hugo.386 themes/hugo.386
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>If you facing error&lt;/strong> like this.&lt;/p>
 &lt;pre>&lt;code>fatal: not a git repository (or any of the parent directories): .git
 &lt;/code>&lt;/pre>&lt;p>Try &lt;code>git init&lt;/code> to your main folder. Then run command &lt;code>git submodule&lt;/code> again.&lt;/p>
 &lt;p>Then go to &lt;code>themes/hugo.386/exampleSite&lt;/code>. There are examples that you can use.
 &lt;figure style="flex-grow: 153; flex-basis: 367px">
 &lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png" data-size="554x362">&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_3.png 1024w"
 width="554"
 height="362"
 loading="lazy"
@@ -1294,7 +1357,7 @@ alt="ExampleSite Folder">
 &lt;p>Copy all (except README.md). To your main directory. Like this.
 &lt;figure style="flex-grow: 153; flex-basis: 367px">
 &lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png" data-size="550x359">&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_3.png 1024w"
 width="550"
 height="359"
 loading="lazy"
@@ -1303,7 +1366,7 @@ alt="Copy all on root folder">
 &lt;figcaption>Copy all on root folder&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>Open &lt;code>config.toml&lt;/code>. Edit everything you need, if there is anything you don’t need, just mark it with &lt;code>#&lt;/code>. The following example.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="nx">baseurl&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="nx">baseurl&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;/&amp;#34;&lt;/span>
 &lt;span class="nx">title&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;ledleledle&amp;#39;s Blog&amp;#34;&lt;/span>
 &lt;span class="c">#languageCode = &amp;#34;en&amp;#34;&lt;/span>
 &lt;span class="c">#DefaultContentLanguage = &amp;#34;en&amp;#34;&lt;/span>
@@ -1315,7 +1378,7 @@ alt="Copy all on root folder">
 &lt;/code>&lt;/pre>&lt;p>Open &lt;code>http://localhost:1313&lt;/code> in your browser.
 &lt;figure style="flex-grow: 216; flex-basis: 520px">
 &lt;a href="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png" data-size="1238x571">&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_2.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_2.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_3.png 1024w"
 width="1238"
 height="571"
 loading="lazy"
@@ -1338,18 +1401,18 @@ Next. I’ll post tutorial to &lt;a class="link" href="../host-website-hugo-di-g
 &lt;/ul>
 &lt;h2 id="tutorial">Tutorial&lt;/h2>
 &lt;p>&lt;strong>Step pertama&lt;/strong>, ekstrak file firmware terlebih dahulu&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">unzip &lt;span class="s2">&amp;#34;TL-MR3420_V2_150319.zip&amp;#34;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">unzip &lt;span class="s2">&amp;#34;TL-MR3420_V2_150319.zip&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Rename&lt;/strong> file firmware dengan nama firmware.bin agar dalam pengerjaannya jadi lebih mudah dan simple.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">mv &lt;span class="s2">&amp;#34;mr3420v2_en_3_16_9_up_boot(150319).bin&amp;#34;&lt;/span> firmware.bin
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">mv &lt;span class="s2">&amp;#34;mr3420v2_en_3_16_9_up_boot(150319).bin&amp;#34;&lt;/span> firmware.bin
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Hapus&lt;/strong> beberapa byte dari Firmware dengan perintah &lt;strong>dd&lt;/strong>. Bila perintah ini tidak dijalankan maka hasilnya anda akan mendapatkan pesan error &lt;strong>Writing from /tmp/firmware.bin to firmware … [e]Failed to erase block&lt;/strong> saat proses flashing firmware.&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#command&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#command&lt;/span>
 dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>firmware.bin &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>original.bin &lt;span class="nv">skip&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">257&lt;/span> &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">512&lt;/span>
 &lt;span class="c1">#log&lt;/span>
 7680+0 records in
 7680+0 records out
 &lt;span class="m">3932160&lt;/span> bytes &lt;span class="o">(&lt;/span>3.9 MB, 3.8 MiB&lt;span class="o">)&lt;/span> copied, 0.0352155 s, &lt;span class="m">208&lt;/span> MB/s
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Upload Firmware&lt;/strong> ke router kalian dengan perintah &lt;strong>scp&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">scp original.bin root@4.3.2.1:/tmp
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">scp original.bin root@4.3.2.1:/tmp
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>Q : Kok ipnya 4.3.2.1?&lt;/li>
 &lt;li>A : Iya itu setting ip router saya sebelumnya.&lt;/li>
@@ -1360,7 +1423,7 @@ dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>firmware.bin &lt
 &lt;p>Note : inget ya, sesuaikan dengan ip router kalian masing-masing.&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="install-firmware-original-tp-link">Install firmware original TP-Link&lt;/h2>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#command&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#command&lt;/span>
 mtd -r write /tmp/original.bin firmware
 &lt;span class="c1">#log&lt;/span>
 Unlocking firmware ...
@@ -1430,7 +1493,7 @@ Rebooting ...
 &lt;/table>
 &lt;h2 id="code-blocks">Code Blocks&lt;/h2>
 &lt;h4 id="code-block-with-backticks">Code block with backticks&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
@@ -1453,7 +1516,7 @@ Rebooting ...
 &amp;lt;/html&amp;gt;
 &lt;/code>&lt;/pre>
 &lt;h4 id="code-block-with-hugos-internal-highlight-shortcode">Code block with Hugo&amp;rsquo;s internal highlight shortcode&lt;/h4>
-&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="cp">&amp;lt;!doctype html&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">html&lt;/span> &lt;span class="na">lang&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;en&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">head&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
 &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">meta&lt;/span> &lt;span class="na">charset&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>

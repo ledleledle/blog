@@ -1,10 +1,141 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kenapa menggunakan kontainer? Karena KONG bersifat stateless yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu.  Intro KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format Plugin."><title>Instalasi Kong Api Gateway & KONGA dengan Docker Compose</title><link rel=canonical href=https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Instalasi Kong Api Gateway & KONGA dengan Docker Compose"><meta property="og:description" content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kenapa menggunakan kontainer? Karena KONG bersifat stateless yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu.  Intro KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format Plugin."><meta property="og:url" content="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/"><meta property="og:site_name" content="Leon's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="api gateway"><meta property="article:tag" content="kong"><meta property="article:published_time" content="2021-06-17T14:53:48+07:00"><meta property="article:modified_time" content="2021-06-17T14:53:48+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.png"><meta name=twitter:title content="Instalasi Kong Api Gateway & KONGA dengan Docker Compose"><meta name=twitter:description content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kenapa menggunakan kontainer? Karena KONG bersifat stateless yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu.  Intro KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format Plugin."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.png"><link rel="shortcut icon" href=img/favicon.ico><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','G-6CEFZGZSW6','auto'),ga('send','pageview'))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.body.dataset.scheme='dark':document.body.dataset.scheme='light'})()</script><div class="container main-container flex on-phone--column extended article-page with-toolbar"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
-<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/avatar_hu9bbe6dd2ea62d3a827f580f5ad1ad5f9_108376_300x0_resize_q75_box.jpg width=300 height=235 class=site-logo loading=lazy alt=Avatar>
-<span class=emoji>🧐</span></figure><h1 class=site-name><a href=https://blog.leonprasetya.my.id>Leon's Blog</a></h1><h2 class=site-description>Let's talk about automation and some new technology! Because we're lazy 🧐</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/tags><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg><span>Tags</span></a></li><li><a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></ol></aside><main class="main full-width"><div id=article-toolbar><a href=https://blog.leonprasetya.my.id class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index_huac923ffed9f767788bc20bb1b6e92f9f_260380_800x0_resize_box_2.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index_huac923ffed9f767788bc20bb1b6e92f9f_260380_800x0_resize_box_2.png 800w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index_huac923ffed9f767788bc20bb1b6e92f9f_260380_1600x0_resize_box_2.png 1600w" width=800 height=385 loading=lazy alt="Featured image of post Instalasi Kong Api Gateway & KONGA dengan Docker Compose"></a></div><div class=article-details><header class=article-category><a href=/categories/devops/>DevOps</a>
-<a href=/categories/rnd/>RnD</a></header><h2 class=article-title><a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/>Instalasi Kong Api Gateway & KONGA dengan Docker Compose</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Jun 17, 2021</time></footer></div></header><section class=article-content><h2 id=fyi>FYI</h2><ul><li>Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi.</li><li>Kenapa menggunakan kontainer? Karena KONG bersifat <strong>stateless</strong> yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu.</li></ul><h2 id=intro>Intro</h2><p>KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format <strong>Plugin</strong>. Sorry saya bukannya mau ngepromote KONG, cuma yang saya rasakan seperti itu wkwk.</p><h2 id=db-mode-vs-db-less>DB-Mode vs DB-Less</h2><p>Kong memiliki 2 pilihan diantaranya, DB-Mode yaitu KONG dengan database, database yang dapat disupport ada 2 yaitu PostreSQL dan Cassandra. Dan DB-Less yaitu KONG tanpa database, yaitu kita bisa menggunakan file <code>.yml</code> untuk melakukan konfigurasi terhadap KONG. Namun kali ini saya akan menggunakan DB-Mode dengan database PostgreSQL.</p><h2 id=good-point>Good Point</h2><p>Seperti yang saya jelaskan pada intro, karena KONG memiliki pluginnya sendiri, kita dapat memanfaatkan fitur-fiturnya tanpa perlu membuat service dengan fitur yang sama satu per satu. Lebih gampangnya mari kita lihat gambar dibawah.</p><p><figure style=flex-grow:113;flex-basis:271px><a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png data-size=432x382><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_480x0_resize_box_2.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_1024x0_resize_box_2.png 1024w" width=432 height=382 loading=lazy alt="Tanpa KONG"></a><figcaption>Tanpa KONG</figcaption></figure>Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.</p><p><figure style=flex-grow:165;flex-basis:396px><a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png data-size=1578x954><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_480x0_resize_box_2.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_1024x0_resize_box_2.png 1024w" width=1578 height=954 loading=lazy alt="Dengan KONG"></a><figcaption>Dengan KONG</figcaption></figure></p><h2 id=instalasi>Instalasi</h2><p>Mungkin kita akan membahas instalasinya terlebih dahulu, berikut adalah hal-hal yang akan dipakai dalam praktek ini.</p><ul><li>Docker & Docker Compose</li><li>KONG Community Edition</li><li>KONGA (Admin WEB UI, untuk mempermudah penggunaan KONG)</li></ul><p>Siapkan sebuah folder dan file <code>docker-compose.yml</code>.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>mkdir kong-api-gateway <span class=o>&amp;&amp;</span> <span class=nb>cd</span> kong-api-gateway
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kenapa menggunakan kontainer? Karena KONG bersifat stateless yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu. Kita menggunakan KONG Community Edition  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose &amp;lt;&amp;ndash; Kita disini Pembahasan Services dan Routes pada Kong Api Gateway  Intro KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya."><title>Instalasi Kong Api Gateway & KONGA dengan Docker Compose</title>
+<link rel=canonical href=https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Instalasi Kong Api Gateway & KONGA dengan Docker Compose">
+<meta property="og:description" content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kenapa menggunakan kontainer? Karena KONG bersifat stateless yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu. Kita menggunakan KONG Community Edition  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose &amp;lt;&amp;ndash; Kita disini Pembahasan Services dan Routes pada Kong Api Gateway  Intro KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya.">
+<meta property="og:url" content="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/">
+<meta property="og:site_name" content="Leon's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="api gateway"><meta property="article:tag" content="kong"><meta property="article:tag" content="web dev"><meta property="article:tag" content="api management"><meta property="article:tag" content="api"><meta property="article:published_time" content="2021-07-17T14:53:48+07:00"><meta property="article:modified_time" content="2021-07-17T14:53:48+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.png">
+<meta name=twitter:title content="Instalasi Kong Api Gateway & KONGA dengan Docker Compose">
+<meta name=twitter:description content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kenapa menggunakan kontainer? Karena KONG bersifat stateless yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu. Kita menggunakan KONG Community Edition  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose &amp;lt;&amp;ndash; Kita disini Pembahasan Services dan Routes pada Kong Api Gateway  Intro KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya."><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.png">
+<link rel="shortcut icon" href=img/favicon.ico>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','G-6CEFZGZSW6','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+</head>
+<body>
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.body.dataset.scheme='dark':document.body.dataset.scheme='light'})()</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
+<aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header class=site-info>
+<figure class=site-avatar>
+<img src=/img/avatar_hu9bbe6dd2ea62d3a827f580f5ad1ad5f9_108376_300x0_resize_q75_box.jpg width=300 height=235 class=site-logo loading=lazy alt=Avatar>
+<span class=emoji>🧐</span>
+</figure>
+<h1 class=site-name><a href=https://blog.leonprasetya.my.id>Leon's Blog</a></h1>
+<h2 class=site-description>Let's talk about automation and some new technology! Because we're lazy 🧐</h2>
+</header>
+<ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li>
+<li>
+<a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li>
+<li>
+<a href=/tags><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg>
+<span>Tags</span>
+</a>
+</li>
+<li>
+<a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span>
+</a>
+</li>
+<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span>
+</li>
+</ol>
+</aside>
+<main class="main full-width">
+<div id=article-toolbar>
+<a href=https://blog.leonprasetya.my.id class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/>
+<img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index_huac923ffed9f767788bc20bb1b6e92f9f_260380_800x0_resize_box_3.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index_huac923ffed9f767788bc20bb1b6e92f9f_260380_800x0_resize_box_3.png 800w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index_huac923ffed9f767788bc20bb1b6e92f9f_260380_1600x0_resize_box_3.png 1600w" width=800 height=385 loading=lazy alt="Featured image of post Instalasi Kong Api Gateway & KONGA dengan Docker Compose">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/devops/>
+DevOps
+</a>
+<a href=/categories/rnd/>
+RnD
+</a>
+<a href=/categories/web-dev/>
+Web Dev
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/>Instalasi Kong Api Gateway & KONGA dengan Docker Compose</a>
+</h2>
+<footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--published>Jul 17, 2021</time>
+</footer></div>
+</header>
+<section class=article-content>
+<h2 id=fyi>FYI</h2>
+<ul>
+<li>Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi.</li>
+<li>Kenapa menggunakan kontainer? Karena KONG bersifat <strong>stateless</strong> yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu.</li>
+<li>Kita menggunakan KONG Community Edition</li>
+</ul>
+<h2 id=serial>Serial</h2>
+<ul>
+<li>Instalasi Kong Api Gateway & KONGA dengan Docker Compose <strong>&lt;&ndash; Kita disini</strong></li>
+<li><a class=link href=../pembahasan-services-dan-routes-pada-kong-api-gateway/>Pembahasan Services dan Routes pada Kong Api Gateway</a></li>
+</ul>
+<h2 id=intro>Intro</h2>
+<p>KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format <strong>Plugin</strong>. Sorry saya bukannya mau ngepromote KONG, cuma yang saya rasakan seperti itu wkwk.</p>
+<h2 id=db-mode-vs-db-less>DB-Mode vs DB-Less</h2>
+<p>Kong memiliki 2 pilihan diantaranya, DB-Mode yaitu KONG dengan database, database yang dapat disupport ada 2 yaitu PostreSQL dan Cassandra. Dan DB-Less yaitu KONG tanpa database, yaitu kita bisa menggunakan file <code>.yml</code> untuk melakukan konfigurasi terhadap KONG. Namun kali ini saya akan menggunakan DB-Mode dengan database PostgreSQL.</p>
+<h2 id=good-point>Good Point</h2>
+<p>Seperti yang saya jelaskan pada intro, karena KONG memiliki pluginnya sendiri, kita dapat memanfaatkan fitur-fiturnya tanpa perlu membuat service dengan fitur yang sama satu per satu. Lebih gampangnya mari kita lihat gambar dibawah.</p>
+<p><figure style=flex-grow:113;flex-basis:271px>
+<a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png data-size=432x382><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_1024x0_resize_box_3.png 1024w" width=432 height=382 loading=lazy alt="Tanpa KONG">
+</a>
+<figcaption>Tanpa KONG</figcaption>
+</figure>
+Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.</p>
+<p><figure style=flex-grow:165;flex-basis:396px>
+<a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png data-size=1578x954><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_1024x0_resize_box_3.png 1024w" width=1578 height=954 loading=lazy alt="Dengan KONG">
+</a>
+<figcaption>Dengan KONG</figcaption>
+</figure></p>
+<h2 id=instalasi>Instalasi</h2>
+<p>Mungkin kita akan membahas instalasinya terlebih dahulu, berikut adalah hal-hal yang akan dipakai dalam praktek ini.</p>
+<ul>
+<li>Docker & Docker Compose</li>
+<li>KONG Community Edition</li>
+<li>KONGA (Admin WEB UI, untuk mempermudah penggunaan KONG)</li>
+</ul>
+<p>Siapkan sebuah folder dan file <code>docker-compose.yml</code>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mkdir kong-api-gateway <span class=o>&amp;&amp;</span> <span class=nb>cd</span> kong-api-gateway
 touch docker-compose.yml
-</code></pre></div><p>Lalu edit file <code>docker-compose.yml</code> yang telah kita buat dengan konfigurasi dibawah. Mari kita bahas step-by-step untuk komponen-komponennya.</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;3.0&#34;</span><span class=w>
-</span></code></pre></div><p>Format dokumen docker compose yang dipakai yaitu 3.0. Untuk lebih detailnya, bisa kalian lihat pada <a class=link href=https://docs.docker.com/compose/compose-file/ target=_blank rel=noopener>dokumentasi docker compose berikut</a>.</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=nt>services</span><span class=p>:</span><span class=w>
+</code></pre></div><p>Lalu edit file <code>docker-compose.yml</code> yang telah kita buat dengan konfigurasi dibawah. Mari kita bahas step-by-step untuk komponen-komponennya.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;3.0&#34;</span><span class=w>
+</span></code></pre></div><p>Format dokumen docker compose yang dipakai yaitu 3.0. Untuk lebih detailnya, bisa kalian lihat pada <a class=link href=https://docs.docker.com/compose/compose-file/ target=_blank rel=noopener>dokumentasi docker compose berikut</a>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=nt>services</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=nt>kong-database</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>postgres:9.6</span><span class=w>
 </span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
@@ -18,7 +149,8 @@ touch docker-compose.yml
 </span><span class=w>      </span>- <span class=m>5432</span><span class=p>:</span><span class=m>5432</span><span class=w>
 </span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>kong-net</span><span class=w>
-</span></code></pre></div><p>Sediakan databasenya, disini saya menggunakan versi <code>postgres:9.6</code> (tidak ada alasan khusus, kalian bisa menggunakan versi yang berbeda). Untuk membuat databasenya lebih <em>persistent</em>, saya juga membuat volume yang mengarah pada directory <code>postgres-data</code>. Set USER, PASSWORD dan DB pada environment. Dan join network ke <code>kong-net</code> untuk menghubungkan container satu dengan yang lain pada jaringan yang sama.</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=w>  </span><span class=nt>kong-migrate</span><span class=p>:</span><span class=w>
+</span></code></pre></div><p>Sediakan databasenya, disini saya menggunakan versi <code>postgres:9.6</code> (tidak ada alasan khusus, kalian bisa menggunakan versi yang berbeda). Untuk membuat databasenya lebih <em>persistent</em>, saya juga membuat volume yang mengarah pada directory <code>postgres-data</code>. Set USER, PASSWORD dan DB pada environment. Dan join network ke <code>kong-net</code> untuk menghubungkan container satu dengan yang lain pada jaringan yang sama.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=w>  </span><span class=nt>kong-migrate</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>kong:2.3.3</span><span class=w>
 </span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=kc>on</span>-<span class=l>failure</span><span class=w>
 </span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=l>kong migrations bootstrap</span><span class=w>
@@ -32,7 +164,8 @@ touch docker-compose.yml
 </span><span class=w>      </span>- <span class=l>kong-database</span><span class=w>
 </span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>kong-net</span><span class=w>
-</span></code></pre></div><p>Lalu ada perintah migrate, yaitu KONG akan melakukan migrasi database dan seluruh table agar KONG dapat berjalan dengan normal. Masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment <code>kong-migrate</code>. <code>depends_on</code> yaitu perintah untuk menunggu suatu container yang dispesifikasikan untuk berjalan terlebih dahulu, barulah container selanjutnya akan dijalankan.</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=w>  </span><span class=nt>kong</span><span class=p>:</span><span class=w>
+</span></code></pre></div><p>Lalu ada perintah migrate, yaitu KONG akan melakukan migrasi database dan seluruh table agar KONG dapat berjalan dengan normal. Masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment <code>kong-migrate</code>. <code>depends_on</code> yaitu perintah untuk menunggu suatu container yang dispesifikasikan untuk berjalan terlebih dahulu, barulah container selanjutnya akan dijalankan.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=w>  </span><span class=nt>kong</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>kong:2.3.3</span><span class=w>
 </span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
 </span><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
@@ -59,7 +192,8 @@ touch docker-compose.yml
 </span><span class=w>      </span>- <span class=l>kong-database</span><span class=w>
 </span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>kong-net</span><span class=w>
-</span></code></pre></div><p>Setelah migrasi selesai, selanjutnya kita bisa menjalankan KONG. Seperti sebelumnya, masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment <code>kong</code>. Sebenarnya dari sini kita sudah bisa menggunakan KONG melalui HTTP Request seperti cURL atau Postman. Namun untuk mempermudah penggunaan KONG, kita akan memasang WEB UI yang dibuat oleh komunitas yaitu <strong>KONGA</strong>.</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=w>  </span><span class=nt>konga-prepare</span><span class=p>:</span><span class=w>
+</span></code></pre></div><p>Setelah migrasi selesai, selanjutnya kita bisa menjalankan KONG. Seperti sebelumnya, masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment <code>kong</code>. Sebenarnya dari sini kita sudah bisa menggunakan KONG melalui HTTP Request seperti cURL atau Postman. Namun untuk mempermudah penggunaan KONG, kita akan memasang WEB UI yang dibuat oleh komunitas yaitu <strong>KONGA</strong>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=w>  </span><span class=nt>konga-prepare</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>pantsel/konga:0.14.9</span><span class=w>
 </span><span class=w>    </span><span class=nt>command</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;-c prepare -a postgres -u postgresql://user:12345@kong-database:5432/konga_db&#34;</span><span class=w>
 </span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
@@ -69,7 +203,8 @@ touch docker-compose.yml
 </span><span class=w>      </span>- <span class=l>kong-database</span><span class=w>
 </span><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=l>kong-database</span><span class=w>
-</span></code></pre></div><p>Untuk KONGA kita juga membutuhkan database, jadi kita juga akan melakukan migrasi database untuk KONGA, kita bisa menggunakan database yang sama yang kita gunakan untuk KONG. Untuk mengisikan USERNAME, PASSWORD dan DATABASE PostgreSQL, pada KONGA kita menggunakan format URL seperti <code>postgresql://user_anda:password_anda@host_atau_ip_anda:5432/db_anda</code>.</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=w>  </span><span class=nt>konga</span><span class=p>:</span><span class=w>
+</span></code></pre></div><p>Untuk KONGA kita juga membutuhkan database, jadi kita juga akan melakukan migrasi database untuk KONGA, kita bisa menggunakan database yang sama yang kita gunakan untuk KONG. Untuk mengisikan USERNAME, PASSWORD dan DATABASE PostgreSQL, pada KONGA kita menggunakan format URL seperti <code>postgresql://user_anda:password_anda@host_atau_ip_anda:5432/db_anda</code>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=w>  </span><span class=nt>konga</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>pantsel/konga:0.14.9</span><span class=w>
 </span><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=kc>on</span>-<span class=l>failure</span><span class=w>
 </span><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
@@ -86,10 +221,13 @@ touch docker-compose.yml
 </span><span class=w>      </span>- <span class=l>kong-database</span><span class=w>
 </span><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span>- <span class=s2>&#34;1337:1337&#34;</span><span class=w>
-</span></code></pre></div><p>Setelah migrasi KONGA database selesai, barulah kita bisa melakukan deployment KONGA. Konfigurasinya overall hampir sama, jadi tidak usah saya jelaskan. Untuk <code>TOKEN_SECRET</code> sebenarnya bisa diisi bebas, tapi disini saya mengikuti dokumentasinya saja.</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=nt>networks</span><span class=p>:</span><span class=w>
+</span></code></pre></div><p>Setelah migrasi KONGA database selesai, barulah kita bisa melakukan deployment KONGA. Konfigurasinya overall hampir sama, jadi tidak usah saya jelaskan. Untuk <code>TOKEN_SECRET</code> sebenarnya bisa diisi bebas, tapi disini saya mengikuti dokumentasinya saja.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=nt>networks</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=nt>kong-net</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>bridge</span><span class=w>
-</span></code></pre></div><p>Ini adalah network yang dipanggil disetiap service, Network bersifat <code>bridge</code>.</p><p>Jadi, konfigurasi penuhnya akan terlihat seperti berikut.</p><div class=highlight><pre class=chroma><code class=language-yml data-lang=yml><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;3.0&#34;</span><span class=w>
+</span></code></pre></div><p>Ini adalah network yang dipanggil disetiap service, Network bersifat <code>bridge</code>.</p>
+<p>Jadi, konfigurasi penuhnya akan terlihat seperti berikut.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yml data-lang=yml><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;3.0&#34;</span><span class=w>
 </span><span class=w></span><span class=nt>services</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=nt>kong-database</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>postgres:9.6</span><span class=w>
@@ -188,12 +326,148 @@ touch docker-compose.yml
 </span><span class=w></span><span class=nt>networks</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=nt>kong-net</span><span class=p>:</span><span class=w>
 </span><span class=w>    </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>bridge</span><span class=w>
-</span></code></pre></div><p>Simpan dan jalankan perintah, lalu tunggu beberapa menit untuk menunggu database, table dan container disiapkan.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>docker-compose up -d
-</code></pre></div><p>Setelah semuanya selesai, kita bisa akses <a class=link href=http://localhost:1337 target=_blank rel=noopener>localhost:1337</a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan <strong>Role Based Access Control (RBAC)</strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.<figure style=flex-grow:198;flex-basis:476px><a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png data-size=1351x680><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_2.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_2.png 1024w" width=1351 height=680 loading=lazy alt="KONGA Wellcome Page"></a><figcaption>KONGA Wellcome Page</figcaption></figure></p><h2 id=references>References</h2><ul><li><a href=https://hub.docker.com/r/pantsel/konga/>https://hub.docker.com/r/pantsel/konga/</a></li><li><a href=https://hub.docker.com/_/kong>https://hub.docker.com/_/kong</a></li><li><a href=https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/>https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/</a></li></ul><p>Okay&mldr; Sudah dulu, untuk fitur-fitur yang lain dan cara penggunaan KONGA. Kita akan bahas pada artikel berikutnya (sorry ngantuk). Oke sekian dulu, semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.</p></section><footer class=article-footer><section class=article-tags><a href=/tags/api-gateway/>api gateway</a>
-<a href=/tags/kong/>kong</a></section></footer></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article class=has-image><a href=/p/membuat-private-registry/><div class=article-image><img src=/p/membuat-private-registry/private.d758e4c464352fdd3acc7b76fb6238b6_hu96599f47c348a283a1b794be0a0813f9_135854_250x150_fill_box_smart1_2.png width=250 height=150 loading=lazy data-key data-hash="md5-11jkxGQ1L906zHt2+2I4tg=="></div><div class=article-details><h2 class=article-title>Membuat Private Registry</h2></div></a></article><article class=has-image><a href=/p/docker-untuk-pemula/><div class=article-image><img src=/p/docker-untuk-pemula/index.8a3f5be48643ce7d84d47aeb6875e707_hu3561eeb3844479899fe4e56a13632573_318896_250x150_fill_box_smart1_2.png width=250 height=150 loading=lazy data-key data-hash="md5-ij9b5IZDzn2E1HrraHXnBw=="></div><div class=article-details><h2 class=article-title>Docker Untuk Pemula</h2></div></a></article><article class=has-image><a href=/p/high-availability-ha-rancher-installation-with-docker/><div class=article-image><img src=/p/high-availability-ha-rancher-installation-with-docker/index.c02baadc27c6aae5a0ee8b135fe0cafd_hufaf80446c1310676cec50cf74fe7b4be_58769_250x150_fill_box_smart1_2.png width=250 height=150 loading=lazy data-key data-hash="md5-wCuq3CfGquWg7osTX+DK/Q=="></div><div class=article-details><h2 class=article-title>High Availability (HA) Rancher Installation with Docker</h2></div></a></article><article class=has-image><a href=/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/><div class=article-image><img src=/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.6570f39f1e68506f9d20d7848e800cd9_hud58fbdd7d7f06b1214dd0bfd7cea0c2d_145250_250x150_fill_box_smart1_2.png width=250 height=150 loading=lazy data-key data-hash="md5-ZXDznx5oUG+dINeEjoAM2Q=="></div><div class=article-details><h2 class=article-title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</h2></div></a></article><article class=has-image><a href=/p/perbedaan-antara-devops-dan-agile/><div class=article-image><img src=/p/perbedaan-antara-devops-dan-agile/index.55695217b4e5dc44f72cf0518b5986c4_hu6620c7cc13a868051b41a21af30829cf_279528_250x150_fill_box_smart1_2.png width=250 height=150 loading=lazy data-key data-hash="md5-VWlSF7Tl3ET3LPBRi1mGxA=="></div><div class=article-details><h2 class=article-title>Perbedaan antara Devops dan Agile</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//ledleledles-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener('onColorSchemeChange',a=>{DISQUS&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+</span></code></pre></div><p>Simpan dan jalankan perintah, lalu tunggu beberapa menit untuk menunggu database, table dan container disiapkan.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker-compose up -d
+</code></pre></div><p>Setelah semuanya selesai, kita bisa akses <a class=link href=http://localhost:1337 target=_blank rel=noopener>localhost:1337</a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan <strong>Role Based Access Control (RBAC)</strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.
+<figure style=flex-grow:198;flex-basis:476px>
+<a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png data-size=1351x680><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_3.png 1024w" width=1351 height=680 loading=lazy alt="KONGA Wellcome Page">
+</a>
+<figcaption>KONGA Wellcome Page</figcaption>
+</figure></p>
+<h2 id=references>References</h2>
+<ul>
+<li><a class=link href=https://hub.docker.com/r/pantsel/konga/ target=_blank rel=noopener>https://hub.docker.com/r/pantsel/konga/</a></li>
+<li><a class=link href=https://hub.docker.com/_/kong target=_blank rel=noopener>https://hub.docker.com/_/kong</a></li>
+<li><a class=link href=https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/ target=_blank rel=noopener>https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/</a></li>
+</ul>
+<h2 id=penutup>Penutup</h2>
+<p>Okay&mldr; Sudah dulu, untuk fitur-fitur yang lain dan cara penggunaan KONGA. Kita akan bahas pada artikel berikutnya (sorry ngantuk). Oke sekian dulu, semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.</p>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/api-gateway/>api gateway</a>
+<a href=/tags/kong/>kong</a>
+<a href=/tags/web-dev/>web dev</a>
+<a href=/tags/api-management/>api management</a>
+<a href=/tags/api/>api</a>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+<h2 class=section-title>Related contents</h2>
+<div class=related-contents>
+<div class="flex article-list--tile">
+<article class=has-image>
+<a href=/p/rhel-8-install-text-mode/>
+<div class=article-image>
+<img src=/index.png loading=lazy data-key data-hash=/index.png>
+</div>
+<div class=article-details>
+<h2 class=article-title>RHEL 8 Install Text Mode</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/membuat-private-registry/>
+<div class=article-image>
+<img src=/p/membuat-private-registry/private.d758e4c464352fdd3acc7b76fb6238b6_hu96599f47c348a283a1b794be0a0813f9_135854_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-11jkxGQ1L906zHt2+2I4tg==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Membuat Private Registry</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/docker-untuk-pemula/>
+<div class=article-image>
+<img src=/p/docker-untuk-pemula/index.8a3f5be48643ce7d84d47aeb6875e707_hu3561eeb3844479899fe4e56a13632573_318896_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-ij9b5IZDzn2E1HrraHXnBw==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Docker Untuk Pemula</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/high-availability-ha-rancher-installation-with-docker/>
+<div class=article-image>
+<img src=/p/high-availability-ha-rancher-installation-with-docker/index.c02baadc27c6aae5a0ee8b135fe0cafd_hufaf80446c1310676cec50cf74fe7b4be_58769_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-wCuq3CfGquWg7osTX+DK/Q==">
+</div>
+<div class=article-details>
+<h2 class=article-title>High Availability (HA) Rancher Installation with Docker</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/>
+<div class=article-image>
+<img src=/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.6570f39f1e68506f9d20d7848e800cd9_hud58fbdd7d7f06b1214dd0bfd7cea0c2d_145250_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-ZXDznx5oUG+dINeEjoAM2Q==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<div class=disqus-container>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//ledleledles-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style>
+<script>window.addEventListener('onColorSchemeChange',a=>{DISQUS&&DISQUS.reset({reload:!0})})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
 2019 -
-2021 Leon's Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2021 Leon's Blog
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script><script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script></body></html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>
