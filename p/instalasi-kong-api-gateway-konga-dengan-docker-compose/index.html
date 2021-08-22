@@ -107,6 +107,8 @@ Web Dev
 </ul>
 <h2 id=intro>Intro</h2>
 <p>KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format <strong>Plugin</strong>. Sorry saya bukannya mau ngepromote KONG, cuma yang saya rasakan seperti itu wkwk.</p>
+<h2 id=tldr>TL;DR</h2>
+<p>Kalian udah paham? Tapi kesini cuma mau cari <code>docker-compose</code>-nya aja? Langsung aja clone repo ini <a class=link href=https://github.com/ledleledle/belajar-kong target=_blank rel=noopener>https://github.com/ledleledle/belajar-kong</a>.</p>
 <h2 id=db-mode-vs-db-less>DB-Mode vs DB-Less</h2>
 <p>Kong memiliki 2 pilihan diantaranya, DB-Mode yaitu KONG dengan database, database yang dapat disupport ada 2 yaitu PostreSQL dan Cassandra. Dan DB-Less yaitu KONG tanpa database, yaitu kita bisa menggunakan file <code>.yml</code> untuk melakukan konfigurasi terhadap KONG. Namun kali ini saya akan menggunakan DB-Mode dengan database PostgreSQL.</p>
 <h2 id=good-point>Good Point</h2>
@@ -334,6 +336,13 @@ touch docker-compose.yml
 </a>
 <figcaption>KONGA Wellcome Page</figcaption>
 </figure></p>
+<h2 id=menambah-connection>Menambah Connection</h2>
+<p>Connection disini yaitu Admin API KONG, Disini kita bisa menyambungkan beberapa KONG Nodes yang ingin kita konfigurasi. Cara menambahkannya simple. Cukup masukkan URL KONG yang sudah kalian deploy, lalu simpan.
+<figure style=flex-grow:147;flex-basis:353px>
+<a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png data-size=1020x692><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_1024x0_resize_box_3.png 1024w" width=1020 height=692 loading=lazy alt="Add Connection KONGA">
+</a>
+<figcaption>Add Connection KONGA</figcaption>
+</figure></p>
 <h2 id=references>References</h2>
 <ul>
 <li><a class=link href=https://hub.docker.com/r/pantsel/konga/ target=_blank rel=noopener>https://hub.docker.com/r/pantsel/konga/</a></li>
@@ -357,6 +366,16 @@ touch docker-compose.yml
 <h2 class=section-title>Related contents</h2>
 <div class=related-contents>
 <div class="flex article-list--tile">
+<article class=has-image>
+<a href=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/>
+<div class=article-image>
+<img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/index.d71d7c8b85521c535cf7fd0b36648ad0_huac923ffed9f767788bc20bb1b6e92f9f_260380_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-1x18i4VSHFNc9/0LNmSK0A==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Pembahasan Services dan Routes pada Kong Api Gateway</h2>
+</div>
+</a>
+</article>
 <article>
 <a href=/p/rhel-8-install-text-mode/>
 <div class=article-details>
@@ -391,16 +410,6 @@ touch docker-compose.yml
 </div>
 <div class=article-details>
 <h2 class=article-title>High Availability (HA) Rancher Installation with Docker</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/>
-<div class=article-image>
-<img src=/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.6570f39f1e68506f9d20d7848e800cd9_hud58fbdd7d7f06b1214dd0bfd7cea0c2d_145250_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-ZXDznx5oUG+dINeEjoAM2Q==">
-</div>
-<div class=article-details>
-<h2 class=article-title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</h2>
 </div>
 </a>
 </article>

@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Jul 2021 20:28:27 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>RHEL 8 Install Text Mode</title><link>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</link><pubDate>Sun, 25 Jul 2021 20:28:27 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 22 Aug 2021 14:53:48 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Pembahasan Services dan Routes pada Kong Api Gateway</title><link>https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/</link><pubDate>Sun, 22 Aug 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/index.png" alt="Featured image of post Pembahasan Services dan Routes pada Kong Api Gateway" />&lt;h2 id="fyi">FYI&lt;/h2>
+&lt;ul>
+&lt;li>Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi.&lt;/li>
+&lt;li>Kita menggunakan KONG Community Edition&lt;/li>
+&lt;/ul>
+&lt;h2 id="serial">Serial&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="../instalasi-kong-api-gateway-konga-dengan-docker-compose/" >Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose&lt;/a>&lt;/li>
+&lt;li>Pembahasan Services dan Routes pada Kong Api Gateway &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route. Pertama pahami terlebih dahulu apa itu Service &amp;amp; Route.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Service:&lt;/strong> adalah eksternal upstream API atau aplikasi yang kalian miliki. Contoh: &lt;code>http://dev.example.com&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Route:&lt;/strong> adalah gerbang keluar dari service yang nantinya akan diakses oleh user. Disini kita bisa membuat versioning service seperti contoh: &lt;code>http://dev.example.com/v1&lt;/code>, &lt;code>http://dev.example.com/v2&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Kalau kalian masih bingung tentang penjelasan saya, semoga kalian akan paham saat praktek. Jadi&amp;hellip; Mari kita mulai.&lt;/p>
+&lt;h2 id="pembahasan">Pembahasan&lt;/h2>
+&lt;h3 id="contoh-project">Contoh Project&lt;/h3>
+&lt;p>Disini saya memiliki contoh project yang bisa kita gunakan untuk praktek, buka &lt;a class="link" href="https://github.com/ledleledle/belajar-kong" target="_blank" rel="noopener"
+>&lt;strong>link ini&lt;/strong>&lt;/a> untuk mendownload atau clone repository. Ini akan digunakan sebagai contoh &lt;strong>Service&lt;/strong>. Jika kalian menjalankannya lewat &lt;code>docker-compose&lt;/code>. Kalian akan langsung bisa melakukan test APInya dengan perintah &lt;code>cURL&lt;/code> pada:&lt;/p>
+&lt;ul>
+&lt;li>http://localhost:3000/one&lt;/li>
+&lt;li>http://localhost:3000/two&lt;/li>
+&lt;li>http://localhost:3000/three&lt;/li>
+&lt;/ul>
+&lt;h3 id="membuat-service-dari-contoh-project">Membuat Service dari contoh project&lt;/h3>
+&lt;p>Oke&amp;hellip; Saya asumsikan kalian udah paham tentang contoh projectnya. Sekarang kita akan membuat service. Buka KONGA kalian. Lalu buka menu &lt;strong>Services &amp;gt; Add New Service&lt;/strong>. Munculah modal box seperti gambar dibawah.
+&lt;figure style="flex-grow: 125; flex-basis: 302px">
+&lt;a href="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1.png" data-size="811x644">&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1.png"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_1024x0_resize_box_3.png 1024w"
+width="811"
+height="644"
+loading="lazy"
+alt="Add New Service">
+&lt;/a>
+&lt;figcaption>Add New Service&lt;/figcaption>
+&lt;/figure>
+Disini form yang perlu kita tambahkan yaitu:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Name:&lt;/strong> nama service, ini hanya nama, kalian bisa isi bebas. Contoh: &lt;code>service-v1&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>URL:&lt;/strong> URL diisi dengan link aplikasi yang kita miliki. Pastikan diisi dengan format &lt;code>&amp;lt;protocol&amp;gt;://&amp;lt;URL&amp;gt;:&amp;lt;port&amp;gt;&lt;/code>. Contoh &lt;code>http://project:3000&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Path:&lt;/strong> Ini sebenarnya form optional. Tapi&amp;hellip; Karena dalam contoh ini, kita menggunakan path untuk membedakan aplikasi. Kita akan memasukkan path dengan format &lt;code>/path&lt;/code>. Contoh: &lt;code>/one&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;p>Klik &lt;strong>Submit Service&lt;/strong>.
+&lt;figure style="flex-grow: 324; flex-basis: 777px">
+&lt;a href="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2.png" data-size="1092x337">&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2.png"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_1024x0_resize_box_3.png 1024w"
+width="1092"
+height="337"
+loading="lazy"
+alt="Services List">
+&lt;/a>
+&lt;figcaption>Services List&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h3 id="membuat-routes">Membuat Routes&lt;/h3>
+&lt;p>Dari list Service yang telah kita buat. Klik pada nama salah satu service. Buka menu &lt;strong>Routes &amp;gt; Add Route&lt;/strong>.
+&lt;figure style="flex-grow: 288; flex-basis: 691px">
+&lt;a href="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3.png" data-size="1101x382">&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3.png"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_1024x0_resize_box_3.png 1024w"
+width="1101"
+height="382"
+loading="lazy"
+alt="Routes List">
+&lt;/a>
+&lt;figcaption>Routes List&lt;/figcaption>
+&lt;/figure>
+&lt;figure style="flex-grow: 135; flex-basis: 324px">
+&lt;a href="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4.png" data-size="877x648">&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4.png"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_1024x0_resize_box_3.png 1024w"
+width="877"
+height="648"
+loading="lazy"
+alt="Add Route">
+&lt;/a>
+&lt;figcaption>Add Route&lt;/figcaption>
+&lt;/figure>
+Hampir mirip seperti kita membuat Service sebelumnya, berikut form yang wajib kita tambahkan yaitu:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Name:&lt;/strong> name ini wajib ya buat membedakan services/routes satu dengan yang lain.&lt;/li>
+&lt;li>Path: path pada route bertujuan untuk membelokkan URL service ke path &lt;code>(/)&lt;/code> yang kita tentukan. Misal &lt;code>http://feature.example.com --&amp;gt; http://example.com/feature&lt;/code>. Intinya&amp;hellip; Mbelokin link doang. Contoh disini: &lt;code>/api/v1&lt;/code>. &lt;strong>Jangan lupa tekan ENTER&lt;/strong>.&lt;/li>
+&lt;li>Method: dalam route ini http method apa saja yang diperbolehkan. Disini karena kita hanya nge-GET data doang. Ya isi aja &lt;code>GET&lt;/code>. &lt;strong>Jangan lupa tekan ENTER&lt;/strong>.&lt;/li>
+&lt;li>Protocols: &lt;code>http&lt;/code> or &lt;code>https&lt;/code>. Terserah guys&amp;hellip; kalian juga udah paham pastinya kalo ini.&lt;/li>
+&lt;/ul>
+&lt;p>Klik &lt;strong>Submit Route&lt;/strong>.
+&lt;figure style="flex-grow: 246; flex-basis: 592px">
+&lt;a href="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5.png" data-size="1106x448">&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5.png"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_1024x0_resize_box_3.png 1024w"
+width="1106"
+height="448"
+loading="lazy"
+alt="Routes List">
+&lt;/a>
+&lt;figcaption>Routes List&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Lalu kita bisa cek URL yang telah kita proses melalui API Gateway tadi dengan cara melakukan HTTP Request ke &lt;code>http://localhost:8000/api/v1&lt;/code>. Disini port &lt;strong>8000&lt;/strong> adalah URL yang akan diakses oleh user. Dan &lt;strong>/api/v1&lt;/strong> adalah route yang telah kita buka tadi. Kita test menggunakan &lt;code>cURL&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">curl -IXGET localhost:8000/api/v1
+&lt;span class="c1">## Output&lt;/span>
+HTTP/1.1 &lt;span class="m">200&lt;/span> OK
+Content-Type: text/html&lt;span class="p">;&lt;/span> &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>utf-8
+Content-Length: &lt;span class="m">6&lt;/span>
+Connection: keep-alive
+X-Powered-By: Express
+ETag: W/&lt;span class="s2">&amp;#34;6-no4iJdZG6USw2NYfw6FhZkLy+uw&amp;#34;&lt;/span>
+Date: Sun, &lt;span class="m">22&lt;/span> Aug &lt;span class="m">2021&lt;/span> 12:47:15 GMT
+X-Kong-Upstream-Latency: &lt;span class="m">2&lt;/span>
+X-Kong-Proxy-Latency: &lt;span class="m">1&lt;/span>
+Via: kong/2.3.3
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Yep&amp;hellip; Kalian sudah berhasil membuat sepasang service &amp;amp; route.&lt;/p>
+&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;p>Oke untuk sekarang sekian dulu, sorry kalau agak kurang jelas. Semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.&lt;/p></description></item><item><title>RHEL 8 Install Text Mode</title><link>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</link><pubDate>Sun, 25 Jul 2021 20:28:27 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>By default installasi RedHat 8 Linux bakal dijalankan pada graphical mode. Disini kita akan menggunakan &lt;strong>Text Mode TTY installation&lt;/strong>. Ini sebenarnya didesain untuk &amp;ldquo;JIKA&amp;rdquo; kalian memiliki masalah dengan graphical mode, kalian bisa menggunakan text mode untuk pilihan ke-2.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;ul>
@@ -53,6 +163,9 @@ alt="Text Mode Installation RHEL 8">
 &lt;/ul>
 &lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format &lt;strong>Plugin&lt;/strong>. Sorry saya bukannya mau ngepromote KONG, cuma yang saya rasakan seperti itu wkwk.&lt;/p>
+&lt;h2 id="tldr">TL;DR&lt;/h2>
+&lt;p>Kalian udah paham? Tapi kesini cuma mau cari &lt;code>docker-compose&lt;/code>-nya aja? Langsung aja clone repo ini &lt;a class="link" href="https://github.com/ledleledle/belajar-kong" target="_blank" rel="noopener"
+>https://github.com/ledleledle/belajar-kong&lt;/a>.&lt;/p>
 &lt;h2 id="db-mode-vs-db-less">DB-Mode vs DB-Less&lt;/h2>
 &lt;p>Kong memiliki 2 pilihan diantaranya, DB-Mode yaitu KONG dengan database, database yang dapat disupport ada 2 yaitu PostreSQL dan Cassandra. Dan DB-Less yaitu KONG tanpa database, yaitu kita bisa menggunakan file &lt;code>.yml&lt;/code> untuk melakukan konfigurasi terhadap KONG. Namun kali ini saya akan menggunakan DB-Mode dengan database PostgreSQL.&lt;/p>
 &lt;h2 id="good-point">Good Point&lt;/h2>
@@ -296,6 +409,18 @@ loading="lazy"
 alt="KONGA Wellcome Page">
 &lt;/a>
 &lt;figcaption>KONGA Wellcome Page&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="menambah-connection">Menambah Connection&lt;/h2>
+&lt;p>Connection disini yaitu Admin API KONG, Disini kita bisa menyambungkan beberapa KONG Nodes yang ingin kita konfigurasi. Cara menambahkannya simple. Cukup masukkan URL KONG yang sudah kalian deploy, lalu simpan.
+&lt;figure style="flex-grow: 147; flex-basis: 353px">
+&lt;a href="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png" data-size="1020x692">&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_1024x0_resize_box_3.png 1024w"
+width="1020"
+height="692"
+loading="lazy"
+alt="Add Connection KONGA">
+&lt;/a>
+&lt;figcaption>Add Connection KONGA&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;h2 id="references">References&lt;/h2>
 &lt;ul>
