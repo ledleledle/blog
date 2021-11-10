@@ -1,14 +1,14 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kita menggunakan KONG Community Edition  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose Pembahasan Services dan Routes pada Kong Api Gateway &amp;lt;&amp;ndash; Kita disini  Intro Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route."><title>Pembahasan Services dan Routes pada Kong Api Gateway</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kita menggunakan KONG Community Edition Untuk mempermudah praktek, kita akan menggunakan KONGA  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose Pembahasan Services dan Routes pada Kong Api Gateway &amp;lt;&amp;ndash; Kita disini Implementasi JWT Pada KONG  Intro Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route."><title>Pembahasan Services dan Routes pada Kong Api Gateway</title>
 <link rel=canonical href=https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/>
 <link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Pembahasan Services dan Routes pada Kong Api Gateway">
-<meta property="og:description" content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kita menggunakan KONG Community Edition  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose Pembahasan Services dan Routes pada Kong Api Gateway &amp;lt;&amp;ndash; Kita disini  Intro Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route.">
+<meta property="og:description" content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kita menggunakan KONG Community Edition Untuk mempermudah praktek, kita akan menggunakan KONGA  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose Pembahasan Services dan Routes pada Kong Api Gateway &amp;lt;&amp;ndash; Kita disini Implementasi JWT Pada KONG  Intro Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route.">
 <meta property="og:url" content="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/">
 <meta property="og:site_name" content="Leon's Blog">
 <meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="api gateway"><meta property="article:tag" content="kong"><meta property="article:tag" content="web dev"><meta property="article:tag" content="api management"><meta property="article:tag" content="api"><meta property="article:published_time" content="2021-08-22T14:53:48+07:00"><meta property="article:modified_time" content="2021-08-22T14:53:48+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/index.png">
 <meta name=twitter:title content="Pembahasan Services dan Routes pada Kong Api Gateway">
-<meta name=twitter:description content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kita menggunakan KONG Community Edition  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose Pembahasan Services dan Routes pada Kong Api Gateway &amp;lt;&amp;ndash; Kita disini  Intro Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route."><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:description content="FYI  Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kita menggunakan KONG Community Edition Untuk mempermudah praktek, kita akan menggunakan KONGA  Serial  Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose Pembahasan Services dan Routes pada Kong Api Gateway &amp;lt;&amp;ndash; Kita disini Implementasi JWT Pada KONG  Intro Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route."><meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/index.png">
 <link rel="shortcut icon" href=img/favicon.ico>
 <script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','G-6CEFZGZSW6','auto'),ga('send','pageview'))</script>
@@ -98,11 +98,13 @@ Web Dev
 <ul>
 <li>Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi.</li>
 <li>Kita menggunakan KONG Community Edition</li>
+<li>Untuk mempermudah praktek, kita akan menggunakan KONGA</li>
 </ul>
 <h2 id=serial>Serial</h2>
 <ul>
 <li><a class=link href=../instalasi-kong-api-gateway-konga-dengan-docker-compose/>Instalasi Kong Api Gateway & KONGA dengan Docker Compose</a></li>
 <li>Pembahasan Services dan Routes pada Kong Api Gateway <strong>&lt;&ndash; Kita disini</strong></li>
+<li><a class=link href=../implementasi-jwt-pada-kong/>Implementasi JWT Pada KONG</a></li>
 </ul>
 <h2 id=intro>Intro</h2>
 <p>Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service & Route. Pertama pahami terlebih dahulu apa itu Service & Route.</p>
@@ -196,6 +198,16 @@ Via: kong/2.3.3
 <div class=related-contents>
 <div class="flex article-list--tile">
 <article class=has-image>
+<a href=/p/implementasi-jwt-pada-kong/>
+<div class=article-image>
+<img src=/p/implementasi-jwt-pada-kong/index.d71d7c8b85521c535cf7fd0b36648ad0_huac923ffed9f767788bc20bb1b6e92f9f_260380_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-1x18i4VSHFNc9/0LNmSK0A==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Implementasi JWT Pada KONG</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
 <a href=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/>
 <div class=article-image>
 <img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.d71d7c8b85521c535cf7fd0b36648ad0_huac923ffed9f767788bc20bb1b6e92f9f_260380_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-1x18i4VSHFNc9/0LNmSK0A==">
@@ -229,16 +241,6 @@ Via: kong/2.3.3
 </div>
 <div class=article-details>
 <h2 class=article-title>Docker Untuk Pemula</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
-<a href=/p/high-availability-ha-rancher-installation-with-docker/>
-<div class=article-image>
-<img src=/p/high-availability-ha-rancher-installation-with-docker/index.c02baadc27c6aae5a0ee8b135fe0cafd_hufaf80446c1310676cec50cf74fe7b4be_58769_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy data-key data-hash="md5-wCuq3CfGquWg7osTX+DK/Q==">
-</div>
-<div class=article-details>
-<h2 class=article-title>High Availability (HA) Rancher Installation with Docker</h2>
 </div>
 </a>
 </article>

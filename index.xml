@@ -1,4 +1,170 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 12 Sep 2021 13:42:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Ikut Bootcamp. Worth It kah?</title><link>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</link><pubDate>Sun, 12 Sep 2021 13:42:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/index.png" alt="Featured image of post Ikut Bootcamp. Worth It kah?" />&lt;h2 id="intro">Intro&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Leon's Blog</title><link>https://blog.leonprasetya.my.id/</link><description>Recent content on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Nov 2021 00:40:39 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/index.xml" rel="self" type="application/rss+xml"/><item><title>Implementasi JWT Pada KONG</title><link>https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/</link><pubDate>Thu, 11 Nov 2021 00:40:39 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/index.png" alt="Featured image of post Implementasi JWT Pada KONG" />&lt;h2 id="fyi">FYI&lt;/h2>
+&lt;ul>
+&lt;li>Saya sedang membuat serial untuk pembelajaran KONG pada blog ini.&lt;/li>
+&lt;li>Kita menggunakan KONG Community Edition.&lt;/li>
+&lt;li>Untuk mempermudah praktek, kita akan menggunakan KONGA&lt;/li>
+&lt;/ul>
+&lt;h2 id="serial">Serial&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="../instalasi-kong-api-gateway-konga-dengan-docker-compose/" >Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../pembahasan-services-dan-routes-pada-kong-api-gateway/" >Pembahasan Services dan Routes pada Kong Api Gateway&lt;/a>&lt;/li>
+&lt;li>Implementasi JWT Pada KONG &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Kita akan melanjutkan pembahasan KONG dari yang kemarin, kemarin maksud saya 2 bulan yang lalu wkwk. Jadi pada pembahasan sebelumnya kita telah mengetahui tentang Service dan Routes. Pada pembahasan kali ini pahami dulu yang namanya &lt;strong>Consumer&lt;/strong> dan &lt;strong>Plugins&lt;/strong>.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Plugins&lt;/strong> adalah tools yang disediakan atau bisa dibuat sendiri, untuk mempermudah user dalam mengimplementasi fungsionalitas yang diinginkan. Misal disini kita akan menggunakan plugin &lt;strong>JWT&lt;/strong> dalam praktek kali ini.&lt;/li>
+&lt;li>&lt;strong>Consumer&lt;/strong> berperan sebagai pemegang kunci autentikasi. Jadi misal kita punya plugin autentikasi (seperti JWT, Key Auth, dll) yang terpasang pada service/route, plugin autentikasi disini bisa diibaratkan sebagai &lt;strong>lubang kunci&lt;/strong> dan &lt;strong>Consumer&lt;/strong> adalah sang kunci untuk mengakses API yang memiliki autentikasi. CMIIW.&lt;/li>
+&lt;/ul>
+&lt;h2 id="pembahasan">Pembahasan&lt;/h2>
+&lt;p>Setelah mengerti tentang Plugin dan Consumer, kita akan lanjut untuk mengimplementasikan autentikasi JWT pada API kita. Karena sebelumnya kita telah membahas tentang Service dan Route, kita akan membahasnya sedikit saja disini.&lt;/p>
+&lt;p>Jadi pertama, buat service dan routenya terlebih dahulu.
+&lt;figure style="flex-grow: 736; flex-basis: 1768px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1.png" data-size="678x92">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_1024x0_resize_box_3.png 1024w"
+width="678"
+height="92"
+loading="lazy"
+alt="Service">
+&lt;/a>
+&lt;figcaption>Service&lt;/figcaption>
+&lt;/figure>
+&lt;figure style="flex-grow: 471; flex-basis: 1131px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2.png" data-size="542x115">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_1024x0_resize_box_3.png 1024w"
+width="542"
+height="115"
+loading="lazy"
+alt="Route">
+&lt;/a>
+&lt;figcaption>Route&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Selanjutnya yaitu mengaktifkan Plugin JWT. Kita bisa mengaktifkannya secara:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Scoped&lt;/strong>: terpusat pada &lt;strong>salah satu&lt;/strong> service atau route&lt;/li>
+&lt;li>&lt;strong>Global&lt;/strong>: plugin akan diaktifkan pada semua service dan route&lt;/li>
+&lt;/ul>
+&lt;p>Namun disini, kita akan memasangnya secara Scoped yaitu pada Service. Masuk ke &lt;strong>Service &amp;gt; Plugins &amp;gt; Add Plugin&lt;/strong>. Lalu pilih JWT.
+&lt;figure style="flex-grow: 119; flex-basis: 287px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3.png" data-size="734x613">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_1024x0_resize_box_3.png 1024w"
+width="734"
+height="613"
+loading="lazy"
+alt="Plugins">
+&lt;/a>
+&lt;figcaption>Plugins&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Pada Plugin ini yang wajib kita isi yaitu:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>consumer&lt;/strong> (nope): tidak boleh diisi, atau KONGA akan menampilkan pesan error. Ini dikarenakan plugin JWT harus dapan digunakan oleh semua Consumer.&lt;/li>
+&lt;li>&lt;strong>key claim name&lt;/strong> (optional): default yaitu &lt;strong>iss&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>header names&lt;/strong> (wajib): isi dengan value &lt;strong>authorization&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>Jika sudah klik &lt;strong>Submit Changes&lt;/strong>. Bisa dilihat bahwa plugin JWT sudah ditambahkan.
+&lt;figure style="flex-grow: 598; flex-basis: 1437px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4.png" data-size="563x94">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_1024x0_resize_box_3.png 1024w"
+width="563"
+height="94"
+loading="lazy"
+alt="JWT Activated">
+&lt;/a>
+&lt;figcaption>JWT Activated&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Selanjutnya, kita akan membuat Consumer. Masuk ke menu &lt;strong>Consumers &amp;gt; Create Consumer&lt;/strong>. Buat &lt;strong>username&lt;/strong> dan &lt;strong>custom_id&lt;/strong> sesuai selera.
+&lt;figure style="flex-grow: 328; flex-basis: 788px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5.png" data-size="1058x322">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_1024x0_resize_box_3.png 1024w"
+width="1058"
+height="322"
+loading="lazy"
+alt="Consumer">
+&lt;/a>
+&lt;figcaption>Consumer&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Setelah consumer dibuat, masuk ke &lt;strong>Consumer &amp;gt; Credentials &amp;gt; JWT&lt;/strong>. Lalu &lt;strong>Create JWT&lt;/strong>.
+&lt;figure style="flex-grow: 252; flex-basis: 605px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6.png" data-size="1059x420">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_1024x0_resize_box_3.png 1024w"
+width="1059"
+height="420"
+loading="lazy"
+alt="Credentials">
+&lt;/a>
+&lt;figcaption>Credentials&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Isi key dan secret sesuai dengan selera kalian. Lalu submit.
+&lt;figure style="flex-grow: 86; flex-basis: 207px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7.png" data-size="505x583">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_1024x0_resize_box_3.png 1024w"
+width="505"
+height="583"
+loading="lazy"
+alt="Form JWT">
+&lt;/a>
+&lt;figcaption>Form JWT&lt;/figcaption>
+&lt;/figure>
+Bisa dilihat bahwa Credential telah dibuat.
+&lt;figure style="flex-grow: 230; flex-basis: 552px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8.png" data-size="1017x442">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_1024x0_resize_box_3.png 1024w"
+width="1017"
+height="442"
+loading="lazy"
+alt="JWT Credential Created">
+&lt;/a>
+&lt;figcaption>JWT Credential Created&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="testing">Testing&lt;/h2>
+&lt;p>Berikutnya yaitu generate Bearer Token yang akan digunakan untuk autentikasi API. Sebagai contoh, kita akan menggunakan &lt;a class="link" href="https://jwt.io" target="_blank" rel="noopener"
+>https://jwt.io&lt;/a>. Masukkan key pada payload dan secret pada signature. Copy token yang ada pada sebelah kiri.
+&lt;figure style="flex-grow: 202; flex-basis: 486px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9.png" data-size="976x481">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_1024x0_resize_box_3.png 1024w"
+width="976"
+height="481"
+loading="lazy"
+alt="jwt.io">
+&lt;/a>
+&lt;figcaption>jwt.io&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Setelah Token digenerate, kita akan melakukan testing dengan menembak API. Disini saya menggunakan Insomnia. Tentu saja kalian bisa menggunakan tool sejenis seperti cURL, http, Postman, dll. Lalu copy token tersebut dan kita akan menempelkannya sebagai &lt;strong>Bearer Token&lt;/strong>.&lt;/p>
+&lt;h3 id="skenario-i-valid-token">Skenario I: Valid Token&lt;/h3>
+&lt;p>&lt;figure style="flex-grow: 475; flex-basis: 1141px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/10.png" data-size="970x204">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/10.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/10_hu9333a51995fb0f525c7470303892ab25_594876_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/10_hu9333a51995fb0f525c7470303892ab25_594876_1024x0_resize_box_3.png 1024w"
+width="970"
+height="204"
+loading="lazy"
+alt="Valid Token">
+&lt;/a>
+&lt;figcaption>Valid Token&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h3 id="skenario-ii-invalid-token">Skenario II: Invalid Token&lt;/h3>
+&lt;p>&lt;figure style="flex-grow: 456; flex-basis: 1095px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/11.png" data-size="968x212">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/11.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/11_hudd1048a0023717dfb24bf11f860fc81e_616928_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/11_hudd1048a0023717dfb24bf11f860fc81e_616928_1024x0_resize_box_3.png 1024w"
+width="968"
+height="212"
+loading="lazy"
+alt="Invalid Token">
+&lt;/a>
+&lt;figcaption>Invalid Token&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h3 id="skenario-iii-tanpa-token">Skenario III: Tanpa Token&lt;/h3>
+&lt;p>&lt;figure style="flex-grow: 479; flex-basis: 1150px">
+&lt;a href="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/12.png" data-size="973x203">&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/12.png"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/12_hu42c606e7dbdf7a344f0f1baeab56753b_593792_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/12_hu42c606e7dbdf7a344f0f1baeab56753b_593792_1024x0_resize_box_3.png 1024w"
+width="973"
+height="203"
+loading="lazy"
+alt="Tanpa Token">
+&lt;/a>
+&lt;figcaption>Tanpa Token&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;p>Kurang lebih seperti itu cara menggunakan plugin JWT pada KONG. Jika ada pertanyaan silakan bertanya pada kolom komentar. Sekian dan Terimakasih&amp;hellip;&lt;/p></description></item><item><title>Ikut Bootcamp. Worth It kah?</title><link>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</link><pubDate>Sun, 12 Sep 2021 13:42:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/index.png" alt="Featured image of post Ikut Bootcamp. Worth It kah?" />&lt;h2 id="intro">Intro&lt;/h2>
 &lt;blockquote>
 &lt;h3 id="intro-didalam-intro">Intro didalam Intro&lt;/h3>
 &lt;p>Sebelum saya buka&amp;hellip; Pertama-tama, saya mohon maaf jika ada pihak yang tersinggung, saya hanya ingin menceritakan pengalaman saya. Jika ada pihak yang merasa dirugikan, mohon hubungi saya untuk diskusi lebih lanjut. Terimakasih.&lt;/p>
@@ -30,11 +196,13 @@ Alasan saya sedikit kecewa karena sebelum bootcamp berjalan saya sudah mempelaja
 &lt;ul>
 &lt;li>Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi.&lt;/li>
 &lt;li>Kita menggunakan KONG Community Edition&lt;/li>
+&lt;li>Untuk mempermudah praktek, kita akan menggunakan KONGA&lt;/li>
 &lt;/ul>
 &lt;h2 id="serial">Serial&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a class="link" href="../instalasi-kong-api-gateway-konga-dengan-docker-compose/" >Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose&lt;/a>&lt;/li>
 &lt;li>Pembahasan Services dan Routes pada Kong Api Gateway &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;li>&lt;a class="link" href="../implementasi-jwt-pada-kong/" >Implementasi JWT Pada KONG&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route. Pertama pahami terlebih dahulu apa itu Service &amp;amp; Route.&lt;/p>
@@ -188,6 +356,7 @@ alt="Text Mode Installation RHEL 8">
 &lt;ul>
 &lt;li>Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
 &lt;li>&lt;a class="link" href="../pembahasan-services-dan-routes-pada-kong-api-gateway/" >Pembahasan Services dan Routes pada Kong Api Gateway&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../implementasi-jwt-pada-kong/" >Implementasi JWT Pada KONG&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format &lt;strong>Plugin&lt;/strong>. Sorry saya bukannya mau ngepromote KONG, cuma yang saya rasakan seperti itu wkwk.&lt;/p>
