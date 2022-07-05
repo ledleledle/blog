@@ -1,215 +1,38 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro Karena di Grup Facebook Lokal banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada Firefox, maka saya buatlah tutorial ini.
-Requirements  Mozila Firefox Skill CSS Dasar (Copy Paste juga boleh)  Tutorial Pertama, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan about:config. Klik Accept the Risk and Continue.
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro Karena di Grup Facebook Lokal banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada Firefox, maka saya buatlah tutorial ini.
+Requirements Mozila Firefox Skill CSS Dasar (Copy Paste juga boleh) Tutorial Pertama, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan about:config. Klik Accept the Risk and Continue.
 Kedua, cari toolkit.legacyUserProfileCustomizations.stylesheets. Lalu ubah valuenya dari False menjadi True.
-Langkah selanjutnya yaitu membuat/menyunting file userChrome."><title>Kostumisasi Mozila Firefox dengan mengubah userChrome.css</title>
-<link rel=canonical href=https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Kostumisasi Mozila Firefox dengan mengubah userChrome.css">
-<meta property="og:description" content="Intro Karena di Grup Facebook Lokal banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada Firefox, maka saya buatlah tutorial ini.
-Requirements  Mozila Firefox Skill CSS Dasar (Copy Paste juga boleh)  Tutorial Pertama, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan about:config. Klik Accept the Risk and Continue.
+Langkah selanjutnya yaitu membuat/menyunting file userChrome.css. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu Help &amp;gt; Troubleshooting Information."><title>Kostumisasi Mozila Firefox dengan mengubah userChrome.css</title><link rel=canonical href=https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Kostumisasi Mozila Firefox dengan mengubah userChrome.css"><meta property="og:description" content="Intro Karena di Grup Facebook Lokal banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada Firefox, maka saya buatlah tutorial ini.
+Requirements Mozila Firefox Skill CSS Dasar (Copy Paste juga boleh) Tutorial Pertama, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan about:config. Klik Accept the Risk and Continue.
 Kedua, cari toolkit.legacyUserProfileCustomizations.stylesheets. Lalu ubah valuenya dari False menjadi True.
-Langkah selanjutnya yaitu membuat/menyunting file userChrome.">
-<meta property="og:url" content="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/">
-<meta property="og:site_name" content="Leon's Blog">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="firefox"><meta property="article:tag" content="browser"><meta property="article:tag" content="mozila firefox"><meta property="article:tag" content="ricing"><meta property="article:tag" content="old blog"><meta property="article:published_time" content="2020-04-30T23:39:39+07:00"><meta property="article:modified_time" content="2020-04-30T23:39:39+07:00">
-<meta name=twitter:title content="Kostumisasi Mozila Firefox dengan mengubah userChrome.css">
-<meta name=twitter:description content="Intro Karena di Grup Facebook Lokal banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada Firefox, maka saya buatlah tutorial ini.
-Requirements  Mozila Firefox Skill CSS Dasar (Copy Paste juga boleh)  Tutorial Pertama, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan about:config. Klik Accept the Risk and Continue.
+Langkah selanjutnya yaitu membuat/menyunting file userChrome.css. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu Help &amp;gt; Troubleshooting Information."><meta property="og:url" content="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/"><meta property="og:site_name" content="Leon's Blog"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="firefox"><meta property="article:tag" content="browser"><meta property="article:tag" content="mozila firefox"><meta property="article:tag" content="ricing"><meta property="article:tag" content="old blog"><meta property="article:published_time" content="2020-04-30T23:39:39+07:00"><meta property="article:modified_time" content="2020-04-30T23:39:39+07:00"><meta name=twitter:title content="Kostumisasi Mozila Firefox dengan mengubah userChrome.css"><meta name=twitter:description content="Intro Karena di Grup Facebook Lokal banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada Firefox, maka saya buatlah tutorial ini.
+Requirements Mozila Firefox Skill CSS Dasar (Copy Paste juga boleh) Tutorial Pertama, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan about:config. Klik Accept the Risk and Continue.
 Kedua, cari toolkit.legacyUserProfileCustomizations.stylesheets. Lalu ubah valuenya dari False menjadi True.
-Langkah selanjutnya yaitu membuat/menyunting file userChrome.">
-<link rel="shortcut icon" href=img/favicon.ico>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','G-6CEFZGZSW6','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-</head>
-<body>
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.body.dataset.scheme='dark':document.body.dataset.scheme='light'})()</script><div class="container main-container flex on-phone--column extended article-page with-toolbar">
-<aside class="sidebar left-sidebar sticky">
-<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
-<span class=hamburger-box>
-<span class=hamburger-inner></span>
-</span>
-</button>
-<header class=site-info>
-<figure class=site-avatar>
-<img src=/img/avatar_hu9bbe6dd2ea62d3a827f580f5ad1ad5f9_108376_300x0_resize_q75_box.jpg width=300 height=235 class=site-logo loading=lazy alt=Avatar>
-<span class=emoji>🧐</span>
-</figure>
-<h1 class=site-name><a href=https://blog.leonprasetya.my.id>Leon's Blog</a></h1>
-<h2 class=site-description>Let's talk about automation and some new technology! But sometimes, let's talk about life 🧐</h2>
-</header>
-<ol class=menu id=main-menu>
-<li>
-<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
-<span>Home</span>
-</a>
-</li>
-<li>
-<a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
-<span>About</span>
-</a>
-</li>
-<li>
-<a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-<span>Archives</span>
-</a>
-</li>
-<li>
-<a href=/tags><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg>
-<span>Tags</span>
-</a>
-</li>
-<li>
-<a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-<span>Search</span>
-</a>
-</li>
-<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
-<span>Dark Mode</span>
-</li>
-</ol>
-</aside>
-<main class="main full-width">
-<div id=article-toolbar>
-<a href=https://blog.leonprasetya.my.id class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<article class=main-article>
-<header class=article-header>
-<div class=article-details>
-<header class=article-category>
-<a href=/categories/ricing/>
-Ricing
-</a>
-</header>
-<h2 class=article-title>
-<a href=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/>Kostumisasi Mozila Firefox dengan mengubah userChrome.css</a>
-</h2>
-<footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--published>Apr 30, 2020</time>
-</footer></div>
-</header>
-<section class=article-content>
-<h2 id=intro>Intro</h2>
-<p>Karena di <a class=link href=https://web.facebook.com/groups/linuxart target=_blank rel=noopener>Grup Facebook Lokal</a> banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada <strong>Firefox</strong>, maka saya buatlah tutorial ini.</p>
-<h2 id=requirements>Requirements</h2>
-<ul>
-<li>Mozila Firefox</li>
-<li>Skill CSS Dasar (Copy Paste juga boleh)</li>
-</ul>
-<h2 id=tutorial>Tutorial</h2>
-<p><strong>Pertama</strong>, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan <code>about:config</code>. Klik <code>Accept the Risk and Continue</code>.</p>
-<p><strong>Kedua</strong>, cari <code>toolkit.legacyUserProfileCustomizations.stylesheets</code>. Lalu ubah valuenya dari <strong>False</strong> menjadi <strong>True</strong>.</p>
-<p>Langkah selanjutnya yaitu membuat/menyunting file <code>userChrome.css</code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu <strong>Help > Troubleshooting Information</strong>.
-<figure style=flex-grow:216;flex-basis:518px>
-<a href=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png data-size=1297x600><img src=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png srcset="/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_480x0_resize_box_3.png 480w, /p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_1024x0_resize_box_3.png 1024w" width=1297 height=600 loading=lazy alt="Troubleshooting Information">
-</a>
-<figcaption>Troubleshooting Information</figcaption>
-</figure></p>
-<p>Cari menggunakan fitur search (Ctrl+F) dengan query <code>Profile Directory</code>, lalu klik Open Directory.
-<figure style=flex-grow:153;flex-basis:367px>
-<a href=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png data-size=556x363><img src=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png srcset="/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_480x0_resize_box_3.png 480w, /p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_1024x0_resize_box_3.png 1024w" width=556 height=363 loading=lazy alt="Directory User Firefox">
-</a>
-<figcaption>Directory User Firefox</figcaption>
-</figure></p>
-<p>Maka terbukalah directory konfigurasinya, disini cari directory <strong>chrome</strong> (jika tidak ada buatlah directorynya).</p>
-<p>Setelah kalian menemukan/membuat directory <strong>chrome</strong>, buat/edit file yang bernamakan <code>userChrome.css</code>.</p>
-<p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan <code>Navbar</code> mozilla seperti gambar GIF dibawah.
-<figure style=flex-grow:133;flex-basis:319px>
-<a href=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif data-size=864x649><img src=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif srcset="/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_480x0_resize_box.gif 480w, /p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_1024x0_resize_box.gif 1024w" width=864 height=649 loading=lazy alt="Contoh Konfigurasi (Klik untuk play GIF)">
-</a>
-<figcaption>Contoh Konfigurasi (Klik untuk play GIF)</figcaption>
-</figure></p>
-<p>Kalau kalian mau mencoba yang seperti itu, kalian bisa menggunakan config saya dibawah.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=p>@</span><span class=k>-moz-document</span> <span class=nt>url</span><span class=o>(</span><span class=nt>chrome</span><span class=o>://</span><span class=nt>browser</span><span class=o>/</span><span class=nt>content</span><span class=o>/</span><span class=nt>browser</span><span class=p>.</span><span class=nc>xul</span><span class=o>),</span>
-               <span class=nt>url</span><span class=o>(</span><span class=nt>chrome</span><span class=o>://</span><span class=nt>browser</span><span class=o>/</span><span class=nt>content</span><span class=o>/</span><span class=nt>browser</span><span class=p>.</span><span class=nc>xhtml</span><span class=o>)</span> <span class=p>{</span>
-  <span class=p>#</span><span class=nn>TabsToolbar</span> <span class=o>&gt;</span> <span class=o>*</span> <span class=p>{</span>
-    <span class=k>visibility</span><span class=p>:</span> <span class=kc>collapse</span><span class=p>;</span>
-  <span class=p>}</span>
-  <span class=p>#</span><span class=nn>main-window</span><span class=p>:</span><span class=nd>not</span><span class=o>([</span><span class=nt>customizing</span><span class=o>])</span> <span class=p>#</span><span class=nn>navigator-toolbox</span><span class=p>:</span><span class=nd>not</span><span class=o>(</span><span class=p>:</span><span class=nd>focus-within</span><span class=o>)</span><span class=p>:</span><span class=nd>not</span><span class=o>(</span><span class=p>:</span><span class=nd>hover</span><span class=o>)</span> <span class=p>{</span>
-    <span class=k>margin-top</span><span class=p>:</span> <span class=mi>-92</span><span class=kt>px</span><span class=p>;</span>
-  <span class=p>}</span>
-  <span class=p>#</span><span class=nn>navigator-toolbox</span> <span class=p>{</span>
-    <span class=k>transition</span><span class=p>:</span> <span class=mf>0.2</span><span class=kt>s</span> <span class=k>margin-top</span> <span class=kc>ease-out</span><span class=p>;</span>
-  <span class=p>}</span>
-  <span class=p>#</span><span class=nn>sidebar-box</span><span class=o>[</span><span class=nt>sidebarcommand</span><span class=o>=</span><span class=s2>&#34;treestyletab_piro_sakura_ne_jp-sidebar-action&#34;</span><span class=o>]</span> <span class=p>#</span><span class=nn>sidebar-header</span> <span class=p>{</span>
-    <span class=k>display</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></div><p><strong>Save file</strong>, lalu restart firefox.</p>
-<p>Semoga tutorial ini bermanfaat. Sekian dan Terimakasih</p>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/firefox/>firefox</a>
+Langkah selanjutnya yaitu membuat/menyunting file userChrome.css. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu Help &amp;gt; Troubleshooting Information."><link rel="shortcut icon" href=img/favicon.ico><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-6CEFZGZSW6","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.body.dataset.scheme="dark":document.body.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended article-page with-toolbar"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header class=site-info><figure class=site-avatar><img src=/img/avatar_hu9bbe6dd2ea62d3a827f580f5ad1ad5f9_108376_300x0_resize_q75_box.jpg width=300 height=235 class=site-logo loading=lazy alt=Avatar>
+<span class=emoji>🧐</span></figure><h1 class=site-name><a href=https://blog.leonprasetya.my.id>Leon's Blog</a></h1><h2 class=site-description>Let's talk about automation and some new technology! But sometimes, let's talk about life 🧐</h2></header><ol class=menu id=main-menu><li><a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg><span>Home</span></a></li><li><a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg><span>About</span></a></li><li><a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg><span>Archives</span></a></li><li><a href=/tags><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg><span>Tags</span></a></li><li><a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg><span>Search</span></a></li><li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><span>Dark Mode</span></li></ol></aside><main class="main full-width"><div id=article-toolbar><a href=https://blog.leonprasetya.my.id class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/ricing/>Ricing</a></header><h2 class=article-title><a href=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/>Kostumisasi Mozila Firefox dengan mengubah userChrome.css</a></h2><footer class=article-time><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--published>Apr 30, 2020</time></footer></div></header><section class=article-content><h2 id=intro>Intro</h2><p>Karena di <a class=link href=https://web.facebook.com/groups/linuxart target=_blank rel=noopener>Grup Facebook Lokal</a> banyak yang tanya tentang bagaimana cara saya melakukan Kostumisasi pada <strong>Firefox</strong>, maka saya buatlah tutorial ini.</p><h2 id=requirements>Requirements</h2><ul><li>Mozila Firefox</li><li>Skill CSS Dasar (Copy Paste juga boleh)</li></ul><h2 id=tutorial>Tutorial</h2><p><strong>Pertama</strong>, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan <code>about:config</code>. Klik <code>Accept the Risk and Continue</code>.</p><p><strong>Kedua</strong>, cari <code>toolkit.legacyUserProfileCustomizations.stylesheets</code>. Lalu ubah valuenya dari <strong>False</strong> menjadi <strong>True</strong>.</p><p>Langkah selanjutnya yaitu membuat/menyunting file <code>userChrome.css</code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu <strong>Help > Troubleshooting Information</strong>.<figure style=flex-grow:216;flex-basis:518px><a href=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png data-size=1297x600><img src=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png srcset="/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_480x0_resize_box_3.png 480w, /p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_1024x0_resize_box_3.png 1024w" width=1297 height=600 loading=lazy alt="Troubleshooting Information"></a><figcaption>Troubleshooting Information</figcaption></figure></p><p>Cari menggunakan fitur search (Ctrl+F) dengan query <code>Profile Directory</code>, lalu klik Open Directory.<figure style=flex-grow:153;flex-basis:367px><a href=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png data-size=556x363><img src=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png srcset="/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_480x0_resize_box_3.png 480w, /p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_1024x0_resize_box_3.png 1024w" width=556 height=363 loading=lazy alt="Directory User Firefox"></a><figcaption>Directory User Firefox</figcaption></figure></p><p>Maka terbukalah directory konfigurasinya, disini cari directory <strong>chrome</strong> (jika tidak ada buatlah directorynya).</p><p>Setelah kalian menemukan/membuat directory <strong>chrome</strong>, buat/edit file yang bernamakan <code>userChrome.css</code>.</p><p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan <code>Navbar</code> mozilla seperti gambar GIF dibawah.<figure style=flex-grow:133;flex-basis:319px><a href=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif data-size=864x649><img src=/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif srcset="/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_480x0_resize_box.gif 480w, /p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_1024x0_resize_box.gif 1024w" width=864 height=649 loading=lazy alt="Contoh Konfigurasi (Klik untuk play GIF)"></a><figcaption>Contoh Konfigurasi (Klik untuk play GIF)</figcaption></figure></p><p>Kalau kalian mau mencoba yang seperti itu, kalian bisa menggunakan config saya dibawah.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=p>@</span><span class=k>-moz-document</span> <span class=nt>url</span><span class=o>(</span><span class=nt>chrome</span><span class=o>://</span><span class=nt>browser</span><span class=o>/</span><span class=nt>content</span><span class=o>/</span><span class=nt>browser</span><span class=p>.</span><span class=nc>xul</span><span class=o>),</span>
+</span></span><span class=line><span class=cl>               <span class=nt>url</span><span class=o>(</span><span class=nt>chrome</span><span class=o>://</span><span class=nt>browser</span><span class=o>/</span><span class=nt>content</span><span class=o>/</span><span class=nt>browser</span><span class=p>.</span><span class=nc>xhtml</span><span class=o>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=p>#</span><span class=nn>TabsToolbar</span> <span class=o>&gt;</span> <span class=o>*</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>visibility</span><span class=p>:</span> <span class=kc>collapse</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>#</span><span class=nn>main-window</span><span class=p>:</span><span class=nd>not</span><span class=o>([</span><span class=nt>customizing</span><span class=o>])</span> <span class=p>#</span><span class=nn>navigator-toolbox</span><span class=p>:</span><span class=nd>not</span><span class=o>(</span><span class=p>:</span><span class=nd>focus-within</span><span class=o>)</span><span class=p>:</span><span class=nd>not</span><span class=o>(</span><span class=p>:</span><span class=nd>hover</span><span class=o>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>margin-top</span><span class=p>:</span> <span class=mi>-92</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>#</span><span class=nn>navigator-toolbox</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>transition</span><span class=p>:</span> <span class=mf>0.2</span><span class=kt>s</span> <span class=k>margin-top</span> <span class=kc>ease-out</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>#</span><span class=nn>sidebar-box</span><span class=o>[</span><span class=nt>sidebarcommand</span><span class=o>=</span><span class=s2>&#34;treestyletab_piro_sakura_ne_jp-sidebar-action&#34;</span><span class=o>]</span> <span class=p>#</span><span class=nn>sidebar-header</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>display</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p><strong>Save file</strong>, lalu restart firefox.</p><p>Semoga tutorial ini bermanfaat. Sekian dan Terimakasih</p></section><footer class=article-footer><section class=article-tags><a href=/tags/firefox/>firefox</a>
 <a href=/tags/browser/>browser</a>
 <a href=/tags/mozila-firefox/>mozila firefox</a>
 <a href=/tags/ricing/>ricing</a>
-<a href=/tags/old-blog/>old blog</a>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-</aside>
-<div class=disqus-container>
-<div id=disqus_thread></div>
-<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//ledleledles-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
-</div>
-<style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style>
-<script>window.addEventListener('onColorSchemeChange',a=>{DISQUS&&DISQUS.reset({reload:!0})})</script>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
+<a href=/tags/old-blog/>old blog</a></section></footer></article><aside class=related-contents--wrapper></aside><div class=disqus-container><div id=disqus_thread></div><script type=application/javascript>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//ledleledles-blog.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{DISQUS&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
 2019 -
-2021 Leon's Blog
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+2022 Leon's Blog</section><section class=powerby>Writen with ❤️ by Leon<br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=2.2.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
