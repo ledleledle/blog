@@ -1,2 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pulse audio on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/pulse-audio/</link><description>Recent content in pulse audio on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Mar 2021 02:11:23 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/pulse-audio/index.xml" rel="self" type="application/rss+xml"/><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik Rolling Release seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.
-Solusi 1 pulseaudio --check; pulseaudio --kill; pulseaudio --start Referensi https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224 https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pulse audio on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/pulse-audio/</link><description>Recent content in pulse audio on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Mar 2021 02:11:23 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/pulse-audio/index.xml" rel="self" type="application/rss+xml"/><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>&lt;p>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik &lt;strong>Rolling Release&lt;/strong> seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.&lt;/p>
+&lt;h3 id="solusi">Solusi&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">check&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">kill&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">start&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="referensi">Referensi&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224" target="_blank" rel="noopener"
+>https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout" target="_blank" rel="noopener"
+>https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

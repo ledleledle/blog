@@ -1,3 +1,66 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Leon's Blog</title><link>https://blog.leonprasetya.my.id/categories/linux/</link><description>Recent content in Linux on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Jul 2021 20:28:27 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>RHEL 8 Install Text Mode</title><link>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</link><pubDate>Sun, 25 Jul 2021 20:28:27 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</guid><description>Intro By default installasi RedHat 8 Linux bakal dijalankan pada graphical mode. Disini kita akan menggunakan Text Mode TTY installation. Ini sebenarnya didesain untuk &amp;ldquo;JIKA&amp;rdquo; kalian memiliki masalah dengan graphical mode, kalian bisa menggunakan text mode untuk pilihan ke-2.
-Requirements File instalasi ISO RHEL 8 Software virtualisasi (jika belajar) Saat kalian baru booting pasti terlihat seperti ini. Pada screenshot diatas, kita bisa menekan tombol TAB untuk konfigurasi yang kostum. Maka kita akan tekan TAB dan masukkan text berikut diakhir baris konfigurasi GRUB.</description></item><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik Rolling Release seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.
-Solusi 1 pulseaudio --check; pulseaudio --kill; pulseaudio --start Referensi https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224 https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Leon's Blog</title><link>https://blog.leonprasetya.my.id/categories/linux/</link><description>Recent content in Linux on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Jul 2021 20:28:27 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>RHEL 8 Install Text Mode</title><link>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</link><pubDate>Sun, 25 Jul 2021 20:28:27 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>By default installasi RedHat 8 Linux bakal dijalankan pada graphical mode. Disini kita akan menggunakan &lt;strong>Text Mode TTY installation&lt;/strong>. Ini sebenarnya didesain untuk &amp;ldquo;JIKA&amp;rdquo; kalian memiliki masalah dengan graphical mode, kalian bisa menggunakan text mode untuk pilihan ke-2.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;ul>
+&lt;li>File instalasi ISO RHEL 8&lt;/li>
+&lt;li>Software virtualisasi (jika belajar)&lt;/li>
+&lt;/ul>
+&lt;p>Saat kalian baru booting pasti terlihat seperti ini.
+&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1.png"
+width="859"
+height="619"
+srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1_hu3a699f29434292a533836e9844f7f3d6_44736_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1_hu3a699f29434292a533836e9844f7f3d6_44736_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="GRUB menu"
+class="gallery-image"
+data-flex-grow="138"
+data-flex-basis="333px"
+>&lt;/p>
+&lt;p>Pada screenshot diatas, kita bisa menekan tombol &lt;code>TAB&lt;/code> untuk konfigurasi yang kostum. Maka kita akan tekan &lt;code>TAB&lt;/code> dan masukkan text berikut diakhir baris konfigurasi GRUB.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">... inst.text
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Seperti ini
+&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2.png"
+width="1026"
+height="613"
+srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2_hud45b02c2a30cf70c14038929ed95061f_57057_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2_hud45b02c2a30cf70c14038929ed95061f_57057_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="GRUB menu custom"
+class="gallery-image"
+data-flex-grow="167"
+data-flex-basis="401px"
+>&lt;/p>
+&lt;p>Lalu tekan &lt;code>ENTER&lt;/code>, maka kalian sudah bisa menggunakan installasi text mode.
+&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3.png"
+width="673"
+height="349"
+srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3_hu7deebc7e83e95f0baea413aecf079b11_24615_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3_hu7deebc7e83e95f0baea413aecf079b11_24615_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Text Mode Installation RHEL 8"
+class="gallery-image"
+data-flex-grow="192"
+data-flex-basis="462px"
+>&lt;/p>
+&lt;p>Sekian tutorial singkat dari saya. Terimakasih&lt;/p></description></item><item><title>Pulse Audio Dummy Output</title><link>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</link><pubDate>Thu, 11 Mar 2021 02:11:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pulse-audio-dummy-output/</guid><description>&lt;p>Dummy Output biasanya terjadi setelah update, umumnya ini terjadi pada OS yang memiliki karakteristik &lt;strong>Rolling Release&lt;/strong> seperti Arch Linux. Sebenarnya kejadian ini sangat jarang terjadi, bahkan saya baru sekali ini mengalami kondisi seperti ini.&lt;/p>
+&lt;h3 id="solusi">Solusi&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-c" data-lang="c">&lt;span class="line">&lt;span class="cl">&lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">check&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">kill&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="n">pulseaudio&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">start&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="referensi">Referensi&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224" target="_blank" rel="noopener"
+>https://askubuntu.com/questions/15223/how-can-i-restart-pulseaudio-without-having-to-logout/15224#15224&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout" target="_blank" rel="noopener"
+>https://bandithijo.github.io/blog/restart-pulseaudio-dummy-output-tanpa-logout&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

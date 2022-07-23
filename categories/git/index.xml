@@ -1,2 +1,49 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Leon's Blog</title><link>https://blog.leonprasetya.my.id/categories/git/</link><description>Recent content in Git on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 29 Apr 2020 00:16:59 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Host Website Hugo di Github</title><link>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</link><pubDate>Wed, 29 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</guid><description>Sebelumnya saya telah membuat tutorial How I Made Hugo Blog. Ini lanjutan yang telah saya janjikan. Dan maaf saya sekarang pakai Bahasa Indonesia, karena ternyata setelah saya membuat postingan tersebut ternyata Bahasa Inggris saya masih kacau dan terlihat di postingan sebelumnya bahasanya kacau sekali (jadi malu). Yah tidak usah basa-basi lagi.
-Tutorial 1. Generate Static Files Jika sebelumnya kita hanya menjalankan server local dengan perintah hugo server. Sekarang kita akan meng-generate file statis dengan perintah hugo --minify.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Leon's Blog</title><link>https://blog.leonprasetya.my.id/categories/git/</link><description>Recent content in Git on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 29 Apr 2020 00:16:59 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Host Website Hugo di Github</title><link>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</link><pubDate>Wed, 29 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/hugo.png" alt="Featured image of post Host Website Hugo di Github" />&lt;p>Sebelumnya saya telah membuat tutorial &lt;a class="link" href="../how-i-made-hugo" >How I Made Hugo Blog&lt;/a>. Ini lanjutan yang telah saya janjikan. Dan maaf saya sekarang pakai Bahasa Indonesia, karena ternyata setelah saya membuat postingan tersebut ternyata Bahasa Inggris saya masih kacau dan terlihat di postingan sebelumnya bahasanya kacau sekali (jadi malu). Yah tidak usah basa-basi lagi.&lt;/p>
+&lt;h1 id="tutorial">Tutorial&lt;/h1>
+&lt;h3 id="1-generate-static-files">1. Generate Static Files&lt;/h3>
+&lt;p>Jika sebelumnya kita hanya menjalankan server local dengan perintah &lt;code>hugo server&lt;/code>. Sekarang kita akan meng-generate file statis dengan perintah &lt;code>hugo --minify&lt;/code>. Perintah tersebut akan menjadikan tulisan dan tema yang kalian buat menjadi file statis yang bisa kalian temui di folder &lt;code>public&lt;/code>.&lt;/p>
+&lt;h3 id="2-buat-repo-github">2. Buat Repo Github&lt;/h3>
+&lt;p>Kita pakai cara mudah saja. Yaitu, pada browser kita buat repo di &lt;a class="link" href="https://github.com/new" target="_blank" rel="noopener"
+>Github&lt;/a>. Nama repo terserah kalian, buat tanpa &lt;code>README&lt;/code>.&lt;/p>
+&lt;p>Setelah repo dibuat, disana terdapat tutorialnya tentang cara membuat repository di command line kalian.&lt;/p>
+&lt;p>Langsung buka terminal, masuk ke folder &lt;code>blog&lt;/code> kalian dan langsung menuju folder &lt;code>public&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd blog/public
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Lalu inisiasi repo github yang telah dibuat tadi.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git init
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;first commit blog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git remote add origin https://github.com/&amp;lt;your_username&amp;gt;/nama_repo.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin master
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ganti username dan nama_repo dengan milik kalian masing-masing&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).
+&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png"
+width="809"
+height="441"
+srcset="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Github Page"
+class="gallery-image"
+data-flex-grow="183"
+data-flex-basis="440px"
+>&lt;/p>
+&lt;p>Dan website kalian sudah mengudara di internet.&lt;/p>
+&lt;p>Karena blog ini berfokus pada DevOps, tidak enak rasanya jika harus melakukan perintah berulang-ulang setiap akan melakukan post artikel baru. Selanjutnya saya akan membahas tentang CI/CD pada Github Actions untuk hosting Hugo&amp;hellip;&lt;/p></description></item></channel></rss>

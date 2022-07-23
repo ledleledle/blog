@@ -1,2 +1,99 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rancher on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/rancher/</link><description>Recent content in rancher on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 20 Jan 2021 01:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/rancher/index.xml" rel="self" type="application/rss+xml"/><item><title>High Availability (HA) Rancher Installation with Docker</title><link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link><pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid><description>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu Rancher. Pokoknya requirement pada artikel kali ini hanyalah Docker dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;
-Seperti biasa, untuk tujuan praktek siapkan 3 instance, jika tidak tahu caranya kalian bisa liat pada artikel saya sebelumnya tentang Provisioning Server. 1 untuk control plane &amp;amp; etcd dan 2 untuk worker.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rancher on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/rancher/</link><description>Recent content in rancher on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 20 Jan 2021 01:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/rancher/index.xml" rel="self" type="application/rss+xml"/><item><title>High Availability (HA) Rancher Installation with Docker</title><link>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</link><pubDate>Wed, 20 Jan 2021 01:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/index.png" alt="Featured image of post High Availability (HA) Rancher Installation with Docker" />&lt;p>Setelah sebelumnya saya telah membahas tentang Provisioning Server hingga membuat Kubernetes Cluster. Kali ini saya ingin membahas tentang Kubernetes Dashboard yang menawarkan kemudahan dalam membuat Cluster yaitu &lt;strong>Rancher&lt;/strong>. Pokoknya requirement pada artikel kali ini hanyalah &lt;strong>Docker&lt;/strong> dan kopi (prosesnya lumayan lama). Penasaran? Langsung saja kita bahas&amp;hellip;&lt;/p>
+&lt;p>Seperti biasa, untuk tujuan praktek siapkan 3 instance, jika tidak tahu caranya kalian bisa liat pada artikel saya sebelumnya tentang &lt;a class="link" href="../setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai" >Provisioning Server&lt;/a>. 1 untuk &lt;strong>control plane &amp;amp; etcd&lt;/strong> dan 2 untuk &lt;strong>worker&lt;/strong>. Jadi konsepnya kita install 1 control plane, pada control plane kita bisa membuat &lt;strong>Custom Cluster&lt;/strong>, disana kita akan diberikan command untuk mengkonfirmasi instance yang akan masuk kedalam Cluster (hampir mirip dengan kubeadm).&lt;/p>
+&lt;p>Okay&amp;hellip; mari kita install Docker. Disini saya menggunakan &lt;strong>Ubuntu Server 18.04&lt;/strong>. Untuk installasi Docker dapat kalian baca &lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu" target="_blank" rel="noopener"
+>disini&lt;/a>. Pastikan kalian install disemua server, karena semuanya akan dijalankan melalui Docker.&lt;/p>
+&lt;p>Setelah Docker terinstall, langkah selanjutnya yaitu membuat container untuk Control Plane Rancher. Masukkan perintah dibawah. &lt;strong>Saya pakai versi 2.4.6 yang stabil&lt;/strong>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker run -d --restart&lt;span class="o">=&lt;/span>unless-stopped &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -p 80:80 -p 443:443 &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> rancher/rancher:v2.4.6
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Masuk melalui browser dengan alamat &lt;a class="link" href="https://%3cip-public%3e" target="_blank" rel="noopener"
+>https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.
+&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png"
+width="931"
+height="417"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Error Security"
+class="gallery-image"
+data-flex-grow="223"
+data-flex-basis="535px"
+>&lt;/p>
+&lt;p>Sebenarnya mendapat error seperti ini pun Rancher masih dapat digunakan. Jadi jangan panik dulu. Masukkan password baru untuk Rancher kalian, setelah itu kita akan diarahkan pada Dashboard Rancher.
+&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png"
+width="1307"
+height="622"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Rancher Dashboard"
+class="gallery-image"
+data-flex-grow="210"
+data-flex-basis="504px"
+>&lt;/p>
+&lt;p>Untuk membuat Cluster baru, klik pada &lt;strong>Add Cluster &amp;gt; Existing Nodes&lt;/strong>. Sebenarnya ada banyak pilihan, namun karena kita sudah membuat instance sebelumnya jadi kita akan menggunakan Menu &lt;strong>Existing Nodes&lt;/strong>.&lt;/p>
+&lt;p>Hal-hal yang saya gunakan saat membuat Cluster Baru :&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Cluster Name&lt;/strong> : Terserah kalian&lt;/li>
+&lt;li>&lt;strong>Kubernetes Version&lt;/strong> : Sesuai kebutuhan (saya menggunakan yang terbaru)&lt;/li>
+&lt;li>&lt;strong>Network Provider&lt;/strong> : Sesuai kebutuhan juga (saya menggunakan &lt;strong>Weave&lt;/strong>)&lt;/li>
+&lt;li>&lt;strong>Cloud Provider&lt;/strong> : None&lt;/li>
+&lt;/ul>
+&lt;p>Setelah semua yang diatas telah diisi, langkah selanjutnya yaitu melakukan inisialisasi role pada instance kita. Disini kita akan mendapatkan pilihan role untuk Cluster kita, dan nantinya kita akan diberikan perintah (Docker command) yang harus dijalankan pada setiap instance kita.&lt;/p>
+&lt;p>Pertama kita membuat &lt;strong>etcd &amp;amp; control-plane&lt;/strong> node terlebih dahulu.
+&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png"
+width="1256"
+height="574"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="etcd &amp; control-plane node"
+class="gallery-image"
+data-flex-grow="218"
+data-flex-basis="525px"
+>&lt;/p>
+&lt;p>Lalu buat juga untuk &lt;strong>worker&lt;/strong> node.
+&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png"
+width="1273"
+height="489"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="worker nodes"
+class="gallery-image"
+data-flex-grow="260"
+data-flex-basis="624px"
+>&lt;/p>
+&lt;p>Copy &amp;amp; Paste Command yang diberikan oleh Rancher kesetiap Instances dan tunggu sekitar 10 sampai 15 menit agar Cluster benar-benar dapat digunakan, Rancher akan secara otomatis menyiapkan Kubernetes Cluster untuk anda. Selama &lt;strong>Provisioning&lt;/strong>, memang ada logs error. Tapi jangan panik, memang di &lt;strong>Rancher&lt;/strong> warnanya begini.
+&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png"
+width="1249"
+height="209"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Provisioning Cluster"
+class="gallery-image"
+data-flex-grow="597"
+data-flex-basis="1434px"
+>&lt;/p>
+&lt;p>Jika Provisioning sudah, akan ada info bahwa status cluster adalah &lt;strong>Active&lt;/strong>.
+&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png"
+width="1288"
+height="322"
+srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Cluster Active"
+class="gallery-image"
+data-flex-grow="400"
+data-flex-basis="960px"
+>&lt;/p>
+&lt;p>Nah itu tadi cara installasi High Availability (HA) Rancher menggunakan Docker. Kita akan eksplorasi lagi tentang Rancher selanjutnya, untuk sekarang saya sudahi dulu. Sekian dan terimakasih.&lt;/p>
+&lt;h3 id="referensi">Referensi&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://rancher.com/docs/rancher/v2.x/en" target="_blank" rel="noopener"
+>https://rancher.com/docs/rancher/v2.x/en&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,3 +1,98 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tplink on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/tplink/</link><description>Recent content in tplink on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 24 Apr 2020 00:16:59 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/tplink/index.xml" rel="self" type="application/rss+xml"/><item><title>Reflash Original Firmware TP-Link MR3420 V.2</title><link>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</guid><description>Halo teman-teman, kali ini saya akan membahas tentang bagaimana cara reflash original firmware dari OpenWRT pada router TP-Link MR3420 V.2. Kebetulan diminggu-minggu ini saya ingin menjual router saya karena menurut saya router ini sudah outdate dan dirumah juga sudah punya yang baru.
-Spesifikasi dan Kebutuhan Router (sudah pasti) OS Linux Firmware bawaan TP-Link disini Tutorial Step pertama, ekstrak file firmware terlebih dahulu
-1 unzip &amp;#34;TL-MR3420_V2_150319.zip&amp;#34; Rename file firmware dengan nama firmware.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tplink on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/tplink/</link><description>Recent content in tplink on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 24 Apr 2020 00:16:59 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/tplink/index.xml" rel="self" type="application/rss+xml"/><item><title>Reflash Original Firmware TP-Link MR3420 V.2</title><link>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/index.png" alt="Featured image of post Reflash Original Firmware TP-Link MR3420 V.2" />&lt;p>Halo teman-teman, kali ini saya akan membahas tentang bagaimana cara reflash original firmware dari OpenWRT pada router TP-Link MR3420 V.2. Kebetulan diminggu-minggu ini saya ingin menjual router saya karena menurut saya router ini sudah outdate dan dirumah juga sudah punya yang baru.&lt;/p>
+&lt;h2 id="spesifikasi-dan-kebutuhan">Spesifikasi dan Kebutuhan&lt;/h2>
+&lt;ul>
+&lt;li>Router (sudah pasti)&lt;/li>
+&lt;li>OS Linux&lt;/li>
+&lt;li>Firmware bawaan TP-Link &lt;a class="link" href="https://www.tp-link.com/us/support/download/tl-mr3420/v2/" target="_blank" rel="noopener"
+>disini&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tutorial">Tutorial&lt;/h2>
+&lt;p>&lt;strong>Step pertama&lt;/strong>, ekstrak file firmware terlebih dahulu&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">unzip &lt;span class="s2">&amp;#34;TL-MR3420_V2_150319.zip&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Rename&lt;/strong> file firmware dengan nama firmware.bin agar dalam pengerjaannya jadi lebih mudah dan simple.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mv &lt;span class="s2">&amp;#34;mr3420v2_en_3_16_9_up_boot(150319).bin&amp;#34;&lt;/span> firmware.bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Hapus&lt;/strong> beberapa byte dari Firmware dengan perintah &lt;strong>dd&lt;/strong>. Bila perintah ini tidak dijalankan maka hasilnya anda akan mendapatkan pesan error &lt;strong>Writing from /tmp/firmware.bin to firmware … [e]Failed to erase block&lt;/strong> saat proses flashing firmware.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#command&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>firmware.bin &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>original.bin &lt;span class="nv">skip&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">257&lt;/span> &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">512&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7680+0 records in
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7680+0 records out
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">3932160&lt;/span> bytes &lt;span class="o">(&lt;/span>3.9 MB, 3.8 MiB&lt;span class="o">)&lt;/span> copied, 0.0352155 s, &lt;span class="m">208&lt;/span> MB/s
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Upload Firmware&lt;/strong> ke router kalian dengan perintah &lt;strong>scp&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">scp original.bin root@4.3.2.1:/tmp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Q : Kok ipnya 4.3.2.1?&lt;/li>
+&lt;li>A : Iya itu setting ip router saya sebelumnya.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Masuk ke sistem router&lt;/strong> melalui ssh dengan perintah&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ssh root@4.3.2.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>Note : inget ya, sesuaikan dengan ip router kalian masing-masing.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="install-firmware-original-tp-link">Install firmware original TP-Link&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#command&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mtd -r write /tmp/original.bin firmware
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Unlocking firmware ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Writing from /tmp/original.bin to firmware ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Rebooting ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Setelah proses selesai, router akan restart dengan sendirinya.&lt;/p>
+&lt;p>Bagaimana tutorialnya? mudah bukan, semoga bermanfaat untuk kalian, sekian dari saya terimakasih.&lt;/p></description></item></channel></rss>

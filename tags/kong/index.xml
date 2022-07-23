@@ -1,1 +1,830 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kong on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/kong/</link><description>Recent content in kong on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Nov 2021 00:40:39 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/kong/index.xml" rel="self" type="application/rss+xml"/><item><title>Implementasi JWT Pada KONG</title><link>https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/</link><pubDate>Thu, 11 Nov 2021 00:40:39 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/</guid><description>FYI Saya sedang membuat serial untuk pembelajaran KONG pada blog ini. Kita menggunakan KONG Community Edition. Untuk mempermudah praktek, kita akan menggunakan KONGA Serial Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose Pembahasan Services dan Routes pada Kong Api Gateway Implementasi JWT Pada KONG &amp;lt;&amp;ndash; Kita disini Intro Kita akan melanjutkan pembahasan KONG dari yang kemarin, kemarin maksud saya 2 bulan yang lalu wkwk. Jadi pada pembahasan sebelumnya kita telah mengetahui tentang Service dan Routes.</description></item><item><title>Pembahasan Services dan Routes pada Kong Api Gateway</title><link>https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/</link><pubDate>Sun, 22 Aug 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/</guid><description>FYI Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kita menggunakan KONG Community Edition Untuk mempermudah praktek, kita akan menggunakan KONGA Serial Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose Pembahasan Services dan Routes pada Kong Api Gateway &amp;lt;&amp;ndash; Kita disini Implementasi JWT Pada KONG Intro Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route.</description></item><item><title>Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose</title><link>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</link><pubDate>Sat, 17 Jul 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</guid><description>FYI Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi. Kenapa menggunakan kontainer? Karena KONG bersifat stateless yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu. Kita menggunakan KONG Community Edition Serial Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose &amp;lt;&amp;ndash; Kita disini Pembahasan Services dan Routes pada Kong Api Gateway Implementasi JWT Pada KONG Intro KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kong on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/kong/</link><description>Recent content in kong on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 11 Nov 2021 00:40:39 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/kong/index.xml" rel="self" type="application/rss+xml"/><item><title>Implementasi JWT Pada KONG</title><link>https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/</link><pubDate>Thu, 11 Nov 2021 00:40:39 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/index.png" alt="Featured image of post Implementasi JWT Pada KONG" />&lt;h2 id="fyi">FYI&lt;/h2>
+&lt;ul>
+&lt;li>Saya sedang membuat serial untuk pembelajaran KONG pada blog ini.&lt;/li>
+&lt;li>Kita menggunakan KONG Community Edition.&lt;/li>
+&lt;li>Untuk mempermudah praktek, kita akan menggunakan KONGA&lt;/li>
+&lt;/ul>
+&lt;h2 id="serial">Serial&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="../instalasi-kong-api-gateway-konga-dengan-docker-compose/" >Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../pembahasan-services-dan-routes-pada-kong-api-gateway/" >Pembahasan Services dan Routes pada Kong Api Gateway&lt;/a>&lt;/li>
+&lt;li>Implementasi JWT Pada KONG &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Kita akan melanjutkan pembahasan KONG dari yang kemarin, kemarin maksud saya 2 bulan yang lalu wkwk. Jadi pada pembahasan sebelumnya kita telah mengetahui tentang Service dan Routes. Pada pembahasan kali ini pahami dulu yang namanya &lt;strong>Consumer&lt;/strong> dan &lt;strong>Plugins&lt;/strong>.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Plugins&lt;/strong> adalah tools yang disediakan atau bisa dibuat sendiri, untuk mempermudah user dalam mengimplementasi fungsionalitas yang diinginkan. Misal disini kita akan menggunakan plugin &lt;strong>JWT&lt;/strong> dalam praktek kali ini.&lt;/li>
+&lt;li>&lt;strong>Consumer&lt;/strong> berperan sebagai pemegang kunci autentikasi. Jadi misal kita punya plugin autentikasi (seperti JWT, Key Auth, dll) yang terpasang pada service/route, plugin autentikasi disini bisa diibaratkan sebagai &lt;strong>lubang kunci&lt;/strong> dan &lt;strong>Consumer&lt;/strong> adalah sang kunci untuk mengakses API yang memiliki autentikasi. CMIIW.&lt;/li>
+&lt;/ul>
+&lt;h2 id="pembahasan">Pembahasan&lt;/h2>
+&lt;p>Setelah mengerti tentang Plugin dan Consumer, kita akan lanjut untuk mengimplementasikan autentikasi JWT pada API kita. Karena sebelumnya kita telah membahas tentang Service dan Route, kita akan membahasnya sedikit saja disini.&lt;/p>
+&lt;p>Jadi pertama, buat service dan routenya terlebih dahulu.
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1.png"
+width="678"
+height="92"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Service"
+class="gallery-image"
+data-flex-grow="736"
+data-flex-basis="1768px"
+>
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2.png"
+width="542"
+height="115"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Route"
+class="gallery-image"
+data-flex-grow="471"
+data-flex-basis="1131px"
+>&lt;/p>
+&lt;p>Selanjutnya yaitu mengaktifkan Plugin JWT. Kita bisa mengaktifkannya secara:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Scoped&lt;/strong>: terpusat pada &lt;strong>salah satu&lt;/strong> service atau route&lt;/li>
+&lt;li>&lt;strong>Global&lt;/strong>: plugin akan diaktifkan pada semua service dan route&lt;/li>
+&lt;/ul>
+&lt;p>Namun disini, kita akan memasangnya secara Scoped yaitu pada Service. Masuk ke &lt;strong>Service &amp;gt; Plugins &amp;gt; Add Plugin&lt;/strong>. Lalu pilih JWT.
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3.png"
+width="734"
+height="613"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Plugins"
+class="gallery-image"
+data-flex-grow="119"
+data-flex-basis="287px"
+>&lt;/p>
+&lt;p>Pada Plugin ini yang wajib kita isi yaitu:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>consumer&lt;/strong> (nope): tidak boleh diisi, atau KONGA akan menampilkan pesan error. Ini dikarenakan plugin JWT harus dapan digunakan oleh semua Consumer.&lt;/li>
+&lt;li>&lt;strong>key claim name&lt;/strong> (optional): default yaitu &lt;strong>iss&lt;/strong>. Disini saya mengubahnya menjadi &lt;strong>key&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>header names&lt;/strong> (wajib): isi dengan value &lt;strong>authorization&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>Jika sudah klik &lt;strong>Submit Changes&lt;/strong>. Bisa dilihat bahwa plugin JWT sudah ditambahkan.
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4.png"
+width="563"
+height="94"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="JWT Activated"
+class="gallery-image"
+data-flex-grow="598"
+data-flex-basis="1437px"
+>&lt;/p>
+&lt;p>Selanjutnya, kita akan membuat Consumer. Masuk ke menu &lt;strong>Consumers &amp;gt; Create Consumer&lt;/strong>. Buat &lt;strong>username&lt;/strong> dan &lt;strong>custom_id&lt;/strong> sesuai selera.
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5.png"
+width="1058"
+height="322"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Consumer"
+class="gallery-image"
+data-flex-grow="328"
+data-flex-basis="788px"
+>&lt;/p>
+&lt;p>Setelah consumer dibuat, masuk ke &lt;strong>Consumer &amp;gt; Credentials &amp;gt; JWT&lt;/strong>. Lalu &lt;strong>Create JWT&lt;/strong>.
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6.png"
+width="1059"
+height="420"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Credentials"
+class="gallery-image"
+data-flex-grow="252"
+data-flex-basis="605px"
+>&lt;/p>
+&lt;p>Isi key dan secret sesuai dengan selera kalian. Lalu submit.
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7.png"
+width="505"
+height="583"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Form JWT"
+class="gallery-image"
+data-flex-grow="86"
+data-flex-basis="207px"
+>
+Bisa dilihat bahwa Credential telah dibuat.
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8.png"
+width="1017"
+height="442"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="JWT Credential Created"
+class="gallery-image"
+data-flex-grow="230"
+data-flex-basis="552px"
+>&lt;/p>
+&lt;h2 id="testing">Testing&lt;/h2>
+&lt;p>Berikutnya yaitu generate Bearer Token yang akan digunakan untuk autentikasi API. Sebagai contoh, kita akan menggunakan &lt;a class="link" href="https://jwt.io" target="_blank" rel="noopener"
+>https://jwt.io&lt;/a>. Masukkan key pada payload dan secret pada signature. Copy token yang ada pada sebelah kiri.
+&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9.png"
+width="976"
+height="481"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="jwt.io"
+class="gallery-image"
+data-flex-grow="202"
+data-flex-basis="486px"
+>&lt;/p>
+&lt;p>Setelah Token digenerate, kita akan melakukan testing dengan menembak API. Disini saya menggunakan Insomnia. Tentu saja kalian bisa menggunakan tool sejenis seperti cURL, http, Postman, dll. Lalu copy token tersebut dan kita akan menempelkannya sebagai &lt;strong>Bearer Token&lt;/strong>.&lt;/p>
+&lt;h3 id="skenario-i-valid-token">Skenario I: Valid Token&lt;/h3>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/10.png"
+width="970"
+height="204"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/10_hu9333a51995fb0f525c7470303892ab25_594876_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/10_hu9333a51995fb0f525c7470303892ab25_594876_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Valid Token"
+class="gallery-image"
+data-flex-grow="475"
+data-flex-basis="1141px"
+>&lt;/p>
+&lt;h3 id="skenario-ii-invalid-token">Skenario II: Invalid Token&lt;/h3>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/11.png"
+width="968"
+height="212"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/11_hudd1048a0023717dfb24bf11f860fc81e_616928_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/11_hudd1048a0023717dfb24bf11f860fc81e_616928_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Invalid Token"
+class="gallery-image"
+data-flex-grow="456"
+data-flex-basis="1095px"
+>&lt;/p>
+&lt;h3 id="skenario-iii-tanpa-token">Skenario III: Tanpa Token&lt;/h3>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/12.png"
+width="973"
+height="203"
+srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/12_hu42c606e7dbdf7a344f0f1baeab56753b_593792_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/12_hu42c606e7dbdf7a344f0f1baeab56753b_593792_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Tanpa Token"
+class="gallery-image"
+data-flex-grow="479"
+data-flex-basis="1150px"
+>&lt;/p>
+&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;p>Kurang lebih seperti itu cara menggunakan plugin JWT pada KONG. Jika ada pertanyaan silakan bertanya pada kolom komentar. Sekian dan Terimakasih&amp;hellip;&lt;/p></description></item><item><title>Pembahasan Services dan Routes pada Kong Api Gateway</title><link>https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/</link><pubDate>Sun, 22 Aug 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/index.png" alt="Featured image of post Pembahasan Services dan Routes pada Kong Api Gateway" />&lt;h2 id="fyi">FYI&lt;/h2>
+&lt;ul>
+&lt;li>Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog kedua tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi.&lt;/li>
+&lt;li>Kita menggunakan KONG Community Edition&lt;/li>
+&lt;li>Untuk mempermudah praktek, kita akan menggunakan KONGA&lt;/li>
+&lt;/ul>
+&lt;h2 id="serial">Serial&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="../instalasi-kong-api-gateway-konga-dengan-docker-compose/" >Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose&lt;/a>&lt;/li>
+&lt;li>Pembahasan Services dan Routes pada Kong Api Gateway &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;li>&lt;a class="link" href="../implementasi-jwt-pada-kong/" >Implementasi JWT Pada KONG&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Melanjutkan yang minggu kemarin, kali ini kita akan membahas tentang Service &amp;amp; Route. Pertama pahami terlebih dahulu apa itu Service &amp;amp; Route.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Service:&lt;/strong> adalah eksternal upstream API atau aplikasi yang kalian miliki. Contoh: &lt;code>http://dev.example.com&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Route:&lt;/strong> adalah gerbang keluar dari service yang nantinya akan diakses oleh user. Disini kita bisa membuat versioning service seperti contoh: &lt;code>http://dev.example.com/v1&lt;/code>, &lt;code>http://dev.example.com/v2&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Kalau kalian masih bingung tentang penjelasan saya, semoga kalian akan paham saat praktek. Jadi&amp;hellip; Mari kita mulai.&lt;/p>
+&lt;h2 id="pembahasan">Pembahasan&lt;/h2>
+&lt;h3 id="contoh-project">Contoh Project&lt;/h3>
+&lt;p>Disini saya memiliki contoh project yang bisa kita gunakan untuk praktek, buka &lt;a class="link" href="https://github.com/ledleledle/belajar-kong" target="_blank" rel="noopener"
+>&lt;strong>link ini&lt;/strong>&lt;/a> untuk mendownload atau clone repository. Ini akan digunakan sebagai contoh &lt;strong>Service&lt;/strong>. Jika kalian menjalankannya lewat &lt;code>docker-compose&lt;/code>. Kalian akan langsung bisa melakukan test APInya dengan perintah &lt;code>cURL&lt;/code> pada:&lt;/p>
+&lt;ul>
+&lt;li>http://localhost:3000/one&lt;/li>
+&lt;li>http://localhost:3000/two&lt;/li>
+&lt;li>http://localhost:3000/three&lt;/li>
+&lt;/ul>
+&lt;h3 id="membuat-service-dari-contoh-project">Membuat Service dari contoh project&lt;/h3>
+&lt;p>Oke&amp;hellip; Saya asumsikan kalian udah paham tentang contoh projectnya. Sekarang kita akan membuat service. Buka KONGA kalian. Lalu buka menu &lt;strong>Services &amp;gt; Add New Service&lt;/strong>. Munculah modal box seperti gambar dibawah.
+&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1.png"
+width="811"
+height="644"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Add New Service"
+class="gallery-image"
+data-flex-grow="125"
+data-flex-basis="302px"
+>
+Disini form yang perlu kita tambahkan yaitu:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Name:&lt;/strong> nama service, ini hanya nama, kalian bisa isi bebas. Contoh: &lt;code>service-v1&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>URL:&lt;/strong> URL diisi dengan link aplikasi yang kita miliki. Pastikan diisi dengan format &lt;code>&amp;lt;protocol&amp;gt;://&amp;lt;URL&amp;gt;:&amp;lt;port&amp;gt;&lt;/code>. Contoh &lt;code>http://project:3000&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Path:&lt;/strong> Ini sebenarnya form optional. Tapi&amp;hellip; Karena dalam contoh ini, kita menggunakan path untuk membedakan aplikasi. Kita akan memasukkan path dengan format &lt;code>/path&lt;/code>. Contoh: &lt;code>/one&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;p>Klik &lt;strong>Submit Service&lt;/strong>.
+&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2.png"
+width="1092"
+height="337"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Services List"
+class="gallery-image"
+data-flex-grow="324"
+data-flex-basis="777px"
+>&lt;/p>
+&lt;h3 id="membuat-routes">Membuat Routes&lt;/h3>
+&lt;p>Dari list Service yang telah kita buat. Klik pada nama salah satu service. Buka menu &lt;strong>Routes &amp;gt; Add Route&lt;/strong>.
+&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3.png"
+width="1101"
+height="382"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Routes List"
+class="gallery-image"
+data-flex-grow="288"
+data-flex-basis="691px"
+>
+&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4.png"
+width="877"
+height="648"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Add Route"
+class="gallery-image"
+data-flex-grow="135"
+data-flex-basis="324px"
+>
+Hampir mirip seperti kita membuat Service sebelumnya, berikut form yang wajib kita tambahkan yaitu:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Name:&lt;/strong> name ini wajib ya buat membedakan services/routes satu dengan yang lain.&lt;/li>
+&lt;li>Path: path pada route bertujuan untuk membelokkan URL service ke path &lt;code>(/)&lt;/code> yang kita tentukan. Misal &lt;code>http://feature.example.com --&amp;gt; http://example.com/feature&lt;/code>. Intinya&amp;hellip; Mbelokin link doang. Contoh disini: &lt;code>/api/v1&lt;/code>. &lt;strong>Jangan lupa tekan ENTER&lt;/strong>.&lt;/li>
+&lt;li>Method: dalam route ini http method apa saja yang diperbolehkan. Disini karena kita hanya nge-GET data doang. Ya isi aja &lt;code>GET&lt;/code>. &lt;strong>Jangan lupa tekan ENTER&lt;/strong>.&lt;/li>
+&lt;li>Protocols: &lt;code>http&lt;/code> or &lt;code>https&lt;/code>. Terserah guys&amp;hellip; kalian juga udah paham pastinya kalo ini.&lt;/li>
+&lt;/ul>
+&lt;p>Klik &lt;strong>Submit Route&lt;/strong>.
+&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5.png"
+width="1106"
+height="448"
+srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Routes List"
+class="gallery-image"
+data-flex-grow="246"
+data-flex-basis="592px"
+>&lt;/p>
+&lt;p>Lalu kita bisa cek URL yang telah kita proses melalui API Gateway tadi dengan cara melakukan HTTP Request ke &lt;code>http://localhost:8000/api/v1&lt;/code>. Disini port &lt;strong>8000&lt;/strong> adalah URL yang akan diakses oleh user. Dan &lt;strong>/api/v1&lt;/strong> adalah route yang telah kita buka tadi. Kita test menggunakan &lt;code>cURL&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl -IXGET localhost:8000/api/v1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Output&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/1.1 &lt;span class="m">200&lt;/span> OK
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Content-Type: text/html&lt;span class="p">;&lt;/span> &lt;span class="nv">charset&lt;/span>&lt;span class="o">=&lt;/span>utf-8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Content-Length: &lt;span class="m">6&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Connection: keep-alive
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">X-Powered-By: Express
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ETag: W/&lt;span class="s2">&amp;#34;6-no4iJdZG6USw2NYfw6FhZkLy+uw&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Date: Sun, &lt;span class="m">22&lt;/span> Aug &lt;span class="m">2021&lt;/span> 12:47:15 GMT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">X-Kong-Upstream-Latency: &lt;span class="m">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">X-Kong-Proxy-Latency: &lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Via: kong/2.3.3
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Yep&amp;hellip; Kalian sudah berhasil membuat sepasang service &amp;amp; route.&lt;/p>
+&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;p>Oke untuk sekarang sekian dulu, sorry kalau agak kurang jelas. Semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.&lt;/p></description></item><item><title>Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose</title><link>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</link><pubDate>Sat, 17 Jul 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/index.png" alt="Featured image of post Instalasi Kong Api Gateway &amp; KONGA dengan Docker Compose" />&lt;h2 id="fyi">FYI&lt;/h2>
+&lt;ul>
+&lt;li>Saya akan membuat serial untuk pembelajaran KONG pada blog ini. Jadi ini adalah blog pertama tentang KONG yang akan dibahas disini dan selanjutnya masih ada lagi.&lt;/li>
+&lt;li>Kenapa menggunakan kontainer? Karena KONG bersifat &lt;strong>stateless&lt;/strong> yang bisa discale berapapun dan bisa dirubah kapanpun. Namun untuk database, karena kita hanya belajar maka jangan dipikirkan dulu.&lt;/li>
+&lt;li>Kita menggunakan KONG Community Edition&lt;/li>
+&lt;/ul>
+&lt;h2 id="serial">Serial&lt;/h2>
+&lt;ul>
+&lt;li>Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;li>&lt;a class="link" href="../pembahasan-services-dan-routes-pada-kong-api-gateway/" >Pembahasan Services dan Routes pada Kong Api Gateway&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../implementasi-jwt-pada-kong/" >Implementasi JWT Pada KONG&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>KONG API Gateway adalah Load Balancer dengan fitur-fitur yang kaya. Beda dengan load balancer lain, dengan KONG menggunakan fitur seperti Rate Limiting, Caching, Logging, Autentikasi dll menjadi lebih mudah karena KONG memaketkan fitur-fiturnya dengan format &lt;strong>Plugin&lt;/strong>. Sorry saya bukannya mau ngepromote KONG, cuma yang saya rasakan seperti itu wkwk.&lt;/p>
+&lt;h2 id="tldr">TL;DR&lt;/h2>
+&lt;p>Kalian udah paham? Tapi kesini cuma mau cari &lt;code>docker-compose&lt;/code>-nya aja? Langsung aja clone repo ini &lt;a class="link" href="https://github.com/ledleledle/belajar-kong" target="_blank" rel="noopener"
+>https://github.com/ledleledle/belajar-kong&lt;/a>.&lt;/p>
+&lt;h2 id="db-mode-vs-db-less">DB-Mode vs DB-Less&lt;/h2>
+&lt;p>Kong memiliki 2 pilihan diantaranya, DB-Mode yaitu KONG dengan database, database yang dapat disupport ada 2 yaitu PostreSQL dan Cassandra. Dan DB-Less yaitu KONG tanpa database, yaitu kita bisa menggunakan file &lt;code>.yml&lt;/code> untuk melakukan konfigurasi terhadap KONG. Namun kali ini saya akan menggunakan DB-Mode dengan database PostgreSQL.&lt;/p>
+&lt;h2 id="good-point">Good Point&lt;/h2>
+&lt;p>Seperti yang saya jelaskan pada intro, karena KONG memiliki pluginnya sendiri, kita dapat memanfaatkan fitur-fiturnya tanpa perlu membuat service dengan fitur yang sama satu per satu. Lebih gampangnya mari kita lihat gambar dibawah.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png"
+width="432"
+height="382"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Tanpa KONG"
+class="gallery-image"
+data-flex-grow="113"
+data-flex-basis="271px"
+>
+Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png"
+width="1578"
+height="954"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Dengan KONG"
+class="gallery-image"
+data-flex-grow="165"
+data-flex-basis="396px"
+>&lt;/p>
+&lt;h2 id="instalasi">Instalasi&lt;/h2>
+&lt;p>Mungkin kita akan membahas instalasinya terlebih dahulu, berikut adalah hal-hal yang akan dipakai dalam praktek ini.&lt;/p>
+&lt;ul>
+&lt;li>Docker &amp;amp; Docker Compose&lt;/li>
+&lt;li>KONG Community Edition&lt;/li>
+&lt;li>KONGA (Admin WEB UI, untuk mempermudah penggunaan KONG)&lt;/li>
+&lt;/ul>
+&lt;p>Siapkan sebuah folder dan file &lt;code>docker-compose.yml&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mkdir kong-api-gateway &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> kong-api-gateway
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">touch docker-compose.yml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Lalu edit file &lt;code>docker-compose.yml&lt;/code> yang telah kita buat dengan konfigurasi dibawah. Mari kita bahas step-by-step untuk komponen-komponennya.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Format dokumen docker compose yang dipakai yaitu 3.0. Untuk lebih detailnya, bisa kalian lihat pada &lt;a class="link" href="https://docs.docker.com/compose/compose-file/" target="_blank" rel="noopener"
+>dokumentasi docker compose berikut&lt;/a>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres:9.6&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./postgres-data:/var/lib/postgresql/data&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_DB=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">5432&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">5432&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sediakan databasenya, disini saya menggunakan versi &lt;code>postgres:9.6&lt;/code> (tidak ada alasan khusus, kalian bisa menggunakan versi yang berbeda). Untuk membuat databasenya lebih &lt;em>persistent&lt;/em>, saya juga membuat volume yang mengarah pada directory &lt;code>postgres-data&lt;/code>. Set USER, PASSWORD dan DB pada environment. Dan join network ke &lt;code>kong-net&lt;/code> untuk menghubungkan container satu dengan yang lain pada jaringan yang sama.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-migrate&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong migrations bootstrap&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_DATABASE=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_DATABASE=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Lalu ada perintah migrate, yaitu KONG akan melakukan migrasi database dan seluruh table agar KONG dapat berjalan dengan normal. Masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment &lt;code>kong-migrate&lt;/code>. &lt;code>depends_on&lt;/code> yaitu perintah untuk menunggu suatu container yang dispesifikasikan untuk berjalan terlebih dahulu, barulah container selanjutnya akan dijalankan.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_LOG_LEVEL=debug&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_DATABASE=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_DATABASE=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_ACCESS_LOG=/dev/stdout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_ACCESS_LOG=/dev/stdout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_ERROR_LOG=/dev/stderr&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_ERROR_LOG=/dev/stderr&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_LISTEN=0.0.0.0:8001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_LISTEN=0.0.0.0:8000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_LISTEN_SSL=0.0.0.0:8443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8000&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8443&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8001&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8444&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8444&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-migrate&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Setelah migrasi selesai, selanjutnya kita bisa menjalankan KONG. Seperti sebelumnya, masukkan DATABASE, USER dan PASSWORD postgres yang telah didefinisikan sebelumnya pada environment &lt;code>kong&lt;/code>. Sebenarnya dari sini kita sudah bisa menggunakan KONG melalui HTTP Request seperti cURL atau Postman. Namun untuk mempermudah penggunaan KONG, kita akan memasang WEB UI yang dibuat oleh komunitas yaitu &lt;strong>KONGA&lt;/strong>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga-prepare&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;-c prepare -a postgres -u postgresql://user:12345@kong-database:5432/konga_db&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Untuk KONGA kita juga membutuhkan database, jadi kita juga akan melakukan migrasi database untuk KONGA, kita bisa menggunakan database yang sama yang kita gunakan untuk KONG. Untuk mengisikan USERNAME, PASSWORD dan DATABASE PostgreSQL, pada KONGA kita menggunakan format URL seperti &lt;code>postgresql://user_anda:password_anda@host_atau_ip_anda:5432/db_anda&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_ADAPTER=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">TOKEN_SECRET=km1GUr4RkcQD7DewhJPNXrCuZwcKmqjb&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_DATABASE=konga_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">NODE_ENV=production&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;1337:1337&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Setelah migrasi KONGA database selesai, barulah kita bisa melakukan deployment KONGA. Konfigurasinya overall hampir sama, jadi tidak usah saya jelaskan. Untuk &lt;code>TOKEN_SECRET&lt;/code> sebenarnya bisa diisi bebas, tapi disini saya mengikuti dokumentasinya saja.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-net&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">bridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Ini adalah network yang dipanggil disetiap service, Network bersifat &lt;code>bridge&lt;/code>.&lt;/p>
+&lt;p>Jadi, konfigurasi penuhnya akan terlihat seperti berikut.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;span class="lnt">45
+&lt;/span>&lt;span class="lnt">46
+&lt;/span>&lt;span class="lnt">47
+&lt;/span>&lt;span class="lnt">48
+&lt;/span>&lt;span class="lnt">49
+&lt;/span>&lt;span class="lnt">50
+&lt;/span>&lt;span class="lnt">51
+&lt;/span>&lt;span class="lnt">52
+&lt;/span>&lt;span class="lnt">53
+&lt;/span>&lt;span class="lnt">54
+&lt;/span>&lt;span class="lnt">55
+&lt;/span>&lt;span class="lnt">56
+&lt;/span>&lt;span class="lnt">57
+&lt;/span>&lt;span class="lnt">58
+&lt;/span>&lt;span class="lnt">59
+&lt;/span>&lt;span class="lnt">60
+&lt;/span>&lt;span class="lnt">61
+&lt;/span>&lt;span class="lnt">62
+&lt;/span>&lt;span class="lnt">63
+&lt;/span>&lt;span class="lnt">64
+&lt;/span>&lt;span class="lnt">65
+&lt;/span>&lt;span class="lnt">66
+&lt;/span>&lt;span class="lnt">67
+&lt;/span>&lt;span class="lnt">68
+&lt;/span>&lt;span class="lnt">69
+&lt;/span>&lt;span class="lnt">70
+&lt;/span>&lt;span class="lnt">71
+&lt;/span>&lt;span class="lnt">72
+&lt;/span>&lt;span class="lnt">73
+&lt;/span>&lt;span class="lnt">74
+&lt;/span>&lt;span class="lnt">75
+&lt;/span>&lt;span class="lnt">76
+&lt;/span>&lt;span class="lnt">77
+&lt;/span>&lt;span class="lnt">78
+&lt;/span>&lt;span class="lnt">79
+&lt;/span>&lt;span class="lnt">80
+&lt;/span>&lt;span class="lnt">81
+&lt;/span>&lt;span class="lnt">82
+&lt;/span>&lt;span class="lnt">83
+&lt;/span>&lt;span class="lnt">84
+&lt;/span>&lt;span class="lnt">85
+&lt;/span>&lt;span class="lnt">86
+&lt;/span>&lt;span class="lnt">87
+&lt;/span>&lt;span class="lnt">88
+&lt;/span>&lt;span class="lnt">89
+&lt;/span>&lt;span class="lnt">90
+&lt;/span>&lt;span class="lnt">91
+&lt;/span>&lt;span class="lnt">92
+&lt;/span>&lt;span class="lnt">93
+&lt;/span>&lt;span class="lnt">94
+&lt;/span>&lt;span class="lnt">95
+&lt;/span>&lt;span class="lnt">96
+&lt;/span>&lt;span class="lnt">97
+&lt;/span>&lt;span class="lnt">98
+&lt;/span>&lt;span class="lnt">99
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yml" data-lang="yml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">services&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-database&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">postgres:9.6&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">./postgres-data:/var/lib/postgresql/data&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">POSTGRES_DB=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">5432&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">5432&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-migrate&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong migrations bootstrap&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_DATABASE=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_DATABASE=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kong:2.3.3&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_LOG_LEVEL=debug&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_DATABASE=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_DATABASE=kong_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PG_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_ACCESS_LOG=/dev/stdout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_ACCESS_LOG=/dev/stdout&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_ERROR_LOG=/dev/stderr&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_ERROR_LOG=/dev/stderr&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_ADMIN_LISTEN=0.0.0.0:8001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_LISTEN=0.0.0.0:8000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">KONG_PROXY_LISTEN_SSL=0.0.0.0:8443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8000&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8000&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8443&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8443&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8001&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8001&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="m">8444&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="m">8444&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-migrate&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga-prepare&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">command&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;-c prepare -a postgres -u postgresql://user:12345@kong-database:5432/konga_db&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">links&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">konga&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">pantsel/konga:0.14.9&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">on&lt;/span>-&lt;span class="l">failure&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">environment&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_ADAPTER=postgres&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_HOST=kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_USER=user&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_PASSWORD=12345&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">TOKEN_SECRET=km1GUr4RkcQD7DewhJPNXrCuZwcKmqjb&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">DB_DATABASE=konga_db&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">NODE_ENV=production&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">depends_on&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-database&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;1337:1337&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">project&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">build&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">./project&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">restart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">always&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">kong-net&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="s2">&amp;#34;3000:3000&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">networks&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">kong-net&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">driver&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">bridge&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Simpan dan jalankan perintah, lalu tunggu beberapa menit untuk menunggu database, table dan container disiapkan.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker-compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Setelah semuanya selesai, kita bisa akses &lt;a class="link" href="http://localhost:1337" target="_blank" rel="noopener"
+>localhost:1337&lt;/a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan &lt;strong>Role Based Access Control (RBAC)&lt;/strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.
+&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png"
+width="1351"
+height="680"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="KONGA Wellcome Page"
+class="gallery-image"
+data-flex-grow="198"
+data-flex-basis="476px"
+>&lt;/p>
+&lt;h2 id="menambah-connection">Menambah Connection&lt;/h2>
+&lt;p>Connection disini yaitu Admin API KONG, Disini kita bisa menyambungkan beberapa KONG Nodes yang ingin kita konfigurasi. Cara menambahkannya simple. Cukup masukkan URL KONG yang sudah kalian deploy, lalu simpan.
+&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png"
+width="1020"
+height="692"
+srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Add Connection KONGA"
+class="gallery-image"
+data-flex-grow="147"
+data-flex-basis="353px"
+>&lt;/p>
+&lt;h2 id="references">References&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://hub.docker.com/r/pantsel/konga/" target="_blank" rel="noopener"
+>https://hub.docker.com/r/pantsel/konga/&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://hub.docker.com/_/kong" target="_blank" rel="noopener"
+>https://hub.docker.com/_/kong&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/" target="_blank" rel="noopener"
+>https://docs.konghq.com/gateway-oss/2.4.x/db-less-and-declarative-config/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;p>Okay&amp;hellip; Sudah dulu, untuk fitur-fitur yang lain dan cara penggunaan KONGA. Kita akan bahas pada artikel berikutnya (sorry ngantuk). Oke sekian dulu, semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.&lt;/p></description></item></channel></rss>

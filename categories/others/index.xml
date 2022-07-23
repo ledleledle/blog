@@ -1,4 +1,158 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Others on Leon's Blog</title><link>https://blog.leonprasetya.my.id/categories/others/</link><description>Recent content in Others on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 12 Sep 2021 13:42:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/others/index.xml" rel="self" type="application/rss+xml"/><item><title>Ikut Bootcamp. Worth It kah?</title><link>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</link><pubDate>Sun, 12 Sep 2021 13:42:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</guid><description>Intro Intro didalam Intro Sebelum saya buka&amp;hellip; Pertama-tama, saya mohon maaf jika ada pihak yang tersinggung, saya hanya ingin menceritakan pengalaman saya. Jika ada pihak yang merasa dirugikan, mohon hubungi saya untuk diskusi lebih lanjut. Terimakasih.
-Real Intro Halo teman-teman, pada artikel kali ini saya akan membahas pengalaman pribadi ketika saya mengikuti Bootcamp. Jadi kali ini saya juga memperingati bulan dimana saya pertama kali mengikuti test untuk masuk Bootcamp juga (jadi pas hehe), lalu pertanyaannya disini.</description></item><item><title>Perbedaan antara Devops dan Agile</title><link>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</link><pubDate>Tue, 22 Dec 2020 09:34:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</guid><description>Intro Kadang dilingkungan pekerjaan atau perkuliahan, kita sering mendengar tentang Agile dan DevOps namun kita tidak tau apa fungsi mereka. Jadi Agile dan DevOps adalah metodologi pengembangan aplikasi dengan tujuan yang sama yaitu mereka menghasilkan produk akhir secepat dan seefisien mungkin. Awalnya saya mengira dua metodologi ini adalah satu kesatuan, namun setelah saya selidiki dan membaca lebih dalam ternyata mereka berbeda. Apa saja perbedaannya? Dan apakah mereka bisa digunakan dalam satu proses yang sama?</description></item><item><title>Reflash Original Firmware TP-Link MR3420 V.2</title><link>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</guid><description>Halo teman-teman, kali ini saya akan membahas tentang bagaimana cara reflash original firmware dari OpenWRT pada router TP-Link MR3420 V.2. Kebetulan diminggu-minggu ini saya ingin menjual router saya karena menurut saya router ini sudah outdate dan dirumah juga sudah punya yang baru.
-Spesifikasi dan Kebutuhan Router (sudah pasti) OS Linux Firmware bawaan TP-Link disini Tutorial Step pertama, ekstrak file firmware terlebih dahulu
-1 unzip &amp;#34;TL-MR3420_V2_150319.zip&amp;#34; Rename file firmware dengan nama firmware.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Others on Leon's Blog</title><link>https://blog.leonprasetya.my.id/categories/others/</link><description>Recent content in Others on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 12 Sep 2021 13:42:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/others/index.xml" rel="self" type="application/rss+xml"/><item><title>Ikut Bootcamp. Worth It kah?</title><link>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</link><pubDate>Sun, 12 Sep 2021 13:42:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/index.png" alt="Featured image of post Ikut Bootcamp. Worth It kah?" />&lt;h2 id="intro">Intro&lt;/h2>
+&lt;blockquote>
+&lt;h3 id="intro-didalam-intro">Intro didalam Intro&lt;/h3>
+&lt;p>Sebelum saya buka&amp;hellip; Pertama-tama, saya mohon maaf jika ada pihak yang tersinggung, saya hanya ingin menceritakan pengalaman saya. Jika ada pihak yang merasa dirugikan, mohon hubungi saya untuk diskusi lebih lanjut. Terimakasih.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="real-intro">Real Intro&lt;/h3>
+&lt;p>Halo teman-teman, pada artikel kali ini saya akan membahas pengalaman pribadi ketika saya mengikuti &lt;strong>Bootcamp&lt;/strong>. Jadi kali ini saya juga memperingati bulan dimana saya pertama kali mengikuti test untuk masuk Bootcamp juga (jadi pas hehe), lalu pertanyaannya disini. Worth it kah ikut bootcamp?&lt;/p>
+&lt;h2 id="apa-itu-bootcamp">Apa itu bootcamp?&lt;/h2>
+&lt;p>Bagi yang ngga ngerti. Bootcamp itu semacam pelatihan pada suatu bidang tertentu yang dikhususkan dan ditargetkan untuk memperdalam ilmu pada dunia kerja yang nyata. Misal, saya dulu ikut bootcamp dalam bidang DevOps Enginner. Ya kita dilatih tentang apa itu devops, caranya gimana, dll. Intinya gitu deh, saya ngga akan bahas detailnya hehehe.&lt;/p>
+&lt;h2 id="kenapa-bootcamp-makin-populer-sekarang">Kenapa Bootcamp makin populer sekarang?&lt;/h2>
+&lt;p>Jadi diera pandemi ini, mungkin banyak yang kehilangan pekerjaannya atau untuk fresh graduate (seperti saya dulu) itu sangat sulit untuk mendapatkan pekerjaan. Dan melihat pekerjaan didunia digital diera pandemi ini sangat pesat perkembangannya, Otomatis&amp;hellip; Orang-orang pasti ingin mempelajari hal-hal tersebut, dan hadirlah bootcamp ini sebagai solusi cepat untuk mempelajari hal tersebut dalam waktu yang singkat (menurut pengalaman ane cuma sekitar 1 bulan). Misal nih, sebagai contoh yaitu teman seangkatan bootcamp saya, singkat cerita dipekerjaan dia yang sebelumnya karena kena imbas dari pandemi dan pendapatannya menurun dia memilih untuk beralih pekerjaan dan mengikuti bootcamp.&lt;/p>
+&lt;h2 id="lalu-worth-it-ga-sih-ikut-bootcamp">Lalu Worth It ga sih ikut Bootcamp?&lt;/h2>
+&lt;p>Well&amp;hellip; Menurut saya sendiri, saya sedikit kecewa. Eeeiittt&amp;hellip; Tunggu dulu&amp;hellip;!!!
+Alasan saya sedikit kecewa karena sebelum bootcamp berjalan saya sudah mempelajari tools-tools dan siklus devops itu sendiri, jadi yang saya dapet jujur saja cuma sedikit dan itu karena kesalahan saya sendiri karena tidak membaca silabusnya terlebih dahulu sebelum mengikuti bootcamp ini, namun ada satu alasan lain yang akan saya bahas pada bab berikutnya. Tapi&amp;hellip; Mungkin untuk teman-teman yang masih awam dan ingin banting setir ke bidang yang diinginkan, mengikuti Bootcamp itu saya rasa masih &lt;strong>Worh It&lt;/strong> lah. Karena mereka juga memberikan gambaran dalam dunia kerja yang nyata dan juga mereka biasanya juga memberikan cerita tentang pengalaman-pengalaman mereka selama bekerja yang bisa jadi bahan acuan untuk diri kita.&lt;/p>
+&lt;h2 id="disalurkan-kerja">Disalurkan kerja?&lt;/h2>
+&lt;p>Menurut pengalaman saya sendiri dan teman-teman yang bernasib sama&amp;hellip; Saya akan menjawab, itu sih&amp;hellip; &lt;strong>Hoki-hokian aja&lt;/strong>. Dan ini yang paling bikin saya dulu ngenes parah, karena sebenarnya alasan utama saya ikut bootcamp yaitu &lt;strong>&amp;ldquo;Pengen cepet disalurkan kerja&amp;rdquo;&lt;/strong>. Dan kami ngga dapet itu cuuyy&amp;hellip; Mungkin ada manusia-manusia yang beruntung ya, sebelum bootcamp selesai udah dapet kerja. Tapi, itu hoki dan emang effort mereka sejak awal untuk mencari pekerjaan sendiri itu udah ada.&lt;/p>
+&lt;p>Pihak bootcamp (mungkin) juga sudah menyalurkan kita ke perusahaan rekan mereka, namun panggilan dari perusahaan tetap belum nampak pada email kami. Yang berujung pada &lt;strong>NYARI SENDIRI&lt;/strong> sampai 50++ perusahaan sampai akhirnya saya diterima. Kalau ngga percaya, DM saya dicontact yang sudah saya list pada page &lt;a class="link" href="../../about" >About&lt;/a>. Saya sih positive thinking aja ya, mungkin memang karena pandemi jadi perusahaan rekanan mereka lagi pada closed ya, atau emang CV dan Portofolio saya yang jelek makanya HRnya udah males baca dari awal.&lt;/p>
+&lt;h2 id="kesimpulan-dan-saran">Kesimpulan dan saran&lt;/h2>
+&lt;p>Beberapa kesimpulan dan saran yang dapat saya tulis, yaitu:&lt;/p>
+&lt;ul>
+&lt;li>Jika kalian sudah punya basicnya. Jangan malas-malas belajar sendiri. Mengingat biaya bootcamp itu tidaklah semurah yang kalian bayangkan.&lt;/li>
+&lt;li>Usahakan cari informasi terlebih dahulu dari alumni-alumni bootcamp untuk menggambarkan bootcamp lebih jauh.&lt;/li>
+&lt;li>Minta restu orang tua (wajib, kecuali kalian mbandel).&lt;/li>
+&lt;li>Bandingkan bootcamp satu dengan yang lain. Karena bisnis bootcamp sekarang lagi menjamur, kalian ngga boleh main asal daftar aja.&lt;/li>
+&lt;li>Bootcamp sebagai penambah gambaran dalam dunia kerja itu Oke. Seenggaknya pas kalian pertama masuk kerja kalian ngga goblok-goblok banget lah.&lt;/li>
+&lt;/ul>
+&lt;h2 id="penutup">Penutup&lt;/h2>
+&lt;p>As the wise man said (which is me) &lt;strong>&amp;ldquo;Pengalaman itu bukan didapatkan dari perkataan orang lain, melainkan dari apa yang telah kalian alami pada diri kalian sendiri&amp;rdquo;&lt;/strong>. Dan sekali lagi, saya mohon maaf jika ada pihak yang tersinggung, saya hanya ingin menceritakan pengalaman saya. Jika ada pihak yang merasa dirugikan, mohon hubungi saya untuk diskusi lebih lanjut. Dan untuk teman-teman, jika ada yang bisa diceritakan bisa ditulis pada kolom komentar dibawah.&lt;/p>
+&lt;p>Akhir kata, Terimakasih.&lt;/p></description></item><item><title>Perbedaan antara Devops dan Agile</title><link>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</link><pubDate>Tue, 22 Dec 2020 09:34:23 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/perbedaan-antara-devops-dan-agile/index.png" alt="Featured image of post Perbedaan antara Devops dan Agile" />&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Kadang dilingkungan pekerjaan atau perkuliahan, kita sering mendengar tentang Agile dan DevOps namun kita tidak tau apa fungsi mereka. Jadi Agile dan DevOps adalah metodologi pengembangan aplikasi dengan tujuan yang sama yaitu mereka menghasilkan produk akhir secepat dan seefisien mungkin. Awalnya saya mengira dua metodologi ini adalah satu kesatuan, namun setelah saya selidiki dan membaca lebih dalam ternyata mereka berbeda. Apa saja perbedaannya? Dan apakah mereka bisa digunakan dalam satu proses yang sama? Mari kita bahas terlebih dahulu apa itu Agile dan DevOps.&lt;/p>
+&lt;h2 id="agile">Agile&lt;/h2>
+&lt;p>Jadi Agile Development ini pertama kali dicetuskan oleh &lt;strong>Kent Beck&lt;/strong> dan kawan-kawan pada tahun 2001. Mereka mendiskusikan tentang bagaimana cara mengembangkan sebuah perangkat lunak menjadi lebih baik, efisien dan cepat. Metode Agile mengutamakan interaksi antar tim pengembang dan review/tanggapan dari client walaupun itu dapat menyebabkan keterlambatan dalam proses pengembangan, tapi dari tim development tetap mengutamakan kecepatan dalam bekerja, itulah mengapa Agile lebih sering saya sebut sebagai &lt;strong>semangat bekerja&lt;/strong>. Jadi dari sana pihak pengembang dan client saling terhubung untuk menciptakan suatu perangkat lunak.&lt;/p>
+&lt;p>Bisa kalian cek pada webiste &lt;a class="link" href="https://agilemanifesto.org/iso/id/manifesto.html" target="_blank" rel="noopener"
+>https://agilemanifesto.org&lt;/a> untuk manifesto dari Agile.&lt;/p>
+&lt;p>Saat belajar tentang Agile, kita akan menemukan proses tools pembantu seperti &lt;strong>Scrum, Extreme Programming, dan Adaptive Software Development&lt;/strong> mereka biasanya dibundle menjadi 1 paket aplikasi, sebagai contoh yaitu &lt;strong>Jira Software&lt;/strong>. Itu adalah contoh proses yang menerjemahkan nilai dan prinsip Agile dalam praktik. Selain itu, ada metode yang populer di dunia Agile seperti user story, story point, burndown chart, daily meeting, dan retrospective. Masing-masing proses dan metode memenuhi nilai dan prinsip Agile dengan kedalaman yang berbeda-beda.&lt;/p>
+&lt;h2 id="devops">DevOps&lt;/h2>
+&lt;p>Sedangkan untuk DevOps yaitu metodologi pengembangan perangkat lunak yang bertujuan untuk menyatukan tim pengembangan perangkat lunak dan tim teknologi informasi. Ini adalah konsep yang menumbuhkan budaya kolaborasi antara kedua tim yang sebelumnya bekerja secara terpisah, dari tahap desain awal hingga rilis sebuah produk.&lt;/p>
+&lt;p>DevOps adalah metodologi yang menggabungkan pengembangan perangkat lunak (&lt;strong>Dev&lt;/strong>) dengan operasional (&lt;strong>Ops&lt;/strong>). Tujuannya adalah untuk memungkinkan komunikasi antara tim sehingga mereka dapat membangun, menguji, dan merilis perangkat lunak lebih cepat dan dengan efisiensi dan kecepatan yang lebih besar.&lt;/p>
+&lt;p>Dalam menggabungkan dua tim dengan proses yang berbeda ini diharapkan memberikan produk dan layanan yang berkualitas tinggi secara berkesinambungan melalui integrasi berkelanjutan, distribusi berkelanjutan, pengujian seacara otomatis, dan transparansi dalam repositori kode.&lt;/p>
+&lt;p>Alur DevOps berbeda dengan Agile, disini tidak ada kontak dari client. Pengembang akan merencanakan seperti apa perangkat lunaknya berjalan, setelah itu mereka akan melakukan serangkaian proses seperti Build, Test, Release, Deploy dan Monitoring, dari data monitoring tersebut jika ada kesalahan atau ketidak sesuaian dari perangkat lunak, pengembang akan mengulangi prosesnya dari awal (tahap perencanaan).&lt;/p>
+&lt;h2 id="jadi-apa-bedanya-agile-dengan-devops">Jadi apa bedanya Agile dengan DevOps?&lt;/h2>
+&lt;ul>
+&lt;li>Agile menggunakan sprint, yang berkisar dari satu minggu hingga bulan sebagai cara untuk mengatur jadwal pengembangan sementara DevOps fokus pada rilis cepat yang dimulai dengan beberapa hari.&lt;/li>
+&lt;li>Agile berfokus pada feedback dari client sedangkan DevOps tidak.&lt;/li>
+&lt;/ul>
+&lt;h2 id="apakah-agile-dan-devops-dapat-bekerja-bersama">Apakah Agile dan DevOps dapat bekerja bersama?&lt;/h2>
+&lt;p>Jika ditanya begitu, jawabannya &lt;strong>Kenapa tidak?&lt;/strong>&amp;hellip; Ketika diterapkan bersama-sama, Agile dan DevOps dapat memungkinkan organisasi untuk mengembangkan dan mengimplementasikan teknologi dengan kecepatan yang jauh lebih besar. Ada penekanan pada menempatkan kebutuhan pelanggan/client berada di garis depan diatas teknologi apa pun yang akan dikembangkan.&lt;/p>
+&lt;p>Agile dan DevOps masing-masing merujuk pada dua hal berbeda, terkadang beberapa organisasi menggunakan satu metodologi untuk mengaktifkan yang lain misalnya menggunakan metodologi Agile sebagai motivator untuk mengembangkan &lt;em>culture&lt;/em> DevOps.&lt;/p>
+&lt;h2 id="sumber">Sumber&lt;/h2>
+&lt;ul>
+&lt;li>Pengalaman Pribadi&lt;/li>
+&lt;li>&lt;a class="link" href="https://medium.com/@ardi.alhaidar/apa-itu-agile-sebenarnya-41a14762b4e4" target="_blank" rel="noopener"
+>https://medium.com/@ardi.alhaidar/apa-itu-agile-sebenarnya-41a14762b4e4&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://id.wikipedia.org/wiki/Agile_Development_Methods" target="_blank" rel="noopener"
+>https://id.wikipedia.org/wiki/Agile_Development_Methods&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://en.wikipedia.org/wiki/DevOps" target="_blank" rel="noopener"
+>https://en.wikipedia.org/wiki/DevOps&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="foot-note">Foot note&lt;/h2>
+&lt;p>Maaf jika penjelasannya agak berbelit belit. Jika ada kekurangan dan kesalahan jangan sungkan untuk mengkoreksi penulis (saya)&amp;hellip;&lt;!-- raw HTML omitted -->
+Sekian dari saya semoga dapat mencerahkan kalian (para pembaca)&amp;hellip;&lt;/p></description></item><item><title>Reflash Original Firmware TP-Link MR3420 V.2</title><link>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/reflash-original-firmware-tp-link-mr3420-v.2/index.png" alt="Featured image of post Reflash Original Firmware TP-Link MR3420 V.2" />&lt;p>Halo teman-teman, kali ini saya akan membahas tentang bagaimana cara reflash original firmware dari OpenWRT pada router TP-Link MR3420 V.2. Kebetulan diminggu-minggu ini saya ingin menjual router saya karena menurut saya router ini sudah outdate dan dirumah juga sudah punya yang baru.&lt;/p>
+&lt;h2 id="spesifikasi-dan-kebutuhan">Spesifikasi dan Kebutuhan&lt;/h2>
+&lt;ul>
+&lt;li>Router (sudah pasti)&lt;/li>
+&lt;li>OS Linux&lt;/li>
+&lt;li>Firmware bawaan TP-Link &lt;a class="link" href="https://www.tp-link.com/us/support/download/tl-mr3420/v2/" target="_blank" rel="noopener"
+>disini&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tutorial">Tutorial&lt;/h2>
+&lt;p>&lt;strong>Step pertama&lt;/strong>, ekstrak file firmware terlebih dahulu&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">unzip &lt;span class="s2">&amp;#34;TL-MR3420_V2_150319.zip&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Rename&lt;/strong> file firmware dengan nama firmware.bin agar dalam pengerjaannya jadi lebih mudah dan simple.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mv &lt;span class="s2">&amp;#34;mr3420v2_en_3_16_9_up_boot(150319).bin&amp;#34;&lt;/span> firmware.bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Hapus&lt;/strong> beberapa byte dari Firmware dengan perintah &lt;strong>dd&lt;/strong>. Bila perintah ini tidak dijalankan maka hasilnya anda akan mendapatkan pesan error &lt;strong>Writing from /tmp/firmware.bin to firmware … [e]Failed to erase block&lt;/strong> saat proses flashing firmware.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#command&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>firmware.bin &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>original.bin &lt;span class="nv">skip&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">257&lt;/span> &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">512&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7680+0 records in
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7680+0 records out
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">3932160&lt;/span> bytes &lt;span class="o">(&lt;/span>3.9 MB, 3.8 MiB&lt;span class="o">)&lt;/span> copied, 0.0352155 s, &lt;span class="m">208&lt;/span> MB/s
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Upload Firmware&lt;/strong> ke router kalian dengan perintah &lt;strong>scp&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">scp original.bin root@4.3.2.1:/tmp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Q : Kok ipnya 4.3.2.1?&lt;/li>
+&lt;li>A : Iya itu setting ip router saya sebelumnya.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Masuk ke sistem router&lt;/strong> melalui ssh dengan perintah&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ssh root@4.3.2.1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;blockquote>
+&lt;p>Note : inget ya, sesuaikan dengan ip router kalian masing-masing.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="install-firmware-original-tp-link">Install firmware original TP-Link&lt;/h2>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#command&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mtd -r write /tmp/original.bin firmware
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#log&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Unlocking firmware ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Writing from /tmp/original.bin to firmware ...
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Rebooting ...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Setelah proses selesai, router akan restart dengan sendirinya.&lt;/p>
+&lt;p>Bagaimana tutorialnya? mudah bukan, semoga bermanfaat untuk kalian, sekian dari saya terimakasih.&lt;/p></description></item></channel></rss>
