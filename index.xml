@@ -18,8 +18,8 @@
 &lt;/ul>
 &lt;h2 id="pembahasan">Pembahasan&lt;/h2>
 &lt;p>Setelah mengerti tentang Plugin dan Consumer, kita akan lanjut untuk mengimplementasikan autentikasi JWT pada API kita. Karena sebelumnya kita telah membahas tentang Service dan Route, kita akan membahasnya sedikit saja disini.&lt;/p>
-&lt;p>Jadi pertama, buat service dan routenya terlebih dahulu.
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1.png"
+&lt;p>Jadi pertama, buat service dan routenya terlebih dahulu.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1.png"
 width="678"
 height="92"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_1024x0_resize_box_3.png 1024w"
@@ -28,8 +28,8 @@ alt="Service"
 class="gallery-image"
 data-flex-grow="736"
 data-flex-basis="1768px"
->
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2.png"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2.png"
 width="542"
 height="115"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_1024x0_resize_box_3.png 1024w"
@@ -44,8 +44,8 @@ data-flex-basis="1131px"
 &lt;li>&lt;strong>Scoped&lt;/strong>: terpusat pada &lt;strong>salah satu&lt;/strong> service atau route&lt;/li>
 &lt;li>&lt;strong>Global&lt;/strong>: plugin akan diaktifkan pada semua service dan route&lt;/li>
 &lt;/ul>
-&lt;p>Namun disini, kita akan memasangnya secara Scoped yaitu pada Service. Masuk ke &lt;strong>Service &amp;gt; Plugins &amp;gt; Add Plugin&lt;/strong>. Lalu pilih JWT.
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3.png"
+&lt;p>Namun disini, kita akan memasangnya secara Scoped yaitu pada Service. Masuk ke &lt;strong>Service &amp;gt; Plugins &amp;gt; Add Plugin&lt;/strong>. Lalu pilih JWT.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3.png"
 width="734"
 height="613"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_1024x0_resize_box_3.png 1024w"
@@ -61,8 +61,8 @@ data-flex-basis="287px"
 &lt;li>&lt;strong>key claim name&lt;/strong> (optional): default yaitu &lt;strong>iss&lt;/strong>. Disini saya mengubahnya menjadi &lt;strong>key&lt;/strong>.&lt;/li>
 &lt;li>&lt;strong>header names&lt;/strong> (wajib): isi dengan value &lt;strong>authorization&lt;/strong>.&lt;/li>
 &lt;/ul>
-&lt;p>Jika sudah klik &lt;strong>Submit Changes&lt;/strong>. Bisa dilihat bahwa plugin JWT sudah ditambahkan.
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4.png"
+&lt;p>Jika sudah klik &lt;strong>Submit Changes&lt;/strong>. Bisa dilihat bahwa plugin JWT sudah ditambahkan.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4.png"
 width="563"
 height="94"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_1024x0_resize_box_3.png 1024w"
@@ -72,8 +72,8 @@ class="gallery-image"
 data-flex-grow="598"
 data-flex-basis="1437px"
 >&lt;/p>
-&lt;p>Selanjutnya, kita akan membuat Consumer. Masuk ke menu &lt;strong>Consumers &amp;gt; Create Consumer&lt;/strong>. Buat &lt;strong>username&lt;/strong> dan &lt;strong>custom_id&lt;/strong> sesuai selera.
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5.png"
+&lt;p>Selanjutnya, kita akan membuat Consumer. Masuk ke menu &lt;strong>Consumers &amp;gt; Create Consumer&lt;/strong>. Buat &lt;strong>username&lt;/strong> dan &lt;strong>custom_id&lt;/strong> sesuai selera.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5.png"
 width="1058"
 height="322"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_1024x0_resize_box_3.png 1024w"
@@ -83,8 +83,8 @@ class="gallery-image"
 data-flex-grow="328"
 data-flex-basis="788px"
 >&lt;/p>
-&lt;p>Setelah consumer dibuat, masuk ke &lt;strong>Consumer &amp;gt; Credentials &amp;gt; JWT&lt;/strong>. Lalu &lt;strong>Create JWT&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6.png"
+&lt;p>Setelah consumer dibuat, masuk ke &lt;strong>Consumer &amp;gt; Credentials &amp;gt; JWT&lt;/strong>. Lalu &lt;strong>Create JWT&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6.png"
 width="1059"
 height="420"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_1024x0_resize_box_3.png 1024w"
@@ -94,8 +94,8 @@ class="gallery-image"
 data-flex-grow="252"
 data-flex-basis="605px"
 >&lt;/p>
-&lt;p>Isi key dan secret sesuai dengan selera kalian. Lalu submit.
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7.png"
+&lt;p>Isi key dan secret sesuai dengan selera kalian. Lalu submit.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7.png"
 width="505"
 height="583"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_1024x0_resize_box_3.png 1024w"
@@ -104,9 +104,9 @@ alt="Form JWT"
 class="gallery-image"
 data-flex-grow="86"
 data-flex-basis="207px"
->
-Bisa dilihat bahwa Credential telah dibuat.
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8.png"
+>&lt;/p>
+&lt;p>Bisa dilihat bahwa Credential telah dibuat.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8.png"
 width="1017"
 height="442"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_1024x0_resize_box_3.png 1024w"
@@ -118,8 +118,8 @@ data-flex-basis="552px"
 >&lt;/p>
 &lt;h2 id="testing">Testing&lt;/h2>
 &lt;p>Berikutnya yaitu generate Bearer Token yang akan digunakan untuk autentikasi API. Sebagai contoh, kita akan menggunakan &lt;a class="link" href="https://jwt.io" target="_blank" rel="noopener"
->https://jwt.io&lt;/a>. Masukkan key pada payload dan secret pada signature. Copy token yang ada pada sebelah kiri.
-&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9.png"
+>https://jwt.io&lt;/a>. Masukkan key pada payload dan secret pada signature. Copy token yang ada pada sebelah kiri.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9.png"
 width="976"
 height="481"
 srcset="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_1024x0_resize_box_3.png 1024w"
@@ -163,6 +163,18 @@ class="gallery-image"
 data-flex-grow="479"
 data-flex-basis="1150px"
 >&lt;/p>
+&lt;h2 id="serial-1">Serial&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="../instalasi-kong-api-gateway-konga-dengan-docker-compose/" >Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../pembahasan-services-dan-routes-pada-kong-api-gateway/" >Pembahasan Services dan Routes pada Kong Api Gateway&lt;/a>&lt;/li>
+&lt;li>Implementasi JWT Pada KONG &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="referensi">Referensi&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://konghq.com/blog/jwt-kong-gateway" target="_blank" rel="noopener"
+>https://konghq.com/blog/jwt-kong-gateway&lt;/a>&lt;/li>
+&lt;li>Pengalaman pribadi&lt;/li>
+&lt;/ul>
 &lt;h2 id="penutup">Penutup&lt;/h2>
 &lt;p>Kurang lebih seperti itu cara menggunakan plugin JWT pada KONG. Jika ada pertanyaan silakan bertanya pada kolom komentar. Sekian dan Terimakasih&amp;hellip;&lt;/p></description></item><item><title>Ikut Bootcamp. Worth It kah?</title><link>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</link><pubDate>Sun, 12 Sep 2021 13:42:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/ikut-bootcamp.-worth-it-kah/index.png" alt="Featured image of post Ikut Bootcamp. Worth It kah?" />&lt;h2 id="intro">Intro&lt;/h2>
 &lt;blockquote>
@@ -221,8 +233,8 @@ Alasan saya sedikit kecewa karena sebelum bootcamp berjalan saya sudah mempelaja
 &lt;li>http://localhost:3000/three&lt;/li>
 &lt;/ul>
 &lt;h3 id="membuat-service-dari-contoh-project">Membuat Service dari contoh project&lt;/h3>
-&lt;p>Oke&amp;hellip; Saya asumsikan kalian udah paham tentang contoh projectnya. Sekarang kita akan membuat service. Buka KONGA kalian. Lalu buka menu &lt;strong>Services &amp;gt; Add New Service&lt;/strong>. Munculah modal box seperti gambar dibawah.
-&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1.png"
+&lt;p>Oke&amp;hellip; Saya asumsikan kalian udah paham tentang contoh projectnya. Sekarang kita akan membuat service. Buka KONGA kalian. Lalu buka menu &lt;strong>Services &amp;gt; Add New Service&lt;/strong>. Munculah modal box seperti gambar dibawah.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1.png"
 width="811"
 height="644"
 srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_1024x0_resize_box_3.png 1024w"
@@ -231,15 +243,15 @@ alt="Add New Service"
 class="gallery-image"
 data-flex-grow="125"
 data-flex-basis="302px"
->
-Disini form yang perlu kita tambahkan yaitu:&lt;/p>
+>&lt;/p>
+&lt;p>Disini form yang perlu kita tambahkan yaitu:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Name:&lt;/strong> nama service, ini hanya nama, kalian bisa isi bebas. Contoh: &lt;code>service-v1&lt;/code>.&lt;/li>
 &lt;li>&lt;strong>URL:&lt;/strong> URL diisi dengan link aplikasi yang kita miliki. Pastikan diisi dengan format &lt;code>&amp;lt;protocol&amp;gt;://&amp;lt;URL&amp;gt;:&amp;lt;port&amp;gt;&lt;/code>. Contoh &lt;code>http://project:3000&lt;/code>.&lt;/li>
 &lt;li>&lt;strong>Path:&lt;/strong> Ini sebenarnya form optional. Tapi&amp;hellip; Karena dalam contoh ini, kita menggunakan path untuk membedakan aplikasi. Kita akan memasukkan path dengan format &lt;code>/path&lt;/code>. Contoh: &lt;code>/one&lt;/code>.&lt;/li>
 &lt;/ul>
-&lt;p>Klik &lt;strong>Submit Service&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2.png"
+&lt;p>Klik &lt;strong>Submit Service&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2.png"
 width="1092"
 height="337"
 srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_1024x0_resize_box_3.png 1024w"
@@ -250,8 +262,8 @@ data-flex-grow="324"
 data-flex-basis="777px"
 >&lt;/p>
 &lt;h3 id="membuat-routes">Membuat Routes&lt;/h3>
-&lt;p>Dari list Service yang telah kita buat. Klik pada nama salah satu service. Buka menu &lt;strong>Routes &amp;gt; Add Route&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3.png"
+&lt;p>Dari list Service yang telah kita buat. Klik pada nama salah satu service. Buka menu &lt;strong>Routes &amp;gt; Add Route&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3.png"
 width="1101"
 height="382"
 srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_1024x0_resize_box_3.png 1024w"
@@ -260,8 +272,8 @@ alt="Routes List"
 class="gallery-image"
 data-flex-grow="288"
 data-flex-basis="691px"
->
-&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4.png"
+>&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4.png"
 width="877"
 height="648"
 srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_1024x0_resize_box_3.png 1024w"
@@ -270,16 +282,16 @@ alt="Add Route"
 class="gallery-image"
 data-flex-grow="135"
 data-flex-basis="324px"
->
-Hampir mirip seperti kita membuat Service sebelumnya, berikut form yang wajib kita tambahkan yaitu:&lt;/p>
+>&lt;/p>
+&lt;p>Hampir mirip seperti kita membuat Service sebelumnya, berikut form yang wajib kita tambahkan yaitu:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Name:&lt;/strong> name ini wajib ya buat membedakan services/routes satu dengan yang lain.&lt;/li>
 &lt;li>Path: path pada route bertujuan untuk membelokkan URL service ke path &lt;code>(/)&lt;/code> yang kita tentukan. Misal &lt;code>http://feature.example.com --&amp;gt; http://example.com/feature&lt;/code>. Intinya&amp;hellip; Mbelokin link doang. Contoh disini: &lt;code>/api/v1&lt;/code>. &lt;strong>Jangan lupa tekan ENTER&lt;/strong>.&lt;/li>
 &lt;li>Method: dalam route ini http method apa saja yang diperbolehkan. Disini karena kita hanya nge-GET data doang. Ya isi aja &lt;code>GET&lt;/code>. &lt;strong>Jangan lupa tekan ENTER&lt;/strong>.&lt;/li>
 &lt;li>Protocols: &lt;code>http&lt;/code> or &lt;code>https&lt;/code>. Terserah guys&amp;hellip; kalian juga udah paham pastinya kalo ini.&lt;/li>
 &lt;/ul>
-&lt;p>Klik &lt;strong>Submit Route&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5.png"
+&lt;p>Klik &lt;strong>Submit Route&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5.png"
 width="1106"
 height="448"
 srcset="https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_1024x0_resize_box_3.png 1024w"
@@ -322,6 +334,12 @@ Via: kong/2.3.3
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Yep&amp;hellip; Kalian sudah berhasil membuat sepasang service &amp;amp; route.&lt;/p>
+&lt;h2 id="serial-1">Serial&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="../instalasi-kong-api-gateway-konga-dengan-docker-compose/" >Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose&lt;/a>&lt;/li>
+&lt;li>Pembahasan Services dan Routes pada Kong Api Gateway &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;li>&lt;a class="link" href="../implementasi-jwt-pada-kong/" >Implementasi JWT Pada KONG&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="penutup">Penutup&lt;/h2>
 &lt;p>Oke untuk sekarang sekian dulu, sorry kalau agak kurang jelas. Semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.&lt;/p></description></item><item><title>RHEL 8 Install Text Mode</title><link>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</link><pubDate>Sun, 25 Jul 2021 20:28:27 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>By default installasi RedHat 8 Linux bakal dijalankan pada graphical mode. Disini kita akan menggunakan &lt;strong>Text Mode TTY installation&lt;/strong>. Ini sebenarnya didesain untuk &amp;ldquo;JIKA&amp;rdquo; kalian memiliki masalah dengan graphical mode, kalian bisa menggunakan text mode untuk pilihan ke-2.&lt;/p>
@@ -330,8 +348,8 @@ Via: kong/2.3.3
 &lt;li>File instalasi ISO RHEL 8&lt;/li>
 &lt;li>Software virtualisasi (jika belajar)&lt;/li>
 &lt;/ul>
-&lt;p>Saat kalian baru booting pasti terlihat seperti ini.
-&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1.png"
+&lt;p>Saat kalian baru booting pasti terlihat seperti ini.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1.png"
 width="859"
 height="619"
 srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1_hu3a699f29434292a533836e9844f7f3d6_44736_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/1_hu3a699f29434292a533836e9844f7f3d6_44736_1024x0_resize_box_3.png 1024w"
@@ -350,8 +368,8 @@ data-flex-basis="333px"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">... inst.text
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Seperti ini
-&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2.png"
+&lt;/div>&lt;p>Seperti ini&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2.png"
 width="1026"
 height="613"
 srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2_hud45b02c2a30cf70c14038929ed95061f_57057_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/2_hud45b02c2a30cf70c14038929ed95061f_57057_1024x0_resize_box_3.png 1024w"
@@ -361,8 +379,8 @@ class="gallery-image"
 data-flex-grow="167"
 data-flex-basis="401px"
 >&lt;/p>
-&lt;p>Lalu tekan &lt;code>ENTER&lt;/code>, maka kalian sudah bisa menggunakan installasi text mode.
-&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3.png"
+&lt;p>Lalu tekan &lt;code>ENTER&lt;/code>, maka kalian sudah bisa menggunakan installasi text mode.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3.png"
 width="673"
 height="349"
 srcset="https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3_hu7deebc7e83e95f0baea413aecf079b11_24615_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/3_hu7deebc7e83e95f0baea413aecf079b11_24615_1024x0_resize_box_3.png 1024w"
@@ -402,8 +420,8 @@ alt="Tanpa KONG"
 class="gallery-image"
 data-flex-grow="113"
 data-flex-basis="271px"
->
-Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.&lt;/p>
+>&lt;/p>
+&lt;p>Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.&lt;/p>
 &lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png"
 width="1578"
 height="954"
@@ -870,8 +888,8 @@ touch docker-compose.yml
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Setelah semuanya selesai, kita bisa akses &lt;a class="link" href="http://localhost:1337" target="_blank" rel="noopener"
->localhost:1337&lt;/a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan &lt;strong>Role Based Access Control (RBAC)&lt;/strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.
-&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png"
+>localhost:1337&lt;/a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan &lt;strong>Role Based Access Control (RBAC)&lt;/strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png"
 width="1351"
 height="680"
 srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_3.png 1024w"
@@ -882,8 +900,8 @@ data-flex-grow="198"
 data-flex-basis="476px"
 >&lt;/p>
 &lt;h2 id="menambah-connection">Menambah Connection&lt;/h2>
-&lt;p>Connection disini yaitu Admin API KONG, Disini kita bisa menyambungkan beberapa KONG Nodes yang ingin kita konfigurasi. Cara menambahkannya simple. Cukup masukkan URL KONG yang sudah kalian deploy, lalu simpan.
-&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png"
+&lt;p>Connection disini yaitu Admin API KONG, Disini kita bisa menyambungkan beberapa KONG Nodes yang ingin kita konfigurasi. Cara menambahkannya simple. Cukup masukkan URL KONG yang sudah kalian deploy, lalu simpan.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png"
 width="1020"
 height="692"
 srcset="https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_1024x0_resize_box_3.png 1024w"
@@ -893,6 +911,12 @@ class="gallery-image"
 data-flex-grow="147"
 data-flex-basis="353px"
 >&lt;/p>
+&lt;h2 id="serial-1">Serial&lt;/h2>
+&lt;ul>
+&lt;li>Instalasi Kong Api Gateway &amp;amp; KONGA dengan Docker Compose &lt;strong>&amp;lt;&amp;ndash; Kita disini&lt;/strong>&lt;/li>
+&lt;li>&lt;a class="link" href="../pembahasan-services-dan-routes-pada-kong-api-gateway/" >Pembahasan Services dan Routes pada Kong Api Gateway&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="../implementasi-jwt-pada-kong/" >Implementasi JWT Pada KONG&lt;/a>&lt;/li>
+&lt;/ul>
 &lt;h2 id="references">References&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a class="link" href="https://hub.docker.com/r/pantsel/konga/" target="_blank" rel="noopener"
@@ -1279,8 +1303,8 @@ docker pull registry.leonprasetya.my.id/my-ubuntu
 &lt;/ul></description></item><item><title>Docker Untuk Pemula</title><link>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</link><pubDate>Wed, 03 Feb 2021 20:51:05 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/docker-untuk-pemula/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/index.png" alt="Featured image of post Docker Untuk Pemula" />&lt;p>Sebenarnya saya telat ya menulis artikel ini, karena saya malah sudah membahas &lt;em>container orchestration&lt;/em> wkwkwk. Jadi saya menulis ini dikarenakan ada seseorang yang meminta saya untuk dijelaskan tentang Docker, dia seorang programmer yang baru saja mendapat pekerjaan dan perusahaannya (mungkin) menuntut dia agar bisa menguasai Docker. Sekarang yang jadi pertanyaan, &amp;ldquo;Kenapa seorang programmer harus memahami Docker?&amp;rdquo;, jawabannya adalah (menurut saya) dikarenakan konsep &lt;strong>Microservices&lt;/strong> yang kian populer kontainerisasi menjadi sesuatu yang penting didalam suatu instansi/perusahaan, sebenarnya ada seorang &lt;em>DevOps&lt;/em> yang akan mengurus tentang kontainerisasi, namun programmer pun akan dipaksa bekerja dalam environment kontainer tersebut yang menghasilkan statement bahwa programmer pun juga harus mengenal atau menguasai kontainerisasi dalam konteks artikel ini yaitu Docker. Atau dalam kasus lain, dikantornya mungkin dia adalah Programmer Superman.&lt;/p>
 &lt;h3 id="apa-itu-docker-dan-apa-perbedaannya-dengan-vm">Apa itu Docker dan Apa perbedaannya dengan VM&lt;/h3>
 &lt;p>Seperti yang sudah saya singgung sebelumnya tentang kontainerisasi, Docker merupakan sebuah tempat yang menampung program beserta &lt;em>library&lt;/em>, file konfigurasi, dll. Kontainer ini berbeda dengan virtual machine yang mana perbedaanya terdapat pada penggunnan sistem operasi pada masing-masing nodenya. Virtualisasi berjalan diatas hypervisor dan guest OS, docker dapat menjalankan aplikasi langsung tanpa kedua hal tersebut.
-Lebih jelasnya perhatikan bagan berikut :
-&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png"
+Lebih jelasnya perhatikan bagan berikut :&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm.png"
 width="700"
 height="333"
 srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_3.png 1024w"
@@ -1430,13 +1454,13 @@ docker run -d -p 81:80 --name server-nginx-2 nginx
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Lalu bisa kalian cek dengan membuka browser, lalu memasukkan URL &lt;a class="link" href="http://localhost:81" target="_blank" rel="noopener"
->http://localhost:81&lt;/a>.
-&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png"
+>http://localhost:81&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser.png"
 width="818"
 height="258"
 srcset="https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_3.png 1024w"
 loading="lazy"
-alt="Nginx"
+alt="Tampilan awal Nginx"
 class="gallery-image"
 data-flex-grow="317"
 data-flex-basis="760px"
@@ -1559,8 +1583,8 @@ docker push leon0408/nginx:10.0
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Masuk melalui browser dengan alamat &lt;a class="link" href="https://%3cip-public%3e" target="_blank" rel="noopener"
->https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png"
+>https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png"
 width="931"
 height="417"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_1024x0_resize_box_3.png 1024w"
@@ -1570,8 +1594,8 @@ class="gallery-image"
 data-flex-grow="223"
 data-flex-basis="535px"
 >&lt;/p>
-&lt;p>Sebenarnya mendapat error seperti ini pun Rancher masih dapat digunakan. Jadi jangan panik dulu. Masukkan password baru untuk Rancher kalian, setelah itu kita akan diarahkan pada Dashboard Rancher.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png"
+&lt;p>Sebenarnya mendapat error seperti ini pun Rancher masih dapat digunakan. Jadi jangan panik dulu. Masukkan password baru untuk Rancher kalian, setelah itu kita akan diarahkan pada Dashboard Rancher.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png"
 width="1307"
 height="622"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_1024x0_resize_box_3.png 1024w"
@@ -1590,8 +1614,8 @@ data-flex-basis="504px"
 &lt;li>&lt;strong>Cloud Provider&lt;/strong> : None&lt;/li>
 &lt;/ul>
 &lt;p>Setelah semua yang diatas telah diisi, langkah selanjutnya yaitu melakukan inisialisasi role pada instance kita. Disini kita akan mendapatkan pilihan role untuk Cluster kita, dan nantinya kita akan diberikan perintah (Docker command) yang harus dijalankan pada setiap instance kita.&lt;/p>
-&lt;p>Pertama kita membuat &lt;strong>etcd &amp;amp; control-plane&lt;/strong> node terlebih dahulu.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png"
+&lt;p>Pertama kita membuat &lt;strong>etcd &amp;amp; control-plane&lt;/strong> node terlebih dahulu.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png"
 width="1256"
 height="574"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_1024x0_resize_box_3.png 1024w"
@@ -1601,8 +1625,8 @@ class="gallery-image"
 data-flex-grow="218"
 data-flex-basis="525px"
 >&lt;/p>
-&lt;p>Lalu buat juga untuk &lt;strong>worker&lt;/strong> node.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png"
+&lt;p>Lalu buat juga untuk &lt;strong>worker&lt;/strong> node.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png"
 width="1273"
 height="489"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_1024x0_resize_box_3.png 1024w"
@@ -1612,8 +1636,8 @@ class="gallery-image"
 data-flex-grow="260"
 data-flex-basis="624px"
 >&lt;/p>
-&lt;p>Copy &amp;amp; Paste Command yang diberikan oleh Rancher kesetiap Instances dan tunggu sekitar 10 sampai 15 menit agar Cluster benar-benar dapat digunakan, Rancher akan secara otomatis menyiapkan Kubernetes Cluster untuk anda. Selama &lt;strong>Provisioning&lt;/strong>, memang ada logs error. Tapi jangan panik, memang di &lt;strong>Rancher&lt;/strong> warnanya begini.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png"
+&lt;p>Copy &amp;amp; Paste Command yang diberikan oleh Rancher kesetiap Instances dan tunggu sekitar 10 sampai 15 menit agar Cluster benar-benar dapat digunakan, Rancher akan secara otomatis menyiapkan Kubernetes Cluster untuk anda. Selama &lt;strong>Provisioning&lt;/strong>, memang ada logs error. Tapi jangan panik, memang di &lt;strong>Rancher&lt;/strong> warnanya begini.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png"
 width="1249"
 height="209"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_1024x0_resize_box_3.png 1024w"
@@ -1623,8 +1647,8 @@ class="gallery-image"
 data-flex-grow="597"
 data-flex-basis="1434px"
 >&lt;/p>
-&lt;p>Jika Provisioning sudah, akan ada info bahwa status cluster adalah &lt;strong>Active&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png"
+&lt;p>Jika Provisioning sudah, akan ada info bahwa status cluster adalah &lt;strong>Active&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png"
 width="1288"
 height="322"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_1024x0_resize_box_3.png 1024w"
@@ -1641,8 +1665,8 @@ data-flex-basis="960px"
 >https://rancher.com/docs/rancher/v2.x/en&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</title><link>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</link><pubDate>Tue, 12 Jan 2021 22:34:00 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.png" alt="Featured image of post Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai" />&lt;p>Saya sudah berencana menulisnya sejak lama, namun saya sering lupa. Mumpung ingat saya akan bahas bagaimana saya melakukan setup untuk Kubernetes Cluster mulai dari provisioning server, pemilihan port, hingga kubernetes. Ini adalah artikel yang panjang, saya harap kalian tidak bosan membacanya. Jadi langsung saja kita mulai.&lt;/p>
 &lt;h2 id="struktur-cluster">Struktur Cluster&lt;/h2>
-&lt;p>Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node.
-&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png"
+&lt;p>Jadi disini saya ingin membuat total 3 server, 1 untuk server master dan 2 untuk server node.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra.png"
 width="281"
 height="181"
 srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/infra_hu278a399f76bb5038c675238022ee395b_4856_1024x0_resize_box_3.png 1024w"
@@ -1667,8 +1691,8 @@ data-flex-basis="372px"
 └── server.tf
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;strong>File Credentials&lt;/strong> (tidak perlu jika kalian sudah login menggunakan &lt;em>aws-cli&lt;/em>). File ini berisi credentials yang diperlukan untuk login ke VPS kita. Normalnya kita menggunakan &lt;strong>IAM&lt;/strong> (Identity and Access Management), namun karena kita menggunakan akun gratisan. Maka itu bisa didapatkan pada halaman &lt;strong>Vocareum&lt;/strong> &amp;gt; Account Detail &amp;gt; Show AWS CLI, lalu copy semua ke dalam file &lt;code>credentials&lt;/code>. Kelemahannya ini hanya berlaku sekitar 3 jam.
-&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png"
+&lt;/div>&lt;p>&lt;strong>File Credentials&lt;/strong> (tidak perlu jika kalian sudah login menggunakan &lt;em>aws-cli&lt;/em>). File ini berisi credentials yang diperlukan untuk login ke VPS kita. Normalnya kita menggunakan &lt;strong>IAM&lt;/strong> (Identity and Access Management), namun karena kita menggunakan akun gratisan. Maka itu bisa didapatkan pada halaman &lt;strong>Vocareum&lt;/strong> &amp;gt; Account Detail &amp;gt; Show AWS CLI, lalu copy semua ke dalam file &lt;code>credentials&lt;/code>. Kelemahannya ini hanya berlaku sekitar 3 jam.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1.png"
 width="1094"
 height="535"
 srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/1_hudca40c8ca73320c07cb73b5682669c42_99598_1024x0_resize_box_3.png 1024w"
@@ -2071,8 +2095,8 @@ Disini kita baru mulai tahap provisioning instancenya. Untuk subnet yang saya gu
 &lt;/div>
 &lt;/div>&lt;p>Setelah semuanya terkonfigurasi, informasi tentang kode sudah saya masukkan, untuk lebih lengkapnya bisa kalian baca sendiri pada &lt;a class="link" href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs" target="_blank" rel="noopener"
 >Website Dokumentasi Terraform&lt;/a>, jalankan perintah &lt;code>terraform init&lt;/code> untuk inisialisasi version control Terraform dan Terraform juga mengunduh tools yang dibutuhkan untuk provisioning cloud server AWS. Setelah semuanya selesai jalankan perintah &lt;code>terraform apply&lt;/code>.&lt;/p>
-&lt;p>Tulis &lt;code>yes&lt;/code> untuk konfirmasi (jika konfigurasi sudah dirasa benar).
-&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif"
+&lt;p>Tulis &lt;code>yes&lt;/code> untuk konfirmasi (jika konfigurasi sudah dirasa benar).&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2.gif"
 width="668"
 height="699"
 srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/2_hu3a81609fb1e4598e12502aa63f8d35a2_227742_1024x0_resize_box.gif 1024w"
@@ -2082,8 +2106,8 @@ class="gallery-image"
 data-flex-grow="95"
 data-flex-basis="229px"
 >&lt;/p>
-&lt;p>Cek pada EC2 AWS, server yang sudah kita buat tadi.
-&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png"
+&lt;p>Cek pada EC2 AWS, server yang sudah kita buat tadi.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3.png"
 width="1100"
 height="189"
 srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/3_hu3fa3a4c9c18413e8697917d66e348372_47857_1024x0_resize_box_3.png 1024w"
@@ -2481,8 +2505,8 @@ data-flex-basis="1396px"
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">shell&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;{{ kubeadm }}&amp;#34;&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Jalankan ketiga file ini dengan perintah &lt;code>ansible-playbook nama_file.yml&lt;/code>. Untuk &lt;code>k8s.yml&lt;/code>, ditengah jalan nanti akan ditanyakan tentang token &lt;strong>kubeadm&lt;/strong> seperti pada GIF dibawah, kalian copy saja log diatasnya jangan lupa tambahkan &lt;code>sudo&lt;/code>.
-&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif"
+&lt;/div>&lt;p>Jalankan ketiga file ini dengan perintah &lt;code>ansible-playbook nama_file.yml&lt;/code>. Untuk &lt;code>k8s.yml&lt;/code>, ditengah jalan nanti akan ditanyakan tentang token &lt;strong>kubeadm&lt;/strong> seperti pada GIF dibawah, kalian copy saja log diatasnya jangan lupa tambahkan &lt;code>sudo&lt;/code>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4.gif"
 width="668"
 height="699"
 srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/4_hud7b56f378af61c1b413cfa17933c1ca4_290754_1024x0_resize_box.gif 1024w"
@@ -2502,8 +2526,8 @@ data-flex-basis="229px"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">ssh ubuntu@52.4.21.127 -i key.pem
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Lalu jalankan perintah &lt;code>kubectl get all&lt;/code> atau &lt;code>kubectl get nodes&lt;/code>.
-&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png"
+&lt;/div>&lt;p>Lalu jalankan perintah &lt;code>kubectl get all&lt;/code> atau &lt;code>kubectl get nodes&lt;/code>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5.png"
 width="593"
 height="428"
 srcset="https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/5_hu56abaa6ebcec982ab1484ec3df2c44b5_18726_1024x0_resize_box_3.png 1024w"
@@ -2716,8 +2740,8 @@ data-flex-basis="528px"
 &lt;h2 id="tutorial">Tutorial&lt;/h2>
 &lt;p>&lt;strong>Pertama&lt;/strong>, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan &lt;code>about:config&lt;/code>. Klik &lt;code>Accept the Risk and Continue&lt;/code>.&lt;/p>
 &lt;p>&lt;strong>Kedua&lt;/strong>, cari &lt;code>toolkit.legacyUserProfileCustomizations.stylesheets&lt;/code>. Lalu ubah valuenya dari &lt;strong>False&lt;/strong> menjadi &lt;strong>True&lt;/strong>.&lt;/p>
-&lt;p>Langkah selanjutnya yaitu membuat/menyunting file &lt;code>userChrome.css&lt;/code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu &lt;strong>Help &amp;gt; Troubleshooting Information&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png"
+&lt;p>Langkah selanjutnya yaitu membuat/menyunting file &lt;code>userChrome.css&lt;/code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu &lt;strong>Help &amp;gt; Troubleshooting Information&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png"
 width="1297"
 height="600"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_1024x0_resize_box_3.png 1024w"
@@ -2727,8 +2751,8 @@ class="gallery-image"
 data-flex-grow="216"
 data-flex-basis="518px"
 >&lt;/p>
-&lt;p>Cari menggunakan fitur search (Ctrl+F) dengan query &lt;code>Profile Directory&lt;/code>, lalu klik Open Directory.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png"
+&lt;p>Cari menggunakan fitur search (Ctrl+F) dengan query &lt;code>Profile Directory&lt;/code>, lalu klik Open Directory.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png"
 width="556"
 height="363"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_1024x0_resize_box_3.png 1024w"
@@ -2740,8 +2764,8 @@ data-flex-basis="367px"
 >&lt;/p>
 &lt;p>Maka terbukalah directory konfigurasinya, disini cari directory &lt;strong>chrome&lt;/strong> (jika tidak ada buatlah directorynya).&lt;/p>
 &lt;p>Setelah kalian menemukan/membuat directory &lt;strong>chrome&lt;/strong>, buat/edit file yang bernamakan &lt;code>userChrome.css&lt;/code>.&lt;/p>
-&lt;p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan &lt;code>Navbar&lt;/code> mozilla seperti gambar GIF dibawah.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif"
+&lt;p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan &lt;code>Navbar&lt;/code> mozilla seperti gambar GIF dibawah.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif"
 width="864"
 height="649"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_1024x0_resize_box.gif 1024w"
@@ -2824,8 +2848,8 @@ git push -u origin master
 &lt;span class="c1"># ganti username dan nama_repo dengan milik kalian masing-masing&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).
-&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png"
+&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png"
 width="809"
 height="441"
 srcset="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_1024x0_resize_box_3.png 1024w"
@@ -2836,7 +2860,7 @@ data-flex-grow="183"
 data-flex-basis="440px"
 >&lt;/p>
 &lt;p>Dan website kalian sudah mengudara di internet.&lt;/p>
-&lt;p>Karena blog ini berfokus pada DevOps, tidak enak rasanya jika harus melakukan perintah berulang-ulang setiap akan melakukan post artikel baru. Selanjutnya saya akan membahas tentang CI/CD pada Github Actions untuk hosting Hugo&amp;hellip;&lt;/p></description></item><item><title>How I Made Hugo</title><link>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/hugo.png" alt="Featured image of post How I Made Hugo" />&lt;h1 id="intro">Intro&lt;/h1>
+&lt;p>Karena blog ini berfokus pada DevOps, tidak enak rasanya jika harus melakukan perintah berulang-ulang setiap akan melakukan post artikel baru. Selanjutnya saya akan membahas tentang CI/CD pada Github Actions untuk hosting Hugo&amp;hellip;&lt;/p></description></item><item><title>How I Made Hugo Blog</title><link>https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/hugo.png" alt="Featured image of post How I Made Hugo Blog" />&lt;h1 id="intro">Intro&lt;/h1>
 &lt;p>Hey guys, i’ll teach you how to made blog with hugo. First i’ll explain a bit about hugo, Hugo is a fast and modern static site generator written in Go language, so basically you don’t need some back-end code. You just install it, made a content, then generate your html code. Simple enought right. So let’s jump to tutorial.&lt;/p>
 &lt;h1 id="specification-and-requirements">Specification and requirements&lt;/h1>
 &lt;p>First, i use Arch Linux Distros, the installation maybe a bit differ, but others absolutelly same. Make sure your repository always up to date.&lt;/p>
@@ -2893,22 +2917,22 @@ data-flex-basis="440px"
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Try &lt;code>git init&lt;/code> to your main folder. Then run command &lt;code>git submodule&lt;/code> again.&lt;/p>
-&lt;p>Then go to &lt;code>themes/hugo.386/exampleSite&lt;/code>. There are examples that you can use.
-&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png"
+&lt;p>Then go to &lt;code>themes/hugo.386/exampleSite&lt;/code>. There are examples that you can use.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/1.png"
 width="554"
 height="362"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="ExampleSite Folder"
 class="gallery-image"
 data-flex-grow="153"
 data-flex-basis="367px"
 >&lt;/p>
-&lt;p>Copy all (except README.md). To your main directory. Like this.
-&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png"
+&lt;p>Copy all (except README.md). To your main directory. Like this.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/2.png"
 width="550"
 height="359"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Copy all on root folder"
 class="gallery-image"
@@ -2945,11 +2969,11 @@ data-flex-basis="367px"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">hugo serve
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Open &lt;code>http://localhost:1313&lt;/code> in your browser.
-&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png"
+&lt;/div>&lt;p>Open &lt;code>http://localhost:1313&lt;/code> in your browser.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/3.png"
 width="1238"
 height="571"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Tadaa&amp;hellip;!!!"
 class="gallery-image"

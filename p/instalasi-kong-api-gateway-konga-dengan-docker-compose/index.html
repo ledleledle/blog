@@ -118,7 +118,7 @@ Web Dev
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-5 minute read
+6 minute read
 </time>
 </div>
 </footer>
@@ -145,8 +145,8 @@ Web Dev
 <p>Kong memiliki 2 pilihan diantaranya, DB-Mode yaitu KONG dengan database, database yang dapat disupport ada 2 yaitu PostreSQL dan Cassandra. Dan DB-Less yaitu KONG tanpa database, yaitu kita bisa menggunakan file <code>.yml</code> untuk melakukan konfigurasi terhadap KONG. Namun kali ini saya akan menggunakan DB-Mode dengan database PostgreSQL.</p>
 <h2 id=good-point>Good Point</h2>
 <p>Seperti yang saya jelaskan pada intro, karena KONG memiliki pluginnya sendiri, kita dapat memanfaatkan fitur-fiturnya tanpa perlu membuat service dengan fitur yang sama satu per satu. Lebih gampangnya mari kita lihat gambar dibawah.</p>
-<p><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png width=432 height=382 srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_1024x0_resize_box_3.png 1024w" loading=lazy alt="Tanpa KONG" class=gallery-image data-flex-grow=113 data-flex-basis=271px>
-Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.</p>
+<p><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1.png width=432 height=382 srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/1_hu138403d845944bf2b341caa933313c2d_16642_1024x0_resize_box_3.png 1024w" loading=lazy alt="Tanpa KONG" class=gallery-image data-flex-grow=113 data-flex-basis=271px></p>
+<p>Ya karena eranya microservices, mungkin kita akan memecah beberapa services, hanya saja ada fitur-fitur yang diperlukan ditiap servicenya misal pada gambar diatas yaitu Logging dan Security. Dengan KONG kita bisa membuatnya lebih simpel dengan mengimplementasi plugin pada level API Gateway seperti pada gambar dibawah.</p>
 <p><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2.png width=1578 height=954 srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/2_hu9ab2115b0ca2a7a8bd03ac7f6ac7e674_17082_1024x0_resize_box_3.png 1024w" loading=lazy alt="Dengan KONG" class=gallery-image data-flex-grow=165 data-flex-basis=396px></p>
 <h2 id=instalasi>Instalasi</h2>
 <p>Mungkin kita akan membahas instalasinya terlebih dahulu, berikut adalah hal-hal yang akan dipakai dalam praktek ini.</p>
@@ -602,11 +602,17 @@ touch docker-compose.yml
 <pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>docker-compose up -d
 </code></pre></td></tr></table>
 </div>
-</div><p>Setelah semuanya selesai, kita bisa akses <a class=link href=http://localhost:1337 target=_blank rel=noopener>localhost:1337</a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan <strong>Role Based Access Control (RBAC)</strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.
-<img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png width=1351 height=680 srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_3.png 1024w" loading=lazy alt="KONGA Wellcome Page" class=gallery-image data-flex-grow=198 data-flex-basis=476px></p>
+</div><p>Setelah semuanya selesai, kita bisa akses <a class=link href=http://localhost:1337 target=_blank rel=noopener>localhost:1337</a>. Untuk pertama kali kalian akan dimintai untuk mendaftar, ini adalah salah satu fitur KONGA yaitu kita bisa memberikan <strong>Role Based Access Control (RBAC)</strong>. Dan setelah login, kita akan mendapatkan tampilan seperti berikut.</p>
+<p><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3.png width=1351 height=680 srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/3_hu2f623aa0a3ea0b03313ad5ce340bc88e_84127_1024x0_resize_box_3.png 1024w" loading=lazy alt="KONGA Wellcome Page" class=gallery-image data-flex-grow=198 data-flex-basis=476px></p>
 <h2 id=menambah-connection>Menambah Connection</h2>
-<p>Connection disini yaitu Admin API KONG, Disini kita bisa menyambungkan beberapa KONG Nodes yang ingin kita konfigurasi. Cara menambahkannya simple. Cukup masukkan URL KONG yang sudah kalian deploy, lalu simpan.
-<img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png width=1020 height=692 srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_1024x0_resize_box_3.png 1024w" loading=lazy alt="Add Connection KONGA" class=gallery-image data-flex-grow=147 data-flex-basis=353px></p>
+<p>Connection disini yaitu Admin API KONG, Disini kita bisa menyambungkan beberapa KONG Nodes yang ingin kita konfigurasi. Cara menambahkannya simple. Cukup masukkan URL KONG yang sudah kalian deploy, lalu simpan.</p>
+<p><img src=/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4.png width=1020 height=692 srcset="/p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_480x0_resize_box_3.png 480w, /p/instalasi-kong-api-gateway-konga-dengan-docker-compose/4_huc8cd84363019998684f79f9898899591_67220_1024x0_resize_box_3.png 1024w" loading=lazy alt="Add Connection KONGA" class=gallery-image data-flex-grow=147 data-flex-basis=353px></p>
+<h2 id=serial-1>Serial</h2>
+<ul>
+<li>Instalasi Kong Api Gateway & KONGA dengan Docker Compose <strong>&lt;&ndash; Kita disini</strong></li>
+<li><a class=link href=../pembahasan-services-dan-routes-pada-kong-api-gateway/>Pembahasan Services dan Routes pada Kong Api Gateway</a></li>
+<li><a class=link href=../implementasi-jwt-pada-kong/>Implementasi JWT Pada KONG</a></li>
+</ul>
 <h2 id=references>References</h2>
 <ul>
 <li><a class=link href=https://hub.docker.com/r/pantsel/konga/ target=_blank rel=noopener>https://hub.docker.com/r/pantsel/konga/</a></li>
@@ -753,6 +759,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#good-point>Good Point</a></li>
 <li><a href=#instalasi>Instalasi</a></li>
 <li><a href=#menambah-connection>Menambah Connection</a></li>
+<li><a href=#serial-1>Serial</a></li>
 <li><a href=#references>References</a></li>
 <li><a href=#penutup>Penutup</a></li>
 </ol>

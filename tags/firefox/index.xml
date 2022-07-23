@@ -9,8 +9,8 @@
 &lt;h2 id="tutorial">Tutorial&lt;/h2>
 &lt;p>&lt;strong>Pertama&lt;/strong>, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan &lt;code>about:config&lt;/code>. Klik &lt;code>Accept the Risk and Continue&lt;/code>.&lt;/p>
 &lt;p>&lt;strong>Kedua&lt;/strong>, cari &lt;code>toolkit.legacyUserProfileCustomizations.stylesheets&lt;/code>. Lalu ubah valuenya dari &lt;strong>False&lt;/strong> menjadi &lt;strong>True&lt;/strong>.&lt;/p>
-&lt;p>Langkah selanjutnya yaitu membuat/menyunting file &lt;code>userChrome.css&lt;/code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu &lt;strong>Help &amp;gt; Troubleshooting Information&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png"
+&lt;p>Langkah selanjutnya yaitu membuat/menyunting file &lt;code>userChrome.css&lt;/code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu &lt;strong>Help &amp;gt; Troubleshooting Information&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png"
 width="1297"
 height="600"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_1024x0_resize_box_3.png 1024w"
@@ -20,8 +20,8 @@ class="gallery-image"
 data-flex-grow="216"
 data-flex-basis="518px"
 >&lt;/p>
-&lt;p>Cari menggunakan fitur search (Ctrl+F) dengan query &lt;code>Profile Directory&lt;/code>, lalu klik Open Directory.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png"
+&lt;p>Cari menggunakan fitur search (Ctrl+F) dengan query &lt;code>Profile Directory&lt;/code>, lalu klik Open Directory.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png"
 width="556"
 height="363"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_1024x0_resize_box_3.png 1024w"
@@ -33,8 +33,8 @@ data-flex-basis="367px"
 >&lt;/p>
 &lt;p>Maka terbukalah directory konfigurasinya, disini cari directory &lt;strong>chrome&lt;/strong> (jika tidak ada buatlah directorynya).&lt;/p>
 &lt;p>Setelah kalian menemukan/membuat directory &lt;strong>chrome&lt;/strong>, buat/edit file yang bernamakan &lt;code>userChrome.css&lt;/code>.&lt;/p>
-&lt;p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan &lt;code>Navbar&lt;/code> mozilla seperti gambar GIF dibawah.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif"
+&lt;p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan &lt;code>Navbar&lt;/code> mozilla seperti gambar GIF dibawah.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif"
 width="864"
 height="649"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_1024x0_resize_box.gif 1024w"

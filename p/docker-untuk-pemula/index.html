@@ -122,8 +122,8 @@ DevOps
 <p>Sebenarnya saya telat ya menulis artikel ini, karena saya malah sudah membahas <em>container orchestration</em> wkwkwk. Jadi saya menulis ini dikarenakan ada seseorang yang meminta saya untuk dijelaskan tentang Docker, dia seorang programmer yang baru saja mendapat pekerjaan dan perusahaannya (mungkin) menuntut dia agar bisa menguasai Docker. Sekarang yang jadi pertanyaan, &ldquo;Kenapa seorang programmer harus memahami Docker?&rdquo;, jawabannya adalah (menurut saya) dikarenakan konsep <strong>Microservices</strong> yang kian populer kontainerisasi menjadi sesuatu yang penting didalam suatu instansi/perusahaan, sebenarnya ada seorang <em>DevOps</em> yang akan mengurus tentang kontainerisasi, namun programmer pun akan dipaksa bekerja dalam environment kontainer tersebut yang menghasilkan statement bahwa programmer pun juga harus mengenal atau menguasai kontainerisasi dalam konteks artikel ini yaitu Docker. Atau dalam kasus lain, dikantornya mungkin dia adalah Programmer Superman.</p>
 <h3 id=apa-itu-docker-dan-apa-perbedaannya-dengan-vm>Apa itu Docker dan Apa perbedaannya dengan VM</h3>
 <p>Seperti yang sudah saya singgung sebelumnya tentang kontainerisasi, Docker merupakan sebuah tempat yang menampung program beserta <em>library</em>, file konfigurasi, dll. Kontainer ini berbeda dengan virtual machine yang mana perbedaanya terdapat pada penggunnan sistem operasi pada masing-masing nodenya. Virtualisasi berjalan diatas hypervisor dan guest OS, docker dapat menjalankan aplikasi langsung tanpa kedua hal tersebut.
-Lebih jelasnya perhatikan bagan berikut :
-<img src=/p/docker-untuk-pemula/docker-vs-vm.png width=700 height=333 srcset="/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_3.png 480w, /p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_3.png 1024w" loading=lazy alt="Docker vs VM" class=gallery-image data-flex-grow=210 data-flex-basis=504px></p>
+Lebih jelasnya perhatikan bagan berikut :</p>
+<p><img src=/p/docker-untuk-pemula/docker-vs-vm.png width=700 height=333 srcset="/p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_480x0_resize_box_3.png 480w, /p/docker-untuk-pemula/docker-vs-vm_hu68aef79f668ff2a919fee36df4ea79f8_106976_1024x0_resize_box_3.png 1024w" loading=lazy alt="Docker vs VM" class=gallery-image data-flex-grow=210 data-flex-basis=504px></p>
 <h3 id=kenapa-pakai-docker>Kenapa Pakai Docker?</h3>
 <ul>
 <li>Ya&mldr; seperti yang sudah anda baca diatas, daripada kita menggunakan VM untuk aplikasi berbasis microservices, yang harus melakukan installasi OS, Aplikasi, library, dll. Lebih baik menggunakan <em>container</em>.</li>
@@ -263,8 +263,8 @@ docker start server-nginx
 docker run -d -p 81:80 --name server-nginx-2 nginx
 </code></pre></td></tr></table>
 </div>
-</div><p>Lalu bisa kalian cek dengan membuka browser, lalu memasukkan URL <a class=link href=http://localhost:81 target=_blank rel=noopener>http://localhost:81</a>.
-<img src=/p/docker-untuk-pemula/cek-browser.png width=818 height=258 srcset="/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_3.png 480w, /p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_3.png 1024w" loading=lazy alt=Nginx class=gallery-image data-flex-grow=317 data-flex-basis=760px></p>
+</div><p>Lalu bisa kalian cek dengan membuka browser, lalu memasukkan URL <a class=link href=http://localhost:81 target=_blank rel=noopener>http://localhost:81</a>.</p>
+<p><img src=/p/docker-untuk-pemula/cek-browser.png width=818 height=258 srcset="/p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_480x0_resize_box_3.png 480w, /p/docker-untuk-pemula/cek-browser_hub6db3218d81514dcb0fbed7bf31a0360_28419_1024x0_resize_box_3.png 1024w" loading=lazy alt="Tampilan awal Nginx" class=gallery-image data-flex-grow=317 data-flex-basis=760px></p>
 <h4 id=melihat-container>Melihat Container</h4>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>

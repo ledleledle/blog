@@ -9,8 +9,8 @@
 &lt;h2 id="tutorial">Tutorial&lt;/h2>
 &lt;p>&lt;strong>Pertama&lt;/strong>, kita masuk dulu ke menu config, buka melalui search bar dengan mengetikkan &lt;code>about:config&lt;/code>. Klik &lt;code>Accept the Risk and Continue&lt;/code>.&lt;/p>
 &lt;p>&lt;strong>Kedua&lt;/strong>, cari &lt;code>toolkit.legacyUserProfileCustomizations.stylesheets&lt;/code>. Lalu ubah valuenya dari &lt;strong>False&lt;/strong> menjadi &lt;strong>True&lt;/strong>.&lt;/p>
-&lt;p>Langkah selanjutnya yaitu membuat/menyunting file &lt;code>userChrome.css&lt;/code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu &lt;strong>Help &amp;gt; Troubleshooting Information&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png"
+&lt;p>Langkah selanjutnya yaitu membuat/menyunting file &lt;code>userChrome.css&lt;/code>. Cara mengetahui direktori penyimpanan file confignya yaitu : Pergi ke Menu &lt;strong>Help &amp;gt; Troubleshooting Information&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1.png"
 width="1297"
 height="600"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/1_hu48b52b29e61f5ea7bc6371905a1f760d_79528_1024x0_resize_box_3.png 1024w"
@@ -20,8 +20,8 @@ class="gallery-image"
 data-flex-grow="216"
 data-flex-basis="518px"
 >&lt;/p>
-&lt;p>Cari menggunakan fitur search (Ctrl+F) dengan query &lt;code>Profile Directory&lt;/code>, lalu klik Open Directory.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png"
+&lt;p>Cari menggunakan fitur search (Ctrl+F) dengan query &lt;code>Profile Directory&lt;/code>, lalu klik Open Directory.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2.png"
 width="556"
 height="363"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/2_hu1836f7ae9e225f0c4ce0b75c6c377f7e_26576_1024x0_resize_box_3.png 1024w"
@@ -33,8 +33,8 @@ data-flex-basis="367px"
 >&lt;/p>
 &lt;p>Maka terbukalah directory konfigurasinya, disini cari directory &lt;strong>chrome&lt;/strong> (jika tidak ada buatlah directorynya).&lt;/p>
 &lt;p>Setelah kalian menemukan/membuat directory &lt;strong>chrome&lt;/strong>, buat/edit file yang bernamakan &lt;code>userChrome.css&lt;/code>.&lt;/p>
-&lt;p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan &lt;code>Navbar&lt;/code> mozilla seperti gambar GIF dibawah.
-&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif"
+&lt;p>Isi settingnya sesuai kebutuhan kalian. Untuk yang saya gunakan, saya hanya menyembunyikan &lt;code>Navbar&lt;/code> mozilla seperti gambar GIF dibawah.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3.gif"
 width="864"
 height="649"
 srcset="https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_480x0_resize_box.gif 480w, https://blog.leonprasetya.my.id/p/kostumisasi-mozila-firefox-dengan-mengubah-userchrome.css/3_huf9b2ebb942763b2c732877d60e1279ee_317670_1024x0_resize_box.gif 1024w"
@@ -117,8 +117,8 @@ git push -u origin master
 &lt;span class="c1"># ganti username dan nama_repo dengan milik kalian masing-masing&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).
-&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png"
+&lt;/div>&lt;p>Setelah proses push berhasil, kembali buka browser kalian, lalu menuju Setting repository kalian. Scroll kebawah sampai menemukan tulisan &lt;strong>Github Pages&lt;/strong>. Klik pada &lt;code>menu dropdown&lt;/code> &lt;strong>None&lt;/strong>. Lalu kill branch yang kalian inginkan, dalam case ini, tadi kita pakai &lt;code>master branch&lt;/code>. Jadi klik itu saja (seperti gambar dibawah).&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page.png"
 width="809"
 height="441"
 srcset="https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/host-website-hugo-di-github/github-page_hufe445cd6a3dd9be53caa3abb7b6d90c5_50031_1024x0_resize_box_3.png 1024w"
@@ -129,7 +129,7 @@ data-flex-grow="183"
 data-flex-basis="440px"
 >&lt;/p>
 &lt;p>Dan website kalian sudah mengudara di internet.&lt;/p>
-&lt;p>Karena blog ini berfokus pada DevOps, tidak enak rasanya jika harus melakukan perintah berulang-ulang setiap akan melakukan post artikel baru. Selanjutnya saya akan membahas tentang CI/CD pada Github Actions untuk hosting Hugo&amp;hellip;&lt;/p></description></item><item><title>How I Made Hugo</title><link>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/how-i-made-hugo/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/hugo.png" alt="Featured image of post How I Made Hugo" />&lt;h1 id="intro">Intro&lt;/h1>
+&lt;p>Karena blog ini berfokus pada DevOps, tidak enak rasanya jika harus melakukan perintah berulang-ulang setiap akan melakukan post artikel baru. Selanjutnya saya akan membahas tentang CI/CD pada Github Actions untuk hosting Hugo&amp;hellip;&lt;/p></description></item><item><title>How I Made Hugo Blog</title><link>https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/</link><pubDate>Fri, 24 Apr 2020 00:16:59 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/hugo.png" alt="Featured image of post How I Made Hugo Blog" />&lt;h1 id="intro">Intro&lt;/h1>
 &lt;p>Hey guys, i’ll teach you how to made blog with hugo. First i’ll explain a bit about hugo, Hugo is a fast and modern static site generator written in Go language, so basically you don’t need some back-end code. You just install it, made a content, then generate your html code. Simple enought right. So let’s jump to tutorial.&lt;/p>
 &lt;h1 id="specification-and-requirements">Specification and requirements&lt;/h1>
 &lt;p>First, i use Arch Linux Distros, the installation maybe a bit differ, but others absolutelly same. Make sure your repository always up to date.&lt;/p>
@@ -186,22 +186,22 @@ data-flex-basis="440px"
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Try &lt;code>git init&lt;/code> to your main folder. Then run command &lt;code>git submodule&lt;/code> again.&lt;/p>
-&lt;p>Then go to &lt;code>themes/hugo.386/exampleSite&lt;/code>. There are examples that you can use.
-&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1.png"
+&lt;p>Then go to &lt;code>themes/hugo.386/exampleSite&lt;/code>. There are examples that you can use.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/1.png"
 width="554"
 height="362"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/1_hu85656466da718dbb424d1aea83143842_21409_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/1_hu85656466da718dbb424d1aea83143842_21409_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="ExampleSite Folder"
 class="gallery-image"
 data-flex-grow="153"
 data-flex-basis="367px"
 >&lt;/p>
-&lt;p>Copy all (except README.md). To your main directory. Like this.
-&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2.png"
+&lt;p>Copy all (except README.md). To your main directory. Like this.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/2.png"
 width="550"
 height="359"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/2_huddcdc3da84bf7277b8696b36d1d0b712_24926_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Copy all on root folder"
 class="gallery-image"
@@ -238,11 +238,11 @@ data-flex-basis="367px"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">hugo serve
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Open &lt;code>http://localhost:1313&lt;/code> in your browser.
-&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3.png"
+&lt;/div>&lt;p>Open &lt;code>http://localhost:1313&lt;/code> in your browser.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/3.png"
 width="1238"
 height="571"
-srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_3.png 1024w"
+srcset="https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/how-i-made-hugo-blog/3_hu6c08e797c7ca4c347eb97aa0124f9e81_64840_1024x0_resize_box_3.png 1024w"
 loading="lazy"
 alt="Tadaa&amp;hellip;!!!"
 class="gallery-image"

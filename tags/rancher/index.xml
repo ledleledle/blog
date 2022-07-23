@@ -16,8 +16,8 @@
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Masuk melalui browser dengan alamat &lt;a class="link" href="https://%3cip-public%3e" target="_blank" rel="noopener"
->https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png"
+>https://&lt;!-- raw HTML omitted -->&lt;/a>. &lt;em>By default&lt;/em> Rancher akan berjalan pada port 80 dan 443. Jadi siapkan SSL atau kalian akan mendapatkan error seperti gambar dibawah.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1.png"
 width="931"
 height="417"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/1_hu4626a47fdf933f29e7e0efe3c492bbe0_61997_1024x0_resize_box_3.png 1024w"
@@ -27,8 +27,8 @@ class="gallery-image"
 data-flex-grow="223"
 data-flex-basis="535px"
 >&lt;/p>
-&lt;p>Sebenarnya mendapat error seperti ini pun Rancher masih dapat digunakan. Jadi jangan panik dulu. Masukkan password baru untuk Rancher kalian, setelah itu kita akan diarahkan pada Dashboard Rancher.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png"
+&lt;p>Sebenarnya mendapat error seperti ini pun Rancher masih dapat digunakan. Jadi jangan panik dulu. Masukkan password baru untuk Rancher kalian, setelah itu kita akan diarahkan pada Dashboard Rancher.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2.png"
 width="1307"
 height="622"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/2_hu07682d94fc32e9ff095e8c231ef9a0ce_40955_1024x0_resize_box_3.png 1024w"
@@ -47,8 +47,8 @@ data-flex-basis="504px"
 &lt;li>&lt;strong>Cloud Provider&lt;/strong> : None&lt;/li>
 &lt;/ul>
 &lt;p>Setelah semua yang diatas telah diisi, langkah selanjutnya yaitu melakukan inisialisasi role pada instance kita. Disini kita akan mendapatkan pilihan role untuk Cluster kita, dan nantinya kita akan diberikan perintah (Docker command) yang harus dijalankan pada setiap instance kita.&lt;/p>
-&lt;p>Pertama kita membuat &lt;strong>etcd &amp;amp; control-plane&lt;/strong> node terlebih dahulu.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png"
+&lt;p>Pertama kita membuat &lt;strong>etcd &amp;amp; control-plane&lt;/strong> node terlebih dahulu.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3.png"
 width="1256"
 height="574"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/3_hu3e1ba5b7f1533172d9dd743e22e42ca6_77793_1024x0_resize_box_3.png 1024w"
@@ -58,8 +58,8 @@ class="gallery-image"
 data-flex-grow="218"
 data-flex-basis="525px"
 >&lt;/p>
-&lt;p>Lalu buat juga untuk &lt;strong>worker&lt;/strong> node.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png"
+&lt;p>Lalu buat juga untuk &lt;strong>worker&lt;/strong> node.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4.png"
 width="1273"
 height="489"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/4_huca8b09d5cdbf68c2e1c82038a11f09a4_74275_1024x0_resize_box_3.png 1024w"
@@ -69,8 +69,8 @@ class="gallery-image"
 data-flex-grow="260"
 data-flex-basis="624px"
 >&lt;/p>
-&lt;p>Copy &amp;amp; Paste Command yang diberikan oleh Rancher kesetiap Instances dan tunggu sekitar 10 sampai 15 menit agar Cluster benar-benar dapat digunakan, Rancher akan secara otomatis menyiapkan Kubernetes Cluster untuk anda. Selama &lt;strong>Provisioning&lt;/strong>, memang ada logs error. Tapi jangan panik, memang di &lt;strong>Rancher&lt;/strong> warnanya begini.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png"
+&lt;p>Copy &amp;amp; Paste Command yang diberikan oleh Rancher kesetiap Instances dan tunggu sekitar 10 sampai 15 menit agar Cluster benar-benar dapat digunakan, Rancher akan secara otomatis menyiapkan Kubernetes Cluster untuk anda. Selama &lt;strong>Provisioning&lt;/strong>, memang ada logs error. Tapi jangan panik, memang di &lt;strong>Rancher&lt;/strong> warnanya begini.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5.png"
 width="1249"
 height="209"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/5_huf6f1f9d5dcd1668051bd10e1fae30ff4_18349_1024x0_resize_box_3.png 1024w"
@@ -80,8 +80,8 @@ class="gallery-image"
 data-flex-grow="597"
 data-flex-basis="1434px"
 >&lt;/p>
-&lt;p>Jika Provisioning sudah, akan ada info bahwa status cluster adalah &lt;strong>Active&lt;/strong>.
-&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png"
+&lt;p>Jika Provisioning sudah, akan ada info bahwa status cluster adalah &lt;strong>Active&lt;/strong>.&lt;/p>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6.png"
 width="1288"
 height="322"
 srcset="https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_480x0_resize_box_3.png 480w, https://blog.leonprasetya.my.id/p/high-availability-ha-rancher-installation-with-docker/6_huc12b03d8596e0055ee03ba7c28740abc_32049_1024x0_resize_box_3.png 1024w"

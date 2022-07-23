@@ -145,35 +145,35 @@ Web Dev
 </ul>
 <h2 id=pembahasan>Pembahasan</h2>
 <p>Setelah mengerti tentang Plugin dan Consumer, kita akan lanjut untuk mengimplementasikan autentikasi JWT pada API kita. Karena sebelumnya kita telah membahas tentang Service dan Route, kita akan membahasnya sedikit saja disini.</p>
-<p>Jadi pertama, buat service dan routenya terlebih dahulu.
-<img src=/p/implementasi-jwt-pada-kong/1.png width=678 height=92 srcset="/p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_1024x0_resize_box_3.png 1024w" loading=lazy alt=Service class=gallery-image data-flex-grow=736 data-flex-basis=1768px>
-<img src=/p/implementasi-jwt-pada-kong/2.png width=542 height=115 srcset="/p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_1024x0_resize_box_3.png 1024w" loading=lazy alt=Route class=gallery-image data-flex-grow=471 data-flex-basis=1131px></p>
+<p>Jadi pertama, buat service dan routenya terlebih dahulu.</p>
+<p><img src=/p/implementasi-jwt-pada-kong/1.png width=678 height=92 srcset="/p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/1_hu9345ac60e568a43d317d42c5705e87fa_187592_1024x0_resize_box_3.png 1024w" loading=lazy alt=Service class=gallery-image data-flex-grow=736 data-flex-basis=1768px></p>
+<p><img src=/p/implementasi-jwt-pada-kong/2.png width=542 height=115 srcset="/p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/2_hu17c474b8a97b6c60b199603c9acb75b3_187477_1024x0_resize_box_3.png 1024w" loading=lazy alt=Route class=gallery-image data-flex-grow=471 data-flex-basis=1131px></p>
 <p>Selanjutnya yaitu mengaktifkan Plugin JWT. Kita bisa mengaktifkannya secara:</p>
 <ul>
 <li><strong>Scoped</strong>: terpusat pada <strong>salah satu</strong> service atau route</li>
 <li><strong>Global</strong>: plugin akan diaktifkan pada semua service dan route</li>
 </ul>
-<p>Namun disini, kita akan memasangnya secara Scoped yaitu pada Service. Masuk ke <strong>Service > Plugins > Add Plugin</strong>. Lalu pilih JWT.
-<img src=/p/implementasi-jwt-pada-kong/3.png width=734 height=613 srcset="/p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_1024x0_resize_box_3.png 1024w" loading=lazy alt=Plugins class=gallery-image data-flex-grow=119 data-flex-basis=287px></p>
+<p>Namun disini, kita akan memasangnya secara Scoped yaitu pada Service. Masuk ke <strong>Service > Plugins > Add Plugin</strong>. Lalu pilih JWT.</p>
+<p><img src=/p/implementasi-jwt-pada-kong/3.png width=734 height=613 srcset="/p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/3_hu815a4ce356b06de1fcc22e26961e72ed_1352690_1024x0_resize_box_3.png 1024w" loading=lazy alt=Plugins class=gallery-image data-flex-grow=119 data-flex-basis=287px></p>
 <p>Pada Plugin ini yang wajib kita isi yaitu:</p>
 <ul>
 <li><strong>consumer</strong> (nope): tidak boleh diisi, atau KONGA akan menampilkan pesan error. Ini dikarenakan plugin JWT harus dapan digunakan oleh semua Consumer.</li>
 <li><strong>key claim name</strong> (optional): default yaitu <strong>iss</strong>. Disini saya mengubahnya menjadi <strong>key</strong>.</li>
 <li><strong>header names</strong> (wajib): isi dengan value <strong>authorization</strong>.</li>
 </ul>
-<p>Jika sudah klik <strong>Submit Changes</strong>. Bisa dilihat bahwa plugin JWT sudah ditambahkan.
-<img src=/p/implementasi-jwt-pada-kong/4.png width=563 height=94 srcset="/p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_1024x0_resize_box_3.png 1024w" loading=lazy alt="JWT Activated" class=gallery-image data-flex-grow=598 data-flex-basis=1437px></p>
-<p>Selanjutnya, kita akan membuat Consumer. Masuk ke menu <strong>Consumers > Create Consumer</strong>. Buat <strong>username</strong> dan <strong>custom_id</strong> sesuai selera.
-<img src=/p/implementasi-jwt-pada-kong/5.png width=1058 height=322 srcset="/p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_1024x0_resize_box_3.png 1024w" loading=lazy alt=Consumer class=gallery-image data-flex-grow=328 data-flex-basis=788px></p>
-<p>Setelah consumer dibuat, masuk ke <strong>Consumer > Credentials > JWT</strong>. Lalu <strong>Create JWT</strong>.
-<img src=/p/implementasi-jwt-pada-kong/6.png width=1059 height=420 srcset="/p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_1024x0_resize_box_3.png 1024w" loading=lazy alt=Credentials class=gallery-image data-flex-grow=252 data-flex-basis=605px></p>
-<p>Isi key dan secret sesuai dengan selera kalian. Lalu submit.
-<img src=/p/implementasi-jwt-pada-kong/7.png width=505 height=583 srcset="/p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_1024x0_resize_box_3.png 1024w" loading=lazy alt="Form JWT" class=gallery-image data-flex-grow=86 data-flex-basis=207px>
-Bisa dilihat bahwa Credential telah dibuat.
-<img src=/p/implementasi-jwt-pada-kong/8.png width=1017 height=442 srcset="/p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_1024x0_resize_box_3.png 1024w" loading=lazy alt="JWT Credential Created" class=gallery-image data-flex-grow=230 data-flex-basis=552px></p>
+<p>Jika sudah klik <strong>Submit Changes</strong>. Bisa dilihat bahwa plugin JWT sudah ditambahkan.</p>
+<p><img src=/p/implementasi-jwt-pada-kong/4.png width=563 height=94 srcset="/p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/4_hu95071fc0eb358e6d85c5aee2b75298fd_159191_1024x0_resize_box_3.png 1024w" loading=lazy alt="JWT Activated" class=gallery-image data-flex-grow=598 data-flex-basis=1437px></p>
+<p>Selanjutnya, kita akan membuat Consumer. Masuk ke menu <strong>Consumers > Create Consumer</strong>. Buat <strong>username</strong> dan <strong>custom_id</strong> sesuai selera.</p>
+<p><img src=/p/implementasi-jwt-pada-kong/5.png width=1058 height=322 srcset="/p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/5_huf3a9b6b68485e8cecf00202296bae22e_1024071_1024x0_resize_box_3.png 1024w" loading=lazy alt=Consumer class=gallery-image data-flex-grow=328 data-flex-basis=788px></p>
+<p>Setelah consumer dibuat, masuk ke <strong>Consumer > Credentials > JWT</strong>. Lalu <strong>Create JWT</strong>.</p>
+<p><img src=/p/implementasi-jwt-pada-kong/6.png width=1059 height=420 srcset="/p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/6_hucd85c5f5b07ce2785c1b2faf38957a74_1336982_1024x0_resize_box_3.png 1024w" loading=lazy alt=Credentials class=gallery-image data-flex-grow=252 data-flex-basis=605px></p>
+<p>Isi key dan secret sesuai dengan selera kalian. Lalu submit.</p>
+<p><img src=/p/implementasi-jwt-pada-kong/7.png width=505 height=583 srcset="/p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/7_hu7ef7d258c52fe667ea9167c6425c32ac_885325_1024x0_resize_box_3.png 1024w" loading=lazy alt="Form JWT" class=gallery-image data-flex-grow=86 data-flex-basis=207px></p>
+<p>Bisa dilihat bahwa Credential telah dibuat.</p>
+<p><img src=/p/implementasi-jwt-pada-kong/8.png width=1017 height=442 srcset="/p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/8_hu0b5ef4c567ad60f975e2a202823a4a83_1351235_1024x0_resize_box_3.png 1024w" loading=lazy alt="JWT Credential Created" class=gallery-image data-flex-grow=230 data-flex-basis=552px></p>
 <h2 id=testing>Testing</h2>
-<p>Berikutnya yaitu generate Bearer Token yang akan digunakan untuk autentikasi API. Sebagai contoh, kita akan menggunakan <a class=link href=https://jwt.io target=_blank rel=noopener>https://jwt.io</a>. Masukkan key pada payload dan secret pada signature. Copy token yang ada pada sebelah kiri.
-<img src=/p/implementasi-jwt-pada-kong/9.png width=976 height=481 srcset="/p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_1024x0_resize_box_3.png 1024w" loading=lazy alt=jwt.io class=gallery-image data-flex-grow=202 data-flex-basis=486px></p>
+<p>Berikutnya yaitu generate Bearer Token yang akan digunakan untuk autentikasi API. Sebagai contoh, kita akan menggunakan <a class=link href=https://jwt.io target=_blank rel=noopener>https://jwt.io</a>. Masukkan key pada payload dan secret pada signature. Copy token yang ada pada sebelah kiri.</p>
+<p><img src=/p/implementasi-jwt-pada-kong/9.png width=976 height=481 srcset="/p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/9_hu74bbb9381d04b1a916b0b2873f2ceb0b_1411201_1024x0_resize_box_3.png 1024w" loading=lazy alt=jwt.io class=gallery-image data-flex-grow=202 data-flex-basis=486px></p>
 <p>Setelah Token digenerate, kita akan melakukan testing dengan menembak API. Disini saya menggunakan Insomnia. Tentu saja kalian bisa menggunakan tool sejenis seperti cURL, http, Postman, dll. Lalu copy token tersebut dan kita akan menempelkannya sebagai <strong>Bearer Token</strong>.</p>
 <h3 id=skenario-i-valid-token>Skenario I: Valid Token</h3>
 <p><img src=/p/implementasi-jwt-pada-kong/10.png width=970 height=204 srcset="/p/implementasi-jwt-pada-kong/10_hu9333a51995fb0f525c7470303892ab25_594876_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/10_hu9333a51995fb0f525c7470303892ab25_594876_1024x0_resize_box_3.png 1024w" loading=lazy alt="Valid Token" class=gallery-image data-flex-grow=475 data-flex-basis=1141px></p>
@@ -181,6 +181,17 @@ Bisa dilihat bahwa Credential telah dibuat.
 <p><img src=/p/implementasi-jwt-pada-kong/11.png width=968 height=212 srcset="/p/implementasi-jwt-pada-kong/11_hudd1048a0023717dfb24bf11f860fc81e_616928_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/11_hudd1048a0023717dfb24bf11f860fc81e_616928_1024x0_resize_box_3.png 1024w" loading=lazy alt="Invalid Token" class=gallery-image data-flex-grow=456 data-flex-basis=1095px></p>
 <h3 id=skenario-iii-tanpa-token>Skenario III: Tanpa Token</h3>
 <p><img src=/p/implementasi-jwt-pada-kong/12.png width=973 height=203 srcset="/p/implementasi-jwt-pada-kong/12_hu42c606e7dbdf7a344f0f1baeab56753b_593792_480x0_resize_box_3.png 480w, /p/implementasi-jwt-pada-kong/12_hu42c606e7dbdf7a344f0f1baeab56753b_593792_1024x0_resize_box_3.png 1024w" loading=lazy alt="Tanpa Token" class=gallery-image data-flex-grow=479 data-flex-basis=1150px></p>
+<h2 id=serial-1>Serial</h2>
+<ul>
+<li><a class=link href=../instalasi-kong-api-gateway-konga-dengan-docker-compose/>Instalasi Kong Api Gateway & KONGA dengan Docker Compose</a></li>
+<li><a class=link href=../pembahasan-services-dan-routes-pada-kong-api-gateway/>Pembahasan Services dan Routes pada Kong Api Gateway</a></li>
+<li>Implementasi JWT Pada KONG <strong>&lt;&ndash; Kita disini</strong></li>
+</ul>
+<h2 id=referensi>Referensi</h2>
+<ul>
+<li><a class=link href=https://konghq.com/blog/jwt-kong-gateway target=_blank rel=noopener>https://konghq.com/blog/jwt-kong-gateway</a></li>
+<li>Pengalaman pribadi</li>
+</ul>
 <h2 id=penutup>Penutup</h2>
 <p>Kurang lebih seperti itu cara menggunakan plugin JWT pada KONG. Jika ada pertanyaan silakan bertanya pada kolom komentar. Sekian dan Terimakasih&mldr;</p>
 </section>
@@ -324,6 +335,8 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#skenario-iii-tanpa-token>Skenario III: Tanpa Token</a></li>
 </ol>
 </li>
+<li><a href=#serial-1>Serial</a></li>
+<li><a href=#referensi>Referensi</a></li>
 <li><a href=#penutup>Penutup</a></li>
 </ol>
 </nav>

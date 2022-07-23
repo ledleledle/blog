@@ -153,29 +153,29 @@ Web Dev
 <li>http://localhost:3000/three</li>
 </ul>
 <h3 id=membuat-service-dari-contoh-project>Membuat Service dari contoh project</h3>
-<p>Oke&mldr; Saya asumsikan kalian udah paham tentang contoh projectnya. Sekarang kita akan membuat service. Buka KONGA kalian. Lalu buka menu <strong>Services > Add New Service</strong>. Munculah modal box seperti gambar dibawah.
-<img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1.png width=811 height=644 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_1024x0_resize_box_3.png 1024w" loading=lazy alt="Add New Service" class=gallery-image data-flex-grow=125 data-flex-basis=302px>
-Disini form yang perlu kita tambahkan yaitu:</p>
+<p>Oke&mldr; Saya asumsikan kalian udah paham tentang contoh projectnya. Sekarang kita akan membuat service. Buka KONGA kalian. Lalu buka menu <strong>Services > Add New Service</strong>. Munculah modal box seperti gambar dibawah.</p>
+<p><img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1.png width=811 height=644 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/1_hu83e2d7aeeba30ba20c6de33bded97972_52489_1024x0_resize_box_3.png 1024w" loading=lazy alt="Add New Service" class=gallery-image data-flex-grow=125 data-flex-basis=302px></p>
+<p>Disini form yang perlu kita tambahkan yaitu:</p>
 <ul>
 <li><strong>Name:</strong> nama service, ini hanya nama, kalian bisa isi bebas. Contoh: <code>service-v1</code>.</li>
 <li><strong>URL:</strong> URL diisi dengan link aplikasi yang kita miliki. Pastikan diisi dengan format <code>&lt;protocol>://&lt;URL>:&lt;port></code>. Contoh <code>http://project:3000</code>.</li>
 <li><strong>Path:</strong> Ini sebenarnya form optional. Tapi&mldr; Karena dalam contoh ini, kita menggunakan path untuk membedakan aplikasi. Kita akan memasukkan path dengan format <code>/path</code>. Contoh: <code>/one</code>.</li>
 </ul>
-<p>Klik <strong>Submit Service</strong>.
-<img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2.png width=1092 height=337 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_1024x0_resize_box_3.png 1024w" loading=lazy alt="Services List" class=gallery-image data-flex-grow=324 data-flex-basis=777px></p>
+<p>Klik <strong>Submit Service</strong>.</p>
+<p><img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2.png width=1092 height=337 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/2_hu8b5b5d7c09fbe78ea92324a8a4a75ab4_28620_1024x0_resize_box_3.png 1024w" loading=lazy alt="Services List" class=gallery-image data-flex-grow=324 data-flex-basis=777px></p>
 <h3 id=membuat-routes>Membuat Routes</h3>
-<p>Dari list Service yang telah kita buat. Klik pada nama salah satu service. Buka menu <strong>Routes > Add Route</strong>.
-<img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3.png width=1101 height=382 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_1024x0_resize_box_3.png 1024w" loading=lazy alt="Routes List" class=gallery-image data-flex-grow=288 data-flex-basis=691px>
-<img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4.png width=877 height=648 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_1024x0_resize_box_3.png 1024w" loading=lazy alt="Add Route" class=gallery-image data-flex-grow=135 data-flex-basis=324px>
-Hampir mirip seperti kita membuat Service sebelumnya, berikut form yang wajib kita tambahkan yaitu:</p>
+<p>Dari list Service yang telah kita buat. Klik pada nama salah satu service. Buka menu <strong>Routes > Add Route</strong>.</p>
+<p><img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3.png width=1101 height=382 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/3_huaba63723c7aa509c7cf8ba49600e87a0_29441_1024x0_resize_box_3.png 1024w" loading=lazy alt="Routes List" class=gallery-image data-flex-grow=288 data-flex-basis=691px></p>
+<p><img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4.png width=877 height=648 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/4_hubb4e0a3a52b743ce09e0ff735f6a17ae_74393_1024x0_resize_box_3.png 1024w" loading=lazy alt="Add Route" class=gallery-image data-flex-grow=135 data-flex-basis=324px></p>
+<p>Hampir mirip seperti kita membuat Service sebelumnya, berikut form yang wajib kita tambahkan yaitu:</p>
 <ul>
 <li><strong>Name:</strong> name ini wajib ya buat membedakan services/routes satu dengan yang lain.</li>
 <li>Path: path pada route bertujuan untuk membelokkan URL service ke path <code>(/)</code> yang kita tentukan. Misal <code>http://feature.example.com --> http://example.com/feature</code>. Intinya&mldr; Mbelokin link doang. Contoh disini: <code>/api/v1</code>. <strong>Jangan lupa tekan ENTER</strong>.</li>
 <li>Method: dalam route ini http method apa saja yang diperbolehkan. Disini karena kita hanya nge-GET data doang. Ya isi aja <code>GET</code>. <strong>Jangan lupa tekan ENTER</strong>.</li>
 <li>Protocols: <code>http</code> or <code>https</code>. Terserah guys&mldr; kalian juga udah paham pastinya kalo ini.</li>
 </ul>
-<p>Klik <strong>Submit Route</strong>.
-<img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5.png width=1106 height=448 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_1024x0_resize_box_3.png 1024w" loading=lazy alt="Routes List" class=gallery-image data-flex-grow=246 data-flex-basis=592px></p>
+<p>Klik <strong>Submit Route</strong>.</p>
+<p><img src=/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5.png width=1106 height=448 srcset="/p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_480x0_resize_box_3.png 480w, /p/pembahasan-services-dan-routes-pada-kong-api-gateway/5_hu46299d78b1c4eecb476be42395f2d535_35279_1024x0_resize_box_3.png 1024w" loading=lazy alt="Routes List" class=gallery-image data-flex-grow=246 data-flex-basis=592px></p>
 <p>Lalu kita bisa cek URL yang telah kita proses melalui API Gateway tadi dengan cara melakukan HTTP Request ke <code>http://localhost:8000/api/v1</code>. Disini port <strong>8000</strong> adalah URL yang akan diakses oleh user. Dan <strong>/api/v1</strong> adalah route yang telah kita buka tadi. Kita test menggunakan <code>cURL</code>.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -210,6 +210,12 @@ Via: kong/2.3.3
 </code></pre></td></tr></table>
 </div>
 </div><p>Yep&mldr; Kalian sudah berhasil membuat sepasang service & route.</p>
+<h2 id=serial-1>Serial</h2>
+<ul>
+<li><a class=link href=../instalasi-kong-api-gateway-konga-dengan-docker-compose/>Instalasi Kong Api Gateway & KONGA dengan Docker Compose</a></li>
+<li>Pembahasan Services dan Routes pada Kong Api Gateway <strong>&lt;&ndash; Kita disini</strong></li>
+<li><a class=link href=../implementasi-jwt-pada-kong/>Implementasi JWT Pada KONG</a></li>
+</ul>
 <h2 id=penutup>Penutup</h2>
 <p>Oke untuk sekarang sekian dulu, sorry kalau agak kurang jelas. Semoga artikel ini membantu, jika ada pertanyaan silakan isi pada kolom komentar. Terimakasih.</p>
 </section>
@@ -352,6 +358,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#membuat-routes>Membuat Routes</a></li>
 </ol>
 </li>
+<li><a href=#serial-1>Serial</a></li>
 <li><a href=#penutup>Penutup</a></li>
 </ol>
 </nav>
