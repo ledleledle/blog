@@ -13,8 +13,8 @@
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">unzip &lt;span class="s2">&amp;#34;TL-MR3420_V2_150319.zip&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">unzip &lt;span class="s2">&amp;#34;TL-MR3420_V2_150319.zip&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;strong>Rename&lt;/strong> file firmware dengan nama firmware.bin agar dalam pengerjaannya jadi lebih mudah dan simple.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -22,8 +22,8 @@
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">mv &lt;span class="s2">&amp;#34;mr3420v2_en_3_16_9_up_boot(150319).bin&amp;#34;&lt;/span> firmware.bin
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">mv &lt;span class="s2">&amp;#34;mr3420v2_en_3_16_9_up_boot(150319).bin&amp;#34;&lt;/span> firmware.bin
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;strong>Hapus&lt;/strong> beberapa byte dari Firmware dengan perintah &lt;strong>dd&lt;/strong>. Bila perintah ini tidak dijalankan maka hasilnya anda akan mendapatkan pesan error &lt;strong>Writing from /tmp/firmware.bin to firmware … [e]Failed to erase block&lt;/strong> saat proses flashing firmware.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -37,14 +37,13 @@
 &lt;/span>&lt;span class="lnt">7
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#command&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>firmware.bin &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>original.bin &lt;span class="nv">skip&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">257&lt;/span> &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">512&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#log&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7680+0 records in
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">7680+0 records out
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="m">3932160&lt;/span> bytes &lt;span class="o">(&lt;/span>3.9 MB, 3.8 MiB&lt;span class="o">)&lt;/span> copied, 0.0352155 s, &lt;span class="m">208&lt;/span> MB/s
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#command&lt;/span>
+dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>firmware.bin &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>original.bin &lt;span class="nv">skip&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">257&lt;/span> &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">512&lt;/span>
+&lt;span class="c1">#log&lt;/span>
+7680+0 records in
+7680+0 records out
+&lt;span class="m">3932160&lt;/span> bytes &lt;span class="o">(&lt;/span>3.9 MB, 3.8 MiB&lt;span class="o">)&lt;/span> copied, 0.0352155 s, &lt;span class="m">208&lt;/span> MB/s
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>&lt;strong>Upload Firmware&lt;/strong> ke router kalian dengan perintah &lt;strong>scp&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -52,8 +51,8 @@
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">scp original.bin root@4.3.2.1:/tmp
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">scp original.bin root@4.3.2.1:/tmp
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>Q : Kok ipnya 4.3.2.1?&lt;/li>
@@ -65,8 +64,8 @@
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">ssh root@4.3.2.1
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">ssh root@4.3.2.1
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;blockquote>
 &lt;p>Note : inget ya, sesuaikan dengan ip router kalian masing-masing.&lt;/p>
@@ -84,15 +83,13 @@
 &lt;/span>&lt;span class="lnt">8
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#command&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mtd -r write /tmp/original.bin firmware
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#log&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Unlocking firmware ...
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Writing from /tmp/original.bin to firmware ...
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Rebooting ...
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">#command&lt;/span>
+mtd -r write /tmp/original.bin firmware
+&lt;span class="c1">#log&lt;/span>
+Unlocking firmware ...
+Writing from /tmp/original.bin to firmware ...
+Rebooting ...
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Setelah proses selesai, router akan restart dengan sendirinya.&lt;/p>
 &lt;p>Bagaimana tutorialnya? mudah bukan, semoga bermanfaat untuk kalian, sekian dari saya terimakasih.&lt;/p></description></item></channel></rss>

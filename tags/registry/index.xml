@@ -19,12 +19,12 @@
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">container-registry
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── auth
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│   ├── htpasswd
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">├── docker-compose.yaml
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">└── registry
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">container-registry
+├── auth
+│   ├── htpasswd
+├── docker-compose.yaml
+└── registry
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Berikut adalah susunan file &amp;amp; directory yang akan digunakan, asumsikan folder utama kita (workdir) bernama &lt;strong>container-registry&lt;/strong>, didalamnya ada directory bernama auth dan registry, &lt;strong>auth&lt;/strong> berisi file &lt;strong>htpasswd&lt;/strong> yang berguna untuk menyimpan user &amp;amp; password sedangkan directory &lt;strong>registry&lt;/strong> adalah folder yang akan digunakan untuk menyimpan semua image yang dipush oleh user. Dan jangan lupakan file &lt;strong>docker-compose.yaml&lt;/strong>, file yang berisi konfigurasi kontainer.&lt;/p>
 &lt;h2 id="step-by-step">Step-by-step&lt;/h2>
@@ -50,21 +50,21 @@
 &lt;/span>&lt;span class="lnt">14
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">&lt;span class="line">&lt;span class="cl">version: &lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span>services:&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> registry:&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> image: registry:2.7.0&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> restart: always&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> ports: &lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> - 5000:5000&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> environment:&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> REGISTRY_AUTH: htpasswd&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> volumes: &lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> - ./registry:/var/lib/registry&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">&lt;/span> - ./auth:/auth&lt;span class="err">
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-docker" data-lang="docker">version: &lt;span class="s2">&amp;#34;3.0&amp;#34;&lt;/span>&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span>services:&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> registry:&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> image: registry:2.7.0&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> restart: always&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> ports: &lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> - 5000:5000&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> environment:&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> REGISTRY_AUTH: htpasswd&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> volumes: &lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> - ./registry:/var/lib/registry&lt;span class="err">
+&lt;/span>&lt;span class="err">&lt;/span> - ./auth:/auth&lt;span class="err">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Tapi jangan dideploy terlebih dahulu! Karena kita harus membuat autentikasi password terlebih dahulu.&lt;/p>
 &lt;h3 id="autentikasi">Autentikasi&lt;/h3>
@@ -77,11 +77,11 @@
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Buat folder bernama &amp;#34;auth&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir auth
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Membuat file &amp;#34;htpasswd&amp;#34; didalam folder &amp;#34;auth&amp;#34;, dengan user &amp;#34;blog&amp;#34; &amp;amp; password &amp;#34;blogleon666&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker run --rm --entrypoint htpasswd registry:2.7.0 -Bbn blog blogleon666 &amp;gt; auth/htpasswd
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">## Buat folder bernama &amp;#34;auth&amp;#34;&lt;/span>
+mkdir auth
+&lt;span class="c1">## Membuat file &amp;#34;htpasswd&amp;#34; didalam folder &amp;#34;auth&amp;#34;, dengan user &amp;#34;blog&amp;#34; &amp;amp; password &amp;#34;blogleon666&amp;#34;&lt;/span>
+docker run --rm --entrypoint htpasswd registry:2.7.0 -Bbn blog blogleon666 &amp;gt; auth/htpasswd
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="deployment">Deployment&lt;/h3>
 &lt;p>Step paling gampang yaitu deployment, karena kita hanya akan menjalankan satu perintah saja.&lt;/p>
@@ -90,8 +90,8 @@
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker-compose up -d
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker-compose up -d
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="konfigurasi-domain-dan-ssl">Konfigurasi domain dan SSL&lt;/h3>
 &lt;p>Pada artikel ini, kita akan menggunakan SSL gratis yaitu &lt;strong>Certbot/LetsEncrypt&lt;/strong>. Pertama install terlebih dahulu &lt;strong>Certbot &amp;amp; Nginx&lt;/strong>.&lt;/p>
@@ -108,16 +108,15 @@
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Install Certbot&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo snap install core&lt;span class="p">;&lt;/span> sudo snap refresh core
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo snap install --classic certbot
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ln -s /snap/bin/certbot /usr/bin/certbot
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Install Nginx Debian Base&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install nginx -y
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">## Install Nginx Arch Base&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo pacman -Sy nginx
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1">## Install Certbot&lt;/span>
+sudo snap install core&lt;span class="p">;&lt;/span> sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+&lt;span class="c1">## Install Nginx Debian Base&lt;/span>
+sudo apt install nginx -y
+&lt;span class="c1">## Install Nginx Arch Base&lt;/span>
+sudo pacman -Sy nginx
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h4 id="reverse-proxy">Reverse Proxy&lt;/h4>
 &lt;p>Buat reverse proxy terlebih dahulu untuk mengalihkan IP Address server dengan domain yang kita miliki. Kita tidak perlu membuat konfigurasi untuk HTTPS karena nantinya akan di&lt;em>generate&lt;/em> otomatis oleh Certbot.&lt;/p>
@@ -140,22 +139,20 @@
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Gunakan text editor favorit kalian
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">cd&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">sites&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">available&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">sudo&lt;/span> &lt;span class="nx">nano&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">conf&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Isi dari registry.conf
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">server&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">client_max_body_size&lt;/span> &lt;span class="mi">666&lt;/span>&lt;span class="nx">M&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">server_name&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">location&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_pass&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="c1">//172.168.10.1:5000;
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Aktifkan reverse proxy
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">sudo&lt;/span> &lt;span class="nx">ln&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="nx">s&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">sites&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">available&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">conf&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">sites&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">enable&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="c1">// Gunakan text editor favorit kalian
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nx">cd&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">sites&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">available&lt;/span>
+&lt;span class="nx">sudo&lt;/span> &lt;span class="nx">nano&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">conf&lt;/span>
+&lt;span class="c1">// Isi dari registry.conf
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nx">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">client_max_body_size&lt;/span> &lt;span class="mi">666&lt;/span>&lt;span class="nx">M&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">server_name&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">location&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">proxy_pass&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="c1">//172.168.10.1:5000;
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="c1">// Aktifkan reverse proxy
+&lt;/span>&lt;span class="c1">&lt;/span>&lt;span class="nx">sudo&lt;/span> &lt;span class="nx">ln&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="nx">s&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">sites&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">available&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">conf&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">sites&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">enable&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>&lt;code>client_max_body_size&lt;/code> adalah limit upload yang diperbolehkan, kalian bisa atur sesuka hati, namun saya lebih suka memberi angka yang demonic!!!&lt;/li>
@@ -169,8 +166,8 @@
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo certbot --email email_anda@gmail.co.id --nginx -d registry.leonprasetya.my.id
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo certbot --email email_anda@gmail.co.id --nginx -d registry.leonprasetya.my.id
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Ketika proses selesai, coba buka file &lt;code>/etc/nginx/sites-available/registry.conf&lt;/code> untuk memastikan bahwa konfigurasi SSL sudah berhasil. Jika sudah selesai kurang lebih outputnya akan terlihat seperti ini.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -208,38 +205,36 @@
 &lt;/span>&lt;span class="lnt">31
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">server&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">server_name&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">location&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_pass&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="c1">//172.168.10.1:5000;
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">proxy_http_version&lt;/span> &lt;span class="mf">1.1&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_cache_bypass&lt;/span> &lt;span class="nx">$http_upgrade&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">Upgrade&lt;/span> &lt;span class="nx">$http_upgrade&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">Connection&lt;/span> &lt;span class="s2">&amp;#34;upgrade&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">Host&lt;/span> &lt;span class="nx">$host&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Real&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">IP&lt;/span> &lt;span class="nx">$remote_addr&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Forwarded&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">For&lt;/span> &lt;span class="nx">$proxy_add_x_forwarded_for&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Forwarded&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Proto&lt;/span> &lt;span class="nx">$scheme&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Forwarded&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Host&lt;/span> &lt;span class="nx">$host&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Forwarded&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Port&lt;/span> &lt;span class="nx">$server_port&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">listen&lt;/span> &lt;span class="mi">443&lt;/span> &lt;span class="nx">ssl&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ssl_certificate&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">letsencrypt&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">live&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">fullchain&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pem&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ssl_certificate_key&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">letsencrypt&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">live&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">privkey&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pem&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">include&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">letsencrypt&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">options&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">ssl&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">conf&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ssl_dhparam&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">letsencrypt&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">ssl&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">dhparams&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pem&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">server&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">$host&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mi">301&lt;/span> &lt;span class="nx">https&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="c1">//$host$request_uri;
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">server_name&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mi">404&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="nx">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">server_name&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">location&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="nx">proxy_pass&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="c1">//172.168.10.1:5000;
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="nx">proxy_http_version&lt;/span> &lt;span class="mf">1.1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_cache_bypass&lt;/span> &lt;span class="nx">$http_upgrade&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">Upgrade&lt;/span> &lt;span class="nx">$http_upgrade&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">Connection&lt;/span> &lt;span class="s2">&amp;#34;upgrade&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">Host&lt;/span> &lt;span class="nx">$host&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Real&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">IP&lt;/span> &lt;span class="nx">$remote_addr&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Forwarded&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">For&lt;/span> &lt;span class="nx">$proxy_add_x_forwarded_for&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Forwarded&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Proto&lt;/span> &lt;span class="nx">$scheme&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Forwarded&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Host&lt;/span> &lt;span class="nx">$host&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">proxy_set_header&lt;/span> &lt;span class="nx">X&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Forwarded&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">Port&lt;/span> &lt;span class="nx">$server_port&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">listen&lt;/span> &lt;span class="mi">443&lt;/span> &lt;span class="nx">ssl&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
+&lt;span class="nx">ssl_certificate&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">letsencrypt&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">live&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">fullchain&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pem&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
+&lt;span class="nx">ssl_certificate_key&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">letsencrypt&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">live&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">privkey&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pem&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
+&lt;span class="nx">include&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">letsencrypt&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">options&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">ssl&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">nginx&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">conf&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
+&lt;span class="nx">ssl_dhparam&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="nx">etc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">letsencrypt&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="nx">ssl&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">dhparams&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">pem&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;span class="nx">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">$host&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="mi">301&lt;/span> &lt;span class="nx">https&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="c1">//$host$request_uri;
+&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
+&lt;span class="nx">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="nx">server_name&lt;/span> &lt;span class="nx">registry&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">leonprasetya&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">my&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">id&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="mi">404&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">managed&lt;/span> &lt;span class="nx">by&lt;/span> &lt;span class="nx">Certbot&lt;/span>
+&lt;span class="p">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="testing">Testing&lt;/h3>
 &lt;p>Pemasangan Reverse Proxy dan SSL adalah step terakhir yang kita lalui, sekarang saatnya untuk mencoba container registry yang telah kita deploy.&lt;/p>
@@ -257,16 +252,15 @@
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Login dengan username &amp;amp; password yang kita buat sebelumnya!&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker login registry.leonprasetya.my.id
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Username: blog
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Password: &amp;lt;password_kita&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">WARNING! Your password will be stored unencrypted in /home/leon/.docker/config.json.
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Configure a credential helper to remove this warning. See
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Login Succeeded
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Login dengan username &amp;amp; password yang kita buat sebelumnya!&lt;/span>
+docker login registry.leonprasetya.my.id
+Username: blog
+Password: &amp;lt;password_kita&amp;gt;
+WARNING! Your password will be stored unencrypted in /home/leon/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+Login Succeeded
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h4 id="pull--push-image">Pull &amp;amp; Push Image&lt;/h4>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -277,11 +271,11 @@
 &lt;/span>&lt;span class="lnt">4
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker pull ubuntu:16.04
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker tag ubuntu:16.04 registry.leonprasetya.my.id/my-ubuntu
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker push registry.leonprasetya.my.id/my-ubuntu
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker pull registry.leonprasetya.my.id/my-ubuntu
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker pull ubuntu:16.04
+docker tag ubuntu:16.04 registry.leonprasetya.my.id/my-ubuntu
+docker push registry.leonprasetya.my.id/my-ubuntu
+docker pull registry.leonprasetya.my.id/my-ubuntu
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Jika tidak paham dengan command berikut, kalian bisa cek pada aritek saya yang sebelumnya yaitu &lt;a class="link" href="https://blog.leonprasetya.my.id/p/docker-untuk-pemula" target="_blank" rel="noopener"
 >Docker Untuk Pemula&lt;/a> hehehe&amp;hellip;&lt;/p>
@@ -294,10 +288,10 @@
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl -X GET http://blog:blogleon666@registry.leonprasetya.my.id/v2/_catalog
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Output &lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">{&lt;/span>&lt;span class="s2">&amp;#34;repositories&amp;#34;&lt;/span>:&lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;my-ubuntu&amp;#34;&lt;/span>,&lt;span class="s2">&amp;#34;postgres&amp;#34;&lt;/span>&lt;span class="o">]}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">curl -X GET http://blog:blogleon666@registry.leonprasetya.my.id/v2/_catalog
+&lt;span class="c1"># Output &lt;/span>
+&lt;span class="o">{&lt;/span>&lt;span class="s2">&amp;#34;repositories&amp;#34;&lt;/span>:&lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;my-ubuntu&amp;#34;&lt;/span>,&lt;span class="s2">&amp;#34;postgres&amp;#34;&lt;/span>&lt;span class="o">]}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Kita juga dapat melihat list tags pada sebuah image.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -307,10 +301,10 @@
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl -X GET http://blog:blogleon666@registry.leonprasetya.my.id/v2/postgres/tags/list
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Output&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">{&lt;/span>&lt;span class="s2">&amp;#34;name&amp;#34;&lt;/span>:&lt;span class="s2">&amp;#34;postgres&amp;#34;&lt;/span>,&lt;span class="s2">&amp;#34;tags&amp;#34;&lt;/span>:&lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;9.6&amp;#34;&lt;/span>&lt;span class="o">]}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">curl -X GET http://blog:blogleon666@registry.leonprasetya.my.id/v2/postgres/tags/list
+&lt;span class="c1"># Output&lt;/span>
+&lt;span class="o">{&lt;/span>&lt;span class="s2">&amp;#34;name&amp;#34;&lt;/span>:&lt;span class="s2">&amp;#34;postgres&amp;#34;&lt;/span>,&lt;span class="s2">&amp;#34;tags&amp;#34;&lt;/span>:&lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;9.6&amp;#34;&lt;/span>&lt;span class="o">]}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h3 id="insecure-container-registry">Insecure Container Registry&lt;/h3>
 &lt;p>Seperti yang saya janjikan diawal artikel ini, untuk teman-teman yang tak memiliki domain atau yang benar-benar hanya ingin Container registry ini diakses secara local, namun normalnya jika kalian mengaksesnya menggunakan menggunakan direct IP Address ataupun protokol HTTP, Docker akan melempar error &lt;code>http: server gave http response to https client&lt;/code>. Dan inilah yang akan kita bahas pada bab ini. Buat file &lt;strong>daemon.json&lt;/strong> untuk membuat list &lt;strong>insecure-registries&lt;/strong> (insecure seperti saya).&lt;/p>
@@ -323,12 +317,11 @@
 &lt;/span>&lt;span class="lnt">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo nano /etc/docker/daemon.json
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;insecure-registries&amp;#34;&lt;/span> : &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;172.168.10.1:5000&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo nano /etc/docker/daemon.json
+&lt;span class="o">{&lt;/span>
+&lt;span class="s2">&amp;#34;insecure-registries&amp;#34;&lt;/span> : &lt;span class="o">[&lt;/span>&lt;span class="s2">&amp;#34;172.168.10.1:5000&amp;#34;&lt;/span>&lt;span class="o">]&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Lalu restart Docker kalian terlebih dahulu. Contoh dibawah menggunakan systemd.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -336,8 +329,8 @@
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo systemctl restart docker.service
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo systemctl restart docker.service
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Lalu kalian bisa login.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -345,8 +338,8 @@
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">docker login 172.168.10.1:5000
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">docker login 172.168.10.1:5000
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="konsiderasi">Konsiderasi&lt;/h2>
 &lt;p>Sebenarnya ada produk Container Registry lain yang ada seperti &lt;strong>JFrog&lt;/strong> dan &lt;strong>Nexus&lt;/strong> keduanya memiliki Web Interface yang memudahkan kita untuk me-&lt;em>manage&lt;/em> registry, namun saya memilih &lt;strong>Docker&lt;/strong> karena deployment yang simple dan minimalist. Selalu ada Pro dan Kontra dalam memilih sesuatu, namun kita hanya harus memilih yang cocok untuk kita pakai.&lt;/p>
