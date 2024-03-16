@@ -1,0 +1,446 @@
+<!doctype html><html lang=en-us dir=ltr>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.
+Requirements  WSL 2  Check apakah WSL sudah diinstall 1  wsl -l -v   Jika sudah maka kita akan ditunjukkan versinya.
+Install WSL Jika belum kita bisa install lewat Powershell dengan command berikut."><title>Install Docker tanpa Docker Desktop di Windows 10/11</title>
+<link rel=canonical href=https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/>
+<link rel=stylesheet href=/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css><meta property="og:title" content="Install Docker tanpa Docker Desktop di Windows 10/11">
+<meta property="og:description" content="Intro Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.
+Requirements  WSL 2  Check apakah WSL sudah diinstall 1  wsl -l -v   Jika sudah maka kita akan ditunjukkan versinya.
+Install WSL Jika belum kita bisa install lewat Powershell dengan command berikut.">
+<meta property="og:url" content="https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/">
+<meta property="og:site_name" content="Leon's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="devops"><meta property="article:tag" content="docker"><meta property="article:published_time" content="2022-02-20T21:18:22+07:00"><meta property="article:modified_time" content="2022-02-20T21:18:22+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index.png">
+<meta name=twitter:title content="Install Docker tanpa Docker Desktop di Windows 10/11">
+<meta name=twitter:description content="Intro Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.
+Requirements  WSL 2  Check apakah WSL sudah diinstall 1  wsl -l -v   Jika sudah maka kita akan ditunjukkan versinya.
+Install WSL Jika belum kita bisa install lewat Powershell dengan command berikut."><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index.png">
+<link rel="shortcut icon" href=img/favicon.ico>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CEFZGZSW6"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-6CEFZGZSW6',{anonymize_ip:!1})}</script>
+</head>
+<body class=article-page>
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header>
+<figure class=site-avatar>
+<a href=/>
+<img src=/img/avatar_hu9bbe6dd2ea62d3a827f580f5ad1ad5f9_108376_300x0_resize_q75_box.jpg width=300 height=235 class=site-logo loading=lazy alt=Avatar>
+</a>
+<span class=emoji>🧐</span>
+</figure>
+<div class=site-meta>
+<h1 class=site-name><a href=/>Leon's Blog</a></h1>
+<h2 class=site-description>An unworthy engineer who seek powers 🧐</h2>
+</div>
+</header><ol class=social-menu>
+<li>
+<a href=https://github.com/ledleledle target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+</a>
+</li>
+<li>
+<a href=https://gitlab.com/ledleledle target=_blank title=GitLab><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7-9-7L6 3l3 7h6l3-7z"/></svg>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/leonprasetya target=_blank title=LinkedIn><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 00-4 0"/></svg>
+</a>
+</li>
+</ol><ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li>
+<li>
+<a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li>
+<li>
+<a href=/tags><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg>
+<span>Tags</span>
+</a>
+</li>
+<li>
+<a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span>
+</a>
+</li>
+<div class=menu-bottom-section>
+<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span>
+</li>
+</div>
+</ol>
+</aside>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/p/install-docker-tanpa-docker-desktop-di-windows-10/11/>
+<img src=/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index_hu54fb7902636bf3b40598986d7299de43_153295_800x0_resize_box_3.png srcset="/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index_hu54fb7902636bf3b40598986d7299de43_153295_800x0_resize_box_3.png 800w, /p/install-docker-tanpa-docker-desktop-di-windows-10/11/index_hu54fb7902636bf3b40598986d7299de43_153295_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Install Docker tanpa Docker Desktop di Windows 10/11">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/devops/>
+DevOps
+</a>
+</header>
+<div class=article-title-wrapper>
+<h2 class=article-title>
+<a href=/p/install-docker-tanpa-docker-desktop-di-windows-10/11/>Install Docker tanpa Docker Desktop di Windows 10/11</a>
+</h2>
+</div>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Feb 20, 2022</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+3 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h2 id=intro>Intro</h2>
+<p>Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.</p>
+<h2 id=requirements>Requirements</h2>
+<ul>
+<li>WSL 2</li>
+</ul>
+<h3 id=check-apakah-wsl-sudah-diinstall>Check apakah WSL sudah diinstall</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>wsl -l -v
+</code></pre></td></tr></table>
+</div>
+</div><p>Jika sudah maka kita akan ditunjukkan versinya.</p>
+<h3 id=install-wsl>Install WSL</h3>
+<p>Jika belum kita bisa install lewat Powershell dengan command berikut. Pilih distributor yang tersedia, disini saya pakai Ubuntu.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wsl --install -d Ubuntu
+</code></pre></td></tr></table>
+</div>
+</div><p>Jika sudah, kita akan diminta untuk melakukan restart pada device kita.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>Windows Subsystem <span class=k>for</span> Linux has been installed.
+Installing: Ubuntu
+Ubuntu has been installed.
+The requested operation is successful. Changes will not be effective <span class=k>until</span> the system is rebooted.
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=create-user>Create User</h3>
+<p>Ini wajib saat kalian menggunakan WSL untuk pertama kali. Membuat user untuk akses WSL kalian.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>Installing, this may take a few minutes...
+Please create a default UNIX user account. The username does not need to match your Windows username.
+For more information visit: https://aka.ms/wslusers
+Enter new UNIX username:
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=install-docker>Install Docker</h3>
+<p>Install Docker seperti biasa (kayak di Ubuntu). Bisa dicek disini <a class=link href=https://docs.docker.com/engine/install/ target=_blank rel=noopener>Docs Docker Install</a> jika kalian menggunakan distro lain.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># Add Docker&#39;s official GPG key:</span>
+sudo apt update
+sudo apt -y install ca-certificates curl 
+sudo install -m <span class=m>0755</span> -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+<span class=c1># Add the repository to Apt sources:</span>
+<span class=nb>echo</span> <span class=se>\
+</span><span class=se></span>  <span class=s2>&#34;deb [arch=</span><span class=k>$(</span>dpkg --print-architecture<span class=k>)</span><span class=s2> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+</span><span class=s2>  </span><span class=k>$(</span>. /etc/os-release <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$VERSION_CODENAME</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2> stable&#34;</span> <span class=p>|</span> <span class=se>\
+</span><span class=se></span>  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+
+<span class=c1># Install Docker</span>
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=add-user-to-docker-group>Add user to docker group</h3>
+<p>Lalu tambahkan user kalian ke dalam group <code>docker</code>, ini ditujukan agar user kita bisa mengakses docker tanpa harus menggunakan user <code>root</code>.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo groupadd docker
+sudo usermod -aG docker <span class=nv>$USER</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Setelah itu tutup dan buka kembali WSL kalian.</p>
+<h3 id=akses-di-powershell>Akses di Powershell</h3>
+<p>Kita bisa menggunakan docker tanpa harus membuka WSL dengan command berikut.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wsl docker ps
+wsl docker images
+</code></pre></td></tr></table>
+</div>
+</div><p>Tapi dengan <code>wsl</code> didepan tiap commandnya pasti sangat mengganggu kita, maka dari itu kita harus membuat alias agar docker lebih mudah untuk diakses.</p>
+<h3 id=membuat-alias>Membuat Alias</h3>
+<p>Cari dulu PowerShell Profile. Lalu edit/buat baru file Profilenya.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=nb>echo</span> <span class=nv>$PROFILE</span>
+<span class=c1># Output:</span>
+<span class=c1># C:\Users\UserGanteng\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</span>
+
+notepad <span class=nv>$PROFILE</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Lalu copy command berikut.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>Function Start-WslDocker <span class=o>{</span>
+    wsl docker <span class=nv>$args</span>
+<span class=o>}</span>
+
+Set-Alias -Name docker -Value Start-WslDocker
+</code></pre></td></tr></table>
+</div>
+</div><p>Simpan lalu restart PowerShell. Lalu coba ketikkan command <code>docker</code> tanpa <code>wsl</code> didepannya.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>docker ps
+</code></pre></td></tr></table>
+</div>
+</div><p>Semoga kalian terbantu.</p>
+<h2 id=references>References</h2>
+<ul>
+<li><a class=link href=https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/guides/install-ubuntu-wsl2/ target=_blank rel=noopener>https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/guides/install-ubuntu-wsl2/</a></li>
+<li><a class=link href=https://docs.docker.com/engine/install/ubuntu target=_blank rel=noopener>https://docs.docker.com/engine/install/ubuntu</a></li>
+<li><a class=link href=https://blog.sixeyed.com/your-must-have-powershell-aliases-for-docker/ target=_blank rel=noopener>https://blog.sixeyed.com/your-must-have-powershell-aliases-for-docker/</a></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/devops/>devops</a>
+<a href=/tags/docker/>docker</a>
+</section>
+</footer>
+</article>
+<aside class=related-content--wrapper>
+<h2 class=section-title>Related content</h2>
+<div class=related-content>
+<div class="flex article-list--tile">
+<article class=has-image>
+<a href=/p/membuat-private-registry/>
+<div class=article-image>
+<img src=/p/membuat-private-registry/private.d758e4c464352fdd3acc7b76fb6238b6_hu96599f47c348a283a1b794be0a0813f9_135854_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post Membuat Private Registry" data-hash="md5-11jkxGQ1L906zHt2+2I4tg==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Membuat Private Registry</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/docker-untuk-pemula/>
+<div class=article-image>
+<img src=/p/docker-untuk-pemula/index.8a3f5be48643ce7d84d47aeb6875e707_hu3561eeb3844479899fe4e56a13632573_318896_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post Docker Untuk Pemula" data-hash="md5-ij9b5IZDzn2E1HrraHXnBw==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Docker Untuk Pemula</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/high-availability-ha-rancher-installation-with-docker/>
+<div class=article-image>
+<img src=/p/high-availability-ha-rancher-installation-with-docker/index.c02baadc27c6aae5a0ee8b135fe0cafd_hufaf80446c1310676cec50cf74fe7b4be_58769_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post High Availability (HA) Rancher Installation with Docker" data-hash="md5-wCuq3CfGquWg7osTX+DK/Q==">
+</div>
+<div class=article-details>
+<h2 class=article-title>High Availability (HA) Rancher Installation with Docker</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/>
+<div class=article-image>
+<img src=/p/setup-kubernetes-cluster-pada-aws-educate-mulai-dari-penyiapan-server-sampai-selesai/index.6570f39f1e68506f9d20d7848e800cd9_hud58fbdd7d7f06b1214dd0bfd7cea0c2d_145250_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai" data-hash="md5-ZXDznx5oUG+dINeEjoAM2Q==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Setup Kubernetes Cluster pada AWS Educate Mulai Dari Penyiapan Server Sampai Selesai</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/perbedaan-antara-devops-dan-agile/>
+<div class=article-image>
+<img src=/p/perbedaan-antara-devops-dan-agile/index.55695217b4e5dc44f72cf0518b5986c4_hu6620c7cc13a868051b41a21af30829cf_279528_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post Perbedaan antara Devops dan Agile" data-hash="md5-VWlSF7Tl3ET3LPBRi1mGxA==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Perbedaan antara Devops dan Agile</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<div class=disqus-container>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//ledleledles-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style>
+<script>window.addEventListener('onColorSchemeChange',a=>{typeof DISQUS=='object'&&DISQUS.reset({reload:!0})})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2019 -
+2024 Leon's Blog
+</section>
+<section class=powerby>
+Writen with ❤️ by Leon <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.12.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#intro>Intro</a></li>
+<li><a href=#requirements>Requirements</a>
+<ol>
+<li><a href=#check-apakah-wsl-sudah-diinstall>Check apakah WSL sudah diinstall</a></li>
+<li><a href=#install-wsl>Install WSL</a></li>
+<li><a href=#create-user>Create User</a></li>
+<li><a href=#install-docker>Install Docker</a></li>
+<li><a href=#add-user-to-docker-group>Add user to docker group</a></li>
+<li><a href=#akses-di-powershell>Akses di Powershell</a></li>
+<li><a href=#membuat-alias>Membuat Alias</a></li>
+</ol>
+</li>
+<li><a href=#references>References</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

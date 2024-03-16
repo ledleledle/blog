@@ -1,4 +1,177 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docker on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/docker/</link><description>Recent content in docker on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 21 May 2021 14:53:48 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Membuat Private Registry</title><link>https://blog.leonprasetya.my.id/p/membuat-private-registry/</link><pubDate>Fri, 21 May 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/membuat-private-registry/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/membuat-private-registry/private.png" alt="Featured image of post Membuat Private Registry" />&lt;p>Maafkan saya yang akhir-akhir ini tidak menulis blog (2 bulan), dikarenakan kerjaan yang padat dan manajemen waktu yang buruk. Namun sekarang saya senggang dan mampu untuk menulis blog.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docker on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/docker/</link><description>Recent content in docker on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 20 Feb 2022 21:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Install Docker tanpa Docker Desktop di Windows 10/11</title><link>https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/</link><pubDate>Sun, 20 Feb 2022 21:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index.png" alt="Featured image of post Install Docker tanpa Docker Desktop di Windows 10/11" />&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.&lt;/p>
+&lt;h2 id="requirements">Requirements&lt;/h2>
+&lt;ul>
+&lt;li>WSL 2&lt;/li>
+&lt;/ul>
+&lt;h3 id="check-apakah-wsl-sudah-diinstall">Check apakah WSL sudah diinstall&lt;/h3>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">wsl -l -v
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Jika sudah maka kita akan ditunjukkan versinya.&lt;/p>
+&lt;h3 id="install-wsl">Install WSL&lt;/h3>
+&lt;p>Jika belum kita bisa install lewat Powershell dengan command berikut. Pilih distributor yang tersedia, disini saya pakai Ubuntu.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">wsl --install -d Ubuntu
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Jika sudah, kita akan diminta untuk melakukan restart pada device kita.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">Windows Subsystem &lt;span class="k">for&lt;/span> Linux has been installed.
+Installing: Ubuntu
+Ubuntu has been installed.
+The requested operation is successful. Changes will not be effective &lt;span class="k">until&lt;/span> the system is rebooted.
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="create-user">Create User&lt;/h3>
+&lt;p>Ini wajib saat kalian menggunakan WSL untuk pertama kali. Membuat user untuk akses WSL kalian.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">Installing, this may take a few minutes...
+Please create a default UNIX user account. The username does not need to match your Windows username.
+For more information visit: https://aka.ms/wslusers
+Enter new UNIX username:
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="install-docker">Install Docker&lt;/h3>
+&lt;p>Install Docker seperti biasa (kayak di Ubuntu). Bisa dicek disini &lt;a class="link" href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener"
+>Docs Docker Install&lt;/a> jika kalian menggunakan distro lain.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Add Docker&amp;#39;s official GPG key:&lt;/span>
+sudo apt update
+sudo apt -y install ca-certificates curl
+sudo install -m &lt;span class="m">0755&lt;/span> -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+&lt;span class="c1"># Add the repository to Apt sources:&lt;/span>
+&lt;span class="nb">echo&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> &lt;span class="s2">&amp;#34;deb [arch=&lt;/span>&lt;span class="k">$(&lt;/span>dpkg --print-architecture&lt;span class="k">)&lt;/span>&lt;span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+&lt;/span>&lt;span class="s2"> &lt;/span>&lt;span class="k">$(&lt;/span>. /etc/os-release &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$VERSION_CODENAME&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>&lt;span class="s2"> stable&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;span class="se">&lt;/span> sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+sudo apt-get update
+&lt;span class="c1"># Install Docker&lt;/span>
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="add-user-to-docker-group">Add user to docker group&lt;/h3>
+&lt;p>Lalu tambahkan user kalian ke dalam group &lt;code>docker&lt;/code>, ini ditujukan agar user kita bisa mengakses docker tanpa harus menggunakan user &lt;code>root&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo groupadd docker
+sudo usermod -aG docker &lt;span class="nv">$USER&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Setelah itu tutup dan buka kembali WSL kalian.&lt;/p>
+&lt;h3 id="akses-di-powershell">Akses di Powershell&lt;/h3>
+&lt;p>Kita bisa menggunakan docker tanpa harus membuka WSL dengan command berikut.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">wsl docker ps
+wsl docker images
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Tapi dengan &lt;code>wsl&lt;/code> didepan tiap commandnya pasti sangat mengganggu kita, maka dari itu kita harus membuat alias agar docker lebih mudah untuk diakses.&lt;/p>
+&lt;h3 id="membuat-alias">Membuat Alias&lt;/h3>
+&lt;p>Cari dulu PowerShell Profile. Lalu edit/buat baru file Profilenya.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="nb">echo&lt;/span> &lt;span class="nv">$PROFILE&lt;/span>
+&lt;span class="c1"># Output:&lt;/span>
+&lt;span class="c1"># C:\Users\UserGanteng\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1&lt;/span>
+notepad &lt;span class="nv">$PROFILE&lt;/span>
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Lalu copy command berikut.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">Function Start-WslDocker &lt;span class="o">{&lt;/span>
+wsl docker &lt;span class="nv">$args&lt;/span>
+&lt;span class="o">}&lt;/span>
+Set-Alias -Name docker -Value Start-WslDocker
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Simpan lalu restart PowerShell. Lalu coba ketikkan command &lt;code>docker&lt;/code> tanpa &lt;code>wsl&lt;/code> didepannya.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">docker ps
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Semoga kalian terbantu.&lt;/p>
+&lt;h2 id="references">References&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/guides/install-ubuntu-wsl2/" target="_blank" rel="noopener"
+>https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/guides/install-ubuntu-wsl2/&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://docs.docker.com/engine/install/ubuntu" target="_blank" rel="noopener"
+>https://docs.docker.com/engine/install/ubuntu&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://blog.sixeyed.com/your-must-have-powershell-aliases-for-docker/" target="_blank" rel="noopener"
+>https://blog.sixeyed.com/your-must-have-powershell-aliases-for-docker/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Membuat Private Registry</title><link>https://blog.leonprasetya.my.id/p/membuat-private-registry/</link><pubDate>Fri, 21 May 2021 14:53:48 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/membuat-private-registry/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/membuat-private-registry/private.png" alt="Featured image of post Membuat Private Registry" />&lt;p>Maafkan saya yang akhir-akhir ini tidak menulis blog (2 bulan), dikarenakan kerjaan yang padat dan manajemen waktu yang buruk. Namun sekarang saya senggang dan mampu untuk menulis blog.&lt;/p>
 &lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>Kadang untuk alasan privasi atau mencari kecepatan dalam deployment, seseorang atau suatu perusahaan akan memilih untuk membuat &lt;strong>Container Registry&lt;/strong>-nya sendiri, apalagi sekarang lagi populer banget development aplikasi menggunakan kontainer, cocok banget. Untuk itu dibuatlah artikel ini. Namun pada artikel ini saya hanya akan memberikan contoh kecilnya saja, yang mungkin bisa kalian kembangkan misal kalian ingin membuat cluster container registry, dsb. Okay langsung saja.&lt;/p>
 &lt;h2 id="requirement">Requirement&lt;/h2>
