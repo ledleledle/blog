@@ -209,13 +209,13 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 </span><span class=se></span>  <span class=s2>&#34;deb [arch=</span><span class=k>$(</span>dpkg --print-architecture<span class=k>)</span><span class=s2> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
 </span><span class=s2>  </span><span class=k>$(</span>. /etc/os-release <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$VERSION_CODENAME</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2> stable&#34;</span> <span class=p>|</span> <span class=se>\
 </span><span class=se></span>  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-sudo apt-get update
+sudo apt update
 
 <span class=c1># Install Docker</span>
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 </code></pre></td></tr></table>
 </div>
-</div><h3 id=add-user-to-docker-group>Add user to docker group</h3>
+</div><h3 id=tambah-user-ke-docker-group>Tambah user ke docker group</h3>
 <p>Lalu tambahkan user kalian ke dalam group <code>docker</code>, ini ditujukan agar user kita bisa mengakses docker tanpa harus menggunakan user <code>root</code>.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -227,9 +227,9 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 sudo usermod -aG docker <span class=nv>$USER</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Setelah itu tutup dan buka kembali WSL kalian.</p>
+</div><p>Untuk mencoba command <code>docker</code> tanpa perlu sudo kita bisa tutup dan buka kembali WSL kalian. Lalu coba run command <code>docker ps</code>. Jika tidak ada error permission berarti user sudah masuk ke user docker.</p>
 <h3 id=akses-di-powershell>Akses di Powershell</h3>
-<p>Kita bisa menggunakan docker tanpa harus membuka WSL dengan command berikut.</p>
+<p>Coba kita keluar dari WSL lalu kembali ke PowerShell. Kita bisa menggunakan docker tanpa harus membuka WSL dengan command berikut.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -430,7 +430,7 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <li><a href=#install-wsl>Install WSL</a></li>
 <li><a href=#create-user>Create User</a></li>
 <li><a href=#install-docker>Install Docker</a></li>
-<li><a href=#add-user-to-docker-group>Add user to docker group</a></li>
+<li><a href=#tambah-user-ke-docker-group>Tambah user ke docker group</a></li>
 <li><a href=#akses-di-powershell>Akses di Powershell</a></li>
 <li><a href=#membuat-alias>Membuat Alias</a></li>
 </ol>
