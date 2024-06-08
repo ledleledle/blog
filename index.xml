@@ -172,6 +172,17 @@ Set-Alias -Name docker -Value Start-WslDocker
 >https://docs.docker.com/engine/install/ubuntu&lt;/a>&lt;/li>
 &lt;li>&lt;a class="link" href="https://blog.sixeyed.com/your-must-have-powershell-aliases-for-docker/" target="_blank" rel="noopener"
 >https://blog.sixeyed.com/your-must-have-powershell-aliases-for-docker/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Membuat Private Registry Dengan NXRM</title><link>https://blog.leonprasetya.my.id/p/membuat-private-registry-dengan-nxrm/</link><pubDate>Sun, 20 Feb 2022 21:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/membuat-private-registry-dengan-nxrm/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/membuat-private-registry-dengan-nxrm/index.png" alt="Featured image of post Membuat Private Registry Dengan NXRM" />&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Mungkin sebelumnya kita pernah membahas tentang &lt;a class="link" href="../membuat-private-registry" >Private Registry versi Docker&lt;/a>. Tapi banyak teman-teman saya yang bilang kalau &amp;ldquo;Managementnya susah&amp;rdquo; atau &amp;ldquo;Ngga ada UInya ngga enak&amp;rdquo;. Oke&amp;hellip; Untuk itu kita akan membahas tentang NXRM (Nexus Repository Manager). Sebenarnya NXRM ini bukan untuk Docker Image saja, tetapi juga bisa digunakan untuk repository seperti Maven, NPM, Nuget, PIP, dll.&lt;/p>
+&lt;h2 id="fyi">FYI&lt;/h2>
+&lt;p>NXRM memiliki dua versi, pertama OSS (Open Source Software) versi free (yang akan kita gunakan) dan versi Pro yang memiliki beberapa fitur tambahan dan tentunya berbayar.&lt;/p>
+&lt;h2 id="hardware-requirements">Hardware Requirements&lt;/h2>
+&lt;p>Menurut dokumentasi yang diberikan Sonatype &lt;a class="link" href="https://help.sonatype.com/repomanager3/product-information/system-requirements" target="_blank" rel="noopener"
+>disini&lt;/a>. Spek yang dibutuhkan yaitu:&lt;/p>
+&lt;ul>
+&lt;li>4 Core CPU&lt;/li>
+&lt;li>8 GB RAM&lt;/li>
+&lt;li>500GB of Storage&lt;/li>
 &lt;/ul></description></item><item><title>Implementasi JWT Pada KONG</title><link>https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/</link><pubDate>Thu, 11 Nov 2021 00:40:39 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/implementasi-jwt-pada-kong/index.png" alt="Featured image of post Implementasi JWT Pada KONG" />&lt;h2 id="fyi">FYI&lt;/h2>
 &lt;ul>
 &lt;li>Saya sedang membuat serial untuk pembelajaran KONG pada blog ini.&lt;/li>

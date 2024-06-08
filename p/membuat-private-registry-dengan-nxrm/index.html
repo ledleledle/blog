@@ -1,21 +1,18 @@
 <!doctype html><html lang=en-us dir=ltr>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.
-Requirements  WSL 2  Pembahasan Check apakah WSL sudah diinstall 1  wsl -l -v   Jika sudah maka kita akan ditunjukkan versinya.
-Install WSL Jika belum kita bisa install lewat Powershell dengan command berikut."><title>Install Docker tanpa Docker Desktop di Windows 10/11</title>
-<link rel=canonical href=https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/>
-<link rel=stylesheet href=/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css><meta property="og:title" content="Install Docker tanpa Docker Desktop di Windows 10/11">
-<meta property="og:description" content="Intro Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.
-Requirements  WSL 2  Pembahasan Check apakah WSL sudah diinstall 1  wsl -l -v   Jika sudah maka kita akan ditunjukkan versinya.
-Install WSL Jika belum kita bisa install lewat Powershell dengan command berikut.">
-<meta property="og:url" content="https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/">
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro Mungkin sebelumnya kita pernah membahas tentang Private Registry versi Docker. Tapi banyak teman-teman saya yang bilang kalau &amp;ldquo;Managementnya susah&amp;rdquo; atau &amp;ldquo;Ngga ada UInya ngga enak&amp;rdquo;. Oke&amp;hellip; Untuk itu kita akan membahas tentang NXRM (Nexus Repository Manager). Sebenarnya NXRM ini bukan untuk Docker Image saja, tetapi juga bisa digunakan untuk repository seperti Maven, NPM, Nuget, PIP, dll.
+FYI NXRM memiliki dua versi, pertama OSS (Open Source Software) versi free (yang akan kita gunakan) dan versi Pro yang memiliki beberapa fitur tambahan dan tentunya berbayar."><title>Membuat Private Registry Dengan NXRM</title>
+<link rel=canonical href=https://blog.leonprasetya.my.id/p/membuat-private-registry-dengan-nxrm/>
+<link rel=stylesheet href=/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css><meta property="og:title" content="Membuat Private Registry Dengan NXRM">
+<meta property="og:description" content="Intro Mungkin sebelumnya kita pernah membahas tentang Private Registry versi Docker. Tapi banyak teman-teman saya yang bilang kalau &amp;ldquo;Managementnya susah&amp;rdquo; atau &amp;ldquo;Ngga ada UInya ngga enak&amp;rdquo;. Oke&amp;hellip; Untuk itu kita akan membahas tentang NXRM (Nexus Repository Manager). Sebenarnya NXRM ini bukan untuk Docker Image saja, tetapi juga bisa digunakan untuk repository seperti Maven, NPM, Nuget, PIP, dll.
+FYI NXRM memiliki dua versi, pertama OSS (Open Source Software) versi free (yang akan kita gunakan) dan versi Pro yang memiliki beberapa fitur tambahan dan tentunya berbayar.">
+<meta property="og:url" content="https://blog.leonprasetya.my.id/p/membuat-private-registry-dengan-nxrm/">
 <meta property="og:site_name" content="Leon's Blog">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="devops"><meta property="article:tag" content="docker"><meta property="article:published_time" content="2024-03-16T07:10:10+07:00"><meta property="article:modified_time" content="2024-03-16T07:10:10+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index.png">
-<meta name=twitter:title content="Install Docker tanpa Docker Desktop di Windows 10/11">
-<meta name=twitter:description content="Intro Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.
-Requirements  WSL 2  Pembahasan Check apakah WSL sudah diinstall 1  wsl -l -v   Jika sudah maka kita akan ditunjukkan versinya.
-Install WSL Jika belum kita bisa install lewat Powershell dengan command berikut."><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blog.leonprasetya.my.id/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index.png">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="devops"><meta property="article:tag" content="docker"><meta property="article:tag" content="registry"><meta property="article:published_time" content="2022-02-20T21:18:22+07:00"><meta property="article:modified_time" content="2022-02-20T21:18:22+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/membuat-private-registry-dengan-nxrm/index.png">
+<meta name=twitter:title content="Membuat Private Registry Dengan NXRM">
+<meta name=twitter:description content="Intro Mungkin sebelumnya kita pernah membahas tentang Private Registry versi Docker. Tapi banyak teman-teman saya yang bilang kalau &amp;ldquo;Managementnya susah&amp;rdquo; atau &amp;ldquo;Ngga ada UInya ngga enak&amp;rdquo;. Oke&amp;hellip; Untuk itu kita akan membahas tentang NXRM (Nexus Repository Manager). Sebenarnya NXRM ini bukan untuk Docker Image saja, tetapi juga bisa digunakan untuk repository seperti Maven, NPM, Nuget, PIP, dll.
+FYI NXRM memiliki dua versi, pertama OSS (Open Source Software) versi free (yang akan kita gunakan) dan versi Pro yang memiliki beberapa fitur tambahan dan tentunya berbayar."><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.leonprasetya.my.id/p/membuat-private-registry-dengan-nxrm/index.png">
 <link rel="shortcut icon" href=img/favicon.ico>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CEFZGZSW6"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-6CEFZGZSW6',{anonymize_ip:!1})}</script>
@@ -89,8 +86,8 @@ Install WSL Jika belum kita bisa install lewat Powershell dengan command berikut
 <article class="has-image main-article">
 <header class=article-header>
 <div class=article-image>
-<a href=/p/install-docker-tanpa-docker-desktop-di-windows-10/11/>
-<img src=/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index_hu54fb7902636bf3b40598986d7299de43_153295_800x0_resize_box_3.png srcset="/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index_hu54fb7902636bf3b40598986d7299de43_153295_800x0_resize_box_3.png 800w, /p/install-docker-tanpa-docker-desktop-di-windows-10/11/index_hu54fb7902636bf3b40598986d7299de43_153295_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Install Docker tanpa Docker Desktop di Windows 10/11">
+<a href=/p/membuat-private-registry-dengan-nxrm/>
+<img src=/p/membuat-private-registry-dengan-nxrm/index_hu724468980bb31db99bb4a89a36b8410b_220904_800x0_resize_box_3.png srcset="/p/membuat-private-registry-dengan-nxrm/index_hu724468980bb31db99bb4a89a36b8410b_220904_800x0_resize_box_3.png 800w, /p/membuat-private-registry-dengan-nxrm/index_hu724468980bb31db99bb4a89a36b8410b_220904_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Membuat Private Registry Dengan NXRM">
 </a>
 </div>
 <div class=article-details>
@@ -101,16 +98,16 @@ DevOps
 </header>
 <div class=article-title-wrapper>
 <h2 class=article-title>
-<a href=/p/install-docker-tanpa-docker-desktop-di-windows-10/11/>Install Docker tanpa Docker Desktop di Windows 10/11</a>
+<a href=/p/membuat-private-registry-dengan-nxrm/>Membuat Private Registry Dengan NXRM</a>
 </h2>
 </div>
 <footer class=article-time>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Mar 16, 2024</time>
+<time class=article-time--published>Feb 20, 2022</time>
 </div>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
 <time class=article-time--reading>
-3 minute read
+1 minute read
 </time>
 </div>
 </footer>
@@ -118,185 +115,22 @@ DevOps
 </header>
 <section class=article-content>
 <h2 id=intro>Intro</h2>
-<p>Bagi user maniak Windows atau yang cuma terpaksa pakai Windows. Mungkin dari kalian ada yang bingung untuk menginstall docker tanpa desktopnya karena sekarang docker desktop jadi suatu hal yang berbayar, then I will show you.</p>
-<h2 id=requirements>Requirements</h2>
+<p>Mungkin sebelumnya kita pernah membahas tentang <a class=link href=../membuat-private-registry>Private Registry versi Docker</a>. Tapi banyak teman-teman saya yang bilang kalau &ldquo;Managementnya susah&rdquo; atau &ldquo;Ngga ada UInya ngga enak&rdquo;. Oke&mldr; Untuk itu kita akan membahas tentang NXRM (Nexus Repository Manager). Sebenarnya NXRM ini bukan untuk Docker Image saja, tetapi juga bisa digunakan untuk repository seperti Maven, NPM, Nuget, PIP, dll.</p>
+<h2 id=fyi>FYI</h2>
+<p>NXRM memiliki dua versi, pertama OSS (Open Source Software) versi free (yang akan kita gunakan) dan versi Pro yang memiliki beberapa fitur tambahan dan tentunya berbayar.</p>
+<h2 id=hardware-requirements>Hardware Requirements</h2>
+<p>Menurut dokumentasi yang diberikan Sonatype <a class=link href=https://help.sonatype.com/repomanager3/product-information/system-requirements target=_blank rel=noopener>disini</a>. Spek yang dibutuhkan yaitu:</p>
 <ul>
-<li>WSL 2</li>
-</ul>
-<h2 id=pembahasan>Pembahasan</h2>
-<h3 id=check-apakah-wsl-sudah-diinstall>Check apakah WSL sudah diinstall</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>wsl -l -v
-</code></pre></td></tr></table>
-</div>
-</div><p>Jika sudah maka kita akan ditunjukkan versinya.</p>
-<h3 id=install-wsl>Install WSL</h3>
-<p>Jika belum kita bisa install lewat Powershell dengan command berikut. Pilih distributor yang tersedia, disini saya pakai Ubuntu.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wsl --install -d Ubuntu
-</code></pre></td></tr></table>
-</div>
-</div><p>Jika sudah, kita akan diminta untuk melakukan restart pada device kita.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>Windows Subsystem <span class=k>for</span> Linux has been installed.
-Installing: Ubuntu
-Ubuntu has been installed.
-The requested operation is successful. Changes will not be effective <span class=k>until</span> the system is rebooted.
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=create-user>Create User</h3>
-<p>Ini wajib saat kalian menggunakan WSL untuk pertama kali. Membuat user untuk akses WSL kalian.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>Installing, this may take a few minutes...
-Please create a default UNIX user account. The username does not need to match your Windows username.
-For more information visit: https://aka.ms/wslusers
-Enter new UNIX username:
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=install-docker>Install Docker</h3>
-<p>Install Docker seperti biasa (kayak di Ubuntu). Bisa dicek disini <a class=link href=https://docs.docker.com/engine/install/ target=_blank rel=noopener>Docs Docker Install</a> jika kalian menggunakan distro lain.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># Add Docker&#39;s official GPG key:</span>
-sudo apt update
-sudo apt -y install ca-certificates curl 
-sudo install -m <span class=m>0755</span> -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-
-<span class=c1># Add the repository to Apt sources:</span>
-<span class=nb>echo</span> <span class=se>\
-</span><span class=se></span>  <span class=s2>&#34;deb [arch=</span><span class=k>$(</span>dpkg --print-architecture<span class=k>)</span><span class=s2> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-</span><span class=s2>  </span><span class=k>$(</span>. /etc/os-release <span class=o>&amp;&amp;</span> <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$VERSION_CODENAME</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2> stable&#34;</span> <span class=p>|</span> <span class=se>\
-</span><span class=se></span>  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
-sudo apt update
-
-<span class=c1># Install Docker</span>
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=tambah-user-ke-docker-group>Tambah user ke docker group</h3>
-<p>Lalu tambahkan user kalian ke dalam group <code>docker</code>, ini ditujukan agar user kita bisa mengakses docker tanpa harus menggunakan user <code>root</code>.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo groupadd docker
-sudo usermod -aG docker <span class=nv>$USER</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Untuk mencoba command <code>docker</code> tanpa perlu sudo kita bisa tutup dan buka kembali WSL kalian. Lalu coba run command <code>docker ps</code>. Jika tidak ada error permission berarti user sudah masuk ke user docker.</p>
-<h3 id=akses-di-powershell>Akses di Powershell</h3>
-<p>Coba kita keluar dari WSL lalu kembali ke PowerShell. Kita bisa menggunakan docker tanpa harus membuka WSL dengan command berikut.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wsl docker ps
-wsl docker images
-</code></pre></td></tr></table>
-</div>
-</div><p>Tapi dengan <code>wsl</code> didepan tiap commandnya pasti sangat mengganggu kita, maka dari itu kita harus membuat alias agar docker lebih mudah untuk diakses.</p>
-<h3 id=membuat-alias>Membuat Alias</h3>
-<p>Cari dulu PowerShell Profile. Lalu edit/buat baru file Profilenya.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=nb>echo</span> <span class=nv>$PROFILE</span>
-<span class=c1># Output:</span>
-<span class=c1># C:\Users\UserGanteng\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1</span>
-
-notepad <span class=nv>$PROFILE</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Lalu copy command berikut.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>Function Start-WslDocker <span class=o>{</span>
-    wsl docker <span class=nv>$args</span>
-<span class=o>}</span>
-
-Set-Alias -Name docker -Value Start-WslDocker
-</code></pre></td></tr></table>
-</div>
-</div><p>Simpan lalu restart PowerShell. Lalu coba ketikkan command <code>docker</code> tanpa <code>wsl</code> didepannya.</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>docker ps
-</code></pre></td></tr></table>
-</div>
-</div><p>Semoga kalian terbantu.</p>
-<h2 id=references>References</h2>
-<ul>
-<li><a class=link href=https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/guides/install-ubuntu-wsl2/ target=_blank rel=noopener>https://canonical-ubuntu-wsl.readthedocs-hosted.com/en/latest/guides/install-ubuntu-wsl2/</a></li>
-<li><a class=link href=https://docs.docker.com/engine/install/ubuntu target=_blank rel=noopener>https://docs.docker.com/engine/install/ubuntu</a></li>
-<li><a class=link href=https://blog.sixeyed.com/your-must-have-powershell-aliases-for-docker/ target=_blank rel=noopener>https://blog.sixeyed.com/your-must-have-powershell-aliases-for-docker/</a></li>
+<li>4 Core CPU</li>
+<li>8 GB RAM</li>
+<li>500GB of Storage</li>
 </ul>
 </section>
 <footer class=article-footer>
 <section class=article-tags>
 <a href=/tags/devops/>devops</a>
 <a href=/tags/docker/>docker</a>
+<a href=/tags/registry/>registry</a>
 </section>
 </footer>
 </article>
@@ -305,22 +139,22 @@ Set-Alias -Name docker -Value Start-WslDocker
 <div class=related-content>
 <div class="flex article-list--tile">
 <article class=has-image>
-<a href=/p/membuat-private-registry-dengan-nxrm/>
-<div class=article-image>
-<img src=/p/membuat-private-registry-dengan-nxrm/index.3105c6d0d1d48c8fb085b38889046875_hu724468980bb31db99bb4a89a36b8410b_220904_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post Membuat Private Registry Dengan NXRM" data-hash="md5-MQXG0NHUjI+whbOIiQRodQ==">
-</div>
-<div class=article-details>
-<h2 class=article-title>Membuat Private Registry Dengan NXRM</h2>
-</div>
-</a>
-</article>
-<article class=has-image>
 <a href=/p/membuat-private-registry/>
 <div class=article-image>
 <img src=/p/membuat-private-registry/private.d758e4c464352fdd3acc7b76fb6238b6_hu96599f47c348a283a1b794be0a0813f9_135854_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post Membuat Private Registry" data-hash="md5-11jkxGQ1L906zHt2+2I4tg==">
 </div>
 <div class=article-details>
 <h2 class=article-title>Membuat Private Registry</h2>
+</div>
+</a>
+</article>
+<article class=has-image>
+<a href=/p/install-docker-tanpa-docker-desktop-di-windows-10/11/>
+<div class=article-image>
+<img src=/p/install-docker-tanpa-docker-desktop-di-windows-10/11/index.8a3e98531eb79241b69c9b92e1fdcd42_hu54fb7902636bf3b40598986d7299de43_153295_250x150_fill_box_smart1_3.png width=250 height=150 loading=lazy alt="Featured image of post Install Docker tanpa Docker Desktop di Windows 10/11" data-hash="md5-ij6YUx63kkG2nJuS4f3NQg==">
+</div>
+<div class=article-details>
+<h2 class=article-title>Install Docker tanpa Docker Desktop di Windows 10/11</h2>
 </div>
 </a>
 </article>
@@ -423,19 +257,8 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <nav id=TableOfContents>
 <ol>
 <li><a href=#intro>Intro</a></li>
-<li><a href=#requirements>Requirements</a></li>
-<li><a href=#pembahasan>Pembahasan</a>
-<ol>
-<li><a href=#check-apakah-wsl-sudah-diinstall>Check apakah WSL sudah diinstall</a></li>
-<li><a href=#install-wsl>Install WSL</a></li>
-<li><a href=#create-user>Create User</a></li>
-<li><a href=#install-docker>Install Docker</a></li>
-<li><a href=#tambah-user-ke-docker-group>Tambah user ke docker group</a></li>
-<li><a href=#akses-di-powershell>Akses di Powershell</a></li>
-<li><a href=#membuat-alias>Membuat Alias</a></li>
-</ol>
-</li>
-<li><a href=#references>References</a></li>
+<li><a href=#fyi>FYI</a></li>
+<li><a href=#hardware-requirements>Hardware Requirements</a></li>
 </ol>
 </nav>
 </div>
