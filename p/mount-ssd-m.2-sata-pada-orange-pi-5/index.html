@@ -92,6 +92,9 @@
 <a href=/categories/linux/>
 Linux
 </a>
+<a href=/categories/sbc/>
+SBC
+</a>
 </header>
 <div class=article-title-wrapper>
 <h2 class=article-title>
@@ -113,15 +116,15 @@ Linux
 <section class=article-content>
 <h2 id=intro>Intro</h2>
 <p>Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M.2 SATA. Berikut tampilannya</p>
-<h4 id=perbandingan-slot-m2-dan-ssd>Perbandingan Slot M.2 dan SSD</h4>
+<h3 id=perbandingan-slot-m2-dan-ssd>Perbandingan Slot M.2 dan SSD</h3>
 <p><img src=/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1.jpg width=6000 height=3376 srcset="/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_480x0_resize_q75_box.jpg 480w, /p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt="Perbandingan Slot M.2 dan SSD" class=gallery-image data-flex-grow=177 data-flex-basis=426px>
 Seperti yg terlihat pada gambar di di atas, Orange Pi punya slot NVME.</p>
-<h4 id=tapi-sebenernya-ssd-m2-sata-bisa-masuk-kok>Tapi sebenernya SSD M.2 SATA bisa masuk kok</h4>
+<h3 id=tapi-sebenernya-ssd-m2-sata-bisa-masuk-kok>Tapi sebenernya SSD M.2 SATA bisa masuk kok</h3>
 <p><img src=/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2.jpg width=6000 height=3376 srcset="/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_480x0_resize_q75_box.jpg 480w, /p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt="Bisa masuk kok" class=gallery-image data-flex-grow=177 data-flex-basis=426px>
 Bisa masuk SSD nya, Iyaaa&mldr; Cuma kalau kita coba booting ke OS dan running command <code>lsblk</code> pasti gaada ssd kita.</p>
 <h2 id=cara-pindah-boot-dari-microsd-ke-ssd-kita>Cara Pindah Boot dari MicroSD ke SSD kita</h2>
 <h3 id=burning-linux-ke-microsd>Burning Linux ke MicroSD</h3>
-<p>Pertama download image yang akan kalian gunakan, disini saya pakai Ubuntu Server. Untuk link downloadnya bisa kalian check disini <a class=link href=http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-pi-5.html target=_blank rel=noopener>http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-pi-5.html</a>.</p>
+<p>Pertama download image yang akan kalian gunakan, disini saya pakai Ubuntu Server. Untuk link downloadnya bisa kalian check pada link official Orange Pi <a class=link href=http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-pi-5.html target=_blank rel=noopener>http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-pi-5.html</a>.</p>
 <p>Lalu burn dulu image yang akan digunakan Balena Etcher atau <code>dd command</code>. Untuk dd gunakan command berikut:</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -408,12 +411,8 @@ Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=
 <ol>
 <li><a href=#intro>Intro</a>
 <ol>
-<li>
-<ol>
 <li><a href=#perbandingan-slot-m2-dan-ssd>Perbandingan Slot M.2 dan SSD</a></li>
 <li><a href=#tapi-sebenernya-ssd-m2-sata-bisa-masuk-kok>Tapi sebenernya SSD M.2 SATA bisa masuk kok</a></li>
-</ol>
-</li>
 </ol>
 </li>
 <li><a href=#cara-pindah-boot-dari-microsd-ke-ssd-kita>Cara Pindah Boot dari MicroSD ke SSD kita</a>
