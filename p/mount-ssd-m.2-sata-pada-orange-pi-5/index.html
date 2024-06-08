@@ -1,0 +1,440 @@
+<!doctype html><html lang=en-us dir=ltr>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M."><title>Mount SSD M.2 SATA pada Orange Pi 5</title>
+<link rel=canonical href=https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/>
+<link rel=stylesheet href=/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css><meta property="og:title" content="Mount SSD M.2 SATA pada Orange Pi 5">
+<meta property="og:description" content="Intro Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M.">
+<meta property="og:url" content="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/">
+<meta property="og:site_name" content="Leon's Blog">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="orangepi"><meta property="article:tag" content="ssd"><meta property="article:tag" content="linux"><meta property="article:published_time" content="2024-06-08T21:18:22+07:00"><meta property="article:modified_time" content="2024-06-08T21:18:22+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/index.png">
+<meta name=twitter:title content="Mount SSD M.2 SATA pada Orange Pi 5">
+<meta name=twitter:description content="Intro Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M."><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/index.png">
+<link rel="shortcut icon" href=img/favicon.ico>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6CEFZGZSW6"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-6CEFZGZSW6',{anonymize_ip:!1})}</script>
+</head>
+<body class=article-page>
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header>
+<figure class=site-avatar>
+<a href=/>
+<img src=/img/avatar_hu9bbe6dd2ea62d3a827f580f5ad1ad5f9_108376_300x0_resize_q75_box.jpg width=300 height=235 class=site-logo loading=lazy alt=Avatar>
+</a>
+<span class=emoji>🧐</span>
+</figure>
+<div class=site-meta>
+<h1 class=site-name><a href=/>Leon's Blog</a></h1>
+<h2 class=site-description>An unworthy engineer who seek powers 🧐</h2>
+</div>
+</header><ol class=social-menu>
+<li>
+<a href=https://github.com/ledleledle target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+</a>
+</li>
+<li>
+<a href=https://gitlab.com/ledleledle target=_blank title=GitLab><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-gitlab" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 14l-9 7-9-7L6 3l3 7h6l3-7z"/></svg>
+</a>
+</li>
+<li>
+<a href=https://linkedin.com/in/leonprasetya target=_blank title=LinkedIn><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 00-4 0"/></svg>
+</a>
+</li>
+</ol><ol class=menu id=main-menu>
+<li>
+<a href=/><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span>
+</a>
+</li>
+<li>
+<a href=/about><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span>
+</a>
+</li>
+<li>
+<a href=/archives><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span>
+</a>
+</li>
+<li>
+<a href=/tags><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11 3l9 9a1.5 1.5.0 010 2l-6 6a1.5 1.5.0 01-2 0L3 11V7a4 4 0 014-4h4"/><circle cx="9" cy="9" r="2"/></svg>
+<span>Tags</span>
+</a>
+</li>
+<li>
+<a href=/search><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span>
+</a>
+</li>
+<div class=menu-bottom-section>
+<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span>
+</li>
+</div>
+</ol>
+</aside>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/p/mount-ssd-m.2-sata-pada-orange-pi-5/>
+<img src=/p/mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_800x0_resize_box_3.png srcset="/p/mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_800x0_resize_box_3.png 800w, /p/mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Mount SSD M.2 SATA pada Orange Pi 5">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/linux/>
+Linux
+</a>
+</header>
+<div class=article-title-wrapper>
+<h2 class=article-title>
+<a href=/p/mount-ssd-m.2-sata-pada-orange-pi-5/>Mount SSD M.2 SATA pada Orange Pi 5</a>
+</h2>
+</div>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jun 08, 2024</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+4 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h2 id=intro>Intro</h2>
+<p>Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M.2 SATA. Berikut tampilannya</p>
+<h4 id=perbandingan-slot-m2-dan-ssd>Perbandingan Slot M.2 dan SSD</h4>
+<p><img src=/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1.jpg width=6000 height=3376 srcset="/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_480x0_resize_q75_box.jpg 480w, /p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt="Perbandingan Slot M.2 dan SSD" class=gallery-image data-flex-grow=177 data-flex-basis=426px>
+Seperti yg terlihat pada gambar di di atas, Orange Pi punya slot NVME.</p>
+<h4 id=tapi-sebenernya-ssd-m2-sata-bisa-masuk-kok>Tapi sebenernya SSD M.2 SATA bisa masuk kok</h4>
+<p><img src=/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2.jpg width=6000 height=3376 srcset="/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_480x0_resize_q75_box.jpg 480w, /p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt="Bisa masuk kok" class=gallery-image data-flex-grow=177 data-flex-basis=426px>
+Bisa masuk SSD nya, Iyaaa&mldr; Cuma kalau kita coba booting ke OS dan running command <code>lsblk</code> pasti gaada ssd kita.</p>
+<h2 id=cara-pindah-boot-dari-microsd-ke-ssd-kita>Cara Pindah Boot dari MicroSD ke SSD kita</h2>
+<h3 id=burning-linux-ke-microsd>Burning Linux ke MicroSD</h3>
+<p>Pertama download image yang akan kalian gunakan, disini saya pakai Ubuntu Server. Untuk link downloadnya bisa kalian check disini <a class=link href=http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-pi-5.html target=_blank rel=noopener>http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-pi-5.html</a>.</p>
+<p>Lalu burn dulu image yang akan digunakan Balena Etcher atau <code>dd command</code>. Untuk dd gunakan command berikut:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># Unzip Image yg udah di download pake 7z</span>
+<span class=c1>## Disini saya pakai Ubuntu Server</span>
+7z x Orangepi5_1.1.4_ubuntu_jammy_server_linux5.10.110.7z
+
+<span class=c1># Cari MicroSD kita pakai command, cari yg sesuai size disknya dengan MicroSD kita</span>
+lsblk
+
+<span class=c1># Dalam kasus saya, MicroSD ada di /dev/sdb, lalu lakukan burn ke MicroSD kita</span>
+sudo dd <span class=k>if</span><span class=o>=</span>Orangepi5_1.1.4_ubuntu_jammy_server_linux5.10.110.img <span class=nv>of</span><span class=o>=</span>/dev/sdb
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=boot-ke-os>Boot ke OS</h3>
+<p>Cabut MicroSD dari PC dan masukkan ke slot MicroSD pada Orange Pi 5. Jangan lupa tancapkan juga SSD kita. Lalu boot ke linux. Hal pertama setelah booting yaitu menjalankan command untuk update.Sebenernya optional dan sebenernya ga perlu - perlu banget.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt update <span class=o>&amp;&amp;</span> sudo apt upgrade -y
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=write-sata-bootloader-ke-spi>Write SATA Bootloader ke SPI</h3>
+<p>Yang belum tau SPI itu apa bisa liat di docs ini <a class=link href=https://docs.arduino.cc/tutorials/generic/introduction-to-the-serial-peripheral-interface/ target=_blank rel=noopener>https://docs.arduino.cc/tutorials/generic/introduction-to-the-serial-peripheral-interface/</a>.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># Hapus dulu bootloader yg lama yg tersimpan pada SPI</span>
+sudo dd <span class=k>if</span><span class=o>=</span>/dev/zero <span class=nv>of</span><span class=o>=</span>/dev/mtdblock0 <span class=nv>bs</span><span class=o>=</span>1M <span class=nv>count</span><span class=o>=</span><span class=m>1</span>
+
+<span class=c1># Write Bootloader baru ke SPI</span>
+sudo dd <span class=k>if</span><span class=o>=</span>/usr/share/orangepi5/rkspi_loader_sata.img <span class=nv>of</span><span class=o>=</span>/dev/mtdblock0
+sudo sync
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=boot-env>Boot Env</h3>
+<p>Edit boot file pada SD Card kita agar Orange Pi bisa mendeteksi SSD kita. Tambahkan <code>overlays</code> di line paling bawah pada file <code>/boot/orangepiEnv.txt</code>.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># sudo vi /boot/orangepiEnv.txt</span>
+<span class=c1>## Tambah line ini</span>
+<span class=nv>overlays</span><span class=o>=</span>ssd-sata
+<span class=c1>## Save and Exit</span>
+
+<span class=c1># Lalu reboot</span>
+sudo reboot
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=setelah-reboot>Setelah Reboot</h2>
+<p>Setelah reboot kita masih boot ke microSD kita. Tapi harusnya kita bisa melakukan check lagi pada disk kita dengan command <code>lsblk</code>.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda             8:0    <span class=m>0</span> 238.5G  <span class=m>0</span> disk
+├─sda1          8:1    <span class=m>0</span>     1G  <span class=m>0</span> part
+└─sda2          8:2    <span class=m>0</span>   235G  <span class=m>0</span> part
+mtdblock0      31:0    <span class=m>0</span>    16M  <span class=m>0</span> disk
+mmcblk0       179:0    <span class=m>0</span>  59.7G  <span class=m>0</span> part
+├─mmcblk0p1   179:1    <span class=m>0</span>   256M  <span class=m>0</span> part /boot
+└─mmcblk0p2   179:2    <span class=m>0</span>  59.4G  <span class=m>0</span> part /var/log.hdd
+                                        /
+zram0         254:0    <span class=m>0</span>   200M  <span class=m>0</span> disk /var/log
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sda</code> adalah SSD kita dan <code>mmcblk</code> adalah microSD kita.</p>
+<h2 id=flash-os-ke-ssd>Flash OS ke SSD</h2>
+<p>Agar kita bisa boot ke SSD kita harus melakukan Flash image OS ke SSD kita (image dengan format <code>.img</code>). Untuk itu kita harus memasukkan image OS yang sudah kita download sebelumnya ke microSD pada Orange Pi kita. Disini saya menggunakan flashdisk untuk mentrasfer imagenya. Setelah itu, tancapkan flashdisk ke Orange Pi kita.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># Mount flashdisk</span>
+sudo mkdir /mnt/fd
+sudo mount /dev/sdb /mnt/fd
+
+<span class=c1># Copy image OS ke home directory</span>
+cp /mnt/fd/Orangepi5_1.1.4_ubuntu_jammy_server_linux5.10.110.img ~/.
+</code></pre></td></tr></table>
+</div>
+</div><p>Lalu flash image yang sudah kita copy ke SSD.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo dd <span class=nv>bs</span><span class=o>=</span>1M <span class=k>if</span><span class=o>=</span>~/Orangepi5_1.1.4_ubuntu_jammy_server_linux5.10.110.img <span class=nv>of</span><span class=o>=</span>/dev/sda <span class=nv>status</span><span class=o>=</span>progress
+sudo sync
+</code></pre></td></tr></table>
+</div>
+</div><p>Mount SSD kita ke <code>/mnt</code> agar kita bisa melakukan editing file <code>/boot/orangepiEnv.txt</code> seperti sebelumnya.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo mount /dev/sda1 /mnt
+
+<span class=c1># sudo vi /boot/orangepiEnv.txt</span>
+<span class=c1>## Tambah line ini</span>
+<span class=nv>overlays</span><span class=o>=</span>ssd-sata
+<span class=c1>## Save and Exit</span>
+
+<span class=c1># Lalu poweroff</span>
+sudo poweroff
+</code></pre></td></tr></table>
+</div>
+</div><p>Setelah device dimatikan, lepas microSD dan nyalakan kembali Orange Pi kalian. Check lagi dengan command <code>lsblk</code>.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>NAME      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda         8:0    <span class=m>0</span> 238.5G  <span class=m>0</span> disk
+├─sda1      8:1    <span class=m>0</span>     1G  <span class=m>0</span> part /boot
+└─sda2      8:2    <span class=m>0</span>   235G  <span class=m>0</span> part /var/log.hdd
+                                    /
+</code></pre></td></tr></table>
+</div>
+</div><p>Yep, <code>sda</code> adalah SSD kita.</p>
+<h2 id=outro>Outro</h2>
+<p>Seperti itulah cara Mount SSD M.2 SATA pada Orange Pi 5. Jika ada pertanyaan silahkan comment. Terimakasih&mldr;</p>
+<h2 id=references>References</h2>
+<ul>
+<li>Docs Orange Pi <a class=link href=https://drive.google.com/file/d/1-6IwPNMOhWDvbLe2-PvHUocHStwavGGi/view target=_blank rel=noopener>https://drive.google.com/file/d/1-6IwPNMOhWDvbLe2-PvHUocHStwavGGi/view</a> (PDF File Page dari page 74 - 80)</li>
+<li><a class=link href=https://www.reddit.com/r/OrangePI/comments/10iq625/guide_how_to_boot_orange_pi_5_from_sata_m2_ssd/ target=_blank rel=noopener>https://www.reddit.com/r/OrangePI/comments/10iq625/guide_how_to_boot_orange_pi_5_from_sata_m2_ssd/</a></li>
+</ul>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/orangepi/>orangepi</a>
+<a href=/tags/ssd/>ssd</a>
+<a href=/tags/linux/>linux</a>
+</section>
+</footer>
+</article>
+<aside class=related-content--wrapper>
+<h2 class=section-title>Related content</h2>
+<div class=related-content>
+<div class="flex article-list--tile">
+<article>
+<a href=/p/pulse-audio-dummy-output/>
+<div class=article-details>
+<h2 class=article-title>Pulse Audio Dummy Output</h2>
+</div>
+</a>
+</article>
+<article>
+<a href=/p/rhel-8-install-text-mode/>
+<div class=article-details>
+<h2 class=article-title>RHEL 8 Install Text Mode</h2>
+</div>
+</a>
+</article>
+</div>
+</div>
+</aside>
+<div class=disqus-container>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//ledleledles-blog.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+<style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style>
+<script>window.addEventListener('onColorSchemeChange',a=>{typeof DISQUS=='object'&&DISQUS.reset({reload:!0})})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2019 -
+2024 Leon's Blog
+</section>
+<section class=powerby>
+Writen with ❤️ by Leon <br>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.12.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#intro>Intro</a>
+<ol>
+<li>
+<ol>
+<li><a href=#perbandingan-slot-m2-dan-ssd>Perbandingan Slot M.2 dan SSD</a></li>
+<li><a href=#tapi-sebenernya-ssd-m2-sata-bisa-masuk-kok>Tapi sebenernya SSD M.2 SATA bisa masuk kok</a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href=#cara-pindah-boot-dari-microsd-ke-ssd-kita>Cara Pindah Boot dari MicroSD ke SSD kita</a>
+<ol>
+<li><a href=#burning-linux-ke-microsd>Burning Linux ke MicroSD</a></li>
+<li><a href=#boot-ke-os>Boot ke OS</a></li>
+<li><a href=#write-sata-bootloader-ke-spi>Write SATA Bootloader ke SPI</a></li>
+<li><a href=#boot-env>Boot Env</a></li>
+</ol>
+</li>
+<li><a href=#setelah-reboot>Setelah Reboot</a></li>
+<li><a href=#flash-os-ke-ssd>Flash OS ke SSD</a></li>
+<li><a href=#outro>Outro</a></li>
+<li><a href=#references>References</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

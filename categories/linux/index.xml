@@ -1,4 +1,218 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Leon's Blog</title><link>https://blog.leonprasetya.my.id/categories/linux/</link><description>Recent content in Linux on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 25 Jul 2021 20:28:27 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>RHEL 8 Install Text Mode</title><link>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</link><pubDate>Sun, 25 Jul 2021 20:28:27 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Leon's Blog</title><link>https://blog.leonprasetya.my.id/categories/linux/</link><description>Recent content in Linux on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 08 Jun 2024 21:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/categories/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Mount SSD M.2 SATA pada Orange Pi 5</title><link>https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/</link><pubDate>Sat, 08 Jun 2024 21:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/index.png" alt="Featured image of post Mount SSD M.2 SATA pada Orange Pi 5" />&lt;h2 id="intro">Intro&lt;/h2>
+&lt;p>Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M.2 SATA. Berikut tampilannya&lt;/p>
+&lt;h4 id="perbandingan-slot-m2-dan-ssd">Perbandingan Slot M.2 dan SSD&lt;/h4>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1.jpg"
+width="6000"
+height="3376"
+srcset="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_480x0_resize_q75_box.jpg 480w, https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="Perbandingan Slot M.2 dan SSD"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>
+Seperti yg terlihat pada gambar di di atas, Orange Pi punya slot NVME.&lt;/p>
+&lt;h4 id="tapi-sebenernya-ssd-m2-sata-bisa-masuk-kok">Tapi sebenernya SSD M.2 SATA bisa masuk kok&lt;/h4>
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2.jpg"
+width="6000"
+height="3376"
+srcset="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_480x0_resize_q75_box.jpg 480w, https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="Bisa masuk kok"
+class="gallery-image"
+data-flex-grow="177"
+data-flex-basis="426px"
+>
+Bisa masuk SSD nya, Iyaaa&amp;hellip; Cuma kalau kita coba booting ke OS dan running command &lt;code>lsblk&lt;/code> pasti gaada ssd kita.&lt;/p>
+&lt;h2 id="cara-pindah-boot-dari-microsd-ke-ssd-kita">Cara Pindah Boot dari MicroSD ke SSD kita&lt;/h2>
+&lt;h3 id="burning-linux-ke-microsd">Burning Linux ke MicroSD&lt;/h3>
+&lt;p>Pertama download image yang akan kalian gunakan, disini saya pakai Ubuntu Server. Untuk link downloadnya bisa kalian check disini &lt;a class="link" href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-pi-5.html" target="_blank" rel="noopener"
+>http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-pi-5.html&lt;/a>.&lt;/p>
+&lt;p>Lalu burn dulu image yang akan digunakan Balena Etcher atau &lt;code>dd command&lt;/code>. Untuk dd gunakan command berikut:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Unzip Image yg udah di download pake 7z&lt;/span>
+&lt;span class="c1">## Disini saya pakai Ubuntu Server&lt;/span>
+7z x Orangepi5_1.1.4_ubuntu_jammy_server_linux5.10.110.7z
+&lt;span class="c1"># Cari MicroSD kita pakai command, cari yg sesuai size disknya dengan MicroSD kita&lt;/span>
+lsblk
+&lt;span class="c1"># Dalam kasus saya, MicroSD ada di /dev/sdb, lalu lakukan burn ke MicroSD kita&lt;/span>
+sudo dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>Orangepi5_1.1.4_ubuntu_jammy_server_linux5.10.110.img &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>/dev/sdb
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="boot-ke-os">Boot ke OS&lt;/h3>
+&lt;p>Cabut MicroSD dari PC dan masukkan ke slot MicroSD pada Orange Pi 5. Jangan lupa tancapkan juga SSD kita. Lalu boot ke linux. Hal pertama setelah booting yaitu menjalankan command untuk update.Sebenernya optional dan sebenernya ga perlu - perlu banget.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt upgrade -y
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="write-sata-bootloader-ke-spi">Write SATA Bootloader ke SPI&lt;/h3>
+&lt;p>Yang belum tau SPI itu apa bisa liat di docs ini &lt;a class="link" href="https://docs.arduino.cc/tutorials/generic/introduction-to-the-serial-peripheral-interface/" target="_blank" rel="noopener"
+>https://docs.arduino.cc/tutorials/generic/introduction-to-the-serial-peripheral-interface/&lt;/a>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Hapus dulu bootloader yg lama yg tersimpan pada SPI&lt;/span>
+sudo dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>/dev/zero &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>/dev/mtdblock0 &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>1M &lt;span class="nv">count&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;span class="c1"># Write Bootloader baru ke SPI&lt;/span>
+sudo dd &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>/usr/share/orangepi5/rkspi_loader_sata.img &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>/dev/mtdblock0
+sudo sync
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="boot-env">Boot Env&lt;/h3>
+&lt;p>Edit boot file pada SD Card kita agar Orange Pi bisa mendeteksi SSD kita. Tambahkan &lt;code>overlays&lt;/code> di line paling bawah pada file &lt;code>/boot/orangepiEnv.txt&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># sudo vi /boot/orangepiEnv.txt&lt;/span>
+&lt;span class="c1">## Tambah line ini&lt;/span>
+&lt;span class="nv">overlays&lt;/span>&lt;span class="o">=&lt;/span>ssd-sata
+&lt;span class="c1">## Save and Exit&lt;/span>
+&lt;span class="c1"># Lalu reboot&lt;/span>
+sudo reboot
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="setelah-reboot">Setelah Reboot&lt;/h2>
+&lt;p>Setelah reboot kita masih boot ke microSD kita. Tapi harusnya kita bisa melakukan check lagi pada disk kita dengan command &lt;code>lsblk&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">lsblk
+NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda 8:0 &lt;span class="m">0&lt;/span> 238.5G &lt;span class="m">0&lt;/span> disk
+├─sda1 8:1 &lt;span class="m">0&lt;/span> 1G &lt;span class="m">0&lt;/span> part
+└─sda2 8:2 &lt;span class="m">0&lt;/span> 235G &lt;span class="m">0&lt;/span> part
+mtdblock0 31:0 &lt;span class="m">0&lt;/span> 16M &lt;span class="m">0&lt;/span> disk
+mmcblk0 179:0 &lt;span class="m">0&lt;/span> 59.7G &lt;span class="m">0&lt;/span> part
+├─mmcblk0p1 179:1 &lt;span class="m">0&lt;/span> 256M &lt;span class="m">0&lt;/span> part /boot
+└─mmcblk0p2 179:2 &lt;span class="m">0&lt;/span> 59.4G &lt;span class="m">0&lt;/span> part /var/log.hdd
+/
+zram0 254:0 &lt;span class="m">0&lt;/span> 200M &lt;span class="m">0&lt;/span> disk /var/log
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;code>sda&lt;/code> adalah SSD kita dan &lt;code>mmcblk&lt;/code> adalah microSD kita.&lt;/p>
+&lt;h2 id="flash-os-ke-ssd">Flash OS ke SSD&lt;/h2>
+&lt;p>Agar kita bisa boot ke SSD kita harus melakukan Flash image OS ke SSD kita (image dengan format &lt;code>.img&lt;/code>). Untuk itu kita harus memasukkan image OS yang sudah kita download sebelumnya ke microSD pada Orange Pi kita. Disini saya menggunakan flashdisk untuk mentrasfer imagenya. Setelah itu, tancapkan flashdisk ke Orange Pi kita.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="c1"># Mount flashdisk&lt;/span>
+sudo mkdir /mnt/fd
+sudo mount /dev/sdb /mnt/fd
+&lt;span class="c1"># Copy image OS ke home directory&lt;/span>
+cp /mnt/fd/Orangepi5_1.1.4_ubuntu_jammy_server_linux5.10.110.img ~/.
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Lalu flash image yang sudah kita copy ke SSD.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo dd &lt;span class="nv">bs&lt;/span>&lt;span class="o">=&lt;/span>1M &lt;span class="k">if&lt;/span>&lt;span class="o">=&lt;/span>~/Orangepi5_1.1.4_ubuntu_jammy_server_linux5.10.110.img &lt;span class="nv">of&lt;/span>&lt;span class="o">=&lt;/span>/dev/sda &lt;span class="nv">status&lt;/span>&lt;span class="o">=&lt;/span>progress
+sudo sync
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Mount SSD kita ke &lt;code>/mnt&lt;/code> agar kita bisa melakukan editing file &lt;code>/boot/orangepiEnv.txt&lt;/code> seperti sebelumnya.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo mount /dev/sda1 /mnt
+&lt;span class="c1"># sudo vi /boot/orangepiEnv.txt&lt;/span>
+&lt;span class="c1">## Tambah line ini&lt;/span>
+&lt;span class="nv">overlays&lt;/span>&lt;span class="o">=&lt;/span>ssd-sata
+&lt;span class="c1">## Save and Exit&lt;/span>
+&lt;span class="c1"># Lalu poweroff&lt;/span>
+sudo poweroff
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Setelah device dimatikan, lepas microSD dan nyalakan kembali Orange Pi kalian. Check lagi dengan command &lt;code>lsblk&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+sda 8:0 &lt;span class="m">0&lt;/span> 238.5G &lt;span class="m">0&lt;/span> disk
+├─sda1 8:1 &lt;span class="m">0&lt;/span> 1G &lt;span class="m">0&lt;/span> part /boot
+└─sda2 8:2 &lt;span class="m">0&lt;/span> 235G &lt;span class="m">0&lt;/span> part /var/log.hdd
+/
+&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Yep, &lt;code>sda&lt;/code> adalah SSD kita.&lt;/p>
+&lt;h2 id="outro">Outro&lt;/h2>
+&lt;p>Seperti itulah cara Mount SSD M.2 SATA pada Orange Pi 5. Jika ada pertanyaan silahkan comment. Terimakasih&amp;hellip;&lt;/p>
+&lt;h2 id="references">References&lt;/h2>
+&lt;ul>
+&lt;li>Docs Orange Pi &lt;a class="link" href="https://drive.google.com/file/d/1-6IwPNMOhWDvbLe2-PvHUocHStwavGGi/view" target="_blank" rel="noopener"
+>https://drive.google.com/file/d/1-6IwPNMOhWDvbLe2-PvHUocHStwavGGi/view&lt;/a> (PDF File Page dari page 74 - 80)&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.reddit.com/r/OrangePI/comments/10iq625/guide_how_to_boot_orange_pi_5_from_sata_m2_ssd/" target="_blank" rel="noopener"
+>https://www.reddit.com/r/OrangePI/comments/10iq625/guide_how_to_boot_orange_pi_5_from_sata_m2_ssd/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>RHEL 8 Install Text Mode</title><link>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</link><pubDate>Sun, 25 Jul 2021 20:28:27 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/rhel-8-install-text-mode/</guid><description>&lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>By default installasi RedHat 8 Linux bakal dijalankan pada graphical mode. Disini kita akan menggunakan &lt;strong>Text Mode TTY installation&lt;/strong>. Ini sebenarnya didesain untuk &amp;ldquo;JIKA&amp;rdquo; kalian memiliki masalah dengan graphical mode, kalian bisa menggunakan text mode untuk pilihan ke-2.&lt;/p>
 &lt;h2 id="requirements">Requirements&lt;/h2>
 &lt;ul>
