@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>orangepi on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/orangepi/</link><description>Recent content in orangepi on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 08 Jun 2024 21:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/orangepi/index.xml" rel="self" type="application/rss+xml"/><item><title>Mount SSD M.2 SATA pada Orange Pi 5</title><link>https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/</link><pubDate>Sat, 08 Jun 2024 21:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/index.png" alt="Featured image of post Mount SSD M.2 SATA pada Orange Pi 5" />&lt;h2 id="intro">Intro&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>orangepi on Leon's Blog</title><link>https://blog.leonprasetya.my.id/tags/orangepi/</link><description>Recent content in orangepi on Leon's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 08 Jun 2024 21:18:22 +0700</lastBuildDate><atom:link href="https://blog.leonprasetya.my.id/tags/orangepi/index.xml" rel="self" type="application/rss+xml"/><item><title>Cara Mount SSD M.2 SATA pada Orange Pi 5</title><link>https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/</link><pubDate>Sat, 08 Jun 2024 21:18:22 +0700</pubDate><guid>https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/</guid><description>&lt;img src="https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/index.png" alt="Featured image of post Cara Mount SSD M.2 SATA pada Orange Pi 5" />&lt;h2 id="intro">Intro&lt;/h2>
 &lt;p>Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M.2 SATA. Berikut tampilannya&lt;/p>
 &lt;h3 id="perbandingan-slot-m2-dan-ssd">Perbandingan Slot M.2 dan SSD&lt;/h3>
-&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1.jpg"
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1.jpg"
 width="6000"
 height="3376"
-srcset="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_480x0_resize_q75_box.jpg 480w, https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_1024x0_resize_q75_box.jpg 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_480x0_resize_q75_box.jpg 480w, https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
 alt="Perbandingan Slot M.2 dan SSD"
 class="gallery-image"
@@ -13,10 +13,10 @@ data-flex-basis="426px"
 >
 Seperti yg terlihat pada gambar di di atas, Orange Pi punya slot NVME.&lt;/p>
 &lt;h3 id="tapi-sebenernya-ssd-m2-sata-bisa-masuk-kok">Tapi sebenernya SSD M.2 SATA bisa masuk kok&lt;/h3>
-&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2.jpg"
+&lt;p>&lt;img src="https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2.jpg"
 width="6000"
 height="3376"
-srcset="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_480x0_resize_q75_box.jpg 480w, https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_1024x0_resize_q75_box.jpg 1024w"
+srcset="https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_480x0_resize_q75_box.jpg 480w, https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
 alt="Bisa masuk kok"
 class="gallery-image"

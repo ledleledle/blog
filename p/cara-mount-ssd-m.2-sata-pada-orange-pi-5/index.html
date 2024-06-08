@@ -1,15 +1,15 @@
 <!doctype html><html lang=en-us dir=ltr>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M."><title>Mount SSD M.2 SATA pada Orange Pi 5</title>
-<link rel=canonical href=https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/>
-<link rel=stylesheet href=/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css><meta property="og:title" content="Mount SSD M.2 SATA pada Orange Pi 5">
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Intro Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M."><title>Cara Mount SSD M.2 SATA pada Orange Pi 5</title>
+<link rel=canonical href=https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/>
+<link rel=stylesheet href=/scss/style.min.ac77dcf8b111b51da39a92990f431923f210f3876d85798a2125667f96dc33a4.css><meta property="og:title" content="Cara Mount SSD M.2 SATA pada Orange Pi 5">
 <meta property="og:description" content="Intro Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M.">
-<meta property="og:url" content="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/">
+<meta property="og:url" content="https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/">
 <meta property="og:site_name" content="Leon's Blog">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="orangepi"><meta property="article:tag" content="ssd"><meta property="article:tag" content="linux"><meta property="article:published_time" content="2024-06-08T21:18:22+07:00"><meta property="article:modified_time" content="2024-06-08T21:18:22+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/index.png">
-<meta name=twitter:title content="Mount SSD M.2 SATA pada Orange Pi 5">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="orangepi"><meta property="article:tag" content="ssd"><meta property="article:tag" content="linux"><meta property="article:published_time" content="2024-06-08T21:18:22+07:00"><meta property="article:modified_time" content="2024-06-08T21:18:22+07:00"><meta property="og:image" content="https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/index.png">
+<meta name=twitter:title content="Cara Mount SSD M.2 SATA pada Orange Pi 5">
 <meta name=twitter:description content="Intro Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M."><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://blog.leonprasetya.my.id/p/mount-ssd-m.2-sata-pada-orange-pi-5/index.png">
+<meta name=twitter:image content="https://blog.leonprasetya.my.id/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/index.png">
 <link rel="shortcut icon" href=img/favicon.ico>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CEFZGZSW6"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-6CEFZGZSW6',{anonymize_ip:!1})}</script>
@@ -83,8 +83,8 @@
 <article class="has-image main-article">
 <header class=article-header>
 <div class=article-image>
-<a href=/p/mount-ssd-m.2-sata-pada-orange-pi-5/>
-<img src=/p/mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_800x0_resize_box_3.png srcset="/p/mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_800x0_resize_box_3.png 800w, /p/mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Mount SSD M.2 SATA pada Orange Pi 5">
+<a href=/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/>
+<img src=/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_800x0_resize_box_3.png srcset="/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_800x0_resize_box_3.png 800w, /p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/index_hu2ec27cebd8b1bbd4f0fed3ceecf6aa21_307337_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Cara Mount SSD M.2 SATA pada Orange Pi 5">
 </a>
 </div>
 <div class=article-details>
@@ -98,7 +98,7 @@ SBC
 </header>
 <div class=article-title-wrapper>
 <h2 class=article-title>
-<a href=/p/mount-ssd-m.2-sata-pada-orange-pi-5/>Mount SSD M.2 SATA pada Orange Pi 5</a>
+<a href=/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/>Cara Mount SSD M.2 SATA pada Orange Pi 5</a>
 </h2>
 </div>
 <footer class=article-time>
@@ -117,10 +117,10 @@ SBC
 <h2 id=intro>Intro</h2>
 <p>Bagi orang - orang IOT dan kalangan Tech mungkin sudah pada tau SBC satu ini Orange Pi, sejenis sama Raspberry Pi cuma beda brand aja. Kemarin saya membeli Orange Pi 5 dan SSD, alasan saya pilih Orange Pi saat itu adalah selain Raspberry shortage yaitu Orange Pi 5 punya slot M.2 NVME. Tapi berhubung saya salah beli malah yg M.2 SATA bukan yg NVME, panik lah saya wkwk. Usut punya usut, saya cari - cari di dokumentasinya ternyata Port Orange Pi support untuk SSD M.2 SATA. Berikut tampilannya</p>
 <h3 id=perbandingan-slot-m2-dan-ssd>Perbandingan Slot M.2 dan SSD</h3>
-<p><img src=/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1.jpg width=6000 height=3376 srcset="/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_480x0_resize_q75_box.jpg 480w, /p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt="Perbandingan Slot M.2 dan SSD" class=gallery-image data-flex-grow=177 data-flex-basis=426px>
+<p><img src=/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1.jpg width=6000 height=3376 srcset="/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_480x0_resize_q75_box.jpg 480w, /p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-1_hu2124b734dae4e281ced0e1882a2c5299_1864627_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt="Perbandingan Slot M.2 dan SSD" class=gallery-image data-flex-grow=177 data-flex-basis=426px>
 Seperti yg terlihat pada gambar di di atas, Orange Pi punya slot NVME.</p>
 <h3 id=tapi-sebenernya-ssd-m2-sata-bisa-masuk-kok>Tapi sebenernya SSD M.2 SATA bisa masuk kok</h3>
-<p><img src=/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2.jpg width=6000 height=3376 srcset="/p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_480x0_resize_q75_box.jpg 480w, /p/mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt="Bisa masuk kok" class=gallery-image data-flex-grow=177 data-flex-basis=426px>
+<p><img src=/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2.jpg width=6000 height=3376 srcset="/p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_480x0_resize_q75_box.jpg 480w, /p/cara-mount-ssd-m.2-sata-pada-orange-pi-5/orangepi5-2_hue647a9058914609b17debe3bddfa3ba6_1804007_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt="Bisa masuk kok" class=gallery-image data-flex-grow=177 data-flex-basis=426px>
 Bisa masuk SSD nya, Iyaaa&mldr; Cuma kalau kita coba booting ke OS dan running command <code>lsblk</code> pasti gaada ssd kita.</p>
 <h2 id=cara-pindah-boot-dari-microsd-ke-ssd-kita>Cara Pindah Boot dari MicroSD ke SSD kita</h2>
 <h3 id=burning-linux-ke-microsd>Burning Linux ke MicroSD</h3>
